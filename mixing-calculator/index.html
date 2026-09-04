@@ -43,11 +43,12 @@
   .s-seg:hover { color: var(--k-ink); border-color: var(--k-label); }
   .s-seg:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
   .s-in { width: 100%; box-sizing: border-box; background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; padding:8px 12px; min-height: 35px; }
-  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 22px; background: none; cursor: pointer; }
-  input[type=range]::-webkit-slider-runnable-track { height: 1px; background: var(--k-line); }
-  input[type=range]::-moz-range-track { height: 1px; background: var(--k-line); }
-  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 2px; height: 16px; background: var(--k-gold); border: none; border-radius: 0; margin-top: -7px; }
-  input[type=range]::-moz-range-thumb { width: 2px; height: 16px; background: var(--k-gold); border: none; border-radius: 0; }
+  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 24px; margin: 0; background: none; cursor: pointer; }
+  input[type=range]::-webkit-slider-runnable-track { height: 4px; background: var(--k-line); }
+  input[type=range]::-moz-range-track { height: 4px; background: var(--k-line); }
+  input[type=range]::-moz-range-progress { height: 4px; background: var(--k-gold); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 8px; height: 14px; background: var(--k-gold); border: none; border-radius: 0; margin-top: -5px; box-shadow: -1000px 0 0 996px var(--k-gold); clip-path: inset(5px -1000px 5px 0); }
+  input[type=range]::-moz-range-thumb { width: 8px; height: 14px; background: var(--k-gold); border: none; border-radius: 0; }
   input[type=range]:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 4px; }
   .s-in:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 1px; }
   .s-big { width: 100%; box-sizing: border-box; background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: var(--font-heading); font-weight: 800; font-stretch: 112%; font-size: 26px; padding:8px 12px; }
@@ -128,6 +129,7 @@
                 <button type="button" style="{{ sg.style }}" onMouseDown="{{ sg.pick }}" onMouseEnter="{{ sg.hover }}">
                   <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;color:var(--k-gold-soft);flex:none">{{ sg.code }}</span>
                   <span style="font-size:12px;color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ sg.name }}</span>
+                  {{ sg.laser }}
                   {{ sg.img }}
                 </button>
               </sc-for>
@@ -138,6 +140,7 @@
             <button type="button" class="s-in" style="display:flex;gap:8px;align-items:center;text-align:left;cursor:pointer;height:100%;min-height:51px" onClick="{{ toggleList }}" aria-haspopup="listbox">
               <span style="flex:none;font-weight:700;color:var(--k-gold-soft)">{{ selectCode }}</span>
               <span style="flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ selectName }}</span>
+              {{ selectLaser }}
               <span style="flex:none;font-size:10px;color:var(--k-label)">▾</span>
             </button>
             <div style="display:{{ listOn }};position:absolute;top:100%;left:0;right:0;z-index:25;background:var(--k-panel);border:1px solid var(--k-label);max-height:320px;overflow-y:auto">
@@ -151,6 +154,7 @@
                     <button type="button" style="{{ o.style }}" onMouseDown="{{ o.pick }}">
                       <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;color:var(--k-gold-soft);flex:none">{{ o.code }}</span>
                       <span style="font-size:12px;color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ o.name }}</span>
+                      {{ o.laser }}
                       {{ o.img }}
                     </button>
                   </sc-for>
@@ -168,7 +172,7 @@
             <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--k-gold-soft);margin-bottom:8px">PICK A PRODUCT TO START</div>
           </sc-if>
           <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--k-gold-soft)">{{ codeOnly }}</div>
-          <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:21px;line-height:1.15;color:var(--k-ink);margin-top:4px">{{ nameOnly }}</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:16px;line-height:1.2;color:var(--k-ink);margin-top:4px">{{ nameOnly }}</div>
           <div style="display:{{ meshOn }};margin-top:8px;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="s-lab" style="font-size:9px;margin:0;flex:none">STRAINER</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:12px;line-height:1;color:var(--k-ink)">{{ meshLabel }}</span>
@@ -232,8 +236,10 @@
                 <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0;color:var(--k-label)">:1</span>
               </div>
               <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.06em;line-height:1.2;color:var(--k-label)">CUSTOM</span>
+              <input type="range" min="4" max="40" step="0.5" value="{{ ratio }}" onInput="{{ setRatio }}" aria-label="Ratio slider" style="width:100%;height:14px;margin-top:2px">
             </div>
           </div>
+
           <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.06em;color:var(--k-label)">{{ effRatio }}</div>
         </div>
           <div style="font-size:11px;line-height:1.45;color:var(--k-label);text-wrap:pretty">
@@ -521,6 +527,10 @@ class Component extends DCLogic {
     if (box && !box.contains(e.target)) this.setState({ listOpen: false });
   };
 
+  laserTag = (on) => on ? React.createElement('span', {
+    style: { flex: 'none', fontFamily: "'IBM Plex Mono', ui-monospace, monospace", fontSize: '11px', letterSpacing: '0.08em', padding: '2px 6px', background: 'rgba(26,25,24,0.85)', color: '#e2bd6d', lineHeight: 1.2 }
+  }, '\u2605 LASER') : null;
+
   // Thumbnails are built here, never as a template hole in src.
   thumbEl = (path, px, extra) => {
     if (!path) return null;
@@ -557,6 +567,7 @@ class Component extends DCLogic {
       count: bucket[k].length + (bucket[k].length === 1 ? ' COLOUR' : ' COLOURS'),
       rows: bucket[k].map((c) => ({
         code: c.code, name: c.name,
+        laser: this.laserTag(c.laserOptimized),
         img: this.thumbEl(c.thumb, 35, { marginLeft: 'auto' }),
         style: 'display:flex;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 12px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:'
           + (f && f.code === c.code ? 'var(--k-field)' : 'none'),
@@ -598,9 +609,10 @@ class Component extends DCLogic {
     return d.catalogue.map((c) => {
       const f = by[c.code];
       // The Cerakote capture is authoritative for name, product URL and thumbnail.
+      const laser = !!(c.laserOptimized || (f && f.laserOptimized));
       return f
-        ? Object.assign({}, f, { name: c.name || f.name, url: c.url, thumb: c.thumb })
-        : { code: c.code, name: c.name, sheen: '', hex: null, url: c.url, thumb: c.thumb };
+        ? Object.assign({}, f, { name: c.name || f.name, url: c.url, thumb: c.thumb, laserOptimized: laser })
+        : { code: c.code, name: c.name, sheen: '', hex: null, url: c.url, thumb: c.thumb, laserOptimized: laser };
     });
   }
 
@@ -871,6 +883,7 @@ class Component extends DCLogic {
       sugNoneOn: sug.length ? 'none' : 'block',
       suggestions: sug.map((c, i) => ({
         code: c.code, name: c.name,
+        laser: this.laserTag(c.laserOptimized),
         img: this.thumbEl(c.thumb, 35, { marginLeft: 'auto' }),
         style: 'display:flex;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 12px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:' + (i === s.sugAt ? 'var(--k-field)' : 'none'),
         hover: () => this.setState({ sugAt: i }),
@@ -1023,6 +1036,7 @@ class Component extends DCLogic {
       optionGroups: this.groupedOptions(f),
       selectCode: f ? f.code : '',
       selectName: f ? f.name : 'Select a product',
+      selectLaser: this.laserTag(f && f.laserOptimized),
       listOn: s.listOpen ? 'block' : 'none',
       toggleList: this._tl || (this._tl = (e) => { if (e) e.preventDefault(); this.setState((st) => ({ listOpen: !st.listOpen })); }),
       copyLabel: s.copied ? 'COPIED' : 'COPY THE LINE',
