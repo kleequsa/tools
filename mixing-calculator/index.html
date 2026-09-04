@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="vendor/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+    <rect width="240" height="240" fill="#1a1918"></rect>
+    <rect x="72" y="72" width="96" height="96" fill="#c9992f"></rect>
+    <text x="120" y="138" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800" font-size="54" fill="#17150f">18:1</text>
+  </svg>
+</template>
+
+<link rel="stylesheet" href="vendor/modernist.css">
+<script src="vendor/modernist-bundle.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="kleeq-tokens.css">
+<style>
+  :root {
+    --k-bg:#1a1918; --k-panel:#141312; --k-sticky:#1f1e1c; --k-field:#2a2724;
+    --k-line:#3d3934; --k-rule:#57534d; --k-label:#8d867c; --k-copy:#c9c3b9;
+    --k-ink:#ddd8d0; --k-gold:#c9992f; --k-gold-soft:#e2bd6d; --k-on-gold:#17150f;
+    --k-warn:#c9272e; --k-mono-w:400;
+  }
+  :root[data-kleeq-theme="light"] {
+    --k-bg:#f3f2f2; --k-panel:#ffffff; --k-sticky:#e7e4e0; --k-field:#ffffff;
+    --k-line:#9c948a; --k-rule:#4a453f; --k-label:#5a544c; --k-copy:#2b2825;
+    --k-ink:#141312; --k-gold:#8a6612; --k-gold-soft:#6b5010; --k-on-gold:#ffffff;
+    --k-warn:#9e1b24; --k-mono-w:500;
+  }
+  body { margin: 0; background: var(--k-bg); color: var(--k-ink); }
+  a { color: var(--k-gold-soft); text-decoration: none; }
+  a:hover { color: var(--k-gold); }
+  h1, h2, h3 { font-stretch: 115%; font-weight: 800; }
+  .s-lab { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--k-label); display: block; margin-bottom:8px; }
+  .s-seg { min-height: 35px; padding: 0 12px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: var(--k-mono-w); font-size: 12px; letter-spacing: 0.08em; background: none; border: 1px solid var(--k-line); color: var(--k-label); cursor: pointer; display: inline-flex; align-items: center; touch-action: manipulation; }
+  .s-seg:hover { color: var(--k-ink); border-color: var(--k-label); }
+  .s-seg:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
+  .s-in { width: 100%; box-sizing: border-box; background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; padding:8px 12px; min-height: 35px; }
+  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 22px; background: none; cursor: pointer; }
+  input[type=range]::-webkit-slider-runnable-track { height: 1px; background: var(--k-line); }
+  input[type=range]::-moz-range-track { height: 1px; background: var(--k-line); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 2px; height: 16px; background: var(--k-gold); border: none; border-radius: 0; margin-top: -7px; }
+  input[type=range]::-moz-range-thumb { width: 2px; height: 16px; background: var(--k-gold); border: none; border-radius: 0; }
+  input[type=range]:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 4px; }
+  .s-in:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 1px; }
+  .s-big { width: 100%; box-sizing: border-box; background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: var(--font-heading); font-weight: 800; font-stretch: 112%; font-size: 26px; padding:8px 12px; }
+  .s-big:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 1px; }
+  .s-pick { border: 1px solid var(--k-line); padding: 0; background: none; cursor: pointer; display: flex; flex-direction: column; }
+  .s-pick:hover { border-color: var(--k-gold-soft); }
+  .s-pick:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
+</style>
+</helmet>
+
+<div style="background:var(--k-bg);color:var(--k-ink);font-family:var(--font-body);min-height:100vh">
+
+  <header style="max-width:{{ headerW }};margin:0 auto;padding:clamp(20px,3vw,36px) clamp(14px,2.4vw,32px) 16px">
+    <div style="display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:8px">
+    <div class="s-lab" style="margin:0;color:var(--k-gold-soft)">KLEEQ / MIXING CALCULATOR</div>
+    <div style="display:flex;gap:8px;align-items:center">
+    <div style="display:inline-grid;grid-template-columns:repeat(2,auto);border:1px solid var(--k-line)">
+      <button type="button" class="s-seg" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center;{{ lightStyle }}" onClick="{{ setLight }}" title="Light" aria-label="Light theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"></path>
+        </svg>
+      </button>
+      <button type="button" class="s-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ darkStyle }}" onClick="{{ setDark }}" title="Dark" aria-label="Dark theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path>
+        </svg>
+      </button>
+    </div>
+    <div style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
+      <button type="button" class="s-seg" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center;{{ sideStyle }}" onClick="{{ setSide }}" title="Side by side" aria-label="Side by side">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18"></rect>
+          <line x1="12" y1="3" x2="12" y2="21"></line>
+        </svg>
+      </button>
+      <button type="button" class="s-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ stackStyle }}" onClick="{{ setStack }}" title="Stacked" aria-label="Stacked">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18"></rect>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+        </svg>
+      </button>
+      <button type="button" class="s-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ tabletStyle }}" onClick="{{ setTablet }}" title="Tablet width" aria-label="Tablet width">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="5" y="2" width="14" height="20"></rect>
+          <line x1="10" y1="19" x2="14" y2="19"></line>
+        </svg>
+      </button>
+      <button type="button" class="s-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ mobileStyle }}" onClick="{{ setMobile }}" title="Phone width" aria-label="Phone width">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="8" y="2" width="8" height="20"></rect>
+          <line x1="11" y1="19" x2="13" y2="19"></line>
+        </svg>
+      </button>
+    </div>
+    </div>
+    </div>
+    <h1 style="font-size:clamp(22px,2.2vw,30px);line-height:1.05;margin:0">Cerakote catalyst calculator</h1>
+  </header>
+
+  <div style="max-width:{{ pageW }};margin:0 auto;padding:16px clamp(14px,2.4vw,32px) 48px">
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-content:start;min-width:0">
+
+      <div id="part1" style="border-top:1px solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;display:flex;flex-wrap:wrap;gap:32px 48px;align-items:{{ colAlign }};flex-direction:{{ colDir }}">
+        <div style="flex:1 1 320px;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-content:start;order:{{ selectOrder }}">
+          <div>
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
+            <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">01</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">The coating</span>
+          </div>
+          <div style="display:flex;gap:32px;align-items:stretch;flex-direction:{{ step1Dir }}">
+        <div style="display:flex;gap:8px;align-items:stretch;flex:1 1 auto;min-width:0;flex-direction:{{ fieldDir }}">
+          <div style="position:relative;flex:{{ fieldGrow }};min-width:0">
+            <input class="s-in" style="font-weight:700;height:100%;min-height:51px" type="text" placeholder="Search code or colour name" value="{{ code }}" onInput="{{ setCode }}" onFocus="{{ openSug }}" onBlur="{{ closeSug }}" onKeyDown="{{ sugKey }}" autoComplete="off" aria-label="Search Cerakote products">
+            <div style="display:{{ sugOn }};position:absolute;top:100%;left:0;right:0;z-index:20;background:var(--k-panel);border:1px solid var(--k-label);max-height:240px;overflow-y:auto">
+              <sc-for list="{{ suggestions }}" as="sg" hint-placeholder-count="6">
+                <button type="button" style="{{ sg.style }}" onMouseDown="{{ sg.pick }}" onMouseEnter="{{ sg.hover }}">
+                  <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;color:var(--k-gold-soft);flex:none">{{ sg.code }}</span>
+                  <span style="font-size:12px;color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ sg.name }}</span>
+                  {{ sg.img }}
+                </button>
+              </sc-for>
+              <div style="display:{{ sugNoneOn }};padding:12px 16px;font-size:12px;color:var(--k-label)">No product matches that.</div>
+            </div>
+          </div>
+          <div style="position:relative;flex:{{ fieldGrow2 }};min-width:0">
+            <button type="button" class="s-in" style="display:flex;gap:8px;align-items:center;text-align:left;cursor:pointer;height:100%;min-height:51px" onClick="{{ toggleList }}" aria-haspopup="listbox">
+              <span style="flex:none;font-weight:700;color:var(--k-gold-soft)">{{ selectCode }}</span>
+              <span style="flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ selectName }}</span>
+              <span style="flex:none;font-size:10px;color:var(--k-label)">▾</span>
+            </button>
+            <div style="display:{{ listOn }};position:absolute;top:100%;left:0;right:0;z-index:25;background:var(--k-panel);border:1px solid var(--k-label);max-height:320px;overflow-y:auto">
+              <sc-for list="{{ optionGroups }}" as="g" hint-placeholder-count="4">
+                <div>
+                  <div style="position:sticky;top:0;z-index:2;display:flex;gap:8px;align-items:baseline;background:var(--k-sticky);border-bottom:1px solid var(--k-line);padding:8px 12px">
+                    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;color:var(--k-gold-soft)">{{ g.label }}</span>
+                    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto">{{ g.count }}</span>
+                  </div>
+                  <sc-for list="{{ g.rows }}" as="o" hint-placeholder-count="6">
+                    <button type="button" style="{{ o.style }}" onMouseDown="{{ o.pick }}">
+                      <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;color:var(--k-gold-soft);flex:none">{{ o.code }}</span>
+                      <span style="font-size:12px;color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ o.name }}</span>
+                      {{ o.img }}
+                    </button>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+          <div style="display:flex;gap:8px;align-items:stretch;min-width:0;flex:1 1 auto">
+          <sc-if value="{{ hasThumb }}">
+            <button type="button" style="padding:0;border:none;background:none;cursor:zoom-in;flex:none;align-self:flex-start;line-height:0;display:flex" onClick="{{ openZoom }}" title="View larger">{{ thumbImg }}</button>
+          </sc-if>
+          <div style="min-width:0">
+          <sc-if value="{{ noPick }}">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--k-gold-soft);margin-bottom:8px">PICK A PRODUCT TO START</div>
+          </sc-if>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--k-gold-soft)">{{ codeOnly }}</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:21px;line-height:1.15;color:var(--k-ink);margin-top:4px">{{ nameOnly }}</div>
+          <div style="display:{{ meshOn }};margin-top:8px;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="s-lab" style="font-size:9px;margin:0;flex:none">STRAINER</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:12px;line-height:1;color:var(--k-ink)">{{ meshLabel }}</span>
+          </div>
+          <a style="display:{{ refOn }};font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8px;letter-spacing:0.06em;margin-top:8px;color:var(--k-label);text-decoration:underline;text-underline-offset:3px" href="{{ refUrl }}" target="_blank" rel="noopener noreferrer">CERAKOTE PRODUCT PAGE ↗</a>
+          </div>
+        </div>
+          </div>
+          </div>
+          <div style="{{ gateStyle }}" data-gate="1">
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
+            <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">02</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase;white-space:nowrap">{{ weightLabel }}</span>
+            <div style="display:inline-grid;grid-template-columns:auto repeat(2,auto);align-items:stretch;border:1px solid var(--k-line);margin-left:auto" title="Rounding — set this to what your scale actually reads, so the mix is not quoted finer than you can weigh.">
+              <span style="display:flex;align-items:center;padding:0 8px;color:var(--k-label)" title="Rounding — set this to what your scale actually reads, so the mix is not quoted finer than you can weigh." aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 3v18"></path>
+                  <path d="M5 7h14"></path>
+                  <path d="M5 7l-3 7h6z"></path>
+                  <path d="M19 7l-3 7h6z"></path>
+                </svg>
+              </span>
+              <button type="button" class="s-seg" style="min-height:24px;padding:0 8px;border:none;border-left:1px solid var(--k-line);justify-content:center" data-dp="1" onClick="{{ dp1 }}" aria-label="Round to 0.1 g" title="Round the mix to 0.1 g — for a scale that reads one decimal place">0.1</button>
+              <button type="button" class="s-seg" style="min-height:24px;padding:0 8px;border:none;border-left:1px solid var(--k-line);justify-content:center" data-dp="2" onClick="{{ dp2 }}" aria-label="Round to 0.01 g" title="Round the mix to 0.01 g — for a scale that reads two decimal places">0.01</button>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:stretch;flex-wrap:wrap">
+            <input class="s-big" style="flex:1 1 140px;min-width:120px;width:auto;font-size:38px;padding:12px 16px;{{ weightStyle }}" type="number" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
+            <div style="display:grid;grid-auto-flow:column;grid-auto-columns:1fr;flex:1 1 auto;min-width:0;border:1px solid var(--k-line)">
+              <sc-for list="{{ quickWeights }}" as="q" hint-placeholder-count="4">
+                <button type="button" class="s-seg" style="{{ q.style }}" onClick="{{ q.pick }}">{{ q.label }}</button>
+              </sc-for>
+              <button type="button" class="s-seg" style="min-height:26px;padding:0 8px;border:none;border-left:1px solid var(--k-line);justify-content:center;font-size:18px;min-width:0" onClick="{{ clearWeight }}" title="Clear the weight" aria-label="Clear the weight">✕</button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div style="flex:1 1 300px;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-content:start;order:{{ calcOrder }}">
+          <div style="display:{{ noCatOn }};border:1px solid {{ noCatBorder }};padding:16px">
+            <span class="s-lab" style="margin-bottom:8px;color:{{ noCatInk }}">{{ noCatTitle }}</span>
+            <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;line-height:1.15;color:var(--k-ink);margin-bottom:8px">{{ noCatHead }}</div>
+            <div style="font-size:12px;line-height:1.55;color:var(--k-label);text-wrap:pretty">{{ noCatBody }}</div>
+          </div>
+          <div style="display:{{ mixStepsOn }};grid-template-columns:minmax(0,1fr);gap:32px;align-content:start;{{ gateStyle }}" data-gate="1">
+          <div>
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
+            <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">03</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">The ratio</span>
+          </div>
+          <div style="display:flex;align-items:stretch;margin-bottom:8px">
+            <sc-for list="{{ presets }}" as="p" hint-placeholder-count="3">
+              <button type="button" class="s-seg" style="padding:8px 4px;border:1px solid var(--k-line);flex:1 1 0;min-width:0;flex-direction:column;justify-content:center;text-align:center;white-space:normal;gap:4px;{{ p.style }}" onClick="{{ p.pick }}">
+                <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0">{{ p.ratioLabel }}</span>
+                <span style="font-size:9px;letter-spacing:0;line-height:1.2;text-align:center">{{ p.glossLabel }}</span>
+              </button>
+            </sc-for>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 4px;flex:1 1 0;min-width:0;margin-left:8px;border:1px solid var(--k-line)">
+              <div style="display:flex;gap:4px;align-items:baseline;justify-content:center">
+                <input class="s-in" style="width:38px;flex:none;text-align:right;border:none;background:none;padding:0;min-height:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0" type="number" min="4" max="40" step="0.5" value="{{ ratio }}" onInput="{{ setRatio }}" aria-label="Ratio value">
+                <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0;color:var(--k-label)">:1</span>
+              </div>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.06em;line-height:1.2;color:var(--k-label)">CUSTOM</span>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.06em;color:var(--k-label)">{{ effRatio }}</div>
+        </div>
+          <div style="font-size:11px;line-height:1.45;color:var(--k-label);text-wrap:pretty">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ catalystPart }}</span> — {{ catalystNote }}
+        </div>
+          <div>
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
+            <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">04</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">The mix</span>
+          </div>
+          <div style="display:grid">
+          <div style="display:flex;gap:16px;align-items:baseline;justify-content:space-between;min-width:0;padding-bottom:16px;opacity:{{ mixOpacity }}">
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.14em;white-space:nowrap;color:var(--k-gold-soft)">CATALYST TO ADD</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:clamp(34px,3.8vw,50px);line-height:1;white-space:nowrap;color:var(--k-gold-soft)">{{ outCatalyst }}</span>
+          </div>
+          <div style="display:flex;gap:16px;align-items:baseline;justify-content:space-between;min-width:0;background:var(--k-gold);color:var(--k-on-gold);padding:16px;opacity:{{ mixOpacity }}">
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.14em;white-space:nowrap">TOTAL IN THE CUP</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:clamp(34px,3.8vw,50px);line-height:1;white-space:nowrap">{{ outTotal }}</span>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+
+      <div id="part5" style="border-top:1px solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;{{ gateStyle }}" data-gate="1">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
+          <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">05</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">Name it and file it</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <input class="s-in" style="flex:0 1 190px;min-width:130px" type="text" placeholder="Job name" value="{{ jobName }}" onInput="{{ setJobName }}" aria-label="Job name">
+        <input class="s-in" style="flex:1 1 240px;min-width:160px" type="text" placeholder="Notes — part, coats, anything to remember" value="{{ jobNote }}" onInput="{{ setJobNote }}" aria-label="Job notes">
+        <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ addJob }}">ADD TO JOB SHEET</button>
+        <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ copyMix }}">{{ copyLabel }}</button>
+        <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ resetAll }}">RESET</button>
+        </div>
+      </div>
+
+      <details id="part6" style="border-top:1px solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;display:{{ jobsOn }}">
+        <summary style="cursor:pointer;list-style:none;display:flex;gap:8px;align-items:center;margin-bottom:16px">
+          <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">06</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink)">THE JOB SHEET · {{ jobCount }} MIXES</span>
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;color:var(--k-label)">OPEN</span>
+        </summary>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap">
+          <span style="font-size:13px;color:var(--k-label);line-height:1.55;max-width:52ch">Everything queued on the bench, kept in this browser until you clear it.</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ exportJobs }}">EXPORT CSV</button>
+            <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ clearJobs }}">CLEAR</button>
+          </div>
+        </div>
+        <div style="border:1px solid var(--k-line);overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch">
+          <div style="min-width:700px;display:grid;grid-template-columns:104px minmax(0,2fr) 66px repeat(3,minmax(0,1fr)) 34px;gap:12px;padding:12px 16px;border-bottom:1px solid var(--k-line);background:var(--k-panel)">
+            <span class="s-lab" style="margin:0">WHEN</span>
+            <span class="s-lab" style="margin:0">FINISH</span>
+            <span class="s-lab" style="margin:0">RATIO</span>
+            <span class="s-lab" style="margin:0;text-align:right">COATING</span>
+            <span class="s-lab" style="margin:0;text-align:right">CATALYST</span>
+            <span class="s-lab" style="margin:0;text-align:right">TOTAL</span>
+            <span class="s-lab" style="margin:0"></span>
+          </div>
+          <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="3">
+            <div style="min-width:700px;display:grid;grid-template-columns:104px minmax(0,2fr) 66px repeat(3,minmax(0,1fr)) 34px;gap:12px;padding:12px 16px;border-bottom:1px solid var(--k-field);align-items:center">
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.04em;color:var(--k-label)">{{ j.when }}</span>
+              <div style="display:flex;gap:8px;align-items:flex-start;min-width:0">
+                <div style="min-width:0">
+                  <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:13px;color:var(--k-ink);overflow-wrap:anywhere">{{ j.title }}</div>
+                  <div style="display:{{ j.jobOn }};font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.08em;color:var(--k-gold-soft);margin-top:4px">{{ j.jobName }}</div>
+                  <div style="display:{{ j.noteOn }};font-size:11px;line-height:1.4;color:var(--k-label);margin-top:4px;text-wrap:pretty">{{ j.note }}</div>
+                </div>
+              </div>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:var(--k-label)">{{ j.ratio }}</span>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ j.coating }}</span>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-gold-soft);text-align:right">{{ j.catalyst }}</span>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ j.total }}</span>
+              <button type="button" class="s-seg" style="height:26px;padding:0 8px;justify-self:end" onClick="{{ j.drop }}">×</button>
+            </div>
+          </sc-for>
+          <div style="min-width:700px;display:grid;grid-template-columns:104px minmax(0,2fr) 66px repeat(3,minmax(0,1fr)) 34px;gap:12px;padding:16px;background:var(--k-panel)">
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;color:var(--k-label)">JOB TOTAL</span>
+            <span></span>
+            <span></span>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ sumCoating }}</span>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-gold-soft);text-align:right">{{ sumCatalyst }}</span>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ sumTotal }}</span>
+            <span></span>
+          </div>
+        </div>
+      </details>
+
+      <details id="part7" style="border-top:1px solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;display:{{ logOn }}">
+        <summary style="cursor:pointer;list-style:none;display:flex;gap:8px;align-items:center;margin-bottom:16px">
+          <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">07</span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink)">THE LOG · {{ logCount }} ENTRIES</span>
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;color:var(--k-label)">OPEN</span>
+        </summary>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap">
+          <span style="font-size:13px;color:var(--k-label);line-height:1.55;max-width:52ch">Every mix added, with its time. Outlives the job sheet — clearing the bench does not erase this.</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ exportLog }}">EXPORT CSV</button>
+            <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ clearLog }}">CLEAR LOG</button>
+          </div>
+        </div>
+        <div style="border:1px solid var(--k-line);overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch">
+          <div style="min-width:640px;display:grid;grid-template-columns:118px minmax(0,2fr) 60px repeat(2,minmax(0,1fr));gap:12px;padding:12px 16px;border-bottom:1px solid var(--k-line);background:var(--k-panel)">
+            <span class="s-lab" style="margin:0">WHEN</span>
+            <span class="s-lab" style="margin:0">FINISH · JOB</span>
+            <span class="s-lab" style="margin:0">RATIO</span>
+            <span class="s-lab" style="margin:0;text-align:right">CATALYST</span>
+            <span class="s-lab" style="margin:0;text-align:right">TOTAL</span>
+          </div>
+          <sc-for list="{{ logRows }}" as="l" hint-placeholder-count="3">
+            <div style="min-width:640px;display:grid;grid-template-columns:118px minmax(0,2fr) 60px repeat(2,minmax(0,1fr));gap:12px;padding:12px 16px;border-bottom:1px solid var(--k-field);align-items:start">
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.04em;color:var(--k-label)">{{ l.when }}</span>
+              <div style="min-width:0">
+                <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:13px;color:var(--k-ink);overflow-wrap:anywhere">{{ l.title }}</div>
+                <div style="display:{{ l.metaOn }};font-size:11px;line-height:1.4;color:var(--k-label);margin-top:4px;text-wrap:pretty">{{ l.meta }}</div>
+              </div>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:var(--k-label)">{{ l.ratio }}</span>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-gold-soft);text-align:right">{{ l.catalyst }}</span>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ l.total }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </details>
+
+      <div style="border-top:1px solid var(--k-rule);padding-top:16px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+        <div>
+          <span style="display:block;margin:0 0 4px;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink)">Instructions</span>
+          <div style="font-size:12px;line-height:1.5;color:var(--k-label);margin-bottom:8px">Follow these steps:</div>
+          <ol style="margin:0;padding-left:17px;max-width:60ch;display:grid;gap:8px;font-size:12px;line-height:1.5;color:var(--k-copy)">
+            <li>Enter your Cerakote H, Elite or F Series product number (example: H-146)</li>
+            <li>Select your catalyst ratio</li>
+            <li>Enter the weight of the coating prior to adding catalyst</li>
+            <li>Click, "CALCULATE"</li>
+            <li>Add the amount of catalyst to your Cerakote that is displayed</li>
+            <li>Mix Cerakote and Catalyst thoroughly</li>
+            <li>Click Reset to begin mixing your next Cerakote color</li>
+          </ol>
+        </div>
+        <div>
+          <span style="display:block;margin:0 0 10px;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink)">Notes</span>
+          <ul style="margin:0;padding-left:17px;max-width:60ch;display:grid;gap:8px;font-size:12px;line-height:1.5;color:var(--k-copy)">
+            <li>DO NOT mix Cerakote and catalyst in plastic containers as this will compromise the integrity of the coating</li>
+            <li>DO NOT exceed the recommended Cerakote to catalyst mixing ratios</li>
+            <li>Your Catalyst Weight – This is the weight in grams of catalyst that needs to be added to your selected Cerakote</li>
+            <li>Your Total Weight – The total weight of Cerakote weighed and catalyst needed is displayed here</li>
+            <li>Mixing in glass graduated cylinders is recommended. A list of approved plastics is available in the Elite &amp; H-Series and F Series Training Manuals</li>
+            <li>Use only the recommended strainer size for each coating that is available on each Cerakote bottle and TDS</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:{{ zoomOn }};position:fixed;inset:0;z-index:60;background:rgba(12,11,10,0.92);align-items:center;justify-content:center;padding:24px" onClick="{{ closeZoom }}">
+        <div style="display:grid;gap:12px;justify-items:center;max-width:min(760px,92vw)">
+          {{ zoomImg }}
+          <div style="display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;justify-content:center">
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;color:var(--k-ink)">{{ codeTitle }}</span>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;color:var(--k-label)">TAP ANYWHERE TO CLOSE</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--k-rule);padding-top:16px">
+        <div style="max-width:78ch">
+          <span class="s-lab" style="margin:0 0 8px">SOURCE</span>
+          <div style="font-size:12px;line-height:1.6;color:var(--k-label);text-wrap:pretty">{{ sourceNote }}</div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--k-rule);padding-top:16px">
+        <div style="display:grid;gap:8px;max-width:78ch">
+        <span class="s-lab" style="margin:0;color:var(--k-gold-soft)">BUILT BY KLEEQ</span>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:var(--k-copy);text-wrap:pretty">KLEEQ built this calculator because we run one every day and wanted it to work the way a shop actually works: fast on a bench tablet, the whole Cerakote catalogue searchable by code or colour name, the correct catalyst named for each series, a pot life timer, and a job sheet that survives a shift. It is free for any Cerakote applicator to use.</p>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:var(--k-label);text-wrap:pretty">Every ratio, strainer size and product name here comes from Cerakote's own technical data sheets, training manuals and shop listings. KLEEQ is an applicator, not a manufacturer — we are not affiliated with or endorsed by Cerakote or NIC Industries, and nothing on this page replaces the current TDS on the bottle in your hand.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1500}}">
+let FX = null;
+
+// Cerakote's published ratios are by VOLUME. Their own calculator divides by a
+// 1.321 density constant to reach scale weights. Fitted to three of their own
+// outputs and exact on all: 100 g @ 18:1 → 4.21, 100 g @ 24:1 → 3.15,
+// 10 g @ 12:1 → 0.63.
+const SG = 1.321;
+const JOB_KEY = 'kleeq.mixing.jobs';
+const COLS_KEY = 'kleeq.mixing.onecol';
+const LOG_KEY = 'kleeq.mixing.log';
+
+// Ratios as published by Cerakote: H-Series 18:1 by weight; Elite between
+// 12:1 and 24:1 depending on the gloss being built.
+const PRESETS = [
+  { id: 'r12', label: '12:1 HIGHER GLOSS', ratioLabel: '12:1', glossLabel: 'HIGHER GLOSS', ratio: 12, note: '12:1 — highest gloss, top of the Elite range.' },
+  { id: 'r18', label: '18:1 RECOMMENDED', ratioLabel: '18:1', glossLabel: 'RECOMMENDED', ratio: 18, note: '18:1 — the H-Series ratio, mid Elite range.' },
+  { id: 'r24', label: '24:1 LOWER GLOSS', ratioLabel: '24:1', glossLabel: 'LOWER GLOSS', ratio: 24, note: '24:1 — flattest sheen, bottom of Elite.' }
+];
+
+// Strainer guidance. Cerakote sells 100 mesh (149 micron), 150 mesh (100
+// micron) and 325 mesh (44 micron) in-cup strainers; the 150 is specified for
+// the clears and some H-Series, and SE-139 (100 mesh, reusable) is the one
+// called out for laser imaging work. Metallics and flake keep the coarse
+// screen so the effect pigment is not filtered out of the mix.
+const MESH = {
+  coarse: { label: '100 MESH', micron: '149 MICRON', part: 'SE-275 in-cup · SE-139 reusable' },
+  fine: { label: '150 MESH', micron: '100 MICRON', part: 'SE-276 in-cup' },
+  finest: { label: '325 MESH', micron: '44 MICRON', part: 'SE-277 in-cup' }
+};
+
+class Component extends DCLogic {
+  state = {
+    data: null, code: 'H-146', series: 'all', ratio: 18, preset: 'r18',
+    mode: 'forward', weight: '', dp: 2, sugOpen: false, sugAt: 0, view: 'split', theme: 'dark', listOpen: false, zoom: false,
+    jobs: [], log: [], copied: false, chipsOpen: false
+  };
+
+  componentDidMount() {
+    import('./kleeq-finish-render.js').then((m) => { FX = m; this.forceUpdate(); }).catch(() => {});
+    document.addEventListener('mousedown', this._outside, true);
+    this.setTheme('dark');
+    fetch('kleeq-finishes.json').then((r) => r.json()).then((d) => this.setState({ data: d })).catch(() => {});
+    try {
+      const savedView = window.localStorage.getItem(COLS_KEY);
+      if (savedView === '1') this.setState({ view: 'stack' });
+      else if (['split', 'stack', 'tablet', 'mobile'].indexOf(savedView) >= 0) this.setState({ view: savedView });
+    } catch (e) {}
+    try {
+      const raw = window.localStorage.getItem(JOB_KEY);
+      if (raw) this.setState({ jobs: JSON.parse(raw) || [] });
+      const rawLog = window.localStorage.getItem(LOG_KEY);
+      if (rawLog) this.setState({ log: JSON.parse(rawLog) || [] });
+    } catch (e) {}
+    this.paint();
+    this.gate();
+  }
+
+  componentWillUnmount() { document.removeEventListener('mousedown', this._outside, true); }
+  componentDidUpdate() {
+    this.paint();
+    this.gate();
+    // The options stream in after the value is first applied, so React's value
+    // can land before its option exists — reassert it once the list is there.
+    const sel = document.querySelector('select[aria-label="Select a product"]');
+    const f = this.matched();
+    if (sel && f && sel.value !== f.code) sel.value = f.code;
+  }
+
+  // Until a product is matched the gated regions are inert and their controls
+  // disabled — not merely dimmed.
+  gate() {
+    const off = !this.matched();
+    document.querySelectorAll('[data-gate="1"]').forEach((el) => {
+      if (off) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+      el.querySelectorAll('input,button,select,textarea,a').forEach((c) => {
+        if (c.tagName === 'A') { c.tabIndex = off ? -1 : 0; return; }
+        c.disabled = off;
+      });
+    });
+  }
+
+  paint() {
+    const mark = (attr, val) => document.querySelectorAll('[' + attr + ']').forEach((el) => {
+      const on = el.getAttribute(attr) === val;
+      el.style.color = on ? 'var(--k-gold-soft)' : '';
+      el.style.background = on ? 'var(--k-field)' : 'none';
+    });
+    mark('data-series', this.state.series);
+    mark('data-mode', this.state.mode);
+    mark('data-dp', String(this.state.dp));
+  }
+
+  // Any click outside the product list closes it.
+  _outside = (e) => {
+    if (!this.state.listOpen) return;
+    const host = document.getElementById('part1');
+    const wrap = host && host.querySelector('[aria-haspopup="listbox"]');
+    const box = wrap && wrap.parentNode;
+    if (box && !box.contains(e.target)) this.setState({ listOpen: false });
+  };
+
+  // Thumbnails are built here, never as a template hole in src.
+  thumbEl = (path, px, extra) => {
+    if (!path) return null;
+    return React.createElement('img', {
+      src: path, alt: '', loading: 'lazy',
+      style: Object.assign({
+        width: px + 'px', height: px + 'px', flex: 'none',
+        objectFit: 'cover', border: '1px solid var(--k-line)'
+      }, extra || {})
+    });
+  };
+
+  // The list is grouped by series prefix: the working series first, then the rest.
+  groupedOptions(f) {
+    if (!this.state.listOpen) return [];
+    const ORDER = ['H', 'E', 'F', 'FIR', 'HIR', 'C', 'V', 'S', 'SG', 'MC', 'FX', 'DFL', 'LR', 'P'];
+    const LABEL = {
+      H: 'H-SERIES', E: 'ELITE', F: 'F-SERIES', FIR: 'FIR-SERIES', HIR: 'GEN II NIR',
+      C: 'C-SERIES', V: 'V-SERIES', S: 'S-SERIES', SG: 'SUPER GRIP', MC: 'MICRO SLICK',
+      FX: 'CERAKOTE FX', DFL: 'DRY FILM LUBRICANT', LR: 'LOW RELEASE', P: 'P-SERIES'
+    };
+    const bucket = {};
+    this.catalogue().forEach((c) => {
+      const p = this.prefixOf(c.code);
+      (bucket[p] = bucket[p] || []).push(c);
+    });
+    const keys = Object.keys(bucket).sort((a, b) => {
+      const ia = ORDER.indexOf(a), ib = ORDER.indexOf(b);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
+    });
+    return keys.map((k) => ({
+      key: k,
+      label: LABEL[k] || k + '-SERIES',
+      count: bucket[k].length + (bucket[k].length === 1 ? ' COLOUR' : ' COLOURS'),
+      rows: bucket[k].map((c) => ({
+        code: c.code, name: c.name,
+        img: this.thumbEl(c.thumb, 35, { marginLeft: 'auto' }),
+        style: 'display:flex;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 12px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:'
+          + (f && f.code === c.code ? 'var(--k-field)' : 'none'),
+        pick: this.pickCode(c.code)
+      }))
+    }));
+  }
+
+  setTheme = (v) => {
+    document.documentElement.setAttribute('data-kleeq-theme', v);
+    this.setState({ theme: v });
+  };
+
+  setView = (v) => {
+    try { window.localStorage.setItem(COLS_KEY, v); } catch (e) {}
+    this.setState({ view: v });
+  };
+
+  pick = (patch) => (e) => { if (e) e.preventDefault(); this.setState(patch); };
+
+  // Choosing a product returns the ratio to the recommended 18:1.
+  pickCode = (code) => (e) => {
+    if (e) e.preventDefault();
+    this.setState({ code: code, ratio: 18, preset: 'r18', sugOpen: false, listOpen: false });
+  };
+
+  finishes() {
+    const d = this.state.data;
+    return d ? d.finishes.filter((f) => f.wall === 'signature' || f.wall === 'palette') : [];
+  }
+
+  // Every Cerakote code and name, whether or not KLEEQ stocks a colour value
+  // for it — the stocked ones carry their hex through.
+  catalogue() {
+    const d = this.state.data;
+    if (!d || !d.catalogue) return this.finishes();
+    const by = {};
+    this.finishes().forEach((f) => { by[f.code] = f; });
+    return d.catalogue.map((c) => {
+      const f = by[c.code];
+      // The Cerakote capture is authoritative for name, product URL and thumbnail.
+      return f
+        ? Object.assign({}, f, { name: c.name || f.name, url: c.url, thumb: c.thumb })
+        : { code: c.code, name: c.name, sheen: '', hex: null, url: c.url, thumb: c.thumb };
+    });
+  }
+
+  matched() {
+    const q = String(this.state.code || '').trim().toUpperCase();
+    if (!q) return null;
+    const all = this.catalogue();
+    return all.filter((f) => f.code.toUpperCase() === q)[0]
+      || all.filter((f) => f.code.toUpperCase().indexOf(q) === 0)[0]
+      || null;
+  }
+
+  seriesOf(code) {
+    const p = this.prefixOf(code);
+    return p === 'E' ? 'E-Series' : p === 'H' ? 'H-Series' : p === 'F' ? 'F-Series'
+      : p === 'FIR' ? 'FIR-Series' : p === 'V' ? 'V-Series'
+      : p === 'S' ? 'S-Series' : p === 'SG' ? 'SG-Series' : p === 'MC' ? 'Gen II NiR' : null;
+  }
+
+  // Series is the code's prefix, so FIR stands apart from F.
+  prefixOf(code) { return String(code || '').trim().toUpperCase().split('-')[0]; }
+
+  // Per-finish override first (the JSON can carry a `mesh` value straight from
+  // a TDS), then the sheen and series rule.
+  meshFor(f) {
+    if (f && f.mesh && MESH[f.mesh]) return { key: f.mesh, from: 'the finish record' };
+    const sheen = String((f && f.sheen) || '').toLowerCase();
+    if (sheen === 'metallic') return { key: 'coarse', from: 'a metallic — the coarse screen keeps the flake in the cup' };
+    const series = this.seriesOf(f ? f.code : this.state.code);
+    if (series === 'E-Series') return { key: 'coarse', from: 'the E-Series rule' };
+    if (sheen === 'gloss') return { key: 'fine', from: 'a gloss H-Series — the finer screen for a cleaner lay-down' };
+    return { key: 'coarse', from: 'the H-Series default' };
+  }
+
+  // Which series are two-part, which are single component, and which need the
+  // TDS checked. Sources: Cerakote product pages and training manuals —
+  // C, V and MC state "does not require catalyst"; FX is a powder additive for
+  // H-Series clears; DFL-200 takes the F-100 catalyst; SG ships under the
+  // F-Series manual.
+  catalystClassOf(code) {
+    const p = this.prefixOf(code);
+    if (!p) return 'unknown';
+    if (['H', 'E', 'F', 'FIR', 'HIR', 'DFL', 'SG'].indexOf(p) >= 0) return 'needs';
+    if (['C', 'V', 'MC', 'FX'].indexOf(p) >= 0) return 'none';
+    return 'check';
+  }
+
+  // The catalysts are not interchangeable between series.
+  catalystFor(f) {
+    const code = f ? f.code : this.state.code;
+    const series = this.seriesOf(code);
+    const p = this.prefixOf(code);
+    if (series === 'E-Series') return { part: 'USE THE ELITE CATALYST', note: 'the H-Series catalyst will not cure it.' };
+    if (series === 'H-Series') return { part: 'USE THE H-SERIES CATALYST', note: 'never the Elite catalyst.' };
+    if (series === 'FIR-Series') return { part: 'CHECK THE FIR-SERIES TDS', note: 'its own code, its own TDS.' };
+    if (series === 'F-Series') return { part: 'USE THE F-SERIES CATALYST', note: 'two-part, oven cure, its own catalyst only.' };
+    if (p === 'HIR') return { part: 'USE THE H-SERIES CATALYST', note: 'Gen II NiR runs on the H-Series system.' };
+    if (p === 'DFL') return { part: 'USE THE F-100 CATALYST', note: 'named on the DFL-200 product page.' };
+    if (p === 'SG') return { part: 'USE THE F-SERIES CATALYST', note: 'Super Grip runs under the F-Series manual.' };
+    return { part: 'CHECK THE CATALYST', note: 'series catalysts are not interchangeable.' };
+  }
+
+  // Copy for the single-component and unverified cases.
+  noCatalystNote(code) {
+    const p = this.prefixOf(code);
+    if (p === 'C') return 'C-Series is single component and air cure. Ready to spray from the bottle — no catalyst, no oven, no primer.';
+    if (p === 'V') return 'V-Series is single component. Cerakote states this product does not require catalyst.';
+    if (p === 'MC') return 'MC-Series clears are single component and air dry. No catalyst.';
+    if (p === 'FX') return 'Cerakote FX is a powder additive, not a coating. Mix it into an H-Series or MC-Series clear — Cerakote recommends 1 g of FX per 1 oz of clear — and catalyse the clear, not the FX.';
+    return 'Check the TDS for this product. KLEEQ has not verified whether it takes a catalyst.';
+  }
+
+  gPer() { return 1; }
+
+  // Type-ahead over the whole Cerakote catalogue: code first, then name.
+  matches() {
+    const q = String(this.state.code || '').trim().toLowerCase();
+    if (!q) return [];
+    const all = this.catalogue();
+    const starts = [], holds = [];
+    all.forEach((c) => {
+      const code = c.code.toLowerCase(), name = String(c.name).toLowerCase();
+      const flat = code.replace(/-/g, '');
+      if (code.indexOf(q) === 0 || flat.indexOf(q.replace(/-/g, '')) === 0 || name.indexOf(q) === 0) starts.push(c);
+      else if (code.indexOf(q) >= 0 || name.indexOf(q) >= 0) holds.push(c);
+    });
+    return starts.concat(holds).slice(0, 8);
+  }
+
+  openSug = () => this.setState({ sugOpen: true, sugAt: 0 });
+  closeSug = () => setTimeout(() => this.setState({ sugOpen: false }), 120);
+
+  sugKey = (e) => {
+    const list = this.matches();
+    if (!list.length) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      this.setState((st) => ({
+        sugOpen: true,
+        sugAt: (st.sugAt + (e.key === 'ArrowDown' ? 1 : list.length - 1)) % list.length
+      }));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      const c = list[this.state.sugAt] || list[0];
+      this.setState({ code: c.code, ratio: 18, preset: 'r18', sugOpen: false });
+    } else if (e.key === 'Escape') {
+      this.setState({ sugOpen: false });
+    }
+  };
+
+  // One place decides coating / catalyst / total, in grams.
+  mix() {
+    const r = Math.max(1, Number(this.state.ratio) || 18) * SG;
+    const w = Math.max(0, Number(this.state.weight) || 0) * this.gPer();
+    if (this.state.mode === 'reverse') {
+      const coating = w * (r / (r + 1));
+      return { coating: coating, catalyst: w - coating, total: w, ratio: r };
+    }
+    const catalyst = w / r;
+    return { coating: w, catalyst: catalyst, total: w + catalyst, ratio: r };
+  }
+
+  fmt = (grams) => grams.toFixed(this.state.dp) + ' g';
+
+  addJob = (e) => {
+    if (e) e.preventDefault();
+    if (!this.matched()) return;
+    const m = this.mix();
+    if (!m.total) return;
+    const f = this.matched();
+    const job = {
+      id: Date.now() + '-' + Math.round(Math.random() * 1000),
+      code: f ? f.code : String(this.state.code || '').toUpperCase(),
+      name: f ? f.name : '',
+      hex: f ? f.hex : 'var(--k-line)',
+      ratio: Number(this.state.ratio) || 18, coating: m.coating, catalyst: m.catalyst, total: m.total,
+      jobName: String(this.state.jobName || '').trim(),
+      note: String(this.state.jobNote || '').trim(),
+      at: Date.now()
+    };
+    const entry = Object.assign({ at: Date.now() }, job);
+    this.setState((st) => {
+      const next = st.jobs.concat(job);
+      // The log outlives the job sheet: clearing the bench never erases history.
+      const nextLog = st.log.concat(entry).slice(-300);
+      try {
+        window.localStorage.setItem(JOB_KEY, JSON.stringify(next));
+        window.localStorage.setItem(LOG_KEY, JSON.stringify(nextLog));
+      } catch (err) {}
+      // The job name carries across mixes; the note is per-mix.
+      return { jobs: next, log: nextLog, jobNote: '' };
+    });
+  };
+
+  clearLog = (e) => {
+    if (e) e.preventDefault();
+    try { window.localStorage.setItem(LOG_KEY, '[]'); } catch (err) {}
+    this.setState({ log: [] });
+  };
+
+  writeCsv(rows, basename) {
+    const csv = rows.map((r) => r.map((v) => '"' + String(v).replace(/"/g, '""') + '"').join(',')).join('\n');
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = basename + '-' + new Date().toISOString().slice(0, 10) + '.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+  }
+
+  csvRows(list) {
+    const rows = [['Logged at', 'Job', 'Notes', 'Code', 'Name', 'Ratio', 'Coating (g)', 'Catalyst (g)', 'Total (g)']];
+    list.forEach((l) => rows.push([
+      new Date(l.at).toISOString(), l.jobName || '', l.note || '', l.code, l.name || '', l.ratio + ':1',
+      l.coating.toFixed(2), l.catalyst.toFixed(2), l.total.toFixed(2)
+    ]));
+    return rows;
+  }
+
+  exportLog = (e) => {
+    if (e) e.preventDefault();
+    this.writeCsv(this.csvRows(this.state.log), 'kleeq-mix-log');
+  };
+
+  // The job sheet carries a totals row — it is what the batch actually costs.
+  exportJobs = (e) => {
+    if (e) e.preventDefault();
+    const jobs = this.state.jobs;
+    const rows = this.csvRows(jobs);
+    const sum = jobs.reduce((a, j) => ({ c: a.c + j.coating, k: a.k + j.catalyst, t: a.t + j.total }), { c: 0, k: 0, t: 0 });
+    rows.push(['', 'JOB TOTAL', '', '', '', '', sum.c.toFixed(2), sum.k.toFixed(2), sum.t.toFixed(2)]);
+    this.writeCsv(rows, 'kleeq-job-sheet');
+  };
+
+  stamp(at) {
+    if (!at) return '—';
+    const d = new Date(at);
+    const p = (n) => (n < 10 ? '0' + n : '' + n);
+    return p(d.getDate()) + '/' + p(d.getMonth() + 1) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+
+  dropJob = (id) => (e) => {
+    if (e) e.preventDefault();
+    this.setState((st) => {
+      const next = st.jobs.filter((j) => j.id !== id);
+      try { window.localStorage.setItem(JOB_KEY, JSON.stringify(next)); } catch (err) {}
+      return { jobs: next };
+    });
+  };
+
+  clearJobs = (e) => {
+    if (e) e.preventDefault();
+    try { window.localStorage.setItem(JOB_KEY, '[]'); } catch (err) {}
+    this.setState({ jobs: [] });
+  };
+
+  resetAll = (e) => {
+    if (e) e.preventDefault();
+    this.setState({ code: '', weight: '', ratio: 18, preset: 'r18', mode: 'forward' });
+  };
+
+  copyMix = (e) => {
+    if (e) e.preventDefault();
+    const m = this.mix();
+    const f = this.matched();
+    const line = (f ? f.code + ' ' + f.name : this.state.code) + ' — ' + m.ratio + ':1 — coating '
+      + this.fmt(m.coating) + ', catalyst ' + this.fmt(m.catalyst) + ', total ' + this.fmt(m.total);
+    try { navigator.clipboard.writeText(line); } catch (err) {}
+    this.setState({ copied: true });
+    setTimeout(() => this.setState({ copied: false }), 1600);
+  };
+
+  renderVals() {
+    const s = this.state;
+    const d = s.data;
+    const m = this.mix();
+    const f = this.matched();
+    const mesh = this.meshFor(f);
+    const meshRec = MESH[mesh.key];
+    const chips = this.catalogue().filter((c) => s.series === 'all' || this.prefixOf(c.code) === s.series);
+    const sug = this.matches();
+    const seriesMeta = (d && d.series) ? d.series.filter((x) => x.id === s.series)[0] : null;
+
+    const theme = s.theme || 'dark';
+    const catClass = f ? this.catalystClassOf(f.code) : 'needs';
+    const view = s.view || 'split';
+    // Stacked and phone widths run one column; split and tablet run two.
+    const oneCol = (view === 'stack' || view === 'mobile');
+
+    const smallest = Math.min(m.coating, m.catalyst);
+    const step = Math.pow(10, -s.dp);
+    const errPct = smallest > 0 ? (step / 2 / smallest) * 100 : 0;
+
+    const jobs = s.jobs;
+    const sum = jobs.reduce((a, j) => ({ coating: a.coating + j.coating, catalyst: a.catalyst + j.catalyst, total: a.total + j.total }), { coating: 0, catalyst: 0, total: 0 });
+
+    return {
+      code: s.code,
+      setCode: this._sc || (this._sc = (e) => this.setState({ code: e.target.value, sugOpen: true, sugAt: 0 })),
+      pickFromSelect: this._pfs || (this._pfs = (e) => this.setState({ code: e.target.value, ratio: 18, preset: 'r18' })),
+      // A scroll over the field must not change a bench figure — keyboard and
+      // the spinner arrows only.
+      noWheel: this._nw || (this._nw = (e) => { e.target.blur(); }),
+      openSug: this.openSug,
+      closeSug: this.closeSug,
+      sugKey: this.sugKey,
+      sugOn: (s.sugOpen && String(s.code || '').trim() && !(sug.length === 1 && sug[0].code.toLowerCase() === String(s.code).trim().toLowerCase())) ? 'block' : 'none',
+      sugNoneOn: sug.length ? 'none' : 'block',
+      suggestions: sug.map((c, i) => ({
+        code: c.code, name: c.name,
+        img: this.thumbEl(c.thumb, 35, { marginLeft: 'auto' }),
+        style: 'display:flex;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 12px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:' + (i === s.sugAt ? 'var(--k-field)' : 'none'),
+        hover: () => this.setState({ sugAt: i }),
+        pick: this.pickCode(c.code)
+      })),
+      // The dropdown follows whatever the typed code resolves to, so typing
+      // "h146" or a partial code still selects the product in the list.
+      selectValue: f ? f.code : '',
+      refUrl: f ? (f.url || 'https://www.cerakote.com/shop/cerakote-coating/' + f.code + '/'
+        + String(f.name).toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')) : '#',
+      refOn: f ? 'inline-block' : 'none',
+      thumbImg: this.thumbEl(f && f.thumb, 112),
+      hasThumb: !!(f && f.thumb),
+      zoomOn: (s.zoom && f && f.thumb) ? 'flex' : 'none',
+      zoomImg: (s.zoom && f && f.thumb) ? React.createElement('img', {
+        src: f.thumb, alt: '',
+        style: { display: 'block', maxWidth: '100%', maxHeight: '76vh', border: '1px solid var(--k-line)' }
+      }) : null,
+      openZoom: this._oz || (this._oz = (e) => { if (e) e.preventDefault(); this.setState({ zoom: true }); }),
+      closeZoom: this._cz || (this._cz = (e) => { if (e) e.preventDefault(); this.setState({ zoom: false }); }),
+      gateStyle: f ? '' : 'opacity:0.35',
+      meshOn: f ? 'flex' : 'none',
+      noPick: !f,
+      codeOnly: f ? f.code : '',
+      nameOnly: f ? f.name : (String(s.code || '').trim() ? 'No match — check the code' : ''),
+      codeTitle: f ? f.code + ' · ' + f.name : (String(s.code || '').trim() ? String(s.code).toUpperCase() + ' · not in the KLEEQ catalogue' : 'No finish selected'),
+      codeMeta: f
+        ? (this.seriesOf(f.code) || 'Cerakote') + ' · ' + (f.wall === 'signature' ? (f.sheen || 'Matte') + ' · Signature wall'
+          : f.wall === 'palette' ? (f.sheen || 'Matte') + ' · Palette wall' : 'Cerakote catalogue · not stocked by KLEEQ')
+        : (this.seriesOf(s.code) ? this.seriesOf(s.code) + ' — mixing still calculates, colour unknown' : 'Type a Cerakote product number, or pick from stock'),
+
+      serAll: this.pick({ series: 'all' }),
+      seriesTabs: ((d && d.series) || []).map((x) => ({ id: x.id, label: x.id, pick: this.pick({ series: x.id }) })),
+      chips: chips.map((c) => ({
+        code: c.code, title: c.code + ' ' + c.name,
+        style: 'border-color:' + (f && f.code === c.code ? 'var(--k-gold)' : 'var(--k-line)'),
+        pick: this.pickCode(c.code)
+      })),
+      chipsOn: s.chipsOpen ? 'block' : 'none',
+      chipsBtn: s.chipsOpen ? 'HIDE SWATCHES' : 'BROWSE SWATCHES',
+      chipCount: chips.length + ' IN VIEW',
+      toggleChips: this._tc || (this._tc = (e) => { if (e) e.preventDefault(); this.setState((st) => ({ chipsOpen: !st.chipsOpen })); }),
+      emptySeriesOn: (seriesMeta && !chips.length) ? 'block' : 'none',
+      emptySeriesNote: seriesMeta ? seriesMeta.label + ' — ' + seriesMeta.note : '',
+
+      presets: PRESETS.map((p, i) => ({
+        label: p.label, ratioLabel: p.ratioLabel, glossLabel: p.glossLabel,
+        style: (i === 0 ? '' : 'margin-left:-1px;') + (s.preset === p.id ? 'background:var(--k-field);color:var(--k-gold-soft);position:relative;z-index:1' : ''),
+        pick: this.pick({ preset: p.id, ratio: p.ratio })
+      })),
+      ratio: s.ratio,
+      setRatio: this._sr || (this._sr = (e) => this.setState({ preset: 'custom', ratio: Math.min(40, Math.max(4, parseFloat(e.target.value) || 18)) })),
+      effRatio: (Number(s.ratio) || 18).toFixed(2).replace(/\.00$/, '') + ':1 BY VOLUME = ' + ((Number(s.ratio) || 18) * SG).toFixed(2) + ':1 ON THE SCALE',
+      noCatOn: catClass === 'needs' ? 'none' : 'block',
+      mixStepsOn: catClass === 'needs' ? 'grid' : 'none',
+      noCatBorder: catClass === 'check' ? 'var(--k-gold)' : 'var(--k-line)',
+      noCatInk: catClass === 'check' ? 'var(--k-gold-soft)' : 'var(--k-label)',
+      noCatTitle: catClass === 'check' ? 'CHECK THE TDS' : 'NO CATALYST',
+      noCatHead: catClass === 'check' ? 'Not verified' : 'Single component',
+      noCatBody: this.noCatalystNote(f ? f.code : s.code),
+      catalystPart: this.catalystFor(f).part,
+      catalystNote: this.catalystFor(f).note,
+      ratioNote: (PRESETS.filter((p) => p.id === s.preset)[0] || { note: 'Custom — Elite runs 12:1 to 24:1, H-Series 18:1. not a slider.' }).note,
+
+      mFwd: this.pick({ mode: 'forward' }), mRev: this.pick({ mode: 'reverse' }),
+      weightLabel: 'COATING WEIGHT · G',
+      weight: s.weight,
+      setWeight: this._sw || (this._sw = (e) => {
+        if (!this.matched()) return;
+        const v = e.target.value;
+        this.setState({ weight: v === '' ? '' : Math.max(0, parseFloat(v) || 0) });
+      }),
+      clearWeight: this._cw || (this._cw = (e) => { if (e) e.preventDefault(); this.setState({ weight: '' }); }),
+      // The field carries the accent until a weight exists — the answer waits on it.
+      weightStyle: Number(s.weight) > 0
+        ? 'border-color:var(--k-line)'
+        : 'border-color:var(--k-gold);box-shadow:inset 0 0 0 1px var(--k-gold)',
+      quickWeights: [30, 60, 100, 240].map((v, i) => ({
+        label: v + ' G',
+        style: 'min-height:26px;padding:0 8px;justify-content:center;border:none;min-width:0;'
+          + (i === 0 ? '' : 'border-left:1px solid var(--k-line);')
+          + (Number(s.weight) === v ? 'background:var(--k-field);color:var(--k-gold-soft)' : ''),
+        pick: this.pick({ weight: v })
+      })),
+
+      outCoating: this.fmt(m.coating),
+      outCatalyst: this.fmt(m.catalyst),
+      outTotal: this.fmt(m.total),
+      selectOrder: 1,
+      calcOrder: 2,
+      colDir: oneCol ? 'column' : 'row',
+      colAlign: oneCol ? 'stretch' : 'flex-start',
+      step1Dir: (view === 'stack') ? 'row' : 'column',
+      fieldDir: (view === 'stack') ? 'column' : 'row',
+      fieldGrow: (view === 'stack') ? '1 1 0' : '1 1 44%',
+      fieldGrow2: (view === 'stack') ? '1 1 0' : '1 1 56%',
+      sideStyle: view === 'split' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
+      stackStyle: view === 'stack' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
+      tabletStyle: view === 'tablet' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
+      mobileStyle: view === 'mobile' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
+      setSide: this._v1 || (this._v1 = (e) => { if (e) e.preventDefault(); this.setView('split'); }),
+      setStack: this._v2 || (this._v2 = (e) => { if (e) e.preventDefault(); this.setView('stack'); }),
+      setTablet: this._v3 || (this._v3 = (e) => { if (e) e.preventDefault(); this.setView('tablet'); }),
+      setMobile: this._v4 || (this._v4 = (e) => { if (e) e.preventDefault(); this.setView('mobile'); }),
+      lightStyle: theme === 'light' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
+      darkStyle: theme === 'light' ? '' : 'background:var(--k-field);color:var(--k-gold-soft)',
+      setLight: this._th1 || (this._th1 = (e) => { if (e) e.preventDefault(); this.setTheme('light'); }),
+      setDark: this._th2 || (this._th2 = (e) => { if (e) e.preventDefault(); this.setTheme('dark'); }),
+      pageW: view === 'mobile' ? '430px' : view === 'tablet' ? '1024px' : '1180px',
+      headerW: view === 'mobile' ? '430px' : view === 'tablet' ? '1024px' : '1180px',
+      stepNav: [
+        { n: '1', label: 'COATING', href: '#part1', done: !!f },
+        { n: '2', label: 'WEIGHT', href: '#part1', done: Number(s.weight) > 0 },
+        { n: '3', label: 'RATIO', href: '#part1', done: true },
+        { n: '4', label: 'FILE IT', href: '#part4', done: !!String(s.jobName || '').trim() },
+        { n: '5', label: 'JOB SHEET', href: '#part5', done: jobs.length > 0 },
+        { n: '6', label: 'LOG', href: '#part6', done: s.log.length > 0 }
+      ].map((x) => ({
+        n: x.n, label: x.label, href: x.href,
+        style: 'display:flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid '
+          + (x.done ? 'var(--k-gold)' : 'var(--k-line)') + ';color:' + (x.done ? 'var(--k-gold-soft)' : 'var(--k-label)') + ';text-decoration:none',
+        dot: 'width:16px;height:16px;flex:none;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:800;font-size:10px;line-height:1;background:'
+          + (x.done ? 'var(--k-gold)' : 'transparent') + ';color:' + (x.done ? 'var(--k-on-gold)' : 'var(--k-label)')
+          + ';border:1px solid ' + (x.done ? 'var(--k-gold)' : 'var(--k-line)')
+      })),
+      addJob: this.addJob,
+      mixOpacity: (Number(s.weight) > 0) ? '1' : '0.4',
+      logOn: s.log.length ? 'block' : 'none',
+      logCount: s.log.length,
+      exportLog: this.exportLog,
+      clearLog: this.clearLog,
+      logRows: s.log.slice().reverse().map((l) => {
+        const d = new Date(l.at);
+        const pad = (n) => (n < 10 ? '0' + n : '' + n);
+        const bits = [l.jobName, l.note].filter(Boolean);
+        return {
+          when: d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()),
+          title: l.code + (l.name ? ' · ' + l.name : ''),
+          meta: bits.join(' — '), metaOn: bits.length ? 'block' : 'none',
+          ratio: l.ratio + ':1',
+          catalyst: this.fmt(l.catalyst), total: this.fmt(l.total)
+        };
+      }),
+      jobName: s.jobName,
+      jobNote: s.jobNote,
+      setJobName: this._sjn || (this._sjn = (e) => this.setState({ jobName: e.target.value })),
+      setJobNote: this._sjo || (this._sjo = (e) => this.setState({ jobNote: e.target.value })),
+      copyMix: this.copyMix,
+      resetAll: this.resetAll,
+      optionGroups: this.groupedOptions(f),
+      selectCode: f ? f.code : '',
+      selectName: f ? f.name : 'Select a product',
+      listOn: s.listOpen ? 'block' : 'none',
+      toggleList: this._tl || (this._tl = (e) => { if (e) e.preventDefault(); this.setState((st) => ({ listOpen: !st.listOpen })); }),
+      copyLabel: s.copied ? 'COPIED' : 'COPY THE LINE',
+
+      jobs: jobs.map((j) => ({
+        title: j.code + (j.name ? ' · ' + j.name : ''),
+        when: this.stamp(j.at),
+        jobName: j.jobName || '', jobOn: j.jobName ? 'block' : 'none',
+        note: j.note || '', noteOn: j.note ? 'block' : 'none',
+        ratio: j.ratio + ':1',
+        coating: this.fmt(j.coating), catalyst: this.fmt(j.catalyst), total: this.fmt(j.total),
+        drop: this.dropJob(j.id)
+      })),
+      jobsOn: jobs.length ? 'block' : 'none',
+      jobCount: jobs.length,
+      clearJobs: this.clearJobs,
+      exportJobs: this.exportJobs,
+      sumCoating: this.fmt(sum.coating), sumCatalyst: this.fmt(sum.catalyst), sumTotal: this.fmt(sum.total),
+
+      meshLabel: meshRec.label,
+      meshMicron: meshRec.micron,
+      meshFrom: mesh.from,
+      meshPart: meshRec.part,
+
+
+      dp1: this.pick({ dp: 1 }), dp2: this.pick({ dp: 2 }),
+      errLabel: smallest > 0
+        ? '±' + errPct.toFixed(errPct < 1 ? 2 : 1) + '% on the catalyst at this scale resolution'
+        : 'Enter a weight to see the scale error',
+      errInk: errPct > 2 ? 'var(--k-warn)' : 'var(--k-label)',
+
+      sourceNote: "Cerakote's published ratios — 12:1, 18:1, 24:1 — are by volume. This tool converts them to scale weight with a 1.321 factor, fitted to Cerakote's own calculator: 100 g at 18:1 gives 4.21 g, at 24:1 gives 3.15 g, and 10 g at 12:1 gives 0.63 g. Strainer mesh comes from the product page where the studio has recorded it, and from the sheen and series rule otherwise. Always check the current TDS for the product in hand."
+    };
+  }
+}
+
+</script>
+</body>
+</html>
