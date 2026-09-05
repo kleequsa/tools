@@ -21,20 +21,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="kleeq-tokens.css">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#1a1918">
 <style>
   :root {
+    color-scheme: dark;
     --k-bg:#1a1918; --k-panel:#141312; --k-sticky:#1f1e1c; --k-field:#2a2724;
-    --k-line:#3d3934; --k-rule:#57534d; --k-label:#8d867c; --k-copy:#c9c3b9;
+    --k-line:#3d3934; --k-rule:#57534d; --k-label:#9c958a; --k-copy:#c9c3b9;
     --k-ink:#ddd8d0; --k-gold:#c9992f; --k-gold-soft:#e2bd6d; --k-on-gold:#17150f;
     --k-warn:#c9272e; --k-mono-w:400;
   }
   :root[data-kleeq-theme="light"] {
+    color-scheme: light;
     --k-bg:#f3f2f2; --k-panel:#ffffff; --k-sticky:#e7e4e0; --k-field:#ffffff;
     --k-line:#9c948a; --k-rule:#4a453f; --k-label:#5a544c; --k-copy:#2b2825;
     --k-ink:#141312; --k-gold:#8a6612; --k-gold-soft:#6b5010; --k-on-gold:#ffffff;
     --k-warn:#9e1b24; --k-mono-w:500;
   }
-  body { margin: 0; background: var(--k-bg); color: var(--k-ink); }
+  html, body { margin: 0; background: var(--k-bg); color: var(--k-ink); }
   a { color: var(--k-gold-soft); text-decoration: none; }
   a:hover { color: var(--k-gold); }
   h1, h2, h3 { font-stretch: 115%; font-weight: 800; }
@@ -53,6 +57,10 @@
   .s-in:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 1px; }
   .s-big { width: 100%; box-sizing: border-box; background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: var(--font-heading); font-weight: 800; font-stretch: 112%; font-size: 26px; padding:8px 12px; }
   .s-big:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 1px; }
+  .s-big::-webkit-outer-spin-button, .s-big::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .s-big { -moz-appearance: textfield; appearance: textfield; }
+  .s-big:hover, .s-big:focus { -moz-appearance: auto; appearance: auto; }
+  .s-big:hover::-webkit-inner-spin-button, .s-big:focus::-webkit-inner-spin-button { -webkit-appearance: inner-spin-button; opacity: 1; }
   .s-pick { border: 1px solid var(--k-line); padding: 0; background: none; cursor: pointer; display: flex; flex-direction: column; }
   .s-pick:hover { border-color: var(--k-gold-soft); }
   .s-pick:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
@@ -61,9 +69,22 @@
 
 <div style="background:var(--k-bg);color:var(--k-ink);font-family:var(--font-body);min-height:100vh">
 
-  <header style="max-width:{{ headerW }};margin:0 auto;padding:clamp(20px,3vw,36px) clamp(14px,2.4vw,32px) 16px">
-    <div style="display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:8px">
-    <div class="s-lab" style="margin:0;color:var(--k-gold-soft)">KLEEQ / MIXING CALCULATOR</div>
+  <header style="max-width:{{ headerW }};margin:0 auto;padding:clamp(20px,3vw,36px) clamp(14px,2.4vw,32px) 8px">
+    <div style="width:fit-content;max-width:100%;margin:0 auto;display:grid;gap:20px">
+    <h1 style="font-size:clamp(24px,2.4vw,33px);line-height:1;margin:0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center">
+      <svg viewBox="0 0 880 260.3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KLEEQ" style="height:0.78em;width:auto;flex:none;display:block">
+        <polygon points="240 40 190 40 100 130.1 190 220.2 240 220.2 150 130.1 240 40"></polygon>
+        <polygon points="123.4 0 100 0 100 30.1 100 60.1 120 40.1 120 20.1 860 20.1 860.2 240.3 120 240.3 120 220.3 100 200.2 100 220.3 100 260.3 880 260.3 880 0 123.4 0"></polygon>
+        <path d="M74.6,105.7l25.4-25.6h-42.6c-4.4,0-8.7,1.7-11.8,4.9L0,130.1h0l45.6,45.2c3.1,3.1,7.4,4.9,11.8,4.9h42.6l-25.4-25.6,25.4-24.5-25.4-24.5h0ZM60.4,141.2l-12.7-4.2-7.8,11v-13.6l-12.7-4.2,12.7-4.2v-13.6l7.8,11,12.7-4.2-7.8,11,7.8,11h0Z"></path>
+        <path d="M250,40h40v143.5h80v36.7h-120V40Z"></path>
+        <path d="M380,40h130v36.7h-90.3v33.6h90.3v36.7h-90.3v36.7h90.3v36.7h-130V40Z"></path>
+        <path d="M520,40h130v36.7h-90.3v33.6h90.3v36.7h-90.3v36.7h90.3v36.7h-130V40Z"></path>
+        <path d="M841,192.6l-15.6-13.2c9.3-14.2,14.7-31.1,14.7-49.3,0-49.8-40.3-90.1-90-90.1s-90,40.3-90,90.1,40.3,90.1,90,90.1,35.7-5.6,50-15.2l18,15.2,23-27.6h-.1ZM750,183.2c-29.3,0-53-23.8-53-53.1s23.7-53.1,53-53.1,53,23.8,53,53.1-2.3,17.6-6.3,25.1l-22.7-19.1-23,27.6,18.6,15.7c-6.1,2.4-12.7,3.8-19.6,3.8h0Z"></path>
+      </svg>
+      <span style="font-weight:400;color:var(--k-label);font-stretch:100%;font-size:0.55em;line-height:1">×</span>
+      <span style="font-size:0.55em;font-weight:600;line-height:1.1;white-space:nowrap">Cerakote catalyst calculator</span>
+    </h1>
+    <div style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;min-height:28px">
     <div style="display:flex;gap:8px;align-items:center">
     <div style="display:inline-grid;grid-template-columns:repeat(2,auto);border:1px solid var(--k-line)">
       <button type="button" class="s-seg" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center;{{ lightStyle }}" onClick="{{ setLight }}" title="Light" aria-label="Light theme">
@@ -106,7 +127,7 @@
     </div>
     </div>
     </div>
-    <h1 style="font-size:clamp(22px,2.2vw,30px);line-height:1.05;margin:0">Cerakote catalyst calculator</h1>
+    </div>
   </header>
 
   <div style="max-width:{{ pageW }};margin:0 auto;padding:16px clamp(14px,2.4vw,32px) 48px">
@@ -114,44 +135,44 @@
     <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-content:start;min-width:0">
 
       <div id="part1" style="border-top:1px solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;display:flex;flex-wrap:wrap;gap:32px 48px;align-items:{{ colAlign }};flex-direction:{{ colDir }}">
-        <div style="flex:1 1 320px;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-content:start;order:{{ selectOrder }}">
+        <div style="flex:1.4 1 420px;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-content:start;order:{{ selectOrder }}">
           <div>
           <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
             <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">01</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">The coating</span>
           </div>
-          <div style="display:flex;gap:32px;align-items:stretch;flex-direction:{{ step1Dir }}">
+          <div style="display:flex;gap:{{ infoGap }};align-items:stretch;flex-direction:{{ step1Dir }}">
         <div style="display:flex;gap:8px;align-items:stretch;flex:1 1 auto;min-width:0;flex-direction:{{ fieldDir }}">
           <div style="position:relative;flex:{{ fieldGrow }};min-width:0">
-            <input class="s-in" style="font-weight:700;height:100%;min-height:51px" type="text" placeholder="Search code or colour name" value="{{ code }}" onInput="{{ setCode }}" onFocus="{{ openSug }}" onBlur="{{ closeSug }}" onKeyDown="{{ sugKey }}" autoComplete="off" aria-label="Search Cerakote products">
-            <div style="display:{{ sugOn }};position:absolute;top:100%;left:0;right:0;z-index:20;background:var(--k-panel);border:1px solid var(--k-label);max-height:240px;overflow-y:auto">
+            <input class="s-in" style="font-weight:700;height:100%;min-height:51px" type="text" placeholder="Search by code or colour" value="{{ code }}" onInput="{{ setCode }}" onFocus="{{ openSug }}" onBlur="{{ closeSug }}" onKeyDown="{{ sugKey }}" autoComplete="off" role="combobox" aria-autocomplete="list" aria-expanded="{{ sugOpen }}" aria-controls="search-list" aria-label="Search Cerakote products">
+            <div id="search-list" role="listbox" aria-label="Matching products" style="display:{{ sugOn }};position:absolute;top:100%;left:0;right:0;z-index:20;background:var(--k-panel);border:1px solid var(--k-label);max-height:240px;overflow-y:auto">
               <sc-for list="{{ suggestions }}" as="sg" hint-placeholder-count="6">
-                <button type="button" style="{{ sg.style }}" onMouseDown="{{ sg.pick }}" onMouseEnter="{{ sg.hover }}">
+                <button type="button" role="option" aria-selected="{{ sg.selected }}" style="{{ sg.style }}" onMouseDown="{{ sg.pick }}" onMouseEnter="{{ sg.hover }}">
                   <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;color:var(--k-gold-soft);flex:none">{{ sg.code }}</span>
                   <span style="font-size:12px;color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ sg.name }}</span>
                   {{ sg.laser }}
                   {{ sg.img }}
                 </button>
               </sc-for>
-              <div style="display:{{ sugNoneOn }};padding:12px 16px;font-size:12px;color:var(--k-label)">No product matches that.</div>
+              <div style="display:{{ sugNoneOn }};padding:12px 16px;font-size:12px;color:var(--k-label)">No match. Check the code or try the colour name.</div>
             </div>
           </div>
           <div style="position:relative;flex:{{ fieldGrow2 }};min-width:0">
-            <button type="button" class="s-in" style="display:flex;gap:8px;align-items:center;text-align:left;cursor:pointer;height:100%;min-height:51px" onClick="{{ toggleList }}" aria-haspopup="listbox">
+            <button type="button" class="s-in" style="display:flex;gap:8px;align-items:center;text-align:left;cursor:pointer;height:100%;min-height:51px" onClick="{{ toggleList }}" aria-haspopup="listbox" aria-expanded="{{ listOpen }}" aria-controls="product-list" aria-label="{{ selectAria }}">
               <span style="flex:none;font-weight:700;color:var(--k-gold-soft)">{{ selectCode }}</span>
               <span style="flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ selectName }}</span>
               {{ selectLaser }}
-              <span style="flex:none;font-size:10px;color:var(--k-label)">▾</span>
+              <span style="flex:none;font-size:10px;color:var(--k-label)" aria-hidden="true">▾</span>
             </button>
-            <div style="display:{{ listOn }};position:absolute;top:100%;left:0;right:0;z-index:25;background:var(--k-panel);border:1px solid var(--k-label);max-height:320px;overflow-y:auto">
+            <div id="product-list" role="listbox" aria-label="Cerakote products" style="display:{{ listOn }};position:absolute;top:100%;left:0;right:0;z-index:25;background:var(--k-panel);border:1px solid var(--k-label);max-height:320px;overflow-y:auto">
               <sc-for list="{{ optionGroups }}" as="g" hint-placeholder-count="4">
                 <div>
-                  <div style="position:sticky;top:0;z-index:2;display:flex;gap:8px;align-items:baseline;background:var(--k-sticky);border-bottom:1px solid var(--k-line);padding:8px 12px">
+                  <div role="presentation" style="position:sticky;top:0;z-index:2;display:flex;gap:8px;align-items:baseline;background:var(--k-sticky);border-bottom:1px solid var(--k-line);padding:8px 12px">
                     <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;color:var(--k-gold-soft)">{{ g.label }}</span>
-                    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto">{{ g.count }}</span>
+                    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto">{{ g.count }}</span>
                   </div>
                   <sc-for list="{{ g.rows }}" as="o" hint-placeholder-count="6">
-                    <button type="button" style="{{ o.style }}" onMouseDown="{{ o.pick }}">
+                    <button type="button" role="option" aria-selected="{{ o.selected }}" style="{{ o.style }}" onMouseDown="{{ o.pick }}">
                       <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;color:var(--k-gold-soft);flex:none">{{ o.code }}</span>
                       <span style="font-size:12px;color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ o.name }}</span>
                       {{ o.laser }}
@@ -163,51 +184,67 @@
             </div>
           </div>
         </div>
-          <div style="display:flex;gap:8px;align-items:stretch;min-width:0;flex:1 1 auto">
+          <div style="display:flex;gap:16px;align-items:stretch;min-width:0;flex:1 1 auto">
           <sc-if value="{{ hasThumb }}">
-            <button type="button" style="padding:0;border:none;background:none;cursor:zoom-in;flex:none;align-self:flex-start;line-height:0;display:flex" onClick="{{ openZoom }}" title="View larger">{{ thumbImg }}</button>
+            <button type="button" style="padding:0;border:none;background:none;cursor:zoom-in;flex:none;align-self:flex-start;display:flex;line-height:0" onClick="{{ openZoom }}" title="View larger">{{ thumbImg }}</button>
           </sc-if>
-          <div style="min-width:0">
+          <div style="min-width:0;display:flex;flex-direction:column;justify-content:space-between;line-height:1;height:{{ infoH }}">
           <sc-if value="{{ noPick }}">
-            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--k-gold-soft);margin-bottom:8px">PICK A PRODUCT TO START</div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--k-gold-soft);margin-bottom:8px">START BY PICKING A PRODUCT</div>
           </sc-if>
-          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--k-gold-soft)">{{ codeOnly }}</div>
-          <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:16px;line-height:1.2;color:var(--k-ink);margin-top:4px">{{ nameOnly }}</div>
-          <div style="display:{{ meshOn }};margin-top:8px;gap:8px;align-items:baseline;flex-wrap:wrap">
-            <span class="s-lab" style="font-size:9px;margin:0;flex:none">STRAINER</span>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;line-height:1;color:var(--k-gold-soft)">{{ codeOnly }}</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ nameSize }};line-height:1;color:var(--k-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ nameOnly }}</div>
+          <div style="display:{{ meshOn }};gap:8px;align-items:baseline;flex-wrap:wrap;line-height:1">
+            <span class="s-lab" style="font-size:10px;margin:0;flex:none">STRAINER</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:12px;line-height:1;color:var(--k-ink)">{{ meshLabel }}</span>
           </div>
-          <a style="display:{{ refOn }};font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8px;letter-spacing:0.06em;margin-top:8px;color:var(--k-label);text-decoration:underline;text-underline-offset:3px" href="{{ refUrl }}" target="_blank" rel="noopener noreferrer">CERAKOTE PRODUCT PAGE ↗</a>
+          <a style="display:{{ refOn }};font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;line-height:1;color:var(--k-copy);text-decoration:underline;text-underline-offset:3px" href="{{ refUrl }}" target="_blank" rel="noopener noreferrer">CERAKOTE ↗</a>
           </div>
         </div>
           </div>
           </div>
-          <div style="{{ gateStyle }}" data-gate="1">
+          <div style="{{ gateStyle }};display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start" data-gate="1">
+          <div style="flex:1 1 160px;min-width:0">
           <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
             <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">02</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase;white-space:nowrap">{{ weightLabel }}</span>
-            <div style="display:inline-grid;grid-template-columns:auto repeat(2,auto);align-items:stretch;border:1px solid var(--k-line);margin-left:auto" title="Rounding — set this to what your scale actually reads, so the mix is not quoted finer than you can weigh.">
-              <span style="display:flex;align-items:center;padding:0 8px;color:var(--k-label)" title="Rounding — set this to what your scale actually reads, so the mix is not quoted finer than you can weigh." aria-hidden="true">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 3v18"></path>
-                  <path d="M5 7h14"></path>
-                  <path d="M5 7l-3 7h6z"></path>
-                  <path d="M19 7l-3 7h6z"></path>
-                </svg>
-              </span>
-              <button type="button" class="s-seg" style="min-height:24px;padding:0 8px;border:none;border-left:1px solid var(--k-line);justify-content:center" data-dp="1" onClick="{{ dp1 }}" aria-label="Round to 0.1 g" title="Round the mix to 0.1 g — for a scale that reads one decimal place">0.1</button>
-              <button type="button" class="s-seg" style="min-height:24px;padding:0 8px;border:none;border-left:1px solid var(--k-line);justify-content:center" data-dp="2" onClick="{{ dp2 }}" aria-label="Round to 0.01 g" title="Round the mix to 0.01 g — for a scale that reads two decimal places">0.01</button>
-            </div>
           </div>
           <div style="display:flex;gap:8px;align-items:stretch;flex-wrap:wrap">
-            <input class="s-big" style="flex:1 1 140px;min-width:120px;width:auto;font-size:38px;padding:12px 16px;{{ weightStyle }}" type="number" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
-            <div style="display:grid;grid-auto-flow:column;grid-auto-columns:1fr;flex:1 1 auto;min-width:0;border:1px solid var(--k-line)">
-              <sc-for list="{{ quickWeights }}" as="q" hint-placeholder-count="4">
-                <button type="button" class="s-seg" style="{{ q.style }}" onClick="{{ q.pick }}">{{ q.label }}</button>
-              </sc-for>
-              <button type="button" class="s-seg" style="min-height:26px;padding:0 8px;border:none;border-left:1px solid var(--k-line);justify-content:center;font-size:18px;min-width:0" onClick="{{ clearWeight }}" title="Clear the weight" aria-label="Clear the weight">✕</button>
+            <div style="position:relative;flex:1 1 140px;min-width:120px">
+              <input class="s-big" style="font-size:38px;padding:0 56px 0 16px;height:76px;box-sizing:border-box;{{ weightStyle }}" type="number" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
+              <button type="button" class="s-seg" style="position:absolute;top:50%;right:12px;transform:translateY(-50%);width:32px;min-height:32px;padding:0;border:none;justify-content:center;color:var(--k-label)" disabled="{{ clearOff }}" data-self-disabled="{{ clearOffStr }}" onClick="{{ clearWeight }}" title="Clear the weight" aria-label="Clear the weight">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+              </button>
             </div>
           </div>
+          </div>
+          <div style="display:{{ ratioOn }};flex:2 1 260px;min-width:0">
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
+            <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">03</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">The ratio</span>
+          </div>
+          <div style="display:flex;align-items:stretch;margin-bottom:12px">
+            <sc-for list="{{ presets }}" as="p" hint-placeholder-count="3">
+              <button type="button" class="s-seg" style="padding:0 4px;height:76px;box-sizing:border-box;border:1px solid var(--k-line);flex:1 1 0;min-width:0;flex-direction:column;justify-content:center;text-align:center;white-space:normal;gap:4px;{{ p.style }}" onClick="{{ p.pick }}">
+                <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0">{{ p.ratioLabel }}</span>
+                <span style="font-size:10px;letter-spacing:0;line-height:1.2;text-align:center">{{ p.glossLabel }}</span>
+              </button>
+            </sc-for>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0 6px;height:76px;box-sizing:border-box;flex:1.3 1 0;min-width:0;margin-left:8px;border:1px solid var(--k-line)">
+              <div style="display:flex;gap:2px;align-items:baseline;justify-content:center">
+                <input class="s-in" style="width:40px;flex:none;text-align:right;border:none;background:none;padding:0;min-height:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0" type="number" min="4" max="40" step="0.5" value="{{ ratio }}" onInput="{{ setRatio }}" aria-label="Ratio value">
+                <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0;color:var(--k-label)">:1</span>
+              </div>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.06em;line-height:1.2;color:var(--k-label)">CUSTOM</span>
+              <input type="range" min="4" max="40" step="0.5" value="{{ ratio }}" onInput="{{ setRatio }}" aria-label="Ratio slider" aria-valuetext="{{ ratioText }}" style="width:100%;height:14px;margin-top:2px">
+            </div>
+          </div>
+
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.06em;color:var(--k-label)">{{ effRatio }}</div>
+          <div style="font-size:11px;line-height:1.45;color:var(--k-label);text-wrap:pretty;margin-top:8px">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ catalystPart }}</span> — {{ catalystNote }}
+        </div>
+        </div>
         </div>
         </div>
 
@@ -220,165 +257,40 @@
           <div style="display:{{ mixStepsOn }};grid-template-columns:minmax(0,1fr);gap:32px;align-content:start;{{ gateStyle }}" data-gate="1">
           <div>
           <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
-            <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">03</span>
-            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">The ratio</span>
-          </div>
-          <div style="display:flex;align-items:stretch;margin-bottom:8px">
-            <sc-for list="{{ presets }}" as="p" hint-placeholder-count="3">
-              <button type="button" class="s-seg" style="padding:8px 4px;border:1px solid var(--k-line);flex:1 1 0;min-width:0;flex-direction:column;justify-content:center;text-align:center;white-space:normal;gap:4px;{{ p.style }}" onClick="{{ p.pick }}">
-                <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0">{{ p.ratioLabel }}</span>
-                <span style="font-size:9px;letter-spacing:0;line-height:1.2;text-align:center">{{ p.glossLabel }}</span>
-              </button>
-            </sc-for>
-            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 4px;flex:1 1 0;min-width:0;margin-left:8px;border:1px solid var(--k-line)">
-              <div style="display:flex;gap:4px;align-items:baseline;justify-content:center">
-                <input class="s-in" style="width:38px;flex:none;text-align:right;border:none;background:none;padding:0;min-height:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0" type="number" min="4" max="40" step="0.5" value="{{ ratio }}" onInput="{{ setRatio }}" aria-label="Ratio value">
-                <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:17px;line-height:1;letter-spacing:0;color:var(--k-label)">:1</span>
-              </div>
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.06em;line-height:1.2;color:var(--k-label)">CUSTOM</span>
-              <input type="range" min="4" max="40" step="0.5" value="{{ ratio }}" onInput="{{ setRatio }}" aria-label="Ratio slider" style="width:100%;height:14px;margin-top:2px">
-            </div>
-          </div>
-
-          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.06em;color:var(--k-label)">{{ effRatio }}</div>
-        </div>
-          <div style="font-size:11px;line-height:1.45;color:var(--k-label);text-wrap:pretty">
-          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ catalystPart }}</span> — {{ catalystNote }}
-        </div>
-          <div>
-          <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
             <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">04</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">The mix</span>
           </div>
-          <div style="display:grid">
+          <div style="display:grid" aria-live="polite" aria-atomic="true">
           <div style="display:flex;gap:16px;align-items:baseline;justify-content:space-between;min-width:0;padding-bottom:16px;opacity:{{ mixOpacity }}">
-            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.14em;white-space:nowrap;color:var(--k-gold-soft)">CATALYST TO ADD</span>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.14em;white-space:nowrap;color:var(--k-gold-soft)">ADD CATALYST</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:clamp(34px,3.8vw,50px);line-height:1;white-space:nowrap;color:var(--k-gold-soft)">{{ outCatalyst }}</span>
           </div>
           <div style="display:flex;gap:16px;align-items:baseline;justify-content:space-between;min-width:0;background:var(--k-gold);color:var(--k-on-gold);padding:16px;opacity:{{ mixOpacity }}">
-            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.14em;white-space:nowrap">TOTAL IN THE CUP</span>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.14em;white-space:nowrap">TOTAL MIX</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:clamp(34px,3.8vw,50px);line-height:1;white-space:nowrap">{{ outTotal }}</span>
           </div>
         </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+          <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ copyMix }}">{{ copyLabel }}</button>
+          <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ resetAll }}">RESET</button>
         </div>
         </div>
         </div>
-      </div>
-
-      <div id="part5" style="border-top:1px solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;{{ gateStyle }}" data-gate="1">
-        <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
-          <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">05</span>
-          <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">Name it and file it</span>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <input class="s-in" style="flex:0 1 190px;min-width:130px" type="text" placeholder="Job name" value="{{ jobName }}" onInput="{{ setJobName }}" aria-label="Job name">
-        <input class="s-in" style="flex:1 1 240px;min-width:160px" type="text" placeholder="Notes — part, coats, anything to remember" value="{{ jobNote }}" onInput="{{ setJobNote }}" aria-label="Job notes">
-        <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ addJob }}">ADD TO JOB SHEET</button>
-        <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ copyMix }}">{{ copyLabel }}</button>
-        <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ resetAll }}">RESET</button>
         </div>
       </div>
 
-      <details id="part6" style="border-top:1px solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;display:{{ jobsOn }}">
-        <summary style="cursor:pointer;list-style:none;display:flex;gap:8px;align-items:center;margin-bottom:16px">
-          <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">06</span>
-          <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink)">THE JOB SHEET · {{ jobCount }} MIXES</span>
-          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;color:var(--k-label)">OPEN</span>
-        </summary>
-        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap">
-          <span style="font-size:13px;color:var(--k-label);line-height:1.55;max-width:52ch">Everything queued on the bench, kept in this browser until you clear it.</span>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ exportJobs }}">EXPORT CSV</button>
-            <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ clearJobs }}">CLEAR</button>
-          </div>
-        </div>
-        <div style="border:1px solid var(--k-line);overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch">
-          <div style="min-width:700px;display:grid;grid-template-columns:104px minmax(0,2fr) 66px repeat(3,minmax(0,1fr)) 34px;gap:12px;padding:12px 16px;border-bottom:1px solid var(--k-line);background:var(--k-panel)">
-            <span class="s-lab" style="margin:0">WHEN</span>
-            <span class="s-lab" style="margin:0">FINISH</span>
-            <span class="s-lab" style="margin:0">RATIO</span>
-            <span class="s-lab" style="margin:0;text-align:right">COATING</span>
-            <span class="s-lab" style="margin:0;text-align:right">CATALYST</span>
-            <span class="s-lab" style="margin:0;text-align:right">TOTAL</span>
-            <span class="s-lab" style="margin:0"></span>
-          </div>
-          <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="3">
-            <div style="min-width:700px;display:grid;grid-template-columns:104px minmax(0,2fr) 66px repeat(3,minmax(0,1fr)) 34px;gap:12px;padding:12px 16px;border-bottom:1px solid var(--k-field);align-items:center">
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.04em;color:var(--k-label)">{{ j.when }}</span>
-              <div style="display:flex;gap:8px;align-items:flex-start;min-width:0">
-                <div style="min-width:0">
-                  <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:13px;color:var(--k-ink);overflow-wrap:anywhere">{{ j.title }}</div>
-                  <div style="display:{{ j.jobOn }};font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.08em;color:var(--k-gold-soft);margin-top:4px">{{ j.jobName }}</div>
-                  <div style="display:{{ j.noteOn }};font-size:11px;line-height:1.4;color:var(--k-label);margin-top:4px;text-wrap:pretty">{{ j.note }}</div>
-                </div>
-              </div>
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:var(--k-label)">{{ j.ratio }}</span>
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ j.coating }}</span>
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-gold-soft);text-align:right">{{ j.catalyst }}</span>
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ j.total }}</span>
-              <button type="button" class="s-seg" style="height:26px;padding:0 8px;justify-self:end" onClick="{{ j.drop }}">×</button>
-            </div>
-          </sc-for>
-          <div style="min-width:700px;display:grid;grid-template-columns:104px minmax(0,2fr) 66px repeat(3,minmax(0,1fr)) 34px;gap:12px;padding:16px;background:var(--k-panel)">
-            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;color:var(--k-label)">JOB TOTAL</span>
-            <span></span>
-            <span></span>
-            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ sumCoating }}</span>
-            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-gold-soft);text-align:right">{{ sumCatalyst }}</span>
-            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ sumTotal }}</span>
-            <span></span>
-          </div>
-        </div>
-      </details>
 
-      <details id="part7" style="border-top:1px solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;display:{{ logOn }}">
-        <summary style="cursor:pointer;list-style:none;display:flex;gap:8px;align-items:center;margin-bottom:16px">
-          <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:18px;letter-spacing:0.1em;color:var(--k-label)">07</span>
-          <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink)">THE LOG · {{ logCount }} ENTRIES</span>
-          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.1em;color:var(--k-label)">OPEN</span>
-        </summary>
-        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap">
-          <span style="font-size:13px;color:var(--k-label);line-height:1.55;max-width:52ch">Every mix added, with its time. Outlives the job sheet — clearing the bench does not erase this.</span>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ exportLog }}">EXPORT CSV</button>
-            <button type="button" class="s-seg" style="min-height:35px;padding:0 14px" onClick="{{ clearLog }}">CLEAR LOG</button>
-          </div>
-        </div>
-        <div style="border:1px solid var(--k-line);overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch">
-          <div style="min-width:640px;display:grid;grid-template-columns:118px minmax(0,2fr) 60px repeat(2,minmax(0,1fr));gap:12px;padding:12px 16px;border-bottom:1px solid var(--k-line);background:var(--k-panel)">
-            <span class="s-lab" style="margin:0">WHEN</span>
-            <span class="s-lab" style="margin:0">FINISH · JOB</span>
-            <span class="s-lab" style="margin:0">RATIO</span>
-            <span class="s-lab" style="margin:0;text-align:right">CATALYST</span>
-            <span class="s-lab" style="margin:0;text-align:right">TOTAL</span>
-          </div>
-          <sc-for list="{{ logRows }}" as="l" hint-placeholder-count="3">
-            <div style="min-width:640px;display:grid;grid-template-columns:118px minmax(0,2fr) 60px repeat(2,minmax(0,1fr));gap:12px;padding:12px 16px;border-bottom:1px solid var(--k-field);align-items:start">
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.04em;color:var(--k-label)">{{ l.when }}</span>
-              <div style="min-width:0">
-                <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:13px;color:var(--k-ink);overflow-wrap:anywhere">{{ l.title }}</div>
-                <div style="display:{{ l.metaOn }};font-size:11px;line-height:1.4;color:var(--k-label);margin-top:4px;text-wrap:pretty">{{ l.meta }}</div>
-              </div>
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:var(--k-label)">{{ l.ratio }}</span>
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-gold-soft);text-align:right">{{ l.catalyst }}</span>
-              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:var(--k-copy);text-align:right">{{ l.total }}</span>
-            </div>
-          </sc-for>
-        </div>
-      </details>
+
 
       <div style="border-top:1px solid var(--k-rule);padding-top:16px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
         <div>
-          <span style="display:block;margin:0 0 4px;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink)">Instructions</span>
-          <div style="font-size:12px;line-height:1.5;color:var(--k-label);margin-bottom:8px">Follow these steps:</div>
+          <span style="display:block;margin:0 0 10px;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink)">Instructions</span>
           <ol style="margin:0;padding-left:17px;max-width:60ch;display:grid;gap:8px;font-size:12px;line-height:1.5;color:var(--k-copy)">
-            <li>Enter your Cerakote H, Elite or F Series product number (example: H-146)</li>
-            <li>Select your catalyst ratio</li>
-            <li>Enter the weight of the coating prior to adding catalyst</li>
-            <li>Click, "CALCULATE"</li>
-            <li>Add the amount of catalyst to your Cerakote that is displayed</li>
-            <li>Mix Cerakote and Catalyst thoroughly</li>
-            <li>Click Reset to begin mixing your next Cerakote color</li>
+            <li>Search by code or colour name, or pick from the list (example: H-146)</li>
+            <li>Weigh your coating and enter the grams</li>
+            <li>Choose the ratio — 18:1 unless the TDS says otherwise</li>
+            <li>Add the catalyst shown and mix thoroughly</li>
+            <li>Reset for the next colour</li>
           </ol>
         </div>
         <div>
@@ -394,7 +306,8 @@
         </div>
       </div>
 
-      <div style="display:{{ zoomOn }};position:fixed;inset:0;z-index:60;background:rgba(12,11,10,0.92);align-items:center;justify-content:center;padding:24px" onClick="{{ closeZoom }}">
+      <div role="dialog" aria-modal="true" aria-label="{{ codeTitle }}" style="display:{{ zoomOn }};position:fixed;inset:0;z-index:60;background:rgba(12,11,10,0.92);align-items:center;justify-content:center;padding:24px" onClick="{{ closeZoom }}" onKeyDown="{{ zoomKey }}">
+        <button type="button" ref="{{ zoomCloseRef }}" class="s-seg" style="position:absolute;top:16px;right:16px;min-height:35px;padding:0 14px" onClick="{{ closeZoom }}">CLOSE</button>
         <div style="display:grid;gap:12px;justify-items:center;max-width:min(760px,92vw)">
           {{ zoomImg }}
           <div style="display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;justify-content:center">
@@ -413,8 +326,8 @@
 
       <div style="border-top:1px solid var(--k-rule);padding-top:16px">
         <div style="display:grid;gap:8px;max-width:78ch">
-        <span class="s-lab" style="margin:0;color:var(--k-gold-soft)">BUILT BY KLEEQ</span>
-        <p style="margin:0;font-size:12px;line-height:1.6;color:var(--k-copy);text-wrap:pretty">KLEEQ built this calculator because we run one every day and wanted it to work the way a shop actually works: fast on a bench tablet, the whole Cerakote catalogue searchable by code or colour name, the correct catalyst named for each series, a pot life timer, and a job sheet that survives a shift. It is free for any Cerakote applicator to use.</p>
+        <span class="s-lab" style="margin:0;color:var(--k-gold-soft)">ABOUT THIS TOOL</span>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:var(--k-copy);text-wrap:pretty">KLEEQ built this calculator because we run one every day and wanted it to work the way a shop actually works: fast on a bench tablet, the whole Cerakote catalogue searchable by code or colour name, and the correct catalyst named for each series. It is free for any Cerakote applicator to use.</p>
         <p style="margin:0;font-size:12px;line-height:1.6;color:var(--k-label);text-wrap:pretty">Every ratio, strainer size and product name here comes from Cerakote's own technical data sheets, training manuals and shop listings. KLEEQ is an applicator, not a manufacturer — we are not affiliated with or endorsed by Cerakote or NIC Industries, and nothing on this page replaces the current TDS on the bottle in your hand.</p>
         </div>
       </div>
@@ -502,6 +415,7 @@ class Component extends DCLogic {
       if (off) el.setAttribute('inert', ''); else el.removeAttribute('inert');
       el.querySelectorAll('input,button,select,textarea,a').forEach((c) => {
         if (c.tagName === 'A') { c.tabIndex = off ? -1 : 0; return; }
+        if (c.hasAttribute('data-self-disabled')) { c.disabled = off || c.getAttribute('data-self-disabled') === 'true'; return; }
         c.disabled = off;
       });
     });
@@ -567,6 +481,7 @@ class Component extends DCLogic {
       count: bucket[k].length + (bucket[k].length === 1 ? ' COLOUR' : ' COLOURS'),
       rows: bucket[k].map((c) => ({
         code: c.code, name: c.name,
+        selected: !!(f && f.code === c.code),
         laser: this.laserTag(c.laserOptimized),
         img: this.thumbEl(c.thumb, 35, { marginLeft: 'auto' }),
         style: 'display:flex;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 12px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:'
@@ -883,6 +798,7 @@ class Component extends DCLogic {
       sugNoneOn: sug.length ? 'none' : 'block',
       suggestions: sug.map((c, i) => ({
         code: c.code, name: c.name,
+        selected: i === s.sugAt,
         laser: this.laserTag(c.laserOptimized),
         img: this.thumbEl(c.thumb, 35, { marginLeft: 'auto' }),
         style: 'display:flex;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 12px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:' + (i === s.sugAt ? 'var(--k-field)' : 'none'),
@@ -895,15 +811,16 @@ class Component extends DCLogic {
       refUrl: f ? (f.url || 'https://www.cerakote.com/shop/cerakote-coating/' + f.code + '/'
         + String(f.name).toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')) : '#',
       refOn: f ? 'inline-block' : 'none',
-      thumbImg: this.thumbEl(f && f.thumb, 112),
+      thumbImg: this.thumbEl(f && f.thumb, view === 'mobile' ? 64 : 76),
+      infoH: view === 'mobile' ? '64px' : '76px',
       hasThumb: !!(f && f.thumb),
       zoomOn: (s.zoom && f && f.thumb) ? 'flex' : 'none',
       zoomImg: (s.zoom && f && f.thumb) ? React.createElement('img', {
         src: f.thumb, alt: '',
         style: { display: 'block', maxWidth: '100%', maxHeight: '76vh', border: '1px solid var(--k-line)' }
       }) : null,
-      openZoom: this._oz || (this._oz = (e) => { if (e) e.preventDefault(); this.setState({ zoom: true }); }),
-      closeZoom: this._cz || (this._cz = (e) => { if (e) e.preventDefault(); this.setState({ zoom: false }); }),
+      openZoom: this._oz || (this._oz = (e) => { if (e) e.preventDefault(); this._zoomOpener = e && e.currentTarget; this.setState({ zoom: true }, () => { const b = this._zref && this._zref.current; if (b) b.focus(); }); }),
+      closeZoom: this._cz || (this._cz = (e) => { if (e) e.preventDefault(); this.setState({ zoom: false }, () => { if (this._zoomOpener && this._zoomOpener.focus) this._zoomOpener.focus(); }); }),
       gateStyle: f ? '' : 'opacity:0.35',
       meshOn: f ? 'flex' : 'none',
       noPick: !f,
@@ -936,9 +853,10 @@ class Component extends DCLogic {
       })),
       ratio: s.ratio,
       setRatio: this._sr || (this._sr = (e) => this.setState({ preset: 'custom', ratio: Math.min(40, Math.max(4, parseFloat(e.target.value) || 18)) })),
-      effRatio: (Number(s.ratio) || 18).toFixed(2).replace(/\.00$/, '') + ':1 BY VOLUME = ' + ((Number(s.ratio) || 18) * SG).toFixed(2) + ':1 ON THE SCALE',
+      effRatio: (Number(s.ratio) || 18).toFixed(2).replace(/\.00$/, '') + ':1 BY VOLUME · ' + ((Number(s.ratio) || 18) * SG).toFixed(2) + ':1 BY WEIGHT',
       noCatOn: catClass === 'needs' ? 'none' : 'block',
       mixStepsOn: catClass === 'needs' ? 'grid' : 'none',
+      ratioOn: catClass === 'needs' ? 'block' : 'none',
       noCatBorder: catClass === 'check' ? 'var(--k-gold)' : 'var(--k-line)',
       noCatInk: catClass === 'check' ? 'var(--k-gold-soft)' : 'var(--k-label)',
       noCatTitle: catClass === 'check' ? 'CHECK THE TDS' : 'NO CATALYST',
@@ -949,13 +867,15 @@ class Component extends DCLogic {
       ratioNote: (PRESETS.filter((p) => p.id === s.preset)[0] || { note: 'Custom — Elite runs 12:1 to 24:1, H-Series 18:1. not a slider.' }).note,
 
       mFwd: this.pick({ mode: 'forward' }), mRev: this.pick({ mode: 'reverse' }),
-      weightLabel: 'COATING WEIGHT · G',
+      weightLabel: 'WEIGHT',
       weight: s.weight,
       setWeight: this._sw || (this._sw = (e) => {
         if (!this.matched()) return;
         const v = e.target.value;
         this.setState({ weight: v === '' ? '' : Math.max(0, parseFloat(v) || 0) });
       }),
+      clearOff: !(s.weight !== '' && s.weight !== null && s.weight !== undefined),
+      clearOffStr: String(!(s.weight !== '' && s.weight !== null && s.weight !== undefined)),
       clearWeight: this._cw || (this._cw = (e) => { if (e) e.preventDefault(); this.setState({ weight: '' }); }),
       // The field carries the accent until a weight exists — the answer waits on it.
       weightStyle: Number(s.weight) > 0
@@ -977,9 +897,13 @@ class Component extends DCLogic {
       colDir: oneCol ? 'column' : 'row',
       colAlign: oneCol ? 'stretch' : 'flex-start',
       step1Dir: (view === 'stack') ? 'row' : 'column',
-      fieldDir: (view === 'stack') ? 'column' : 'row',
-      fieldGrow: (view === 'stack') ? '1 1 0' : '1 1 44%',
-      fieldGrow2: (view === 'stack') ? '1 1 0' : '1 1 56%',
+      fieldDir: (view === 'stack' || view === 'mobile') ? 'column' : 'row',
+      fieldGrow: (view === 'stack' || view === 'mobile') ? '1 1 0' : '1 1 44%',
+      fieldGrow2: (view === 'stack' || view === 'mobile') ? '1 1 0' : '1 1 56%',
+      thumbPx: view === 'mobile' ? 64 : 112,
+      nameSize: view === 'mobile' ? '14px' : '16px',
+      infoRow: view === 'mobile' ? '4px' : '8px',
+      infoGap: view === 'mobile' ? '16px' : '32px',
       sideStyle: view === 'split' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
       stackStyle: view === 'stack' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
       tabletStyle: view === 'tablet' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
@@ -1013,6 +937,8 @@ class Component extends DCLogic {
       mixOpacity: (Number(s.weight) > 0) ? '1' : '0.4',
       logOn: s.log.length ? 'block' : 'none',
       logCount: s.log.length,
+      logNoun: s.log.length === 1 ? 'ENTRY' : 'ENTRIES',
+      jobNoun: jobs.length === 1 ? 'MIX' : 'MIXES',
       exportLog: this.exportLog,
       clearLog: this.clearLog,
       logRows: s.log.slice().reverse().map((l) => {
@@ -1036,10 +962,16 @@ class Component extends DCLogic {
       optionGroups: this.groupedOptions(f),
       selectCode: f ? f.code : '',
       selectName: f ? f.name : 'Select a product',
+      selectAria: f ? 'Product: ' + f.code + ' ' + f.name + (f.laserOptimized ? ', laser optimized' : '') + '. Open list' : 'Select a product',
+      listOpen: !!s.listOpen,
+      sugOpen: !!(s.sugOpen && String(s.code || '').trim()),
+      ratioText: (Number(s.ratio) || 18) + ' to 1',
+      zoomCloseRef: this._zref || (this._zref = React.createRef()),
+      zoomKey: this._zk || (this._zk = (e) => { if (e.key === 'Escape') { e.preventDefault(); this.setState({ zoom: false }); } }),
       selectLaser: this.laserTag(f && f.laserOptimized),
       listOn: s.listOpen ? 'block' : 'none',
       toggleList: this._tl || (this._tl = (e) => { if (e) e.preventDefault(); this.setState((st) => ({ listOpen: !st.listOpen })); }),
-      copyLabel: s.copied ? 'COPIED' : 'COPY THE LINE',
+      copyLabel: s.copied ? 'COPIED' : 'COPY',
 
       jobs: jobs.map((j) => ({
         title: j.code + (j.name ? ' · ' + j.name : ''),
