@@ -204,7 +204,7 @@
           </div>
           </div>
           <div style="{{ gateStyle }};display:grid;gap:12px" data-gate="1">
-          <div style="display:flex;flex-wrap:{{ rowWrap }};gap:{{ rowGap }};align-items:flex-start">
+          <div style="display:flex;flex-wrap:nowrap;gap:{{ rowGap }};align-items:flex-start">
           <div style="flex:{{ weightFlex }};min-width:0">
           <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
             <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:{{ stepNum }};letter-spacing:0.1em;color:var(--k-label)">02</span>
@@ -219,14 +219,14 @@
             </div>
           </div>
           </div>
-          <div style="display:{{ ratioColOn }};flex:{{ ratioFlex }};min-width:0">
+          <div style="display:{{ ratioColOn }};flex:1 1 0;min-width:0">
           <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
             <span style="flex:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:{{ stepNum }};letter-spacing:0.1em;color:var(--k-label)">03</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase;white-space:nowrap;font-size:{{ stepFont }}">The ratio</span>
           </div>
-          <div style="display:flex;align-items:stretch;flex-wrap:{{ presetWrap }};gap:{{ presetGap }}">
+          <div style="display:flex;align-items:stretch;flex-wrap:nowrap;gap:{{ presetGap }}">
             <sc-for list="{{ presets }}" as="p" hint-placeholder-count="3">
-              <button type="button" class="s-seg" style="padding:0 4px;height:{{ cellH }};box-sizing:border-box;border:1px solid var(--k-line);flex:{{ cellFlex }};min-width:0;flex-direction:column;justify-content:center;text-align:center;white-space:normal;gap:4px;{{ p.style }}" onClick="{{ p.pick }}">
+              <button type="button" class="s-seg" style="padding:0 4px;height:76px;box-sizing:border-box;border:1px solid var(--k-line);flex:1 1 0;min-width:0;flex-direction:column;justify-content:center;text-align:center;white-space:normal;gap:4px;{{ p.style }}" onClick="{{ p.pick }}">
                 <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ ratioFont }};line-height:1;letter-spacing:0">{{ p.ratioLabel }}</span>
                 <span style="font-size:{{ glossFont }};letter-spacing:0;line-height:1.2;text-align:center">{{ p.glossLabel }}</span>
               </button>
@@ -858,8 +858,6 @@ class Component extends DCLogic {
       noCatHead: catClass === 'check' ? 'Not verified' : 'Single component',
       noCatBody: this.noCatalystNote(f ? f.code : s.code),
       catalystPart: this.catalystFor(f).part,
-      catalystNote: this.catalystFor(f).note,
-      ratioNote: (PRESETS.filter((p) => p.id === s.preset)[0] || PRESETS[1]).note,
 
       mFwd: this.pick({ mode: 'forward' }), mRev: this.pick({ mode: 'reverse' }),
       weightLabel: 'WEIGHT',
@@ -906,17 +904,11 @@ class Component extends DCLogic {
       stepFont: view === 'mobile' ? '14px' : '18px',
       stepNum: view === 'mobile' ? '13px' : '18px',
       weightFlex: view === 'mobile' ? '0 0 136px' : view === 'stack' ? '0 0 280px' : '0 0 200px',
-      ratioFlex: '1 1 0',
-      rowWrap: 'nowrap',
       weightFont: view === 'mobile' ? '30px' : '38px',
       presetGap: view === 'mobile' ? '4px' : '8px',
       ratioFont: view === 'mobile' ? '15px' : '17px',
       glossFont: view === 'mobile' ? '8px' : '10px',
       clearInset: view === 'mobile' ? '6px' : '12px',
-      presetWrap: 'nowrap',
-      cellH: '76px',
-      cellFlex: '1 1 0',
-      customFlex: view === 'mobile' ? '1 1 40%' : '1.3 1 0',
       infoGap: view === 'mobile' ? '16px' : '32px',
       sideStyle: view === 'split' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
       stackStyle: view === 'stack' ? 'background:var(--k-field);color:var(--k-gold-soft)' : '',
