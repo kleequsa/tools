@@ -12,7 +12,15 @@ npx serve .
 python3 -m http.server
 ```
 
-Open `index.html`. Works as-is on GitHub Pages, Netlify, Cloudflare Pages or any static host.
+Open `index.html`.
+
+## Deploy
+
+Live at https://tools.kleeq.com/mixing-calculator/ via Cloudflare Workers static assets. `wrangler.jsonc` points at this folder; `.assetsignore` keeps docs and config out of the public build.
+
+```
+npx wrangler deploy
+```
 
 ## Files
 

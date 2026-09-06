@@ -1,5 +1,17 @@
 # Handoff: KLEEQ Mixing Calculator
 
+## Changelog — 2026-09-06 (v2, "Lite")
+- Four themes on `<html data-kleeq-theme>`: `glass` (default; iOS-style rounded translucent surfaces, system font stack, floating bottom bar and product bottom sheet on phones), `dark`, `light`, `modernist` (site design system: light ground, red accent, Archivo, 2px rules). Theme is not persisted.
+- Real phones (< 640px) always get the phone layout regardless of the saved layout toggle; layout re-evaluates on resize.
+- Removed the reverse ("from total") mode and its toggle. The mix always runs coating → catalyst + total.
+- Removed the job sheet, log, name/notes fields and CSV export from this build. Remaining actions: COPY, SHARE (native share sheet → clipboard fallback; disabled until a mix exists), RESET, rounding 0.1 / 0.01 g.
+- Sticky Add Catalyst / Total bar on phones when the mix scrolls out of view; stacks label over figure under 400px.
+- Instructions / Notes / Source / About are four independent accordions (+ / −), collapsed by default on phones, always open in two columns elsewhere; titles and body in the muted label grey.
+- Dropdown chevrons are 16px Lucide chevrons; Cerakote product link uses the Lucide external-link icon; thumbnails fill their rounded frames.
+- Search: 16px on phones (no iOS zoom), placeholder "Code or colour name"; a name search no longer shows the "no match" error while suggestions exist.
+- New KLEEQ logo (mark + wordmark + "Driven by Precision", viewBox 0 0 720 280) in `kleeq-logo.svg` and inline in the header, linked to https://www.kleeq.com.
+- Resume / Recent chips restore the last mix and the last five coatings from localStorage (`kleeq-mix-last`, `kleeq-mix-recent`, `kleeq-mix-dp`, `kleeq-mix-docs`).
+
 ## Overview
 A bench tool for Cerakote applicators. The user picks a coating from the full Cerakote catalogue, enters the weight of coating in the cup, chooses a mixing ratio, and reads back the catalyst to add and the total weight. Mixes can be named and filed to a job sheet (with totals and CSV export) and a longer-lived log.
 
