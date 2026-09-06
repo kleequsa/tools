@@ -338,6 +338,7 @@ let FX = null;
 // 10 g @ 12:1 → 0.63.
 const SG = 1.321;
 const COLS_KEY = 'kleeq.mixing.onecol';
+const THEME_KEY = 'kleeq.mixing.theme';
 
 // Ratios as published by Cerakote: H-Series 18:1 by weight; Elite between
 // 12:1 and 24:1 depending on the gloss being built.
@@ -368,7 +369,9 @@ class Component extends DCLogic {
   componentDidMount() {
     import('./kleeq-finish-render.js').then((m) => { FX = m; this.forceUpdate(); }).catch(() => {});
     document.addEventListener('mousedown', this._outside, true);
-    this.setTheme('dark');
+    let savedTheme = null;
+    try { savedTheme = window.localStorage.getItem(THEME_KEY); } catch (e) {}
+    this.setTheme(savedTheme === 'light' ? 'light' : 'dark');
     fetch('kleeq-finishes.json').then((r) => r.json()).then((d) => this.setState({ data: d })).catch(() => {});
     try {
       const savedView = window.localStorage.getItem(COLS_KEY);
@@ -455,6 +458,7 @@ class Component extends DCLogic {
   }
 
   setTheme = (v) => {
+    try { window.localStorage.setItem(THEME_KEY, v); } catch (e) {}
     document.documentElement.setAttribute('data-kleeq-theme', v);
     this.setState({ theme: v });
   };

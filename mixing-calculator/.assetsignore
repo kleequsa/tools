@@ -5,3 +5,4 @@ wrangler.jsonc
 .gitignore
 .DS_Store
 /.git/
+/.wrangler/
