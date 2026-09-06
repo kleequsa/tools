@@ -1,0 +1,34 @@
+name: Sync Cerakote catalogue
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'   # Mondays 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check cerakote.com for new finishes
+        id: sync
+        run: |
+          node scripts/sync-cerakote.mjs | tee out.txt
+          grep -o 'changed=.*' out.txt >> "$GITHUB_OUTPUT"
+      - name: Open pull request
+        if: steps.sync.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: sync/cerakote-catalogue
+          title: 'Catalogue: new Cerakote finishes'
+          body-path: .sync-summary.md
+          commit-message: 'Catalogue: add new Cerakote finishes'
+          add-paths: mixing-calculator/kleeq-finishes.json
+          delete-branch: true
