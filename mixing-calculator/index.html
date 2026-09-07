@@ -474,6 +474,14 @@ class Component extends DCLogic {
       this.setState({ recent: Array.isArray(r) ? r.slice(0, 5) : [], resume: (last && last.code) ? last : null, dp: dp === '1' ? 1 : 2 });
     } catch (e) {}
     try { const d = JSON.parse(window.localStorage.getItem('kleeq-mix-docs') || '{}'); if (d && typeof d === 'object') this.setState({ docs: d }); } catch (e) {}
+    // MIX IT in the finish catalogue links here as ?code=H-146. Take that over
+    // the resumed mix — the code in the link is what was just asked for. It is
+    // matched against the catalogue the same way a typed code is, so an
+    // unknown one simply leaves the field showing what arrived.
+    try {
+      const code = new URLSearchParams(window.location.search).get('code');
+      if (code && code.trim()) this.setState({ code: code.trim().toUpperCase(), ratio: 18, preset: 'r18', resume: null });
+    } catch (e) {}
     if ('IntersectionObserver' in window) {
       this._io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting !== this.state.mixSeen) this.setState({ mixSeen: e.isIntersecting }); }); }, { threshold: 0.2 });
       this._ioTarget = null;
