@@ -16,6 +16,9 @@
   </svg>
 </template>
 <title>KLEEQ Tools</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="vendor/modernist.css">
 <script src="vendor/modernist-bundle.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
@@ -151,10 +154,6 @@
       </div>
       <div style="display:grid;gap:18px;max-width:56ch">
       <p style="margin:0;font-size:16px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">KLEEQ runs these every day. The core tools are free for any applicator; the Pro tier adds job logging, team sync and export for shops that want a record of every mix.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a class="c-seg" style="background:var(--k-gold);color:var(--k-on-gold);border-color:var(--k-gold);min-height:40px;padding:0 16px" href="mixing-calculator/">OPEN THE CALCULATOR</a>
-        <a class="c-seg" style="min-height:40px;padding:0 16px" href="finish-catalogue/">BROWSE FINISHES</a>
-      </div>
       </div>
     </div>
   </section>
@@ -222,7 +221,7 @@
   </section>
 
   <section style="margin:0 auto;padding:0 clamp(14px,2.4vw,40px) 56px">
-    <div style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:22px">
+    <div style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:22px;opacity:0.45;filter:brightness(0.6) saturate(0.5)">
       <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
         <span class="c-lab" style="margin:0">COMING SOON · FREE</span>
         <span style="font-size:12px;color:var(--k-label)">In the studio now. Leave an email and we will tell you when each one ships.</span>
@@ -287,7 +286,7 @@
   </section>
 
   <section style="margin:0 auto;padding:0 clamp(14px,2.4vw,40px) 56px">
-    <div style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:22px">
+    <div style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:22px;opacity:0.45;filter:brightness(0.6) saturate(0.5)">
       <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
         <span class="c-lab" style="margin:0">UPCOMING · PRO</span>
         <span style="font-size:12px;color:var(--k-label)">In development. Subscription tier for shops that need a record; pricing announced with the waitlist.</span>
@@ -363,6 +362,60 @@
                 <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label)">FROM $—/MO</span>
               </div>
             </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin:0 auto;padding:0 clamp(14px,2.4vw,40px) 56px" data-screen-label="Why">
+    <div style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:28px">
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+        <span class="c-lab" style="margin:0">WHY WE BUILD THESE</span>
+        <span style="font-size:12px;color:var(--k-label)">A note from the founder.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:32px 48px;align-items:start">
+        <div style="display:grid;gap:20px;max-width:62ch">
+          <h2 style="margin:0;font-size:clamp(28px,3vw,42px);line-height:1.02;letter-spacing:-0.01em;color:var(--k-ink);text-wrap:pretty">A spray booth has the same problems as a software shop. Nobody was writing the software.</h2>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:var(--k-copy);text-wrap:pretty">Every applicator keeps a version of the same notebook: catalyst ratios scribbled on the wall, a swatch board that never quite matches the bottle, laser settings that live in one person's head. The work is precise and the tooling around it is not. We spent a year mixing, coating and engraving before it became obvious that the fix was something we already knew how to make.</p>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:var(--k-copy);text-wrap:pretty">So these tools are built the way we would want them on our own bench: fast on a phone with gloves on, honest about the data they use, and free wherever the job is simply getting the numbers right. The Pro tier exists for shops that need a record, and it will pay for the free ones to stay free.</p>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:var(--k-copy);text-wrap:pretty">If something here saves you a bad mix or a wasted part, it did its job. Tell us what to build next.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;border:1px solid var(--k-line);background:var(--k-panel);padding:20px;border-radius:var(--k-r)">
+          <div class="grayscale" style="width:112px;aspect-ratio:3/4;overflow:hidden;border-radius:var(--k-r-sm);flex:none">
+            <img src="faran-najafi.png" alt="Faran Najafi, founder and CEO of KLEEQ" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block">
+          </div>
+          <div style="display:grid;gap:10px;min-width:0">
+            <div style="display:grid;gap:3px">
+              <span style="font-size:18px;font-weight:700;line-height:1.1;color:var(--k-ink)">Faran Najafi</span>
+              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.14em;color:var(--k-gold-soft)">FOUNDER &amp; CEO · KLEEQ</span>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">Twenty-five years in technology, designing and building software for startups and Fortune 500 companies including Adobe, Oracle and Salesforce. Faran founded KLEEQ to follow a long-held passion: bringing a designer's eye and an engineer's rigour into the industrial and manufacturing space. While the shop focuses on coating and engraving for the tactical, aerospace and automotive industries, he is building the software he wishes he had, and sharing it with everyone else at the bench.</p>
+            <a href="https://www.kleeq.com" style="font-family:var(--k-mono);font-size:11px;letter-spacing:0.1em;color:var(--k-gold-soft);justify-self:start">KLEEQ.COM →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin:0 auto;padding:0 clamp(14px,2.4vw,40px) 56px" data-screen-label="Connect">
+    <div style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px 48px;align-items:start">
+      <div style="display:grid;gap:14px;max-width:56ch">
+        <span class="c-lab" style="margin:0">LET'S CONNECT AND COLLABORATE</span>
+        <h2 style="margin:0;font-size:clamp(24px,2.6vw,34px);line-height:1.05;letter-spacing:-0.01em;color:var(--k-ink);text-wrap:pretty">Built in the shop, shaped by the people who use it.</h2>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:var(--k-copy);text-wrap:pretty">If you run a coating, engraving or fabrication shop and have a problem worth solving, we want to hear it. Applicators, suppliers and developers are all welcome: send a request, a bug, a dataset or a partnership idea.</p>
+      </div>
+      <div style="display:grid;gap:0;border:1px solid var(--k-line);background:var(--k-panel);border-radius:var(--k-r);align-self:stretch">
+        <a href="mailto:connect@kleeq.com" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 20px;border-bottom:1px solid var(--k-line);color:var(--k-ink)">
+          <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.14em;color:var(--k-label)">EMAIL</span>
+          <span style="font-size:15px;font-weight:600">connect@kleeq.com →</span>
+        </a>
+        <a href="https://instagram.com/kleequsa" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 20px;border-bottom:1px solid var(--k-line);color:var(--k-ink)">
+          <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.14em;color:var(--k-label)">INSTAGRAM</span>
+          <span style="font-size:15px;font-weight:600">@kleequsa →</span>
+        </a>
+        <a href="https://www.kleeq.com" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 20px;color:var(--k-ink)">
+          <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.14em;color:var(--k-label)">WEB</span>
+          <span style="font-size:15px;font-weight:600">kleeq.com →</span>
+        </a>
       </div>
     </div>
   </section>
