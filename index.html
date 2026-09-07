@@ -30,7 +30,7 @@
     --k-line:var(--k-line); --k-rule:var(--k-label); --k-label:#9c958a; --k-copy:#c9c3b9;
     --k-ink:#ddd8d0; --k-gold:var(--k-gold); --k-gold-soft:var(--k-gold-soft); --k-on-gold:var(--k-on-gold);
     --k-warn:#c9272e; --k-mono-w:400; --k-mono:'IBM Plex Mono', ui-monospace, monospace; --k-rule-w:1px; --k-r:0px; --k-r-sm:0px; --k-glass:var(--k-panel); --k-blur:none; --k-sel:var(--k-field); --k-pop-line:var(--k-label);
-    --k-bronze:#26190d; --k-bronze-hi:rgba(120,76,30,0.4); --k-bronze-lo:rgba(70,45,22,0.45);
+    --k-bronze:#1c1209; --k-bronze-hi:rgba(95,60,24,0.36); --k-bronze-lo:rgba(55,35,17,0.4);
   }
   :root[data-kleeq-theme="light"] {
     color-scheme: light;
@@ -64,7 +64,7 @@
     --font-heading:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', system-ui, sans-serif;
     --font-body:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
     --k-glass:rgba(38,36,33,0.62); --k-blur:saturate(160%) blur(22px); --k-sel:rgba(217,166,64,0.2); --k-pop-line:rgba(255,255,255,0.12);
-    --k-bronze:#1c140a; --k-bronze-hi:rgba(130,86,30,0.42); --k-bronze-lo:rgba(80,50,20,0.5);
+    --k-bronze:#140e06; --k-bronze-hi:rgba(100,66,24,0.38); --k-bronze-lo:rgba(60,38,15,0.45);
   }
   :root[data-kleeq-theme="glass"] h1, :root[data-kleeq-theme="glass"] h2, :root[data-kleeq-theme="glass"] h3 { font-stretch: 100%; font-weight: 700; letter-spacing: -0.01em; }
   :root[data-kleeq-theme="glass"] .c-seg { letter-spacing: 0.02em; font-weight: 600; background: var(--k-field); border-color: transparent; box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
@@ -102,8 +102,7 @@
 </helmet>
 
 <div style="background:var(--k-bg);color:var(--k-ink);font-family:var(--font-body);min-height:100vh;position:relative;isolation:isolate">
-  <div aria-hidden="true" style="position:absolute;inset:0 0 auto 0;height:min(720px,90vh);z-index:-1;pointer-events:none;background:radial-gradient(90% 70% at 20% 0%, var(--k-bronze-hi) 0%, transparent 60%), radial-gradient(70% 60% at 85% 10%, var(--k-bronze-lo) 0%, transparent 55%), linear-gradient(180deg, var(--k-bronze) 0%, var(--k-bg) 100%)">
-    <div aria-hidden="true" style="position:absolute;inset:0;opacity:0.05;pointer-events:none;background:url('kleeq-star-camo.svg') center top / cover no-repeat"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0 0 auto 0;height:min(720px,90vh);z-index:-1;pointer-events:none;background:radial-gradient(90% 70% at 20% 0%, var(--k-bronze-hi) 0%, transparent 60%), radial-gradient(70% 60% at 85% 10%, var(--k-bronze-lo) 0%, transparent 55%), linear-gradient(180deg, var(--k-bronze) 0%, var(--k-bg) 100%);-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)">
   </div>
     <div style="max-width:1400px;margin:0 auto">
   <header style="margin:0 auto;padding:clamp(20px,3vw,36px) {{ padX }} 8px">

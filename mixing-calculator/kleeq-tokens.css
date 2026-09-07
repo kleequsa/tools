@@ -105,3 +105,17 @@
   --k-gold:#8a6612; --k-gold-soft:#6b5010; --k-on-gold:#ffffff;
   --k-warn:#a3121a; --k-mono-w:500;
 }
+/* Glass: the iOS 26 idiom — translucent layers, rounded concentric shapes, system type. Default across the tools. */
+:root[data-kleeq-theme="glass"] {
+  color-scheme: dark;
+  --k-bg:#0e0d0c; --k-panel:rgba(40,38,35,0.72); --k-sticky:rgba(30,29,27,0.9); --k-field:rgba(255,255,255,0.07);
+  --k-hair:rgba(255,255,255,0.08); --k-line:rgba(255,255,255,0.14); --k-rule:rgba(255,255,255,0.22); --k-label:#a39c91;
+  --k-dune:#bfb7ab; --k-copy:#d3cdc4; --k-ink:#f2eee8;
+  --k-gold:#d9a640; --k-gold-soft:#ecc76c; --k-on-gold:#17150f;
+  --k-warn:#ff6b60; --k-mono-w:500; --k-rule-w:1px; --k-r:20px; --k-r-sm:12px;
+  --k-mono:ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-heading:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', system-ui, sans-serif;
+  --font-body:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+  --k-glass:rgba(38,36,33,0.62); --k-blur:saturate(160%) blur(22px); --k-sel:rgba(217,166,64,0.2); --k-pop-line:rgba(255,255,255,0.12);
+}
+:root[data-kleeq-theme="glass"] body { background: var(--k-bg); color: var(--k-ink); }
