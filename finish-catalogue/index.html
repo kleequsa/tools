@@ -606,7 +606,8 @@ class Component extends DCLogic {
   toggleCmp(code) { return (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } this.setState((s) => { const c = code.toUpperCase(); if (s.cmp.indexOf(c) >= 0) return { cmp: s.cmp.filter((x) => x !== c) }; if (s.cmp.length >= 3) return { cmp: s.cmp.slice(1).concat([c]) }; return { cmp: s.cmp.concat([c]) }; }); }; }
   findSimilar(code) { return (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } this.setState({ similar: code.toUpperCase(), open: null, cat: 'ALL', series: 'ALL', query: '', laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, sort: 'code' }); setTimeout(() => { const el = document.getElementById('results'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 12, behavior: 'smooth' }); }, 50); }; }
   openF(code) { return (e) => { if (e) e.preventDefault(); this.setState({ open: code.toUpperCase(), copied: false }); }; }
-  swatch(f) { if (f.live) return 'repeating-linear-gradient(135deg, var(--k-field) 0 8px, transparent 8px 16px), var(--k-panel)'; return f.thumb ? 'url("' + f.thumb + '") center/contain no-repeat, ' + (this.hexOf(f) || 'var(--k-field)') : (f.hex ? gradFor(f) : 'var(--k-field)'); }
+  fieldColor() { try { const v = getComputedStyle(document.documentElement).getPropertyValue('--k-field').trim(); if (v && !v.startsWith('var(')) return v; } catch (e) {} return '#2a2825'; }
+  swatch(f) { const fld = this.fieldColor(); if (f.live) return 'repeating-linear-gradient(135deg, ' + fld + ' 0 8px, transparent 8px 16px), ' + fld; return f.thumb ? 'url("' + f.thumb + '") center/contain no-repeat ' + (this.hexOf(f) || fld) : (f.hex ? gradFor(f) : fld); }
   specOf(f) {
     const s = this.seriesOf(f), si = seriesInfo(s), hex = this.hexOf(f), l = this.lum(f);
     return {
