@@ -194,32 +194,12 @@
       <span class="c-lab" style="margin:0;padding:{{ labPad }};padding-right:24px;border-bottom:{{ labRule }};align-self:stretch;display:flex;align-items:center">SHOW ONLY</span>
       <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0;border-bottom:1px solid var(--k-line)">
         <button type="button" class="c-seg" style="{{ laserStyle }}" onClick="{{ toggleLaser }}"><span style="margin-right:10px">{{ nLaser }}</span>★ LASER OPTIMIZED</button>
-        <button type="button" class="c-seg" style="{{ measuredStyle }}" onClick="{{ toggleMeasured }}"><span style="margin-right:10px">{{ nMeasured }}</span>MEASURED</button>
         <button type="button" class="c-seg" style="{{ trendStyle }}" onClick="{{ toggleTrend }}" title="Trending: the most-requested Cerakote colours, ranked from applicator and gunsmith reports (2025)"><span style="margin-right:10px">{{ nTrend }}</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-right:5px"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>TRENDING</button>
         <button type="button" class="c-seg" style="display:{{ newChipOn }};{{ newStyle }}" onClick="{{ toggleNew }}" title="Listed on cerakote.com this year"><span style="margin-right:10px">{{ nNew }}</span>NEW {{ thisYear }}</button>
         <a class="c-seg" style="gap:6px" href="https://www.cerakote.com/shop/cerakote-coating" target="_blank" rel="noopener noreferrer">CERAKOTE SHOP <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--k-gold-soft)"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
         <button type="button" class="c-seg" style="display:{{ showResetOn }}" onClick="{{ resetShow }}" title="Clear Show Only filters">RESET</button>
         <button type="button" class="c-seg" style="display:{{ stockChipOn }};{{ stockStyle }}" onClick="{{ toggleStock }}"><span style="margin-right:10px">{{ nStock }}</span>IN STOCK AT KLEEQ</button>
-      </div>      <span class="c-lab" style="margin:0;padding:{{ labPad }};padding-right:24px;border-bottom:{{ labRule }};align-self:stretch;display:flex;align-items:center">COLLECTION</span>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0;border-bottom:1px solid var(--k-line)">
-        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
-          <button type="button" class="c-seg" style="{{ f.style }}" onClick="{{ f.pick }}"><span style="margin-right:10px">{{ f.label }}</span>{{ f.name }}</button>
-        </sc-for>
-        <sc-for list="{{ customFilters }}" as="f" hint-placeholder-count="0">
-          <span style="display:inline-flex">
-            <button type="button" class="c-seg" style="{{ f.style }}" onClick="{{ f.pick }}"><span style="margin-right:10px">{{ f.label }}</span>{{ f.name }}</button>
-            <button type="button" class="c-seg" style="border-left:none;padding:0 10px;{{ f.style }}" onClick="{{ f.remove }}" title="Delete collection" aria-label="Delete collection">×</button>
-          </span>
-        </sc-for>
-        <button type="button" class="c-seg" style="display:{{ addBtnOn }};align-items:center;color:var(--k-gold-soft);border-color:var(--k-gold)" onClick="{{ toggleAdding }}">+ NEW COLLECTION</button>
-        <button type="button" class="c-seg" style="display:{{ catResetOn }};align-items:center" onClick="{{ resetCat }}" title="Back to all finishes">RESET</button>
-        <span style="display:{{ addingOn }};gap:6px;align-items:center">
-          <input class="c-in" style="width:200px;min-height:35px;padding:0 10px" value="{{ newName }}" onInput="{{ setNewName }}" onKeyDown="{{ onNameKey }}" placeholder="Collection name" aria-label="New collection name" autoFocus="{{ true }}">
-          <button type="button" class="c-seg" style="background:var(--k-gold);color:var(--k-on-gold);border-color:var(--k-gold)" onClick="{{ createCollection }}">CREATE</button>
-          <button type="button" class="c-seg" onClick="{{ toggleAdding }}">CANCEL</button>
-        </span>
-      </div>
-      <span class="c-lab" style="margin:0;padding:{{ labPad }};padding-right:24px;align-self:center">SERIES</span>
+      </div>      <span class="c-lab" style="margin:0;padding:{{ labPad }};padding-right:24px;align-self:center">SERIES</span>
       <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0">
         <sc-for list="{{ seriesFilters }}" as="f" hint-placeholder-count="8">
           <button type="button" class="c-seg" style="{{ f.style }}" onClick="{{ f.pick }}" title="{{ f.title }}"><span style="margin-right:10px">{{ f.label }}</span>{{ f.name }}</button>
@@ -232,7 +212,7 @@
   <section id="results" style="margin:0 auto;padding:0 clamp(24px,4vw,64px) 56px">
     <div style="border-top:1px solid var(--k-line);padding-top:26px">
       <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;flex-wrap:wrap;margin-bottom:16px;flex-direction:{{ sortDir }}">
-        <span class="c-lab" style="margin:0">CERAKOTE · {{ count }} SHOWN OF {{ total }}{{ liveNote }} <span style="display:{{ emptyCollOn }};color:var(--k-gold-soft)">· THIS COLLECTION IS EMPTY — PICK ALL AND USE + ON A SWATCH</span><span style="display:{{ similarOn }};color:var(--k-gold-soft)">· SIMILAR TO {{ similarTo }} <button type="button" class="c-seg" style="min-height:24px;padding:0 8px;margin-left:8px;font-size:10px" onClick="{{ clearSimilar }}">CLEAR</button></span></span>
+        <span class="c-lab" style="margin:0">CERAKOTE · {{ count }} SHOWN OF {{ total }}{{ liveNote }}<span style="display:{{ similarOn }};color:var(--k-gold-soft)">· SIMILAR TO {{ similarTo }} <button type="button" class="c-seg" style="min-height:24px;padding:0 8px;margin-left:8px;font-size:10px" onClick="{{ clearSimilar }}">CLEAR</button></span></span>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
           <span class="c-lab" style="margin:0">SORT</span>
           <div class="s-pill" style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line);border-radius:var(--k-r-sm)">
@@ -267,15 +247,11 @@
                       <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.code }}</span><span style="font-family:var(--k-mono);font-size:8px;letter-spacing:0.12em;color:var(--k-label)">{{ r.series }}</span></span>
                       <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:14px;line-height:1.2;color:var(--k-ink)">{{ r.name }}</span>
                       <span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.06em;color:var(--k-label);line-height:1.5">{{ r.meta }}</span>
-                      <span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.coll }}</span>
                     </div>
                   </button>
                   <div style="display:flex;gap:6px;padding:{{ cardFootPad }};flex-wrap:wrap;align-self:end">
                     <button type="button" class="c-seg" style="min-height:28px;padding:0 9px;font-size:9px;white-space:nowrap;flex:none;{{ r.cmpStyle }}" onClick="{{ r.toggleCmp }}" title="Add to compare">{{ r.cmpLabel }}</button>
                     <button type="button" class="c-seg" style="min-height:28px;padding:0 9px;font-size:9px;white-space:nowrap;flex:none" onClick="{{ r.similar }}" title="Find similar finishes">SIMILAR</button>
-                    <sc-for list="{{ r.colls }}" as="c" hint-placeholder-count="0">
-                      <button type="button" class="c-seg" style="min-height:28px;padding:0 9px;font-size:9px;white-space:nowrap;flex:none;{{ c.style }}" onClick="{{ c.toggle }}">{{ c.label }}</button>
-                    </sc-for>
                   </div>
                 </div>
               </sc-for>
@@ -343,7 +319,6 @@
           <dt>CURE</dt><dd>{{ d.cure }}</dd>
           <dt>MIX RATIO</dt><dd>{{ d.ratio }}</dd>
           <dt>CATALYST</dt><dd>{{ d.catalyst }}</dd>
-          <dt>COLLECTION</dt><dd>{{ d.coll }}</dd>
           <dt>TRENDING</dt><dd>{{ d.trend }}</dd>
           <dt>LISTED</dt><dd>{{ d.listed }}</dd>
         </dl>
@@ -441,18 +416,6 @@ const words = (n) => String(n || '').toLowerCase().split(/[^a-z]+/).filter((w) =
 class Component extends DCLogic {
   state = { theme: 'glass', view: 'desktop', data: null, query: '', cat: 'ALL', sort: 'code', series: 'ALL', laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, live: null, hit: '', custom: [], newName: '', adding: false, open: null, cmp: [], cmpOpen: false, similar: null, copied: false, sampled: {} };
 
-  saveCustom(custom) { try { window.localStorage.setItem('kleeq.catalogue.collections', JSON.stringify(custom)); } catch (e) {} this.setState({ custom: custom }); }
-  toggleAdding = (e) => { if (e) e.preventDefault(); this.setState((s) => ({ adding: !s.adding, newName: '' })); };
-  setNewName = (e) => this.setState({ newName: e.target.value });
-  createCollection = (e) => {
-    if (e) e.preventDefault();
-    const name = this.state.newName.trim();
-    if (!name || this.state.custom.some((c) => c.name.toLowerCase() === name.toLowerCase())) return;
-    this.saveCustom(this.state.custom.concat([{ name: name, codes: [] }]));
-    this.setState({ adding: false, newName: '' });
-  };
-  deleteCollection = (name) => (e) => { if (e) e.preventDefault(); if (!window.confirm('Delete collection "' + name + '"?')) return; this.saveCustom(this.state.custom.filter((c) => c.name !== name)); this.setState({ cat: 'ALL' }); };
-  toggleInCollection = (name, code) => (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } this.saveCustom(this.state.custom.map((c) => c.name !== name ? c : Object.assign({}, c, { codes: c.codes.indexOf(code) >= 0 ? c.codes.filter((x) => x !== code) : c.codes.concat([code]) }))); };
 
   hexOf(f) { return f.hex || this.state.sampled[f.code] || null; }
   lum(f) {
@@ -589,7 +552,6 @@ class Component extends DCLogic {
     this.setTheme('glass');
     try { const v = window.localStorage.getItem('kleeq-cat-view'); if (['desktop', 'tablet', 'mobile'].indexOf(v) >= 0) this.setState({ view: v }); } catch (e) {}
     try {
-      const cc = window.localStorage.getItem('kleeq.catalogue.collections'); if (cc) this.setState({ custom: JSON.parse(cc) });
       const cm = window.localStorage.getItem('kleeq.catalogue.compare'); if (cm) this.setState({ cmp: JSON.parse(cm).slice(0, 3) });
       const u = this.readUrl(); this.setState(u);
       if (u.hit) setTimeout(() => { const el = document.getElementById('cat-' + u.hit.replace(/[^A-Za-z0-9]/g, '_')); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80 }); }, 1200);
@@ -659,7 +621,6 @@ class Component extends DCLogic {
     const cmpSet = st.cmp;
     const cmpLabel = (code) => cmpSet.indexOf(code.toUpperCase()) >= 0 ? '✓ COMPARING' : '+ COMPARE';
     const cmpStyle = (code) => cmpSet.indexOf(code.toUpperCase()) >= 0 ? 'border-color:var(--k-gold);color:var(--k-gold-soft)' : '';
-    const collOf = (f) => [f.measured ? (f.wall === 'signature' ? 'SIGNATURE' : 'PALETTE') : 'CORE'].concat(st.custom.filter((c) => c.codes.indexOf(f.code) >= 0).map((c) => c.name.toUpperCase())).join(' · ');
 
     // grouped rows
     const order = [], byS = {};
@@ -678,11 +639,9 @@ class Component extends DCLogic {
         newOn: isNew(f) ? 'inline-block' : 'none', newLabel: newLabel(f),
         cmpOn: ci >= 0 ? 'inline-block' : 'none', cmpIdx: ci + 1,
         meta: f.measured ? (f.hex + ' · ' + (f.sheen || '—') + ' · LRV ' + l.toFixed(1) + '%') : ((f.sheen ? f.sheen + ' · ' : '') + (hex ? hex.toUpperCase() + ' · SAMPLED' : f.live ? 'NEW ON CERAKOTE · SWATCH PENDING' : f.thumb ? 'CERAKOTE PHOTO' : 'NO LISTING')),
-        coll: collOf(f),
         open: this.openF(f.code), openTitle: 'Details for ' + f.code,
         cmpLabel: cmpLabel(f.code), cmpStyle: cmpStyle(f.code), toggleCmp: this.toggleCmp(f.code),
         similar: this.findSimilar(f.code),
-        colls: st.custom.map((c) => { const on = c.codes.indexOf(f.code) >= 0; return { label: (on ? '✓ ' : '+ ') + c.name.toUpperCase(), style: on ? 'border-color:var(--k-gold);color:var(--k-gold-soft)' : 'border-style:dashed', toggle: this.toggleInCollection(c.name, f.code) }; })
       });
     });
     const groups = order.map((s) => { const si = seriesInfo(s); return { key: s, title: like ? 'Closest to ' + like.code + ' ' + like.name : s === 'TREND' ? 'Trending · most requested' : si.title, count: byS[s].length, rows: byS[s], spec: like ? 'BY COLOUR, SERIES AND SHEEN' : s === 'TREND' ? 'RANKED FROM APPLICATOR REPORTS, 2025' : (si.ratio + ' · ' + si.catalyst).toUpperCase() }; });
@@ -694,7 +653,7 @@ class Component extends DCLogic {
       const idx = finishes.findIndex((f) => f.code === of.code);
       const sims = all.filter((f) => f.code !== of.code).map((f) => ({ f: f, s: this.similarity(of, f) })).sort((a, b) => b.s - a.s).slice(0, 4);
       d = Object.assign(this.specOf(of), {
-        pos: idx >= 0 ? (idx + 1) + ' / ' + finishes.length : '—', note: of.note || '', noteOn: of.note ? 'block' : 'none', coll: collOf(of),
+        pos: idx >= 0 ? (idx + 1) + ' / ' + finishes.length : '—', note: of.note || '', noteOn: of.note ? 'block' : 'none',
         cmpLabel: cmpLabel(of.code), cmpStyle: cmpStyle(of.code), toggleCmp: this.toggleCmp(of.code), similar: this.findSimilar(of.code),
         copyLabel: st.copied ? 'COPIED' : (this.hexOf(of) ? 'COPY HEX' : 'COPY CODE'),
         copyHex: (e) => { if (e) e.preventDefault(); const txt = this.hexOf(of) || of.code; if (navigator.clipboard) navigator.clipboard.writeText(txt).catch(() => {}); this.setState({ copied: true }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ copied: false }), 1400); },
@@ -729,18 +688,8 @@ class Component extends DCLogic {
       query: st.query, setQuery: this._sq || (this._sq = (e) => this.setState({ query: e.target.value, similar: null })),
       clearOn: anyFilter ? 'inline-flex' : 'none',
       clearAll: this._ca || (this._ca = (e) => { if (e) e.preventDefault(); this.setState({ query: '', cat: 'ALL', series: 'ALL', laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, similar: null, sort: 'code' }); }),
-      filters: ['ALL', 'Signature', 'Palette', 'Core'].map((c) => ({
-        label: (c === 'ALL' ? all.length : c === 'Signature' ? all.filter((f) => f.wall === 'signature').length : c === 'Palette' ? all.filter((f) => f.wall === 'palette').length : all.filter((f) => !f.measured).length) , name: c.toUpperCase(),
-        style: cat === c ? segOn : '', pick: (e) => { if (e) e.preventDefault(); this.setState({ cat: c, similar: null }); } })),
-      customFilters: st.custom.map((c) => ({ label: c.codes.length, name: c.name.toUpperCase(), style: cat === 'custom:' + c.name ? segOn : 'border-style:dashed', pick: (e) => { if (e) e.preventDefault(); this.setState({ cat: 'custom:' + c.name, similar: null }); }, remove: this.deleteCollection(c.name) })),
       showResetOn: (st.laserOnly || st.measuredOnly || st.stockOnly || st.trendOnly || st.newOnly) ? 'inline-flex' : 'none',
       resetShow: this._rs || (this._rs = (e) => { if (e) e.preventDefault(); this.setState({ laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, similar: null }); }),
-      catResetOn: cat !== 'ALL' ? 'inline-flex' : 'none',
-      resetCat: this._rc || (this._rc = (e) => { if (e) e.preventDefault(); this.setState({ cat: 'ALL', similar: null }); }),
-      addingOn: st.adding ? 'inline-flex' : 'none', addBtnOn: st.adding ? 'none' : 'inline-flex',
-      newName: st.newName, setNewName: this.setNewName, createCollection: this.createCollection, toggleAdding: this.toggleAdding,
-      onNameKey: this._nk || (this._nk = (e) => { if (e.key === 'Enter') this.createCollection(e); if (e.key === 'Escape') this.toggleAdding(e); }),
-      emptyCollOn: cat.indexOf('custom:') === 0 && finishes.length === 0 ? 'inline' : 'none',
       similarOn: like ? 'inline-flex' : 'none', similarTo: like ? like.code + ' ' + like.name.toUpperCase() : '',
       clearSimilar: this._cs || (this._cs = (e) => { if (e) e.preventDefault(); this.setState({ similar: null }); }),
       sortCodeStyle: sort === 'code' ? segOn : '', sortNameStyle: sort === 'name' ? segOn : '', sortLightStyle: sort === 'light' ? segOn : '', sortDarkStyle: sort === 'dark' ? segOn : '',
