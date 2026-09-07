@@ -1,0 +1,107 @@
+/* KLEEQ design tokens — single source of truth.
+   Inject site-wide (Squarespace: Design > Custom CSS) and read every value
+   through var(). Nothing in a block should carry a literal hex or px. */
+
+:root {
+  /* Ground — matte gunmetal through to bone */
+  --kleeq-ink:        #141312;
+  --kleeq-ground:     #1a1918;
+  --kleeq-shadow:     #2a2724;
+  --kleeq-line:       #302d29;
+  --kleeq-line-lit:   #3d3934;
+  --kleeq-iron:       #57534d;
+  --kleeq-ash:        #8d867c;
+  --kleeq-dune:       #b3aca1;
+  --kleeq-linen:      #dcd7cd;
+  --kleeq-bone:       #f2efe9;
+
+  /* Accent — the mark's own gold, and its deep step */
+  --kleeq-gold:       #c9992f;
+  --kleeq-gold-lit:   #e2bd6d;
+  --kleeq-bronze:     #8a6a2f;
+
+  /* Roles */
+  --kleeq-bg:            var(--kleeq-ground);
+  --kleeq-bg-raised:     var(--kleeq-shadow);
+  --kleeq-text:          var(--kleeq-bone);
+  --kleeq-text-muted:    var(--kleeq-dune);
+  --kleeq-text-faint:    var(--kleeq-ash);
+  --kleeq-rule:          var(--kleeq-line);
+  --kleeq-rule-strong:   var(--kleeq-iron);
+  --kleeq-link:          var(--kleeq-gold-lit);
+  --kleeq-link-hover:    var(--kleeq-gold);
+
+  /* Type — Archivo display at 115% width, IBM Plex Mono for codes */
+  --kleeq-font-display: 'Archivo', system-ui, sans-serif;
+  --kleeq-font-body:    'Archivo', system-ui, sans-serif;
+  --kleeq-font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --kleeq-display-width: 115%;
+  --kleeq-display-weight: 800;
+
+  --kleeq-size-hero:    clamp(38px, 4.4vw, 64px);
+  --kleeq-size-h2:      clamp(28px, 2.6vw, 40px);
+  --kleeq-size-h3:      21px;
+  --kleeq-size-lead:    17px;
+  --kleeq-size-body:    15px;
+  --kleeq-size-small:   13px;
+  --kleeq-size-label:   11px;
+  --kleeq-size-code:    10px;
+
+  --kleeq-leading-display: 0.98;
+  --kleeq-leading-body:    1.55;
+  --kleeq-tracking-label:  0.14em;
+  --kleeq-tracking-code:   0.08em;
+
+  /* Space — 4px base, used for both stack and inset */
+  --kleeq-space-1: 4px;
+  --kleeq-space-2: 8px;
+  --kleeq-space-3: 14px;
+  --kleeq-space-4: 22px;
+  --kleeq-space-5: 36px;
+  --kleeq-space-6: 56px;
+  --kleeq-space-7: 88px;
+  --kleeq-space-8: 140px;
+  --kleeq-gutter:  40px;
+  --kleeq-measure: 1400px;
+
+  /* Edge — nothing rounds; rules are hairlines at low alpha */
+  --kleeq-radius: 0px;
+  --kleeq-hairline: 1px solid var(--kleeq-rule);
+  --kleeq-hairline-strong: 1px solid var(--kleeq-rule-strong);
+
+  /* Motion — soft reveals, never snappy */
+  --kleeq-reveal: 900ms;
+  --kleeq-ease: cubic-bezier(0.16, 0.84, 0.32, 1);
+  --kleeq-hover: 220ms;
+}
+
+/* Base application. Blocks inherit from here rather than restating values. */
+.kleeq-page { background: var(--kleeq-bg); color: var(--kleeq-text); font-family: var(--kleeq-font-body); }
+.kleeq-wrap { max-width: var(--kleeq-measure); margin: 0 auto; padding-inline: var(--kleeq-gutter); }
+.kleeq-display { font-family: var(--kleeq-font-display); font-weight: var(--kleeq-display-weight); font-stretch: var(--kleeq-display-width); line-height: var(--kleeq-leading-display); text-wrap: balance; }
+.kleeq-label { font-family: var(--kleeq-font-mono); font-size: var(--kleeq-size-label); letter-spacing: var(--kleeq-tracking-label); color: var(--kleeq-text-faint); text-transform: uppercase; }
+.kleeq-code { font-family: var(--kleeq-font-mono); font-size: var(--kleeq-size-code); letter-spacing: var(--kleeq-tracking-code); color: var(--kleeq-gold-lit); }
+.kleeq-rule { border: 0; border-top: var(--kleeq-hairline); margin: 0; }
+.kleeq-page a { color: var(--kleeq-link); text-decoration: none; transition: color var(--kleeq-hover) var(--kleeq-ease); }
+.kleeq-page a:hover { color: var(--kleeq-link-hover); }
+
+
+/* ---------------------------------------------------------------
+   Interface layer. The --kleeq-* names above are the brand's fixed
+   palette; the --k-* names below are the roles a page paints with,
+   so one set of markup renders in either theme.
+   --------------------------------------------------------------- */
+:root {
+  --k-bg:#1a1918; --k-panel:#141312; --k-sticky:#1f1e1c; --k-field:#2a2724;
+  --k-hair:#302d29; --k-line:#3d3934; --k-rule:#57534d; --k-label:#8d867c;
+  --k-dune:#b3aca1; --k-copy:#dcd7cd; --k-ink:#f2efe9;
+  --k-gold:#c9992f; --k-gold-soft:#e2bd6d; --k-on-gold:#17150f;
+  --k-warn:#c9272e; --k-mono-w:400;
+}
+:root[data-kleeq-theme="light"] {
+  --k-bg:#f3f2f2; --k-panel:#ffffff; --k-sticky:#e7e4e0; --k-field:#ffffff;
+  --k-hair:#d6d1ca; --k-line:#9c948a; --k-rule:#4a453f; --k-label:#5a544c;
+  --k-dune:#3f3a34; --k-copy:#2b2825; --k-ink:#141312;
+  --k-gold:#8a6612; --k-gold-soft:#6b5010; --k-on-gold:#ffffff;
+  --k-warn:#a3121a; --k-mono-w:500;
+}

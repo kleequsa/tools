@@ -1,0 +1,11 @@
+README.md
+HANDOFF.md
+DEPLOY.md
+wrangler.jsonc
+.assetsignore
+.gitignore
+.DS_Store
+/.git/
+/.github/
+/catalogue-sync/
+/scripts/
