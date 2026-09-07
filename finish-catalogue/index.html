@@ -87,13 +87,13 @@
   a { color: var(--k-gold-soft); text-decoration: none; }
   a:hover { color: var(--k-gold); }
   h1, h2, h3 { font-stretch: 115%; font-weight: 800; }
-  .c-seg { min-height: 35px; padding: 0 12px; border-radius: var(--k-r-sm); font-family: var(--k-mono); font-weight: var(--k-mono-w); font-size: 11px; letter-spacing: 0.08em; background: none; border: 1px solid var(--k-line); color: var(--k-label); cursor: pointer; display: inline-flex; align-items: center; touch-action: manipulation; }
+  .c-seg { min-height: 36px; padding: 0 13px; border-radius: var(--k-r-sm); font-family: var(--k-mono); font-weight: var(--k-mono-w); font-size: 13px; letter-spacing: 0.08em; background: none; border: 1px solid var(--k-line); color: var(--k-label); cursor: pointer; display: inline-flex; align-items: center; touch-action: manipulation; }
   .c-seg:hover { color: var(--k-ink); border-color: var(--k-label); }
   .c-seg:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
   @media (max-width: 639px) { .c-seg { min-height: 40px; } }
-  .c-lab { font-family: var(--k-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--k-label); display: block; margin-bottom: 14px; }
+  .c-lab { font-family: var(--k-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--k-label); display: block; margin-bottom: 14px; }
   .c-in { width: 100%; box-sizing: border-box; border-radius: var(--k-r-sm); background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: var(--k-mono); font-size: 16px; padding: 9px 12px; min-height: 40px; }
-  @media (min-width: 640px) { .c-in { font-size: 12px; min-height: 35px; } }
+  @media (min-width: 640px) { .c-in { font-size: 14px; min-height: 36px; } }
   .c-in::placeholder { color: var(--k-label); opacity: 1; }
   .c-in:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 1px; }
   .c-row { border-radius: var(--k-r); }
@@ -101,7 +101,7 @@
   .c-row[data-hit="1"] { outline: 2px solid var(--k-gold); outline-offset: 2px; }
   .c-sw { border-bottom: 1px solid var(--k-line); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); border-radius: var(--k-r) var(--k-r) 0 0; }
   .c-star[style*="inline-block"] { display: inline-flex !important; }
-  .c-star { position: absolute; top: 8px; left: 8px; font-size: 11px; color: var(--k-gold-soft); background: var(--k-sticky); padding: 2px 6px; font-family: var(--k-mono); letter-spacing: 0.1em; border-radius: calc(var(--k-r-sm) * 0.5); }
+  .c-star { position: absolute; top: 8px; left: 8px; font-size: 12px; color: var(--k-gold-soft); background: var(--k-sticky); padding: 2px 6px; font-family: var(--k-mono); letter-spacing: 0.1em; border-radius: calc(var(--k-r-sm) * 0.5); }
 
   .c-card-btn { text-align:left; border:none; background:none; padding:0; cursor:pointer; color:inherit; font:inherit; display:grid; width:100%; }
   .c-card-btn:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
@@ -110,14 +110,14 @@
   .c-backdrop { position: fixed; inset: 0; z-index: 85; background: rgba(0,0,0,0.45); }
   .c-tray { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--k-sticky); border-top: 1px solid var(--k-gold); }
   .c-cmp { position: fixed; inset: 0; z-index: 95; display: grid; place-items: center; padding: 16px; background: rgba(0,0,0,0.55); }
-  .c-spec { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 10px 14px; font-size: 12px; line-height: 1.4; }
-  .c-spec dt { margin: 0; font-family: var(--k-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--k-label); padding-top: 2px; }
+  .c-spec { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 10px 14px; font-size: 14px; line-height: 1.4; }
+  .c-spec dt { margin: 0; font-family: var(--k-mono); font-size: 12px; letter-spacing: 0.12em; color: var(--k-label); padding-top: 2px; }
   .c-spec dd { margin: 0; color: var(--k-copy); }
   :root[data-kleeq-theme="glass"] .c-drawer, :root[data-kleeq-theme="glass"] .c-tray, :root[data-kleeq-theme="glass"] .c-cmp-panel { background: var(--k-glass); -webkit-backdrop-filter: var(--k-blur); backdrop-filter: var(--k-blur); }
   :root[data-kleeq-theme="glass"] .c-tray { left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; overflow: hidden; }
   :root[data-kleeq-theme="glass"] .c-drawer { border-color: rgba(255,255,255,0.1); }
   @media (min-width: 640px) { :root[data-kleeq-theme="glass"] .c-drawer { top: 12px; right: 12px; bottom: 12px; border-radius: 26px; border: 1px solid rgba(255,255,255,0.12); } }
-  .c-kbd { font-family: var(--k-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--k-label); border: 1px solid var(--k-line); padding: 1px 6px; border-radius: calc(var(--k-r-sm) * 0.5); }
+  .c-kbd { font-family: var(--k-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--k-label); border: 1px solid var(--k-line); padding: 1px 6px; border-radius: calc(var(--k-r-sm) * 0.5); }
 </style>
 </helmet>
 
@@ -212,7 +212,7 @@
   <section id="results" style="margin:0 auto;padding:0 clamp(24px,4vw,64px) 56px">
     <div style="border-top:1px solid var(--k-line);padding-top:26px">
       <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;flex-wrap:wrap;margin-bottom:16px;flex-direction:{{ sortDir }}">
-        <span class="c-lab" style="margin:0">CERAKOTE · {{ count }} SHOWN OF {{ total }}{{ liveNote }}<span style="display:{{ similarOn }};color:var(--k-gold-soft)">· SIMILAR TO {{ similarTo }} <button type="button" class="c-seg" style="min-height:24px;padding:0 8px;margin-left:8px;font-size:10px" onClick="{{ clearSimilar }}">CLEAR</button></span></span>
+        <span class="c-lab" style="margin:0">CERAKOTE · {{ count }} SHOWN OF {{ total }}{{ liveNote }}<span style="display:{{ similarOn }};color:var(--k-gold-soft)">· SIMILAR TO {{ similarTo }} <button type="button" class="c-seg" style="min-height:24px;padding:0 8px;margin-left:8px;font-size:12px" onClick="{{ clearSimilar }}">CLEAR</button></span></span>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
           <span class="c-lab" style="margin:0">SORT</span>
           <div class="s-pill" style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line);border-radius:var(--k-r-sm)">
@@ -222,15 +222,15 @@
             <button type="button" class="c-seg" style="border:none;border-left:1px solid var(--k-line);{{ sortDarkStyle }}" onClick="{{ sortDark }}">DARK → LIGHT</button>
           </div>
         </div>
-        <span style="font-size:12px;color:var(--k-label);display:{{ hintOn }}">Tap a swatch for details · <span class="c-kbd">←</span> <span class="c-kbd">→</span> to step through</span>
+        <span style="font-size:14px;color:var(--k-label);display:{{ hintOn }}">Tap a swatch for details · <span class="c-kbd">←</span> <span class="c-kbd">→</span> to step through</span>
       </div>
       <div style="display:grid;gap:48px">
         <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
           <section id="series-{{ g.key }}" style="display:grid;gap:20px">
             <div style="display:flex;align-items:baseline;gap:14px;border-bottom:var(--k-rule-w) solid var(--k-rule);padding-bottom:12px;flex-wrap:wrap">
               <h2 style="margin:0;font-size:{{ h2Size }};line-height:1;letter-spacing:-0.01em;color:var(--k-ink)">{{ g.title }}</h2>
-              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.14em;color:var(--k-label)">{{ g.count }} FINISHES</span>
-              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto;text-align:right">{{ g.spec }}</span>
+              <span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.14em;color:var(--k-label)">{{ g.count }} FINISHES</span>
+              <span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto;text-align:right">{{ g.spec }}</span>
             </div>
             <div style="display:grid;grid-template-columns:{{ gridCols }};gap:{{ gridGap }}">
               <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="8">
@@ -244,14 +244,14 @@
                       <span class="c-star" style="display:{{ r.cmpOn }};top:auto;bottom:8px;background:var(--k-gold);color:var(--k-on-gold)">COMPARE {{ r.cmpIdx }}</span>
                     </div>
                     <div style="padding:{{ cardPad }};display:grid;gap:6px;align-content:start">
-                      <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.code }}</span><span style="font-family:var(--k-mono);font-size:8px;letter-spacing:0.12em;color:var(--k-label)">{{ r.series }}</span></span>
-                      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:14px;line-height:1.2;color:var(--k-ink)">{{ r.name }}</span>
-                      <span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.06em;color:var(--k-label);line-height:1.5">{{ r.meta }}</span>
+                      <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.code }}</span><span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.12em;color:var(--k-label)">{{ r.series }}</span></span>
+                      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:15px;line-height:1.2;color:var(--k-ink)">{{ r.name }}</span>
+                      <span style="font-family:var(--k-mono);font-size:11px;letter-spacing:0.06em;color:var(--k-label);line-height:1.5">{{ r.meta }}</span>
                     </div>
                   </button>
                   <div style="display:flex;gap:6px;padding:{{ cardFootPad }};flex-wrap:wrap;align-self:end">
-                    <button type="button" class="c-seg" style="min-height:28px;padding:0 9px;font-size:9px;white-space:nowrap;flex:none;{{ r.cmpStyle }}" onClick="{{ r.toggleCmp }}" title="Add to compare">{{ r.cmpLabel }}</button>
-                    <button type="button" class="c-seg" style="min-height:28px;padding:0 9px;font-size:9px;white-space:nowrap;flex:none" onClick="{{ r.similar }}" title="Find similar finishes">SIMILAR</button>
+                    <button type="button" class="c-seg" style="min-height:30px;padding:0 10px;font-size:11px;white-space:nowrap;flex:none;{{ r.cmpStyle }}" onClick="{{ r.toggleCmp }}" title="Add to compare">{{ r.cmpLabel }}</button>
+                    <button type="button" class="c-seg" style="min-height:30px;padding:0 10px;font-size:11px;white-space:nowrap;flex:none" onClick="{{ r.similar }}" title="Find similar finishes">SIMILAR</button>
                   </div>
                 </div>
               </sc-for>
@@ -264,7 +264,7 @@
   </section>
 
   <section style="margin:0 auto;padding:0 clamp(24px,4vw,64px) 40px">
-    <div style="border-top:1px solid var(--k-line);padding-top:20px;max-width:70ch;font-size:12px;line-height:1.55;color:var(--k-label);text-wrap:pretty;display:grid;gap:12px">
+    <div style="border-top:1px solid var(--k-line);padding-top:20px;max-width:70ch;font-size:14px;line-height:1.55;color:var(--k-label);text-wrap:pretty;display:grid;gap:12px">
       <span>{{ sourceNote }}</span>
       <span><strong style="color:var(--k-copy);font-weight:600">Trending.</strong> Cerakote publishes no sales or popularity data. The Trending list is KLEEQ's own ranking of {{ nTrend }} colours, drawn from what applicators and gunsmiths report as their most-requested finishes (McCluskey Arms, Bear Creek Arsenal and the AccurateShooter forum, 2025). The top five are consistent across those sources; the rest of the order is our judgment. Use it as a starting point, not a sales figure.</span>
       <span><strong style="color:var(--k-copy);font-weight:600">New.</strong> Cerakote does not date its listings, so "NEW {{ thisYear }}" uses the upload date stamped in each Cerakote product photo. Colours that appear on cerakote.com before KLEEQ has measured them are shown from a weekly check with a NEW badge and a hatched swatch.</span>
@@ -290,7 +290,7 @@
       <div style="display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid var(--k-line);position:sticky;top:0;background:inherit;z-index:2">
         <button type="button" class="c-seg" style="min-height:32px;width:36px;padding:0;justify-content:center" onClick="{{ prev }}" aria-label="Previous finish" title="Previous (←)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
         <button type="button" class="c-seg" style="min-height:32px;width:36px;padding:0;justify-content:center" onClick="{{ next }}" aria-label="Next finish" title="Next (→)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
-        <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.1em;color:var(--k-label);margin-left:4px">{{ d.pos }}</span>
+        <span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.1em;color:var(--k-label);margin-left:4px">{{ d.pos }}</span>
         <span style="flex:1 1 auto"></span>
         <button type="button" class="c-seg" style="min-height:32px;width:36px;padding:0;justify-content:center" onClick="{{ closeDrawer }}" aria-label="Close" title="Close (Esc)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
       </div>
@@ -300,9 +300,9 @@
           <span class="c-star" style="display:{{ d.stockOn }};left:auto;right:8px;color:var(--k-ink)">STOCKED AT KLEEQ</span>
         </div>
         <div style="display:grid;gap:6px">
-          <span style="font-family:var(--k-mono);font-size:11px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ d.code }} · {{ d.seriesLabel }}</span>
+          <span style="font-family:var(--k-mono);font-size:13px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ d.code }} · {{ d.seriesLabel }}</span>
           <h2 style="margin:0;font-size:28px;line-height:1;color:var(--k-ink)">{{ d.name }}</h2>
-          <span style="display:{{ d.noteOn }};font-size:13px;line-height:1.5;color:var(--k-copy);margin-top:4px">{{ d.note }}</span>
+          <span style="display:{{ d.noteOn }};font-size:14px;line-height:1.5;color:var(--k-copy);margin-top:4px">{{ d.note }}</span>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
           <button type="button" class="c-seg" style="{{ d.cmpStyle }}" onClick="{{ d.toggleCmp }}">{{ d.cmpLabel }}</button>
@@ -328,13 +328,13 @@
             <sc-for list="{{ d.similarRows }}" as="s" hint-placeholder-count="4">
               <button type="button" class="c-card-btn" onClick="{{ s.open }}" title="{{ s.name }}" style="gap:6px">
                 <span style="display:block;aspect-ratio:1/1;border-radius:var(--k-r-sm);background:{{ s.hex }};border:1px solid var(--k-line)"></span>
-                <span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.08em;color:var(--k-gold-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.code }}</span>
+                <span style="font-family:var(--k-mono);font-size:11px;letter-spacing:0.08em;color:var(--k-gold-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.code }}</span>
               </button>
             </sc-for>
           </div>
         </div>
-        <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:11px;letter-spacing:0.1em;color:var(--k-label);border-top:1px solid var(--k-line);padding-top:16px">CERAKOTE PRODUCT PAGE <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--k-gold-soft)"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
-        <span style="font-size:11px;line-height:1.5;color:var(--k-label)">Series values are Cerakote's published figures; the TDS on the bottle in your hand is the authority.</span>
+        <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:13px;letter-spacing:0.1em;color:var(--k-label);border-top:1px solid var(--k-line);padding-top:16px">CERAKOTE PRODUCT PAGE <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--k-gold-soft)"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
+        <span style="font-size:13px;line-height:1.5;color:var(--k-label)">Series values are Cerakote's published figures; the TDS on the bottle in your hand is the authority.</span>
       </div>
     </aside>
   </sc-if>
@@ -351,7 +351,7 @@
           <sc-for list="{{ cmpRows }}" as="c" hint-placeholder-count="2">
             <div style="display:grid;gap:12px;min-width:0">
               <div style="aspect-ratio:4/3;border-radius:var(--k-r);background:{{ c.hex }};border:1px solid var(--k-line)"></div>
-              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ c.code }} · {{ c.seriesLabel }}</span>
+              <span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ c.code }} · {{ c.seriesLabel }}</span>
               <h3 style="margin:0;font-size:20px;line-height:1.05;color:var(--k-ink)">{{ c.name }}</h3>
               <dl class="c-spec" style="margin:0;grid-template-columns:72px minmax(0,1fr)">
                 <dt>COLOUR</dt><dd>{{ c.colour }}</dd>
