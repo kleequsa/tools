@@ -10,6 +10,7 @@ Repo: kleequsa/tools · branch: main · live: https://tools.kleeq.com/
    git commit -m "root: KLEEQ Tools hub landing" -m "- Tools hub at / with Glass default theme + Dark/Light/Modernist
    - Founder note + bio, Let's connect section, favicon set
    - Coming Soon / Pro sections dimmed
+   - Back-to-Tools button in calculator + catalogue headers; catalogue filter dividers fixed; dark-theme swatch fix
    - Links to /mixing-calculator/; finish-catalogue/ reserved (not yet deployed)
    - Vendored support.js and Modernist css/bundle under vendor/"
    git push origin main
