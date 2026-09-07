@@ -1,6 +1,6 @@
 {
-  "version": 21,
-  "updated": "2026-08-31",
+  "version": 22,
+  "updated": "2026-09-07",
   "note": "Single source for every KLEEQ colour. The Signature wall, the Palette wall, the laser pairs, the category rails and the Gradient Studio all read this file.",
   "sourceNote": "Codes and names follow the studio’s Signature and Palette lists, cross-checked against Cerakote’s E-Series technical data sheet and the MyPerfectColor Cerakote index. Every finish carries the studio’s own shadow / base / highlight web values — chips render as a surface rather than a flat fill. Still a screen simulation: confirm against a physical chip before print or production.",
   "walls": {
@@ -1298,6 +1298,27 @@
     }
   ],
   "catalogue": [
+    {
+      "code": "H-111",
+      "name": "Sumi Black  (optimized H-146)",
+      "series": "H",
+      "stocked": false,
+      "url": "https://www.cerakote.com/shop/cerakote-coating/H-111/sumi-black-optimized-h-146"
+    },
+    {
+      "code": "MC-235",
+      "name": "Clear Brass",
+      "series": "MC",
+      "stocked": false,
+      "url": "https://www.cerakote.com/shop/cerakote-coating/MC-235/clear-brass"
+    },
+    {
+      "code": "MC-236",
+      "name": "High Temp Clear",
+      "series": "MC",
+      "stocked": false,
+      "url": "https://www.cerakote.com/shop/cerakote-coating/MC-236/high-temp-clear"
+    },
     {
       "code": "F-123",
       "name": "Burnt Orange",
