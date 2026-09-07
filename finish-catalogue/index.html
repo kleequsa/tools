@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="vendor/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+    <rect width="240" height="240" fill="#1a1918"></rect>
+    <rect x="72" y="72" width="44" height="44" fill="#c9992f"></rect>
+    <rect x="124" y="72" width="44" height="44" fill="#6e5a3a"></rect>
+    <rect x="72" y="124" width="44" height="44" fill="#5b4b36"></rect>
+    <rect x="124" y="124" width="44" height="44" fill="#4a4a46"></rect>
+  </svg>
+</template>
+<title>KLEEQ · Cerakote finish catalogue</title>
+<link rel="stylesheet" href="vendor/modernist.css">
+<script src="vendor/modernist-bundle.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="kleeq-tokens.css">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#1a1918">
+<style>
+  :root {
+    color-scheme: dark;
+    --k-bg:#1a1918; --k-panel:#141312; --k-sticky:#1f1e1c; --k-field:var(--k-field);
+    --k-line:var(--k-line); --k-rule:var(--k-label); --k-label:#9c958a; --k-copy:#c9c3b9;
+    --k-ink:#ddd8d0; --k-gold:var(--k-gold); --k-gold-soft:var(--k-gold-soft); --k-on-gold:var(--k-on-gold);
+    --k-warn:#c9272e; --k-mono-w:400; --k-mono:'IBM Plex Mono', ui-monospace, monospace; --k-rule-w:1px; --k-r:0px; --k-r-sm:0px; --k-glass:var(--k-panel); --k-blur:none; --k-sel:var(--k-field); --k-pop-line:var(--k-label);
+  }
+  :root[data-kleeq-theme="light"] {
+    color-scheme: light;
+    --k-bg:#f3f2f2; --k-panel:#ffffff; --k-sticky:#e7e4e0; --k-field:#ffffff;
+    --k-line:#9c948a; --k-rule:#4a453f; --k-label:#5a544c; --k-copy:#2b2825;
+    --k-ink:#141312; --k-gold:#8a6612; --k-gold-soft:#6b5010; --k-on-gold:#ffffff;
+    --k-warn:#9e1b24; --k-mono-w:500;
+  }
+  /* Modernist: the site's system — light ground, ink, one red, Archivo only, 2px rules. */
+  :root[data-kleeq-theme="modernist"] {
+    color-scheme: light;
+    --k-bg:var(--color-bg); --k-panel:var(--color-surface, #ffffff); --k-sticky:var(--color-neutral-200); --k-field:#ffffff;
+    --k-line:var(--color-neutral-600); --k-rule:var(--color-text); --k-label:var(--color-neutral-800); --k-copy:var(--color-neutral-900);
+    --k-ink:var(--color-text); --k-gold:var(--color-accent); --k-gold-soft:var(--color-accent-700); --k-on-gold:#ffffff;
+    --k-warn:var(--color-accent-700); --k-mono-w:500; --k-mono:var(--font-body); --k-rule-w:2px;
+  }
+  :root[data-kleeq-theme="modernist"] .s-lab, :root[data-kleeq-theme="modernist"] .s-seg, :root[data-kleeq-theme="modernist"] .s-in { letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+  :root[data-kleeq-theme="modernist"] .s-seg { border-color: var(--color-text); color: var(--color-text); }
+  :root[data-kleeq-theme="modernist"] .s-seg:hover { background: var(--color-accent-100); border-color: var(--color-text); }
+  :root[data-kleeq-theme="modernist"] .s-in, :root[data-kleeq-theme="modernist"] .s-big { border-color: var(--color-text); }
+  /* Glass: the iOS 26 idiom — rounded concentric shapes, translucent layers, system type, floating controls. */
+  :root[data-kleeq-theme="glass"] {
+    color-scheme: dark;
+    --k-bg:#0e0d0c; --k-panel:rgba(40,38,35,0.72); --k-sticky:rgba(30,29,27,0.9); --k-field:rgba(255,255,255,0.07);
+    --k-line:rgba(255,255,255,0.14); --k-rule:rgba(255,255,255,0.22); --k-label:#a39c91; --k-copy:#d3cdc4;
+    --k-ink:#f2eee8; --k-gold:#d9a640; --k-gold-soft:#ecc76c; --k-on-gold:var(--k-on-gold);
+    --k-warn:#ff6b60; --k-mono-w:500; --k-rule-w:1px; --k-r:20px; --k-r-sm:12px;
+    --k-mono:ui-monospace, 'SF Mono', Menlo, monospace;
+    --font-heading:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', system-ui, sans-serif;
+    --font-body:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+    --k-glass:rgba(38,36,33,0.62); --k-blur:saturate(160%) blur(22px); --k-sel:rgba(217,166,64,0.2); --k-pop-line:rgba(255,255,255,0.12);
+  }
+  :root[data-kleeq-theme="glass"] h1, :root[data-kleeq-theme="glass"] h2, :root[data-kleeq-theme="glass"] h3 { font-stretch: 100%; font-weight: 700; letter-spacing: -0.01em; }
+  :root[data-kleeq-theme="glass"] .c-seg { letter-spacing: 0.02em; font-weight: 600; background: var(--k-field); border-color: transparent; box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
+  :root[data-kleeq-theme="glass"] .c-seg:hover { border-color: transparent; background: rgba(255,255,255,0.12); }
+  :root[data-kleeq-theme="glass"] .c-in { border-color: transparent; box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
+  :root[data-kleeq-theme="glass"] .c-in:focus { box-shadow: inset 0 0 0 1.5px var(--k-gold); }
+  :root[data-kleeq-theme="glass"] .c-row, :root[data-kleeq-theme="glass"] .c-card { background: var(--k-glass); -webkit-backdrop-filter: var(--k-blur); backdrop-filter: var(--k-blur); border-color: rgba(255,255,255,0.1) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); overflow: hidden; }
+  :root[data-kleeq-theme="glass"] .c-row:hover { background: rgba(255,255,255,0.08); }
+  :root[data-kleeq-theme="glass"] .c-sw { border-bottom-color: transparent; }
+  :root[data-kleeq-theme="glass"] .s-pill { background: var(--k-glass); -webkit-backdrop-filter: var(--k-blur); backdrop-filter: var(--k-blur); border: 1px solid rgba(255,255,255,0.12) !important; border-radius: 999px; overflow: hidden; }
+  :root[data-kleeq-theme="glass"] .s-pill .c-seg { background: none; border-left-color: transparent !important; box-shadow: none; border-radius: 0; }
+  :root[data-kleeq-theme="glass"] .s-pill .c-seg:first-child { border-radius: inherit; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+  :root[data-kleeq-theme="glass"] .s-pill .c-seg:last-child { border-radius: inherit; border-top-left-radius: 0; border-bottom-left-radius: 0; }
+  :root[data-kleeq-theme="modernist"] .c-seg, :root[data-kleeq-theme="modernist"] .c-lab, :root[data-kleeq-theme="modernist"] .c-in { letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+  :root[data-kleeq-theme="modernist"] .c-seg { border-color: var(--color-text); color: var(--color-text); }
+  :root[data-kleeq-theme="modernist"] .c-seg:hover { background: var(--color-accent-100); border-color: var(--color-text); }
+  :root[data-kleeq-theme="modernist"] .c-in { border-color: var(--color-text); }
+  html, body { margin: 0; background: var(--k-bg); color: var(--k-ink); }
+  a { color: var(--k-gold-soft); text-decoration: none; }
+  a:hover { color: var(--k-gold); }
+  h1, h2, h3 { font-stretch: 115%; font-weight: 800; }
+  .c-seg { min-height: 35px; padding: 0 12px; border-radius: var(--k-r-sm); font-family: var(--k-mono); font-weight: var(--k-mono-w); font-size: 11px; letter-spacing: 0.08em; background: none; border: 1px solid var(--k-line); color: var(--k-label); cursor: pointer; display: inline-flex; align-items: center; touch-action: manipulation; }
+  .c-seg:hover { color: var(--k-ink); border-color: var(--k-label); }
+  .c-seg:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
+  @media (max-width: 639px) { .c-seg { min-height: 40px; } }
+  .c-lab { font-family: var(--k-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--k-label); display: block; margin-bottom: 14px; }
+  .c-in { width: 100%; box-sizing: border-box; border-radius: var(--k-r-sm); background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: var(--k-mono); font-size: 16px; padding: 9px 12px; min-height: 40px; }
+  @media (min-width: 640px) { .c-in { font-size: 12px; min-height: 35px; } }
+  .c-in::placeholder { color: var(--k-label); opacity: 1; }
+  .c-in:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 1px; }
+  .c-row { border-radius: var(--k-r); }
+  .c-row:hover { background: var(--k-field); }
+  .c-row[data-hit="1"] { outline: 2px solid var(--k-gold); outline-offset: 2px; }
+  .c-sw { border-bottom: 1px solid var(--k-line); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); border-radius: var(--k-r) var(--k-r) 0 0; }
+  .c-star[style*="inline-block"] { display: inline-flex !important; }
+  .c-star { position: absolute; top: 8px; left: 8px; font-size: 11px; color: var(--k-gold-soft); background: var(--k-sticky); padding: 2px 6px; font-family: var(--k-mono); letter-spacing: 0.1em; border-radius: calc(var(--k-r-sm) * 0.5); }
+
+  .c-card-btn { text-align:left; border:none; background:none; padding:0; cursor:pointer; color:inherit; font:inherit; display:grid; width:100%; }
+  .c-card-btn:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
+  .c-drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(440px, 100vw); z-index: 90; background: var(--k-panel); border-left: 1px solid var(--k-line); overflow-y: auto; box-shadow: -12px 0 40px rgba(0,0,0,0.35); }
+  @media (max-width: 639px) { .c-drawer { top: auto; left: 0; width: auto; max-height: 88vh; border-left: none; border-top: 1px solid var(--k-line); border-radius: var(--k-r) var(--k-r) 0 0; } }
+  .c-backdrop { position: fixed; inset: 0; z-index: 85; background: rgba(0,0,0,0.45); }
+  .c-tray { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--k-sticky); border-top: 1px solid var(--k-gold); }
+  .c-cmp { position: fixed; inset: 0; z-index: 95; display: grid; place-items: center; padding: 16px; background: rgba(0,0,0,0.55); }
+  .c-spec { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 10px 14px; font-size: 12px; line-height: 1.4; }
+  .c-spec dt { margin: 0; font-family: var(--k-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--k-label); padding-top: 2px; }
+  .c-spec dd { margin: 0; color: var(--k-copy); }
+  :root[data-kleeq-theme="glass"] .c-drawer, :root[data-kleeq-theme="glass"] .c-tray, :root[data-kleeq-theme="glass"] .c-cmp-panel { background: var(--k-glass); -webkit-backdrop-filter: var(--k-blur); backdrop-filter: var(--k-blur); }
+  :root[data-kleeq-theme="glass"] .c-tray { left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; overflow: hidden; }
+  :root[data-kleeq-theme="glass"] .c-drawer { border-color: rgba(255,255,255,0.1); }
+  @media (min-width: 640px) { :root[data-kleeq-theme="glass"] .c-drawer { top: 12px; right: 12px; bottom: 12px; border-radius: 26px; border: 1px solid rgba(255,255,255,0.12); } }
+  .c-kbd { font-family: var(--k-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--k-label); border: 1px solid var(--k-line); padding: 1px 6px; border-radius: calc(var(--k-r-sm) * 0.5); }
+</style>
+</helmet>
+
+<div style="background:var(--k-bg);color:var(--k-ink);font-family:var(--font-body);min-height:100vh;padding-bottom:{{ pagePadB }}">
+  <div style="max-width:{{ pageW }};margin:0 auto">
+  <header style="margin:0 auto;padding:clamp(20px,3vw,36px) {{ padX }} 8px">
+    <div style="width:100%;display:grid;gap:20px;justify-items:center">
+    <h1 style="font-size:clamp(29px,2.9vw,40px);line-height:1;margin:0;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center;width:100%">
+      <a href="https://www.kleeq.com" style="color:inherit;display:flex;flex:none" aria-label="KLEEQ home"><svg viewBox="0 0 720 280" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KLEEQ" style="height:1.46em;width:auto;flex:none;display:block"><polygon points="64.9 0 64.9 71.51 88.7 47.68 88.7 23.84 696.2 23.84 696.2 214.54 88.7 214.54 88.7 190.7 64.9 166.86 64.9 238.38 720 238.38 720 0 64.9 0"></polygon><polygon points="160.09 154.94 142.24 137.07 124.39 119.19 142.24 101.31 160.09 83.43 177.94 65.55 195.79 47.68 160.09 47.68 142.24 65.55 124.39 83.43 106.54 101.31 88.7 119.19 106.54 137.07 124.39 154.94 142.24 172.82 160.09 190.7 195.79 190.7 177.94 172.82 160.09 154.94"></polygon><path d="M64.9,84.77h-27.79c-2.87,0-5.62,1.2-7.65,3.34L0,119.19h0,0s0,0,0,0h0l29.46,31.07c2.03,2.14,4.78,3.34,7.65,3.34h27.79l-16.69-17.6,16.69-16.82h0s-16.69-16.82-16.69-16.82l16.69-17.6ZM42.75,128.65l-10.58-3.61-6.52,9.45v-11.68l-10.58-3.61,10.58-3.6v-11.7s6.52,9.45,6.52,9.45l10.58-3.61-6.54,9.45,6.54,9.45Z"></path><path d="M203.72,47.68h31.72v113.91h63.44v29.08h-95.17V47.68Z"></path><path d="M306.82,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M417.85,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M672.4,168.76l-12.42-10.48c7.35-11.24,11.64-24.67,11.64-39.11,0-39.49-31.96-71.49-71.38-71.49s-71.38,32.01-71.38,71.49,31.96,71.49,71.38,71.49c14.66,0,28.29-4.44,39.63-12.03l14.25,12.03,18.27-21.9ZM600.25,161.27c-23.21,0-42.03-18.85-42.03-42.1s18.82-42.1,42.03-42.1,42.03,18.85,42.03,42.1c0,7.21-1.81,14-5.01,19.94l-17.98-15.17-18.27,21.9,14.75,12.45c-4.81,1.92-10.04,2.98-15.53,2.98Z"></path><g><path d="M64.89,252.33h8.32c2.33,0,4.31.29,5.93.86,1.62.57,2.97,1.3,4.05,2.19,1.08.89,1.92,1.87,2.55,2.95.62,1.08,1.08,2.12,1.37,3.11.29.99.47,1.89.55,2.69.08.8.11,1.37.11,1.7s-.04.9-.11,1.7c-.08.8-.26,1.7-.55,2.69-.29.99-.75,2.03-1.37,3.11-.62,1.08-1.47,2.06-2.55,2.95-1.08.89-2.43,1.62-4.05,2.19-1.62.57-3.6.86-5.93.86h-8.32v-26.98ZM67.4,277.03h5.17c1.77,0,3.43-.22,4.98-.67,1.55-.44,2.89-1.12,4.03-2.04,1.14-.91,2.04-2.08,2.7-3.49.66-1.41.99-3.08.99-5.01s-.33-3.6-.99-5.01c-.66-1.41-1.56-2.57-2.7-3.49-1.14-.91-2.48-1.59-4.03-2.04-1.55-.45-3.21-.67-4.98-.67h-5.17v22.41Z"></path><path d="M108.18,252.33h7.07c.35,0,.84.01,1.44.04.61.02,1.27.1,1.98.23.71.13,1.43.33,2.17.61.73.28,1.39.69,1.98,1.22.58.53,1.06,1.21,1.44,2.02.38.81.57,1.8.57,2.97,0,1.3-.22,2.36-.66,3.2-.44.84-1,1.52-1.67,2.04s-1.41.91-2.22,1.16c-.81.25-1.58.43-2.32.53l7.83,12.96h-2.85l-7.56-12.8h-4.67v12.8h-2.51v-26.98ZM110.69,264.22h5.32c1.32,0,2.39-.17,3.21-.5.82-.33,1.46-.74,1.92-1.22.46-.48.77-1,.93-1.56.16-.56.25-1.07.25-1.52s-.08-.97-.25-1.52-.47-1.08-.93-1.56c-.46-.48-1.1-.89-1.92-1.22s-1.89-.5-3.21-.5h-5.32v9.6Z"></path><path d="M145.45,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M166.69,252.33h2.7l8.66,23.66,8.74-23.66h2.66l-10.22,26.98h-2.51l-10.03-26.98Z"></path><path d="M208.17,252.33h16.46v2.29h-13.95v9.6h13.07v2.29h-13.07v10.52h14.55v2.29h-17.06v-26.98Z"></path><path d="M244.89,252.33h3.23l16.38,23.63h.08v-23.63h2.51v26.98h-3.23l-16.38-23.63h-.08v23.63h-2.51v-26.98Z"></path><path d="M314.74,252.33h7.75c1.01,0,2.04.08,3.08.25,1.04.17,1.97.51,2.79,1.03.82.52,1.49,1.24,2.01,2.17.52.93.78,2.15.78,3.68,0,1.37-.41,2.57-1.22,3.58-.81,1.02-2.01,1.69-3.61,2.02v.08c.89.08,1.7.29,2.43.63.73.34,1.37.8,1.9,1.37.53.57.94,1.25,1.23,2.04s.44,1.65.44,2.59c0,1.55-.3,2.82-.89,3.79-.6.98-1.34,1.75-2.24,2.31-.9.56-1.88.94-2.93,1.14-1.05.2-2.03.3-2.95.3h-8.59v-26.98ZM317.24,264h5.21c1.29,0,2.34-.16,3.15-.48.81-.32,1.44-.7,1.9-1.16.46-.46.76-.95.91-1.47.15-.52.23-1,.23-1.43,0-.94-.16-1.72-.47-2.34-.32-.62-.74-1.12-1.27-1.49s-1.15-.63-1.86-.78c-.71-.15-1.46-.23-2.24-.23h-5.55v9.38ZM317.24,277.03h5.74c1.47,0,2.65-.18,3.55-.53.9-.36,1.59-.8,2.07-1.33.48-.53.8-1.1.97-1.7.16-.6.25-1.14.25-1.62,0-.99-.19-1.84-.57-2.55-.38-.71-.87-1.29-1.48-1.73-.61-.45-1.3-.77-2.07-.97-.77-.2-1.55-.3-2.34-.3h-6.12v10.75Z"></path><path d="M358.53,267.69l-9.88-15.36h3l8.13,12.8,8.32-12.8h2.81l-9.88,15.36v11.62h-2.51v-11.62Z"></path><path d="M414.66,252.33h7.75c.94,0,1.92.11,2.95.32,1.03.22,1.96.59,2.81,1.13.85.53,1.54,1.26,2.09,2.19.55.93.82,2.09.82,3.49,0,1.22-.22,2.28-.66,3.16s-1.04,1.62-1.79,2.19c-.75.57-1.61,1-2.58,1.28-.98.28-2,.42-3.06.42h-5.81v12.8h-2.51v-26.98ZM417.17,264.22h5.7c.71,0,1.41-.08,2.09-.25.68-.17,1.29-.43,1.82-.8.53-.37.96-.86,1.29-1.47.33-.61.49-1.36.49-2.25s-.17-1.6-.51-2.21c-.34-.61-.79-1.11-1.33-1.51-.55-.39-1.17-.68-1.88-.86s-1.42-.27-2.13-.27h-5.55v9.6Z"></path><path d="M450.71,252.33h7.07c.35,0,.84.01,1.44.04.61.02,1.27.1,1.98.23.71.13,1.43.33,2.17.61.73.28,1.39.69,1.98,1.22.58.53,1.06,1.21,1.44,2.02.38.81.57,1.8.57,2.97,0,1.3-.22,2.36-.66,3.2-.44.84-1,1.52-1.67,2.04-.67.52-1.41.91-2.22,1.16-.81.25-1.58.43-2.32.53l7.83,12.96h-2.85l-7.56-12.8h-4.67v12.8h-2.51v-26.98ZM453.22,264.22h5.32c1.32,0,2.39-.17,3.21-.5.82-.33,1.46-.74,1.92-1.22.46-.48.77-1,.93-1.56.16-.56.25-1.07.25-1.52s-.08-.97-.25-1.52-.47-1.08-.93-1.56c-.46-.48-1.1-.89-1.92-1.22s-1.89-.5-3.21-.5h-5.32v9.6Z"></path><path d="M488.01,252.33h16.46v2.29h-13.95v9.6h13.07v2.29h-13.07v10.52h14.55v2.29h-17.06v-26.98Z"></path><path d="M547.04,275.08c-1.29,1.75-2.79,3.01-4.48,3.77-1.7.76-3.53,1.14-5.51,1.14s-3.93-.35-5.64-1.05c-1.71-.7-3.17-1.68-4.39-2.93-1.22-1.26-2.17-2.76-2.85-4.5-.68-1.74-1.03-3.64-1.03-5.7s.34-3.95,1.03-5.68c.68-1.73,1.63-3.22,2.85-4.48,1.22-1.26,2.68-2.24,4.39-2.95,1.71-.71,3.59-1.07,5.64-1.07,1.82,0,3.53.32,5.11.97,1.58.65,2.97,1.73,4.16,3.26l-2.05,1.72c-.84-1.27-1.91-2.2-3.21-2.78-1.3-.58-2.64-.88-4.01-.88-1.75,0-3.33.31-4.73.92-1.41.61-2.6,1.45-3.59,2.51-.99,1.07-1.75,2.32-2.28,3.77-.53,1.45-.8,3.01-.8,4.69s.27,3.24.8,4.69c.53,1.45,1.29,2.71,2.28,3.77.99,1.07,2.19,1.91,3.59,2.52,1.41.61,2.98.91,4.73.91.68,0,1.39-.08,2.13-.25.73-.16,1.45-.42,2.15-.76.7-.34,1.36-.78,2-1.3.63-.52,1.19-1.15,1.67-1.89l2.05,1.56Z"></path><path d="M566.26,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M591.41,274.32c.66,1.14,1.51,2,2.56,2.55,1.05.56,2.25.84,3.59.84.84,0,1.62-.13,2.36-.38.73-.25,1.37-.61,1.92-1.07.55-.46.98-1.01,1.29-1.66.32-.65.47-1.38.47-2.19,0-.94-.2-1.71-.59-2.32-.39-.61-.92-1.11-1.58-1.51-.66-.39-1.4-.73-2.22-1.01-.82-.28-1.67-.56-2.55-.84-.87-.28-1.72-.6-2.55-.95-.82-.36-1.56-.82-2.22-1.39-.66-.57-1.18-1.29-1.58-2.15-.39-.86-.59-1.93-.59-3.2,0-1.19.23-2.25.7-3.18.47-.93,1.1-1.7,1.9-2.32.8-.62,1.72-1.09,2.76-1.41,1.04-.32,2.13-.48,3.27-.48,1.47,0,2.83.26,4.08.78,1.25.52,2.34,1.39,3.25,2.61l-2.17,1.56c-.63-.89-1.37-1.56-2.22-2-.85-.44-1.86-.67-3.02-.67-.81,0-1.58.11-2.32.32-.74.22-1.37.53-1.92.95-.55.42-.98.95-1.31,1.58s-.49,1.38-.49,2.25c0,1.35.34,2.38,1.03,3.11.68.72,1.54,1.3,2.57,1.71,1.03.42,2.14.79,3.34,1.1,1.2.32,2.32.74,3.34,1.28,1.03.53,1.88,1.28,2.56,2.23.68.95,1.03,2.27,1.03,3.94,0,1.22-.23,2.3-.68,3.24-.46.94-1.07,1.73-1.84,2.38-.77.65-1.67,1.14-2.68,1.47-1.01.33-2.07.49-3.15.49-1.77,0-3.41-.31-4.9-.93-1.5-.62-2.77-1.67-3.84-3.14l2.39-1.6Z"></path><path d="M626.46,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M649.5,265.82c0-2.06.34-3.95,1.03-5.68.68-1.73,1.63-3.22,2.85-4.48,1.22-1.26,2.68-2.24,4.39-2.95,1.71-.71,3.59-1.07,5.64-1.07s3.93.36,5.64,1.07c1.71.71,3.17,1.7,4.39,2.95,1.22,1.26,2.17,2.75,2.85,4.48.68,1.73,1.03,3.62,1.03,5.68s-.34,3.96-1.03,5.7c-.68,1.74-1.63,3.24-2.85,4.5-1.22,1.26-2.68,2.24-4.39,2.93-1.71.7-3.59,1.05-5.64,1.05s-3.93-.35-5.64-1.05c-1.71-.7-3.17-1.68-4.39-2.93-1.22-1.26-2.17-2.76-2.85-4.5-.68-1.74-1.03-3.64-1.03-5.7ZM652.01,265.82c0,1.68.27,3.24.8,4.69.53,1.45,1.29,2.71,2.28,3.77.99,1.07,2.19,1.91,3.59,2.52s2.98.91,4.73.91,3.32-.3,4.73-.91c1.41-.61,2.6-1.45,3.59-2.52.99-1.07,1.75-2.32,2.28-3.77.53-1.45.8-3.01.8-4.69s-.27-3.24-.8-4.69c-.53-1.45-1.29-2.71-2.28-3.77-.99-1.07-2.19-1.91-3.59-2.51-1.41-.61-2.98-.92-4.73-.92s-3.33.31-4.73.92c-1.41.61-2.6,1.45-3.59,2.51-.99,1.07-1.75,2.32-2.28,3.77-.53,1.45-.8,3.01-.8,4.69Z"></path><path d="M697.81,252.33h3.23l16.38,23.63h.08v-23.63h2.51v26.98h-3.23l-16.38-23.63h-.08v23.63h-2.51v-26.98Z"></path></g></svg></a>
+      <span style="font-weight:400;color:var(--k-label);font-stretch:100%;font-size:0.55em;line-height:1">×</span>
+      <span style="font-size:0.55em;font-weight:600;line-height:1.1;white-space:nowrap">Cerakote finish catalogue</span>
+    </h1>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center">
+    <div class="s-pill" style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
+      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center;{{ modStyle }}" onClick="{{ setMod }}" title="Modernist (site theme)" aria-label="Modernist theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="9" x2="9" y2="21"></line>
+        </svg>
+      </button>
+      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ lightStyle }}" onClick="{{ setLight }}" title="Light" aria-label="Light theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"></path>
+        </svg>
+      </button>
+      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ darkStyle }}" onClick="{{ setDark }}" title="Dark" aria-label="Dark theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path>
+        </svg>
+      </button>
+      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ glassStyle }}" onClick="{{ setGlass }}" title="Glass (phone)" aria-label="Glass theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M9.9 3.6a.5.5 0 0 1 .95 0l1.3 3.9a2 2 0 0 0 1.27 1.27l3.9 1.3a.5.5 0 0 1 0 .95l-3.9 1.3a2 2 0 0 0-1.27 1.27l-1.3 3.9a.5.5 0 0 1-.95 0l-1.3-3.9a2 2 0 0 0-1.27-1.27l-3.9-1.3a.5.5 0 0 1 0-.95l3.9-1.3a2 2 0 0 0 1.27-1.27z"></path>
+          <path d="M19 3v3M17.5 4.5h3M19 17v3M17.5 18.5h3"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="s-pill" style="display:{{ layoutTogglesOn }};grid-template-columns:repeat(3,auto);border:1px solid var(--k-line)">
+      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center;{{ sideStyle }}" onClick="{{ setSide }}" title="Desktop width" aria-label="Desktop width">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="14"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+        </svg>
+      </button>
+      
+      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ tabletStyle }}" onClick="{{ setTablet }}" title="Tablet width" aria-label="Tablet width">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="5" y="2" width="14" height="20"></rect>
+          <line x1="10" y1="19" x2="14" y2="19"></line>
+        </svg>
+      </button>
+      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ mobileStyle }}" onClick="{{ setMobile }}" title="Phone width" aria-label="Phone width">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="8" y="2" width="8" height="20"></rect>
+          <line x1="11" y1="19" x2="13" y2="19"></line>
+        </svg>
+      </button>
+    </div>
+    </div>
+    </div>
+  </header>
+
+  <section style="margin:0 auto;padding:16px {{ padX }} 32px">
+    <div style="border-top:var(--k-rule-w) solid var(--k-rule);display:grid;grid-template-columns:{{ filterCols }};row-gap:0">
+      <span class="c-lab" style="margin:0;padding:{{ labPad }};border-bottom:{{ labRule }};align-self:center">SEARCH</span>
+      <div style="padding:16px 0;border-bottom:1px solid var(--k-line);display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <input class="c-in" type="search" value="{{ query }}" onInput="{{ setQuery }}" placeholder="Code, colour name or note" aria-label="Search finishes" style="max-width:360px;width:100%">
+      </div>
+      <span class="c-lab" style="margin:0;padding:{{ labPad }};border-bottom:{{ labRule }};align-self:center">SHOW ONLY</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0;border-bottom:1px solid var(--k-line)">
+        <button type="button" class="c-seg" style="{{ laserStyle }}" onClick="{{ toggleLaser }}"><span style="margin-right:10px">{{ nLaser }}</span>★ LASER OPTIMIZED</button>
+        <button type="button" class="c-seg" style="{{ measuredStyle }}" onClick="{{ toggleMeasured }}"><span style="margin-right:10px">{{ nMeasured }}</span>MEASURED</button>
+        <button type="button" class="c-seg" style="{{ trendStyle }}" onClick="{{ toggleTrend }}" title="Trending: the most-requested Cerakote colours, ranked from applicator and gunsmith reports (2025)"><span style="margin-right:10px">{{ nTrend }}</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-right:5px"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>TRENDING</button>
+        <button type="button" class="c-seg" style="display:{{ newChipOn }};{{ newStyle }}" onClick="{{ toggleNew }}" title="Listed on cerakote.com this year"><span style="margin-right:10px">{{ nNew }}</span>NEW {{ thisYear }}</button>
+        <a class="c-seg" style="gap:6px" href="https://www.cerakote.com/shop/cerakote-coating" target="_blank" rel="noopener noreferrer">CERAKOTE SHOP <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--k-gold-soft)"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
+        <button type="button" class="c-seg" style="display:{{ showResetOn }}" onClick="{{ resetShow }}" title="Clear Show Only filters">RESET</button>
+        <button type="button" class="c-seg" style="display:{{ stockChipOn }};{{ stockStyle }}" onClick="{{ toggleStock }}"><span style="margin-right:10px">{{ nStock }}</span>IN STOCK AT KLEEQ</button>
+      </div>      <span class="c-lab" style="margin:0;padding:{{ labPad }};border-bottom:{{ labRule }};align-self:center">COLLECTION</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0;border-bottom:1px solid var(--k-line)">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+          <button type="button" class="c-seg" style="{{ f.style }}" onClick="{{ f.pick }}"><span style="margin-right:10px">{{ f.label }}</span>{{ f.name }}</button>
+        </sc-for>
+        <sc-for list="{{ customFilters }}" as="f" hint-placeholder-count="0">
+          <span style="display:inline-flex">
+            <button type="button" class="c-seg" style="{{ f.style }}" onClick="{{ f.pick }}"><span style="margin-right:10px">{{ f.label }}</span>{{ f.name }}</button>
+            <button type="button" class="c-seg" style="border-left:none;padding:0 10px;{{ f.style }}" onClick="{{ f.remove }}" title="Delete collection" aria-label="Delete collection">×</button>
+          </span>
+        </sc-for>
+        <button type="button" class="c-seg" style="display:{{ addBtnOn }};align-items:center;color:var(--k-gold-soft);border-color:var(--k-gold)" onClick="{{ toggleAdding }}">+ NEW COLLECTION</button>
+        <button type="button" class="c-seg" style="display:{{ catResetOn }};align-items:center" onClick="{{ resetCat }}" title="Back to all finishes">RESET</button>
+        <span style="display:{{ addingOn }};gap:6px;align-items:center">
+          <input class="c-in" style="width:200px;min-height:35px;padding:0 10px" value="{{ newName }}" onInput="{{ setNewName }}" onKeyDown="{{ onNameKey }}" placeholder="Collection name" aria-label="New collection name" autoFocus="{{ true }}">
+          <button type="button" class="c-seg" style="background:var(--k-gold);color:var(--k-on-gold);border-color:var(--k-gold)" onClick="{{ createCollection }}">CREATE</button>
+          <button type="button" class="c-seg" onClick="{{ toggleAdding }}">CANCEL</button>
+        </span>
+      </div>
+      <span class="c-lab" style="margin:0;padding:{{ labPad }};align-self:center">SERIES</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0">
+        <sc-for list="{{ seriesFilters }}" as="f" hint-placeholder-count="8">
+          <button type="button" class="c-seg" style="{{ f.style }}" onClick="{{ f.pick }}" title="{{ f.title }}"><span style="margin-right:10px">{{ f.label }}</span>{{ f.name }}</button>
+        </sc-for>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="results" style="margin:0 auto;padding:0 {{ padX }} 56px">
+    <div style="border-top:1px solid var(--k-line);padding-top:26px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;flex-wrap:wrap;margin-bottom:16px;flex-direction:{{ sortDir }}">
+        <span class="c-lab" style="margin:0">CERAKOTE · {{ count }} SHOWN OF {{ total }}{{ liveNote }} <span style="display:{{ emptyCollOn }};color:var(--k-gold-soft)">· THIS COLLECTION IS EMPTY — PICK ALL AND USE + ON A SWATCH</span><span style="display:{{ similarOn }};color:var(--k-gold-soft)">· SIMILAR TO {{ similarTo }} <button type="button" class="c-seg" style="min-height:24px;padding:0 8px;margin-left:8px;font-size:10px" onClick="{{ clearSimilar }}">CLEAR</button></span></span>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="c-lab" style="margin:0">SORT</span>
+          <div class="s-pill" style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line);border-radius:var(--k-r-sm)">
+            <button type="button" class="c-seg" style="border:none;{{ sortCodeStyle }}" onClick="{{ sortCode }}">CODE</button>
+            <button type="button" class="c-seg" style="border:none;border-left:1px solid var(--k-line);{{ sortNameStyle }}" onClick="{{ sortName }}">NAME</button>
+            <button type="button" class="c-seg" style="border:none;border-left:1px solid var(--k-line);{{ sortLightStyle }}" onClick="{{ sortLight }}">LIGHT → DARK</button>
+            <button type="button" class="c-seg" style="border:none;border-left:1px solid var(--k-line);{{ sortDarkStyle }}" onClick="{{ sortDark }}">DARK → LIGHT</button>
+          </div>
+        </div>
+        <span style="font-size:12px;color:var(--k-label);display:{{ hintOn }}">Tap a swatch for details · <span class="c-kbd">←</span> <span class="c-kbd">→</span> to step through</span>
+      </div>
+      <div style="display:grid;gap:48px">
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+          <section id="series-{{ g.key }}" style="display:grid;gap:20px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:var(--k-rule-w) solid var(--k-rule);padding-bottom:12px;flex-wrap:wrap">
+              <h2 style="margin:0;font-size:{{ h2Size }};line-height:1;letter-spacing:-0.01em;color:var(--k-ink)">{{ g.title }}</h2>
+              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.14em;color:var(--k-label)">{{ g.count }} FINISHES</span>
+              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto;text-align:right">{{ g.spec }}</span>
+            </div>
+            <div style="display:grid;grid-template-columns:{{ gridCols }};gap:{{ gridGap }}">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="8">
+                <div class="c-row" id="{{ r.anchor }}" data-hit="{{ r.hit }}" style="border:1px solid {{ r.border }};border-radius:var(--k-r);display:grid;grid-template-rows:auto 1fr auto">
+                  <button type="button" class="c-card-btn" onClick="{{ r.open }}" title="{{ r.openTitle }}">
+                    <div class="c-sw" style="position:relative;aspect-ratio:1/1;background:{{ r.hex }}">
+                      <span class="c-star" style="display:{{ r.starOn }}">★ LASER</span>
+                      <span class="c-star" style="display:{{ r.trendOn }};top:auto;bottom:8px;left:auto;right:8px;align-items:center;gap:4px" title="Trending: #{{ r.trendRank }} most-requested Cerakote colour (applicator reports, 2025)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>{{ r.trendRank }}</span>
+                      <span class="c-star" style="display:{{ r.newOn }};background:var(--k-gold);color:var(--k-on-gold)">{{ r.newLabel }}</span>
+                      <span class="c-star" style="display:{{ r.stockOn }};left:auto;right:8px;color:var(--k-ink)">STOCKED</span>
+                      <span class="c-star" style="display:{{ r.cmpOn }};top:auto;bottom:8px;background:var(--k-gold);color:var(--k-on-gold)">COMPARE {{ r.cmpIdx }}</span>
+                    </div>
+                    <div style="padding:{{ cardPad }};display:grid;gap:6px;align-content:start">
+                      <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.code }}</span><span style="font-family:var(--k-mono);font-size:8px;letter-spacing:0.12em;color:var(--k-label)">{{ r.series }}</span></span>
+                      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:14px;line-height:1.2;color:var(--k-ink)">{{ r.name }}</span>
+                      <span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.06em;color:var(--k-label);line-height:1.5">{{ r.meta }}</span>
+                      <span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.coll }}</span>
+                    </div>
+                  </button>
+                  <div style="display:flex;gap:6px;padding:{{ cardFootPad }};flex-wrap:wrap;align-self:end">
+                    <button type="button" class="c-seg" style="min-height:28px;padding:0 9px;font-size:9px;white-space:nowrap;flex:none;{{ r.cmpStyle }}" onClick="{{ r.toggleCmp }}" title="Add to compare">{{ r.cmpLabel }}</button>
+                    <button type="button" class="c-seg" style="min-height:28px;padding:0 9px;font-size:9px;white-space:nowrap;flex:none" onClick="{{ r.similar }}" title="Find similar finishes">SIMILAR</button>
+                    <sc-for list="{{ r.colls }}" as="c" hint-placeholder-count="0">
+                      <button type="button" class="c-seg" style="min-height:28px;padding:0 9px;font-size:9px;white-space:nowrap;flex:none;{{ c.style }}" onClick="{{ c.toggle }}">{{ c.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </sc-for>
+        <div style="display:{{ noneOn }};padding:40px 0;font-size:14px;color:var(--k-label)">Nothing matches. Clear a filter or try a different word.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin:0 auto;padding:0 {{ padX }} 40px">
+    <div style="border-top:1px solid var(--k-line);padding-top:20px;max-width:70ch;font-size:12px;line-height:1.55;color:var(--k-label);text-wrap:pretty;display:grid;gap:12px">
+      <span>{{ sourceNote }}</span>
+      <span><strong style="color:var(--k-copy);font-weight:600">Trending.</strong> Cerakote publishes no sales or popularity data. The Trending list is KLEEQ's own ranking of {{ nTrend }} colours, drawn from what applicators and gunsmiths report as their most-requested finishes (McCluskey Arms, Bear Creek Arsenal and the AccurateShooter forum, 2025). The top five are consistent across those sources; the rest of the order is our judgment. Use it as a starting point, not a sales figure.</span>
+      <span><strong style="color:var(--k-copy);font-weight:600">New.</strong> Cerakote does not date its listings, so "NEW {{ thisYear }}" uses the upload date stamped in each Cerakote product photo. Colours that appear on cerakote.com before KLEEQ has measured them are shown from a weekly check with a NEW badge and a hatched swatch.</span>
+    </div>
+  </section>
+  </div>
+
+  <div class="c-tray" style="display:{{ trayOn }}" aria-label="Compare tray">
+    <div style="max-width:{{ pageW }};margin:0 auto;padding:10px {{ padX }};display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <span class="c-lab" style="margin:0;flex:none">COMPARE {{ cmpCount }}/3</span>
+      <sc-for list="{{ tray }}" as="c" hint-placeholder-count="0">
+        <button type="button" class="c-seg" style="gap:8px;padding:0 8px 0 4px" onClick="{{ c.remove }}" title="Remove from compare"><span style="width:22px;height:22px;flex:none;border-radius:calc(var(--k-r-sm) * 0.5);background:{{ c.hex }};border:1px solid var(--k-line)"></span>{{ c.code }} <span aria-hidden="true">×</span></button>
+      </sc-for>
+      <span style="flex:1 1 auto"></span>
+      <button type="button" class="c-seg" onClick="{{ clearCmp }}">CLEAR</button>
+      <button type="button" class="c-seg" style="background:var(--k-gold);color:var(--k-on-gold);border-color:var(--k-gold);{{ cmpBtnStyle }}" onClick="{{ openCmp }}" data-self-disabled="{{ cmpBtnOff }}">COMPARE SIDE BY SIDE</button>
+    </div>
+  </div>
+
+  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="c-backdrop" onClick="{{ closeDrawer }}"></div>
+    <aside class="c-drawer" role="dialog" aria-modal="true" aria-label="{{ d.code }} {{ d.name }}">
+      <div style="display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid var(--k-line);position:sticky;top:0;background:inherit;z-index:2">
+        <button type="button" class="c-seg" style="min-height:32px;width:36px;padding:0;justify-content:center" onClick="{{ prev }}" aria-label="Previous finish" title="Previous (←)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+        <button type="button" class="c-seg" style="min-height:32px;width:36px;padding:0;justify-content:center" onClick="{{ next }}" aria-label="Next finish" title="Next (→)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+        <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.1em;color:var(--k-label);margin-left:4px">{{ d.pos }}</span>
+        <span style="flex:1 1 auto"></span>
+        <button type="button" class="c-seg" style="min-height:32px;width:36px;padding:0;justify-content:center" onClick="{{ closeDrawer }}" aria-label="Close" title="Close (Esc)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+      </div>
+      <div style="padding:20px;display:grid;gap:20px">
+        <div style="position:relative;aspect-ratio:4/3;border-radius:var(--k-r);background:{{ d.hex }};border:1px solid var(--k-line);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08)">
+          <span class="c-star" style="display:{{ d.starOn }}">★ LASER OPTIMIZED</span>
+          <span class="c-star" style="display:{{ d.stockOn }};left:auto;right:8px;color:var(--k-ink)">STOCKED AT KLEEQ</span>
+        </div>
+        <div style="display:grid;gap:6px">
+          <span style="font-family:var(--k-mono);font-size:11px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ d.code }} · {{ d.seriesLabel }}</span>
+          <h2 style="margin:0;font-size:28px;line-height:1;color:var(--k-ink)">{{ d.name }}</h2>
+          <span style="display:{{ d.noteOn }};font-size:13px;line-height:1.5;color:var(--k-copy);margin-top:4px">{{ d.note }}</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button type="button" class="c-seg" style="{{ d.cmpStyle }}" onClick="{{ d.toggleCmp }}">{{ d.cmpLabel }}</button>
+          <button type="button" class="c-seg" onClick="{{ d.similar }}">FIND SIMILAR</button>
+          <a class="c-seg" style="display:{{ d.calcOn }}" href="{{ d.calcUrl }}">MIX IT →</a>
+          <button type="button" class="c-seg" onClick="{{ d.copyHex }}">{{ d.copyLabel }}</button>
+        </div>
+        <dl class="c-spec" style="margin:0;border-top:1px solid var(--k-line);padding-top:16px">
+          <dt>COLOUR</dt><dd>{{ d.colour }}</dd>
+          <dt>SHEEN</dt><dd>{{ d.sheen }}</dd>
+          <dt>LRV</dt><dd>{{ d.lrv }}</dd>
+          <dt>SERIES</dt><dd>{{ d.seriesName }}</dd>
+          <dt>TYPE</dt><dd>{{ d.type }}</dd>
+          <dt>CURE</dt><dd>{{ d.cure }}</dd>
+          <dt>MIX RATIO</dt><dd>{{ d.ratio }}</dd>
+          <dt>CATALYST</dt><dd>{{ d.catalyst }}</dd>
+          <dt>COLLECTION</dt><dd>{{ d.coll }}</dd>
+          <dt>TRENDING</dt><dd>{{ d.trend }}</dd>
+          <dt>LISTED</dt><dd>{{ d.listed }}</dd>
+        </dl>
+        <div style="display:grid;gap:8px;border-top:1px solid var(--k-line);padding-top:16px">
+          <span class="c-lab" style="margin:0">SIMILAR FINISHES</span>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+            <sc-for list="{{ d.similarRows }}" as="s" hint-placeholder-count="4">
+              <button type="button" class="c-card-btn" onClick="{{ s.open }}" title="{{ s.name }}" style="gap:6px">
+                <span style="display:block;aspect-ratio:1/1;border-radius:var(--k-r-sm);background:{{ s.hex }};border:1px solid var(--k-line)"></span>
+                <span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.08em;color:var(--k-gold-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.code }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:11px;letter-spacing:0.1em;color:var(--k-label);border-top:1px solid var(--k-line);padding-top:16px">CERAKOTE PRODUCT PAGE <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--k-gold-soft)"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
+        <span style="font-size:11px;line-height:1.5;color:var(--k-label)">Series values are Cerakote's published figures; the TDS on the bottle in your hand is the authority.</span>
+      </div>
+    </aside>
+  </sc-if>
+
+  <sc-if value="{{ cmpOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="c-cmp" onClick="{{ closeCmp }}">
+      <div class="c-cmp-panel" role="dialog" aria-modal="true" aria-label="Compare finishes" onClick="{{ stop }}" style="width:min(1100px,100%);max-height:92vh;overflow:auto;background:var(--k-panel);border:1px solid var(--k-line);border-radius:var(--k-r);padding:20px;display:grid;gap:16px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="c-lab" style="margin:0">SIDE BY SIDE</span>
+          <span style="flex:1 1 auto"></span>
+          <button type="button" class="c-seg" style="min-height:32px;width:36px;padding:0;justify-content:center" onClick="{{ closeCmp }}" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+        </div>
+        <div style="display:grid;grid-template-columns:{{ cmpCols }};gap:16px">
+          <sc-for list="{{ cmpRows }}" as="c" hint-placeholder-count="2">
+            <div style="display:grid;gap:12px;min-width:0">
+              <div style="aspect-ratio:4/3;border-radius:var(--k-r);background:{{ c.hex }};border:1px solid var(--k-line)"></div>
+              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ c.code }} · {{ c.seriesLabel }}</span>
+              <h3 style="margin:0;font-size:20px;line-height:1.05;color:var(--k-ink)">{{ c.name }}</h3>
+              <dl class="c-spec" style="margin:0;grid-template-columns:72px minmax(0,1fr)">
+                <dt>COLOUR</dt><dd>{{ c.colour }}</dd>
+                <dt>SHEEN</dt><dd>{{ c.sheen }}</dd>
+                <dt>LRV</dt><dd>{{ c.lrv }}</dd>
+                <dt>CURE</dt><dd>{{ c.cure }}</dd>
+                <dt>RATIO</dt><dd>{{ c.ratio }}</dd>
+                <dt>CATALYST</dt><dd>{{ c.catalyst }}</dd>
+                <dt>LASER</dt><dd>{{ c.laser }}</dd>
+                <dt>TRENDING</dt><dd>{{ c.trend }}</dd>
+                      <dt style="display:{{ stockRowOn }}">STOCK</dt><dd style="display:{{ stockRowOn }}">{{ c.stock }}</dd>
+              </dl>
+              <button type="button" class="c-seg" onClick="{{ c.remove }}">REMOVE</button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400}}">
+let FX = null;
+const gradFor = (f) => (FX ? FX.gradFor(f) : (f && f.hex) || 'none');
+const SERIES_ORDER = ['H', 'E', 'F', 'FIR', 'HIR', 'GEN II', 'C', 'V', 'S', 'SG', 'DFL', 'MC', 'FX', 'LR', 'P'];
+// Published series facts (Cerakote TDS / training manuals). Anything not verified says so.
+const SERIES = {
+  H:   { title: 'H-Series · Oven cure', name: 'H-Series', type: 'Two-part ceramic, oven cure', cure: 'Oven · 250°F for 2 h (or 300°F for 1 h)', ratio: '18:1 by weight', catalyst: 'H-Series catalyst (never the Elite catalyst)', calc: true },
+  E:   { title: 'Elite · Oven cure', name: 'Elite (E-Series)', type: 'Two-part ceramic, oven cure', cure: 'Oven · 250°F for 2 h', ratio: '12:1 to 24:1 (18:1 typical) — ratio sets the gloss', catalyst: 'Elite catalyst only', calc: true },
+  F:   { title: 'F-Series · Laser optimized', name: 'F-Series', type: 'Two-part, PFAS-free, oven cure', cure: 'Oven · low-temperature fast cure, per TDS', ratio: 'Per TDS', catalyst: 'F-Series catalyst', calc: true },
+  FIR: { title: 'FIR · IR reflective', name: 'FIR-Series', type: 'Two-part, oven cure', cure: 'Oven · per TDS', ratio: 'Per TDS', catalyst: 'Check the FIR TDS — its own code', calc: false },
+  HIR: { title: 'HIR · IR reflective', name: 'HIR (Gen II NiR)', type: 'Two-part, oven cure', cure: 'Oven · per TDS', ratio: '18:1 by weight', catalyst: 'H-Series catalyst', calc: true },
+  C:   { title: 'C-Series · Air cure', name: 'C-Series', type: 'Single component, air cure', cure: 'Air cure · no oven', ratio: 'None — ready to spray', catalyst: 'None', calc: false },
+  V:   { title: 'V-Series · Air cure', name: 'V-Series', type: 'Single component', cure: 'Air cure', ratio: 'None', catalyst: 'None — Cerakote states no catalyst', calc: false },
+  MC:  { title: 'MC · Clear', name: 'MC-Series clear', type: 'Single component clear', cure: 'Air dry', ratio: 'None', catalyst: 'None', calc: false },
+  FX:  { title: 'FX · Effects', name: 'FX additive', type: 'Powder additive for H / MC clears', cure: 'Follows the host clear', ratio: '1 g FX per 1 oz clear', catalyst: 'Catalyse the clear, not the FX', calc: false },
+  DFL: { title: 'Dry Film Lubricant', name: 'DFL', type: 'Two-part', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'F-100 catalyst', calc: false },
+  SG:  { title: 'Super Grip', name: 'Super Grip', type: 'Two-part', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'F-Series catalyst', calc: false },
+  S:   { title: 'S-Series', name: 'S-Series', type: 'Check TDS', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'Check TDS', calc: false },
+  LR:  { title: 'LR', name: 'LR', type: 'Check TDS', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'Check TDS', calc: false },
+  P:   { title: 'P · Primers', name: 'Primers', type: 'Check TDS', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'Check TDS', calc: false }
+};
+// Most-requested Cerakote colours, ranked from applicator and gunsmith reports (McCluskey Arms,
+// Bear Creek Arsenal, AccurateShooter forum, 2025). Cerakote publishes no trending feed.
+const TRENDING = ['H-146', 'H-265', 'H-236', 'H-148', 'H-234', 'H-227', 'H-190', 'H-235', 'H-267', 'H-232', 'H-240', 'HIR-146', 'H-226', 'H-237', 'H-151', 'H-152', 'H-229', 'H-262', 'H-170', 'H-112', 'E-100', 'E-110'];
+const trendRank = (code) => { const i = TRENDING.indexOf(String(code || '').toUpperCase()); return i < 0 ? 0 : i + 1; };
+// Weekly Cerakote watcher output (see repo/tools/catalogue-sync). Same-directory file by default.
+const LIVE_URL = '/api/catalogue/cerakote-live.json';
+const NEW_DAYS = 45;
+// Cerakote stamps the upload date into every product photo URL (…dt20260812…); that is the closest
+// public record of when a colour was listed. Anything listed this calendar year gets the NEW badge.
+const listedYear = (f) => { const m = /dt(\d{4})\d{4}/.exec(f.thumb || ''); return m ? Number(m[1]) : 0; };
+const THIS_YEAR = new Date().getFullYear();
+const isNew = (f) => !!((f.firstSeen && (Date.now() - Date.parse(f.firstSeen)) < NEW_DAYS * 86400000) || listedYear(f) === THIS_YEAR);
+const newLabel = (f) => f.live ? 'NEW' : 'NEW ' + listedYear(f);
+const seriesInfo = (s) => SERIES[s] || { title: s + '-Series', name: s + '-Series', type: 'Check TDS', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'Check TDS', calc: false };
+const rgbOf = (hex) => { const h = String(hex || '').replace('#', ''); return h.length === 6 ? [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)) : null; };
+const STOP = new Set(['the', 'of', 'and', 'a', 'light', 'dark', 'ii', 'iii', 'gen']);
+const words = (n) => String(n || '').toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 2 && !STOP.has(w));
+
+class Component extends DCLogic {
+  state = { theme: 'glass', view: 'desktop', data: null, query: '', cat: 'ALL', sort: 'code', series: 'ALL', laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, live: null, hit: '', custom: [], newName: '', adding: false, open: null, cmp: [], cmpOpen: false, similar: null, copied: false, sampled: {} };
+
+  saveCustom(custom) { try { window.localStorage.setItem('kleeq.catalogue.collections', JSON.stringify(custom)); } catch (e) {} this.setState({ custom: custom }); }
+  toggleAdding = (e) => { if (e) e.preventDefault(); this.setState((s) => ({ adding: !s.adding, newName: '' })); };
+  setNewName = (e) => this.setState({ newName: e.target.value });
+  createCollection = (e) => {
+    if (e) e.preventDefault();
+    const name = this.state.newName.trim();
+    if (!name || this.state.custom.some((c) => c.name.toLowerCase() === name.toLowerCase())) return;
+    this.saveCustom(this.state.custom.concat([{ name: name, codes: [] }]));
+    this.setState({ adding: false, newName: '' });
+  };
+  deleteCollection = (name) => (e) => { if (e) e.preventDefault(); if (!window.confirm('Delete collection "' + name + '"?')) return; this.saveCustom(this.state.custom.filter((c) => c.name !== name)); this.setState({ cat: 'ALL' }); };
+  toggleInCollection = (name, code) => (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } this.saveCustom(this.state.custom.map((c) => c.name !== name ? c : Object.assign({}, c, { codes: c.codes.indexOf(code) >= 0 ? c.codes.filter((x) => x !== code) : c.codes.concat([code]) }))); };
+
+  hexOf(f) { return f.hex || this.state.sampled[f.code] || null; }
+  lum(f) {
+    if (typeof f.lrv === 'number') return f.lrv;
+    const c = rgbOf(this.hexOf(f)); if (!c) return -1;
+    const l = c.map((v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return (0.2126 * l[0] + 0.7152 * l[1] + 0.0722 * l[2]) * 100;
+  }
+  // Average colour of a Cerakote thumbnail, when the image host lets us read pixels. Cached per session.
+  sampleAll(list) {
+    if (this._sampling || this._noSample) return;
+    this._sampling = true;
+    const sameOrigin = (u) => { try { return new URL(u, window.location.href).origin === window.location.origin; } catch (x) { return false; } };
+    const todo = list.filter((f) => !f.hex && f.thumb && sameOrigin(f.thumb) && !this.state.sampled[f.code]);
+    let i = 0; const out = {};
+    const step = () => {
+      if (i >= todo.length || this._noSample) { this._sampling = false; if (Object.keys(out).length) this.setState((s) => ({ sampled: Object.assign({}, s.sampled, out) })); return; }
+      const f = todo[i++]; const img = new Image(); img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        try {
+          const cv = document.createElement('canvas'); cv.width = cv.height = 8; const cx = cv.getContext('2d');
+          cx.drawImage(img, img.width * 0.2, img.height * 0.2, img.width * 0.6, img.height * 0.6, 0, 0, 8, 8);
+          const px = cx.getImageData(0, 0, 8, 8).data; let r = 0, g = 0, b = 0, n = 0;
+          for (let k = 0; k < px.length; k += 4) { if (px[k + 3] < 200) continue; r += px[k]; g += px[k + 1]; b += px[k + 2]; n++; }
+          if (n) out[f.code] = '#' + [r / n, g / n, b / n].map((v) => Math.round(v).toString(16).padStart(2, '0')).join('');
+          if (i % 12 === 0) { this.setState((s) => ({ sampled: Object.assign({}, s.sampled, out) })); }
+        } catch (x) { this._noSample = true; }
+        step();
+      };
+      img.onerror = () => { this._noSample = true; step(); };
+      img.src = f.thumb;
+    };
+    step();
+  }
+  // Colour distance where both sides have a colour; name-word overlap otherwise; same series always counts.
+  similarity(a, b) {
+    const ca = rgbOf(this.hexOf(a)), cb = rgbOf(this.hexOf(b));
+    let s = 0;
+    if (ca && cb) { const d = Math.sqrt(2 * Math.pow(ca[0] - cb[0], 2) + 4 * Math.pow(ca[1] - cb[1], 2) + 3 * Math.pow(ca[2] - cb[2], 2)) / 765; s += (1 - Math.min(1, d * 2.2)) * 100; }
+    else { const wa = words(a.name), wb = words(b.name); const hit = wa.filter((w) => wb.indexOf(w) >= 0).length; s += hit ? 40 + hit * 15 : 0; }
+    if (this.seriesOf(a) === this.seriesOf(b)) s += 25;
+    if (a.sheen && b.sheen && String(a.sheen).toLowerCase() === String(b.sheen).toLowerCase()) s += 8;
+    return s;
+  }
+  seriesOf(f) { return String(f.series || f.code.split('-')[0] || '').toUpperCase(); }
+
+  all() {
+    const d = this.state.data; if (!d) return [];
+    const lv = this.state.live;
+    if (this._allCache && this._allSrc === d && this._allLive === lv) return this._allCache;
+    const measured = {}; d.finishes.forEach((f) => { measured[f.code] = f; });
+    const all = d.finishes.map((f) => Object.assign({ measured: true }, f)).concat((d.catalogue || []).filter((c) => !measured[c.code]).map((c) => Object.assign({ categories: [], note: '', sheen: c.sheen || '', measured: false }, c)));
+    // Codes Cerakote lists that we have not measured or catalogued yet.
+    const have = new Set(all.map((f) => f.code.toUpperCase()));
+    ((lv && lv.items) || []).forEach((i) => { if (!have.has(i.code) && !i.missingSince) all.push({ code: i.code, name: i.name, series: i.series, url: i.url, thumb: '', sheen: '', categories: [], note: 'New on cerakote.com — swatch and TDS pending at KLEEQ.', measured: false, live: true, firstSeen: i.firstSeen }); });
+    this._allCache = all; this._allSrc = d; this._allLive = lv; return all;
+  }
+  byCode(code) { return this.all().filter((f) => f.code.toUpperCase() === String(code || '').toUpperCase())[0] || null; }
+
+  setTheme = (v) => {
+    document.documentElement.setAttribute('data-kleeq-theme', v);
+    const m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', v === 'glass' ? '#0e0d0c' : v === 'dark' ? '#1a1918' : '#f3f2f2');
+    this.setState({ theme: v });
+  };
+  setView = (v) => { try { window.localStorage.setItem('kleeq-cat-view', v); } catch (e) {} this.setState({ view: v }); };
+  effView() {
+    const w = typeof window !== 'undefined' ? window.innerWidth : 1400;
+    if (w < 640) return 'mobile';
+    if (w < 1024) return this.state.view === 'mobile' ? 'mobile' : 'tablet';
+    return this.state.view || 'desktop';
+  }
+
+  // Filters, the open finish and the compare set live in the URL so a link restores the view.
+  readUrl() {
+    const p = new URLSearchParams(window.location.search);
+    const st = {};
+    if (p.get('q')) st.query = p.get('q');
+    if (p.get('cat')) st.cat = p.get('cat');
+    if (p.get('series')) st.series = p.get('series').toUpperCase();
+    if (p.get('sort')) st.sort = p.get('sort');
+    if (p.get('laser') === '1') st.laserOnly = true;
+    if (p.get('measured') === '1') st.measuredOnly = true;
+    if (p.get('stock') === '1') st.stockOnly = true;
+    if (p.get('trending') === '1') st.trendOnly = true;
+    if (p.get('new') === '1') st.newOnly = true;
+    if (p.get('cmp')) st.cmp = p.get('cmp').split(',').map((c) => c.toUpperCase()).slice(0, 3);
+    if (p.get('open')) st.open = p.get('open').toUpperCase();
+    if (p.get('code')) { st.hit = p.get('code').toUpperCase(); st.open = st.hit; }
+    if (p.get('like')) st.similar = p.get('like').toUpperCase();
+    return st;
+  }
+  writeUrl() {
+    const s = this.state, p = new URLSearchParams();
+    if (s.query) p.set('q', s.query);
+    if (s.cat !== 'ALL') p.set('cat', s.cat);
+    if (s.series !== 'ALL') p.set('series', s.series);
+    if (s.sort !== 'code') p.set('sort', s.sort);
+    if (s.laserOnly) p.set('laser', '1');
+    if (s.measuredOnly) p.set('measured', '1');
+    if (s.stockOnly) p.set('stock', '1');
+    if (s.trendOnly) p.set('trending', '1');
+    if (s.newOnly) p.set('new', '1');
+    if (s.cmp.length) p.set('cmp', s.cmp.join(','));
+    if (s.open) p.set('open', s.open);
+    if (s.similar) p.set('like', s.similar);
+    const q = p.toString();
+    try { window.history.replaceState(null, '', window.location.pathname + (q ? '?' + q : '')); } catch (e) {}
+  }
+  componentDidUpdate(pp, ps) {
+    const s = this.state;
+    if (['query', 'cat', 'series', 'sort', 'laserOnly', 'measuredOnly', 'stockOnly', 'trendOnly', 'newOnly', 'cmp', 'open', 'similar'].some((k) => s[k] !== ps[k])) this.writeUrl();
+    if (s.cmp !== ps.cmp) { try { window.localStorage.setItem('kleeq.catalogue.compare', JSON.stringify(s.cmp)); } catch (e) {} }
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._rz); window.removeEventListener('keydown', this._kd); }
+  componentDidMount() {
+    this._rz = () => this.forceUpdate();
+    window.addEventListener('resize', this._rz);
+    this._kd = (e) => {
+      if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
+      if (this.state.cmpOpen) { if (e.key === 'Escape') this.setState({ cmpOpen: false }); return; }
+      if (!this.state.open) return;
+      if (e.key === 'Escape') this.setState({ open: null });
+      if (e.key === 'ArrowRight') this.stepOpen(1);
+      if (e.key === 'ArrowLeft') this.stepOpen(-1);
+    };
+    window.addEventListener('keydown', this._kd);
+    this.setTheme('glass');
+    try { const v = window.localStorage.getItem('kleeq-cat-view'); if (['desktop', 'tablet', 'mobile'].indexOf(v) >= 0) this.setState({ view: v }); } catch (e) {}
+    try {
+      const cc = window.localStorage.getItem('kleeq.catalogue.collections'); if (cc) this.setState({ custom: JSON.parse(cc) });
+      const cm = window.localStorage.getItem('kleeq.catalogue.compare'); if (cm) this.setState({ cmp: JSON.parse(cm).slice(0, 3) });
+      const u = this.readUrl(); this.setState(u);
+      if (u.hit) setTimeout(() => { const el = document.getElementById('cat-' + u.hit.replace(/[^A-Za-z0-9]/g, '_')); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80 }); }, 1200);
+    } catch (e) {}
+    import('./kleeq-finish-render.js').then((m) => { FX = m; this.forceUpdate(); }).catch(() => {});
+    fetch(LIVE_URL, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).then((lv) => { if (lv && Array.isArray(lv.items)) this.setState({ live: lv }); }).catch(() => {});
+    fetch('kleeq-finishes.json').then((r) => r.json()).then((d) => { this.setState({ data: d }); setTimeout(() => this.sampleAll(this.all()), 800); }).catch(() => {});
+  }
+
+  stepOpen(dir) {
+    const flat = this._flat || []; if (!flat.length) return;
+    const i = flat.findIndex((f) => f.code.toUpperCase() === this.state.open);
+    const j = ((i < 0 ? 0 : i + dir) + flat.length) % flat.length;
+    this.setState({ open: flat[j].code.toUpperCase(), copied: false });
+  }
+  toggleCmp(code) { return (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } this.setState((s) => { const c = code.toUpperCase(); if (s.cmp.indexOf(c) >= 0) return { cmp: s.cmp.filter((x) => x !== c) }; if (s.cmp.length >= 3) return { cmp: s.cmp.slice(1).concat([c]) }; return { cmp: s.cmp.concat([c]) }; }); }; }
+  findSimilar(code) { return (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } this.setState({ similar: code.toUpperCase(), open: null, cat: 'ALL', series: 'ALL', query: '', laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, sort: 'code' }); setTimeout(() => { const el = document.getElementById('results'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 12, behavior: 'smooth' }); }, 50); }; }
+  openF(code) { return (e) => { if (e) e.preventDefault(); this.setState({ open: code.toUpperCase(), copied: false }); }; }
+  swatch(f) { if (f.live) return 'repeating-linear-gradient(135deg, var(--k-field) 0 8px, transparent 8px 16px), var(--k-panel)'; return f.thumb ? 'url("' + f.thumb + '") center/contain no-repeat, ' + (this.hexOf(f) || 'var(--k-field)') : (f.hex ? gradFor(f) : 'var(--k-field)'); }
+  specOf(f) {
+    const s = this.seriesOf(f), si = seriesInfo(s), hex = this.hexOf(f), l = this.lum(f);
+    return {
+      code: f.code, name: f.name, hex: this.swatch(f), flat: hex || 'var(--k-field)', seriesLabel: s + ' SERIES', seriesName: si.name, type: si.type, cure: si.cure, ratio: si.ratio, catalyst: si.catalyst,
+      colour: f.hex ? f.hex.toUpperCase() + ' · measured off a KLEEQ chip' : hex ? hex.toUpperCase() + ' · sampled from the Cerakote photo' : f.live ? 'Not measured yet — new on cerakote.com' : 'Not measured — Cerakote photo only',
+      sheen: f.sheen || 'Not listed', lrv: l >= 0 ? l.toFixed(1) + '%' : '—',
+      listed: f.live ? 'New on cerakote.com' : listedYear(f) ? 'Photo dated ' + listedYear(f) : '—',
+      laser: f.laserOptimized ? '★ Optimized' : 'Not flagged', trend: trendRank(f.code) ? '#' + trendRank(f.code) + ' most requested' : '—', stock: f.stocked ? 'On the KLEEQ shelf' : 'Order in',
+      starOn: f.laserOptimized ? 'inline-block' : 'none', stockOn: f.stocked ? 'inline-block' : 'none',
+      url: f.url || 'https://www.cerakote.com/shop/cerakote-coating?series=cera_' + s.toLowerCase().replace(/\s+/g, '_') + '_series',
+      calcOn: si.calc ? 'inline-flex' : 'none', calcUrl: '../mixing-calculator/?code=' + encodeURIComponent(f.code)
+    };
+  }
+
+  renderVals() {
+    const st = this.state, all = this.all(), q = st.query.trim().toLowerCase(), cat = st.cat;
+    const measured = {}; all.forEach((f) => { if (f.measured) measured[f.code] = f; });
+    const seriesList = Array.from(new Set(all.map((f) => this.seriesOf(f)))).sort((a, b) => { const i = SERIES_ORDER.indexOf(a), j = SERIES_ORDER.indexOf(b); return (i < 0 ? 99 : i) - (j < 0 ? 99 : j) || a.localeCompare(b); });
+    const like = st.similar ? this.byCode(st.similar) : null;
+    let finishes = all.filter((f) => {
+      if (cat === 'Signature' && f.wall !== 'signature') return false;
+      if (cat === 'Palette' && f.wall !== 'palette') return false;
+      if (cat === 'Core' && f.measured) return false;
+      if (cat.indexOf('custom:') === 0) { const cc = st.custom.find((c) => 'custom:' + c.name === cat); if (!cc || cc.codes.indexOf(f.code) < 0) return false; }
+      if (st.series !== 'ALL' && this.seriesOf(f) !== st.series) return false;
+      if (st.laserOnly && !f.laserOptimized) return false;
+      if (st.measuredOnly && !f.measured) return false;
+      if (st.stockOnly && !f.stocked) return false;
+      if (st.trendOnly && !trendRank(f.code)) return false;
+      if (st.newOnly && !isNew(f)) return false;
+      if (!q) return true;
+      return (f.code + ' ' + f.name + ' ' + (f.note || '') + ' ' + this.seriesOf(f)).toLowerCase().indexOf(q) >= 0;
+    });
+    const sort = st.sort;
+    if (like) {
+      finishes = finishes.filter((f) => f.code !== like.code).map((f) => ({ f: f, s: this.similarity(like, f) })).filter((x) => x.s >= 45).sort((a, b) => b.s - a.s).slice(0, 24).map((x) => x.f);
+    } else if (st.trendOnly && sort === 'code') finishes.sort((a, b) => trendRank(a.code) - trendRank(b.code));
+    else if (sort === 'name') finishes.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }) || a.code.localeCompare(b.code, undefined, { numeric: true }));
+    else if (sort !== 'code') { const w = finishes.filter((f) => this.lum(f) >= 0), n = finishes.filter((f) => this.lum(f) < 0); w.sort((a, b) => sort === 'light' ? this.lum(b) - this.lum(a) : this.lum(a) - this.lum(b)); finishes = w.concat(n); }
+    else finishes.sort((a, b) => { const i = SERIES_ORDER.indexOf(this.seriesOf(a)), j = SERIES_ORDER.indexOf(this.seriesOf(b)); return (i < 0 ? 99 : i) - (j < 0 ? 99 : j) || a.code.localeCompare(b.code, undefined, { numeric: true }); });
+    this._flat = finishes;
+
+    const segOn = 'background:var(--k-gold);color:var(--k-on-gold);border-color:var(--k-gold)';
+    const sel = 'background:var(--k-sel);color:var(--k-gold-soft)';
+    const theme = st.theme, view = this.effView(), isPhone = view === 'mobile', compact = view !== 'desktop';
+    const realW = typeof window !== 'undefined' ? window.innerWidth : 1400;
+    const cmpSet = st.cmp;
+    const cmpLabel = (code) => cmpSet.indexOf(code.toUpperCase()) >= 0 ? '✓ COMPARING' : '+ COMPARE';
+    const cmpStyle = (code) => cmpSet.indexOf(code.toUpperCase()) >= 0 ? 'border-color:var(--k-gold);color:var(--k-gold-soft)' : '';
+    const collOf = (f) => [f.measured ? (f.wall === 'signature' ? 'SIGNATURE' : 'PALETTE') : 'CORE'].concat(st.custom.filter((c) => c.codes.indexOf(f.code) >= 0).map((c) => c.name.toUpperCase())).join(' · ');
+
+    // grouped rows
+    const order = [], byS = {};
+    finishes.forEach((f) => {
+      const s = like ? 'MATCH' : st.trendOnly && sort === 'code' ? 'TREND' : this.seriesOf(f);
+      if (!byS[s]) { byS[s] = []; order.push(s); }
+      const l = this.lum(f), hex = this.hexOf(f), ci = cmpSet.indexOf(f.code.toUpperCase());
+      byS[s].push({
+        code: f.code, name: f.name, series: this.seriesOf(f) + ' SERIES',
+        anchor: 'cat-' + f.code.replace(/[^A-Za-z0-9]/g, '_'),
+        hit: st.hit === f.code.toUpperCase() ? '1' : '0',
+        border: st.open === f.code.toUpperCase() ? 'var(--k-gold)' : 'var(--k-line)',
+        hex: this.swatch(f),
+        starOn: f.laserOptimized ? 'inline-block' : 'none', stockOn: f.stocked ? 'inline-block' : 'none',
+        trendOn: trendRank(f.code) ? 'inline-block' : 'none', trendRank: trendRank(f.code),
+        newOn: isNew(f) ? 'inline-block' : 'none', newLabel: newLabel(f),
+        cmpOn: ci >= 0 ? 'inline-block' : 'none', cmpIdx: ci + 1,
+        meta: f.measured ? (f.hex + ' · ' + (f.sheen || '—') + ' · LRV ' + l.toFixed(1) + '%') : ((f.sheen ? f.sheen + ' · ' : '') + (hex ? hex.toUpperCase() + ' · SAMPLED' : f.live ? 'NEW ON CERAKOTE · SWATCH PENDING' : f.thumb ? 'CERAKOTE PHOTO' : 'NO LISTING')),
+        coll: collOf(f),
+        open: this.openF(f.code), openTitle: 'Details for ' + f.code,
+        cmpLabel: cmpLabel(f.code), cmpStyle: cmpStyle(f.code), toggleCmp: this.toggleCmp(f.code),
+        similar: this.findSimilar(f.code),
+        colls: st.custom.map((c) => { const on = c.codes.indexOf(f.code) >= 0; return { label: (on ? '✓ ' : '+ ') + c.name.toUpperCase(), style: on ? 'border-color:var(--k-gold);color:var(--k-gold-soft)' : 'border-style:dashed', toggle: this.toggleInCollection(c.name, f.code) }; })
+      });
+    });
+    const groups = order.map((s) => { const si = seriesInfo(s); return { key: s, title: like ? 'Closest to ' + like.code + ' ' + like.name : s === 'TREND' ? 'Trending · most requested' : si.title, count: byS[s].length, rows: byS[s], spec: like ? 'BY COLOUR, SERIES AND SHEEN' : s === 'TREND' ? 'RANKED FROM APPLICATOR REPORTS, 2025' : (si.ratio + ' · ' + si.catalyst).toUpperCase() }; });
+
+    // drawer
+    const of = st.open ? this.byCode(st.open) : null;
+    let d = null;
+    if (of) {
+      const idx = finishes.findIndex((f) => f.code === of.code);
+      const sims = all.filter((f) => f.code !== of.code).map((f) => ({ f: f, s: this.similarity(of, f) })).sort((a, b) => b.s - a.s).slice(0, 4);
+      d = Object.assign(this.specOf(of), {
+        pos: idx >= 0 ? (idx + 1) + ' / ' + finishes.length : '—', note: of.note || '', noteOn: of.note ? 'block' : 'none', coll: collOf(of),
+        cmpLabel: cmpLabel(of.code), cmpStyle: cmpStyle(of.code), toggleCmp: this.toggleCmp(of.code), similar: this.findSimilar(of.code),
+        copyLabel: st.copied ? 'COPIED' : (this.hexOf(of) ? 'COPY HEX' : 'COPY CODE'),
+        copyHex: (e) => { if (e) e.preventDefault(); const txt = this.hexOf(of) || of.code; if (navigator.clipboard) navigator.clipboard.writeText(txt).catch(() => {}); this.setState({ copied: true }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ copied: false }), 1400); },
+        similarRows: sims.map((x) => ({ code: x.f.code, name: x.f.code + ' ' + x.f.name, hex: this.swatch(x.f), open: this.openF(x.f.code) }))
+      });
+    }
+    const cmpRows = cmpSet.map((c) => this.byCode(c)).filter(Boolean).map((f) => Object.assign(this.specOf(f), { remove: this.toggleCmp(f.code) }));
+    const anyFilter = q || cat !== 'ALL' || st.series !== 'ALL' || st.laserOnly || st.measuredOnly || st.stockOnly || st.trendOnly || st.newOnly || like;
+
+    return {
+      modStyle: theme === 'modernist' ? sel : '', lightStyle: theme === 'light' ? sel : '', darkStyle: theme === 'dark' ? sel : '', glassStyle: theme === 'glass' ? sel : '',
+      setMod: this._th0 || (this._th0 = (e) => { if (e) e.preventDefault(); this.setTheme('modernist'); }),
+      setLight: this._th1 || (this._th1 = (e) => { if (e) e.preventDefault(); this.setTheme('light'); }),
+      setDark: this._th2 || (this._th2 = (e) => { if (e) e.preventDefault(); this.setTheme('dark'); }),
+      setGlass: this._th3 || (this._th3 = (e) => { if (e) e.preventDefault(); this.setTheme('glass'); }),
+      pageW: view === 'mobile' ? '430px' : view === 'tablet' ? '900px' : '1400px',
+      padX: isPhone ? '16px' : compact ? '24px' : 'clamp(14px,2.4vw,40px)',
+      pagePadB: cmpSet.length ? '96px' : '0',
+      layoutTogglesOn: realW < 640 ? 'none' : 'inline-grid',
+      sideStyle: view === 'desktop' ? sel : '', tabletStyle: view === 'tablet' ? sel : '', mobileStyle: view === 'mobile' ? sel : '',
+      setSide: this._v1 || (this._v1 = (e) => { if (e) e.preventDefault(); this.setView('desktop'); }),
+      setTablet: this._v2 || (this._v2 = (e) => { if (e) e.preventDefault(); this.setView('tablet'); }),
+      setMobile: this._v3 || (this._v3 = (e) => { if (e) e.preventDefault(); this.setView('mobile'); }),
+      filterCols: compact ? 'minmax(0,1fr)' : '120px minmax(0,1fr)',
+      labPad: compact ? '16px 0 0' : '22px 0', labRule: compact ? 'none' : '1px solid var(--k-line)',
+      sortDir: isPhone ? 'column' : 'row',
+      gridCols: isPhone ? 'repeat(2,minmax(0,1fr))' : compact ? 'repeat(auto-fill,minmax(150px,1fr))' : 'repeat(auto-fill,minmax(160px,1fr))',
+      gridGap: isPhone ? '10px' : '16px',
+      cardPad: isPhone ? '10px 10px 8px' : '14px 14px 10px', cardFootPad: isPhone ? '4px 10px 10px' : '4px 14px 14px',
+      h2Size: isPhone ? '18px' : '22px', hintOn: compact ? 'none' : 'inline',
+
+      query: st.query, setQuery: this._sq || (this._sq = (e) => this.setState({ query: e.target.value, similar: null })),
+      clearOn: anyFilter ? 'inline-flex' : 'none',
+      clearAll: this._ca || (this._ca = (e) => { if (e) e.preventDefault(); this.setState({ query: '', cat: 'ALL', series: 'ALL', laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, similar: null, sort: 'code' }); }),
+      filters: ['ALL', 'Signature', 'Palette', 'Core'].map((c) => ({
+        label: (c === 'ALL' ? all.length : c === 'Signature' ? all.filter((f) => f.wall === 'signature').length : c === 'Palette' ? all.filter((f) => f.wall === 'palette').length : all.filter((f) => !f.measured).length) , name: c.toUpperCase(),
+        style: cat === c ? segOn : '', pick: (e) => { if (e) e.preventDefault(); this.setState({ cat: c, similar: null }); } })),
+      customFilters: st.custom.map((c) => ({ label: c.codes.length, name: c.name.toUpperCase(), style: cat === 'custom:' + c.name ? segOn : 'border-style:dashed', pick: (e) => { if (e) e.preventDefault(); this.setState({ cat: 'custom:' + c.name, similar: null }); }, remove: this.deleteCollection(c.name) })),
+      showResetOn: (st.laserOnly || st.measuredOnly || st.stockOnly || st.trendOnly || st.newOnly) ? 'inline-flex' : 'none',
+      resetShow: this._rs || (this._rs = (e) => { if (e) e.preventDefault(); this.setState({ laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, similar: null }); }),
+      catResetOn: cat !== 'ALL' ? 'inline-flex' : 'none',
+      resetCat: this._rc || (this._rc = (e) => { if (e) e.preventDefault(); this.setState({ cat: 'ALL', similar: null }); }),
+      addingOn: st.adding ? 'inline-flex' : 'none', addBtnOn: st.adding ? 'none' : 'inline-flex',
+      newName: st.newName, setNewName: this.setNewName, createCollection: this.createCollection, toggleAdding: this.toggleAdding,
+      onNameKey: this._nk || (this._nk = (e) => { if (e.key === 'Enter') this.createCollection(e); if (e.key === 'Escape') this.toggleAdding(e); }),
+      emptyCollOn: cat.indexOf('custom:') === 0 && finishes.length === 0 ? 'inline' : 'none',
+      similarOn: like ? 'inline-flex' : 'none', similarTo: like ? like.code + ' ' + like.name.toUpperCase() : '',
+      clearSimilar: this._cs || (this._cs = (e) => { if (e) e.preventDefault(); this.setState({ similar: null }); }),
+      sortCodeStyle: sort === 'code' ? segOn : '', sortNameStyle: sort === 'name' ? segOn : '', sortLightStyle: sort === 'light' ? segOn : '', sortDarkStyle: sort === 'dark' ? segOn : '',
+      sortCode: this._s1 || (this._s1 = (e) => { if (e) e.preventDefault(); this.setState({ sort: 'code', similar: null }); }),
+      sortName: this._s4 || (this._s4 = (e) => { if (e) e.preventDefault(); this.setState({ sort: 'name', similar: null }); }),
+      sortLight: this._s2 || (this._s2 = (e) => { if (e) e.preventDefault(); this.setState({ sort: 'light', similar: null }); }),
+      sortDark: this._s3 || (this._s3 = (e) => { if (e) e.preventDefault(); this.setState({ sort: 'dark', similar: null }); }),
+      count: finishes.length, total: all.length,
+      thisYear: THIS_YEAR, nNew: all.filter(isNew).length, newChipOn: all.some(isNew) ? 'inline-flex' : 'none', newStyle: st.newOnly ? segOn : '',
+      toggleNew: this._tnw || (this._tnw = (e) => { if (e) e.preventDefault(); this.setState((s) => ({ newOnly: !s.newOnly, similar: null })); }),
+      liveNote: st.live && st.live.updated ? ' · CERAKOTE CHECKED ' + new Date(st.live.updated).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }).toUpperCase() : '',
+      nTrend: all.filter((f) => trendRank(f.code)).length, trendStyle: st.trendOnly ? segOn : '',
+      toggleTrend: this._ttr || (this._ttr = (e) => { if (e) e.preventDefault(); this.setState((s) => ({ trendOnly: !s.trendOnly, similar: null })); }),
+      nLaser: all.filter((f) => f.laserOptimized).length, nMeasured: Object.keys(measured).length, nStock: all.filter((f) => f.stocked).length,
+      stockChipOn: all.some((f) => f.stocked) ? 'inline-flex' : 'none', stockRowOn: all.some((f) => f.stocked) ? 'block' : 'none',
+      laserStyle: st.laserOnly ? segOn : '', measuredStyle: st.measuredOnly ? segOn : '', stockStyle: st.stockOnly ? segOn : '',
+      toggleLaser: this._tl || (this._tl = (e) => { if (e) e.preventDefault(); this.setState((s) => ({ laserOnly: !s.laserOnly, similar: null })); }),
+      toggleMeasured: this._tmz || (this._tmz = (e) => { if (e) e.preventDefault(); this.setState((s) => ({ measuredOnly: !s.measuredOnly, similar: null })); }),
+      toggleStock: this._tst || (this._tst = (e) => { if (e) e.preventDefault(); this.setState((s) => ({ stockOnly: !s.stockOnly, similar: null })); }),
+      seriesFilters: ['ALL'].concat(seriesList).map((sv) => ({ label: (sv === 'ALL' ? all.length : all.filter((f) => this.seriesOf(f) === sv).length), name: sv, title: sv === 'ALL' ? 'Every series' : seriesInfo(sv).title, style: st.series === sv ? segOn : '', pick: (e) => { if (e) e.preventDefault(); this.setState({ series: sv, similar: null }); } })),
+      groups: groups, noneOn: st.data && !finishes.length ? 'block' : 'none',
+      sourceNote: (st.data && st.data.sourceNote) || '',
+
+      trayOn: cmpSet.length ? 'block' : 'none', cmpCount: cmpSet.length,
+      tray: cmpRows.map((c) => ({ code: c.code, hex: c.hex, remove: c.remove })),
+      clearCmp: this._cc || (this._cc = (e) => { if (e) e.preventDefault(); this.setState({ cmp: [], cmpOpen: false }); }),
+      openCmp: this._oc || (this._oc = (e) => { if (e) e.preventDefault(); if (this.state.cmp.length >= 2) this.setState({ cmpOpen: true, open: null }); }),
+      closeCmp: this._xc || (this._xc = (e) => { if (e) e.preventDefault(); this.setState({ cmpOpen: false }); }),
+      stop: this._stp || (this._stp = (e) => { e.stopPropagation(); }),
+      cmpBtnOff: cmpSet.length < 2 ? 'true' : 'false', cmpBtnStyle: cmpSet.length < 2 ? 'opacity:0.45;pointer-events:none' : '',
+      cmpOpen: st.cmpOpen && cmpRows.length >= 2, cmpRows: cmpRows,
+      cmpCols: isPhone ? 'minmax(0,1fr)' : 'repeat(' + Math.max(2, cmpRows.length) + ',minmax(0,1fr))',
+
+      drawerOpen: !!d, d: d || {},
+      closeDrawer: this._cd || (this._cd = (e) => { if (e) e.preventDefault(); this.setState({ open: null }); }),
+      prev: this._pv || (this._pv = (e) => { if (e) e.preventDefault(); this.stepOpen(-1); }),
+      next: this._nx || (this._nx = (e) => { if (e) e.preventDefault(); this.stepOpen(1); })
+    };
+  }
+}
+
+</script>
+</body>
+</html>
