@@ -400,11 +400,11 @@ const gradFor = (f) => (FX ? FX.gradFor(f) : (f && f.hex) || 'none');
 const SERIES_ORDER = ['H', 'E', 'F', 'FIR', 'HIR', 'GEN II', 'C', 'V', 'S', 'SG', 'DFL', 'MC', 'FX', 'LR', 'P'];
 // Published series facts (Cerakote TDS / training manuals). Anything not verified says so.
 const SERIES = {
-  H:   { title: 'H-Series · Oven cure', name: 'H-Series', type: 'Two-part ceramic, oven cure', cure: 'Oven · 250°F for 2 h (or 300°F for 1 h)', ratio: '18:1 by weight', catalyst: 'H-Series catalyst (never the Elite catalyst)', calc: true },
+  H:   { title: 'H-Series · Oven cure', name: 'H-Series', type: 'Two-part ceramic, oven cure', cure: 'Oven · 250°F for 2 h (or 300°F for 1 h)', ratio: '18:1 by volume (23.78:1 by weight)', catalyst: 'H-Series catalyst (never the Elite catalyst)', calc: true },
   E:   { title: 'Elite · Oven cure', name: 'Elite (E-Series)', type: 'Two-part ceramic, oven cure', cure: 'Oven · 250°F for 2 h', ratio: '12:1 to 24:1 (18:1 typical) — ratio sets the gloss', catalyst: 'Elite catalyst only', calc: true },
   F:   { title: 'F-Series · Laser optimized', name: 'F-Series', type: 'Two-part, PFAS-free, oven cure', cure: 'Oven · low-temperature fast cure, per TDS', ratio: 'Per TDS', catalyst: 'F-Series catalyst', calc: true },
   FIR: { title: 'FIR · IR reflective', name: 'FIR-Series', type: 'Two-part, oven cure', cure: 'Oven · per TDS', ratio: 'Per TDS', catalyst: 'Check the FIR TDS — its own code', calc: false },
-  HIR: { title: 'HIR · IR reflective', name: 'HIR (Gen II NiR)', type: 'Two-part, oven cure', cure: 'Oven · per TDS', ratio: '18:1 by weight', catalyst: 'H-Series catalyst', calc: true },
+  HIR: { title: 'HIR · IR reflective', name: 'HIR (Gen II NiR)', type: 'Two-part, oven cure', cure: 'Oven · per TDS', ratio: '18:1 by volume (23.78:1 by weight)', catalyst: 'H-Series catalyst', calc: true },
   C:   { title: 'C-Series · Air cure', name: 'C-Series', type: 'Single component, air cure', cure: 'Air cure · no oven', ratio: 'None — ready to spray', catalyst: 'None', calc: false },
   V:   { title: 'V-Series · Air cure', name: 'V-Series', type: 'Single component', cure: 'Air cure', ratio: 'None', catalyst: 'None — Cerakote states no catalyst', calc: false },
   MC:  { title: 'MC · Clear', name: 'MC-Series clear', type: 'Single component clear', cure: 'Air dry', ratio: 'None', catalyst: 'None', calc: false },
@@ -557,10 +557,16 @@ class Component extends DCLogic {
     const q = p.toString();
     try { window.history.replaceState(null, '', window.location.pathname + (q ? '?' + q : '')); } catch (e) {}
   }
-  componentDidUpdate(pp, ps) {
+  // The runtime calls componentDidUpdate(prevProps) — there is no prevState
+  // second argument, so keep the last values we care about ourselves.
+  componentDidUpdate() {
     const s = this.state;
-    if (['query', 'cat', 'series', 'sort', 'laserOnly', 'measuredOnly', 'stockOnly', 'trendOnly', 'newOnly', 'cmp', 'open', 'similar'].some((k) => s[k] !== ps[k])) this.writeUrl();
-    if (s.cmp !== ps.cmp) { try { window.localStorage.setItem('kleeq.catalogue.compare', JSON.stringify(s.cmp)); } catch (e) {} }
+    const keys = ['query', 'cat', 'series', 'sort', 'laserOnly', 'measuredOnly', 'stockOnly', 'trendOnly', 'newOnly', 'cmp', 'open', 'similar'];
+    const prev = this._prev;
+    this._prev = keys.reduce((a, k) => { a[k] = s[k]; return a; }, {});
+    if (!prev) return;
+    if (keys.some((k) => s[k] !== prev[k])) this.writeUrl();
+    if (s.cmp !== prev.cmp) { try { window.localStorage.setItem('kleeq.catalogue.compare', JSON.stringify(s.cmp)); } catch (e) {} }
   }
   componentWillUnmount() { window.removeEventListener('resize', this._rz); window.removeEventListener('keydown', this._kd); }
   componentDidMount() {
