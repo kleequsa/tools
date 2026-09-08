@@ -370,7 +370,8 @@
       "shadow": "#171718",
       "highlight": "#545456",
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-100/blackout",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10095/blackout-e-100-dt20191211222726844-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10095/blackout-e-100-dt20191211222726844-thumbnail.jpg?size=200",
+      "laserOptimized": true
     },
     {
       "code": "H-190",
@@ -506,7 +507,8 @@
       "shadow": "#68543d",
       "highlight": "#b7a189",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-267/magpul-flat-dark-earth",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6096/magpultm-flat-dark-earth-h-267-dt20191210175609805-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6096/magpultm-flat-dark-earth-h-267-dt20191210175609805-thumbnail.jpg?size=200",
+      "laserOptimized": true
     },
     {
       "code": "H-210",
@@ -573,7 +575,6 @@
       "hexSource": "KLEEQ web values — shadow / base / highlight supplied by the studio",
       "shadow": "#383533",
       "highlight": "#817a75",
-      "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-375/black-gold",
       "thumb": "https://images.nicindustries.com/cerakote/products/17534/black-gold-h-375-dt20240718175101954423-thumbnail.jpg?size=200"
     },
@@ -1507,8 +1508,7 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-375/black-gold",
-      "thumb": "https://images.nicindustries.com/cerakote/products/17534/black-gold-h-375-dt20240718175101954423-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "thumb": "https://images.nicindustries.com/cerakote/products/17534/black-gold-h-375-dt20240718175101954423-thumbnail.jpg?size=200"
     },
     {
       "code": "H-363",
@@ -2036,7 +2036,8 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-267/magpul-flat-dark-earth",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6096/magpultm-flat-dark-earth-h-267-dt20191210175609805-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6096/magpultm-flat-dark-earth-h-267-dt20191210175609805-thumbnail.jpg?size=200",
+      "laserOptimized": true
     },
     {
       "code": "H-265",
@@ -3308,7 +3309,8 @@
       "series": "E",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-100/blackout",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10095/blackout-e-100-dt20191211222726844-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10095/blackout-e-100-dt20191211222726844-thumbnail.jpg?size=200",
+      "laserOptimized": true
     },
     {
       "code": "C-7900",

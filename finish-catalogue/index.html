@@ -228,9 +228,9 @@
         <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
           <section id="series-{{ g.key }}" style="display:grid;gap:20px">
             <div style="display:flex;align-items:baseline;gap:14px;border-bottom:var(--k-rule-w) solid var(--k-rule);padding-bottom:12px;flex-wrap:wrap">
-              <h2 style="margin:0;font-size:{{ h2Size }};line-height:1;letter-spacing:-0.01em;color:var(--k-ink)">{{ g.title }}</h2>
+              <h2 style="margin:0;font-size:{{ h2Size }};line-height:1;letter-spacing:-0.01em;color:var(--k-gold)">{{ g.title }}</h2>
               <span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.14em;color:var(--k-label)">{{ g.count }} FINISHES</span>
-              <span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto;text-align:right">{{ g.spec }}</span>
+              <span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.08em;color:var(--k-label);text-align:left"><span style="font-weight:700;color:var(--k-ink)">{{ g.specCure }}</span>{{ g.specRest }}</span>
             </div>
             <div style="display:grid;grid-template-columns:{{ gridCols }};gap:{{ gridGap }}">
               <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="8">
@@ -380,15 +380,15 @@ const gradFor = (f) => (FX ? FX.gradFor(f) : (f && f.hex) || 'none');
 const SERIES_ORDER = ['H', 'E', 'F', 'FIR', 'HIR', 'GEN II', 'C', 'V', 'S', 'SG', 'DFL', 'MC', 'FX', 'LR', 'P'];
 // Published series facts (Cerakote TDS / training manuals). Anything not verified says so.
 const SERIES = {
-  H:   { title: 'H-Series · Oven cure', name: 'H-Series', type: 'Two-part ceramic, oven cure', cure: 'Oven · 250°F for 2 h (or 300°F for 1 h)', ratio: '18:1 by volume (23.78:1 by weight)', catalyst: 'H-Series catalyst (never the Elite catalyst)', calc: true },
-  E:   { title: 'Elite · Oven cure', name: 'Elite (E-Series)', type: 'Two-part ceramic, oven cure', cure: 'Oven · 250°F for 2 h', ratio: '12:1 to 24:1 (18:1 typical) — ratio sets the gloss', catalyst: 'Elite catalyst only', calc: true },
-  F:   { title: 'F-Series · Laser optimized', name: 'F-Series', type: 'Two-part, PFAS-free, oven cure', cure: 'Oven · low-temperature fast cure, per TDS', ratio: 'Per TDS', catalyst: 'F-Series catalyst', calc: true },
-  FIR: { title: 'FIR · IR reflective', name: 'FIR-Series', type: 'Two-part, oven cure', cure: 'Oven · per TDS', ratio: 'Per TDS', catalyst: 'Check the FIR TDS — its own code', calc: false },
-  HIR: { title: 'HIR · IR reflective', name: 'HIR (Gen II NiR)', type: 'Two-part, oven cure', cure: 'Oven · per TDS', ratio: '18:1 by volume (23.78:1 by weight)', catalyst: 'H-Series catalyst', calc: true },
-  C:   { title: 'C-Series · Air cure', name: 'C-Series', type: 'Single component, air cure', cure: 'Air cure · no oven', ratio: 'None — ready to spray', catalyst: 'None', calc: false },
-  V:   { title: 'V-Series · Air cure', name: 'V-Series', type: 'Single component', cure: 'Air cure', ratio: 'None', catalyst: 'None — Cerakote states no catalyst', calc: false },
-  MC:  { title: 'MC · Clear', name: 'MC-Series clear', type: 'Single component clear', cure: 'Air dry', ratio: 'None', catalyst: 'None', calc: false },
-  FX:  { title: 'FX · Effects', name: 'FX additive', type: 'Powder additive for H / MC clears', cure: 'Follows the host clear', ratio: '1 g FX per 1 oz clear', catalyst: 'Catalyse the clear, not the FX', calc: false },
+  H:   { title: 'H-Series · Oven cure', name: 'H-Series', type: 'Two-part ceramic, oven cure', cure: 'Oven · 15 min ambient flash, then 121°C (250°F) for 2 h — 149°C (300°F) for 1 h; 82–121°C (180–250°F) is 2 h', sched: '121°C (250°F) / 2 h · or 149°C (300°F) / 1 h', ratio: '18:1 by volume (23.78:1 by weight)', catalyst: 'H-Series catalyst (never the Elite catalyst)', calc: true },
+  E:   { title: 'Elite · Oven cure', name: 'Elite (E-Series)', type: 'Two-part ceramic, oven cure', cure: 'Oven · 15 min ambient flash, then 149°C (300°F) for 1 h (E-100 Blackout: 149°C / 300°F for 2 h)', sched: '149°C (300°F) / 1 h', ratio: '12:1 to 24:1 (18:1 typical) — ratio sets the gloss', catalyst: 'Elite catalyst only', calc: true },
+  F:   { title: 'F-Series · Laser optimized', name: 'F-Series', type: 'Two-part, PFAS-free, oven cure', cure: 'Oven · 15 min at 121°C (250°F), or 82°C (180°F) for 1 h in a paint booth', sched: '121°C (250°F) / 15 min · or 82°C (180°F) / 1 h', ratio: 'Per TDS', catalyst: 'F-Series catalyst', calc: true },
+  FIR: { title: 'FIR · IR reflective', name: 'FIR-Series', type: 'Two-part, oven cure', cure: 'Oven cure — schedule per the colour TDS', sched: 'Oven · per TDS', ratio: 'Per TDS', catalyst: 'Check the FIR TDS — its own code', calc: false },
+  HIR: { title: 'HIR · IR reflective', name: 'HIR (Gen II NiR)', type: 'Two-part, oven cure', cure: 'Oven · H-Series schedule, 121°C (250°F) for 2 h — confirm on the colour TDS', sched: '121°C (250°F) / 2 h', ratio: '18:1 by volume (23.78:1 by weight)', catalyst: 'H-Series catalyst', calc: true },
+  C:   { title: 'C-Series · Air cure', name: 'C-Series', type: 'Single component, air cure', cure: 'Air cure · tack free 45–60 min, ship at 24 h, full cure 5 days', sched: 'Air cure · full cure 5 days', ratio: 'None — ready to spray', catalyst: 'None', calc: false },
+  V:   { title: 'V-Series · Oven cure', name: 'V-Series', type: 'Single component, high-temperature oven cure', cure: 'Oven · 15 min air dry, then 260°C (500°F) for 1 h', sched: '260°C (500°F) / 1 h', ratio: 'None', catalyst: 'None — Cerakote states no catalyst', calc: false },
+  MC:  { title: 'MC · Clear', name: 'MC-Series clear', type: 'Single component clear', cure: 'Air dry — no oven', sched: 'Air dry', ratio: 'None', catalyst: 'None', calc: false },
+  FX:  { title: 'FX · Effects', name: 'FX additive', type: 'Powder additive for H / MC clears', cure: 'Follows the host clear', sched: 'Per the host clear', ratio: '1 g FX per 1 oz clear', catalyst: 'Catalyse the clear, not the FX', calc: false },
   DFL: { title: 'Dry Film Lubricant', name: 'DFL', type: 'Two-part', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'F-100 catalyst', calc: false },
   SG:  { title: 'Super Grip', name: 'Super Grip', type: 'Two-part', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'F-Series catalyst', calc: false },
   S:   { title: 'S-Series', name: 'S-Series', type: 'Check TDS', cure: 'Per TDS', ratio: 'Per TDS', catalyst: 'Check TDS', calc: false },
@@ -644,7 +644,7 @@ class Component extends DCLogic {
         similar: this.findSimilar(f.code),
       });
     });
-    const groups = order.map((s) => { const si = seriesInfo(s); return { key: s, title: like ? 'Closest to ' + like.code + ' ' + like.name : s === 'TREND' ? 'Trending · most requested' : si.title, count: byS[s].length, rows: byS[s], spec: like ? 'BY COLOUR, SERIES AND SHEEN' : s === 'TREND' ? 'RANKED FROM APPLICATOR REPORTS, 2025' : (si.ratio + ' · ' + si.catalyst).toUpperCase() }; });
+    const groups = order.map((s) => { const si = seriesInfo(s); return { key: s, title: like ? 'Closest to ' + like.code + ' ' + like.name : s === 'TREND' ? 'Trending · most requested' : si.title, count: byS[s].length, rows: byS[s], spec: like ? 'BY COLOUR, SERIES AND SHEEN' : s === 'TREND' ? 'RANKED FROM APPLICATOR REPORTS, 2025' : [(si.sched || si.cure).replace(/^Oven · /, ''), si.ratio, si.catalyst].map((v) => String(v || '').toUpperCase()).filter((v, i, a) => v && a.indexOf(v) === i).join(' · '), specCure: (si.sched || si.cure).replace(/^Oven · /, '').toUpperCase(), specRest: [si.ratio, si.catalyst].map((v) => String(v || '').toUpperCase()).filter((v, i, a) => v && a.indexOf(v) === i).map((v) => ' · ' + v).join('') }; });
 
     // drawer
     const of = st.open ? this.byCode(st.open) : null;
