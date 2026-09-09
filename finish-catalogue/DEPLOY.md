@@ -23,3 +23,16 @@ Built from `KLEEQ Finish Catalogue Lite.dc.html`. Differences from the internal 
    ```
 3. Deploy: `npx wrangler deploy` from the repo root.
 4. Smoke test: /finish-catalogue/ loads, back arrow goes to /, MIX IT opens the calculator with the code prefilled, theme switcher works, no Collection row visible, series headers show the bold cure schedule, ★ LASER count reads 38.
+
+## Layout and type (2026-09-08)
+- **AUTO layout** — the layout follows the window until the user picks one: phone under 640px, tablet 640–1023px, desktop/side-by-side at 1024px and up. Re-evaluated on resize and rotate.
+- An explicit pick persists (localStorage) and overrides AUTO; the **AUTO** button in the layout pill hands control back and clears the saved pick.
+- **Type scale** — `data-kleeq-view` on `<html>` carries the effective view (`mobile` | `tablet` | `split`/`desktop`). Tablet type runs ~25% larger than desktop, phone ~10%; display figures scale with it.
+- Rules that override inline sizes (doc copy, summaries, fields) carry `!important` — inline styles otherwise win.
+
+## Release 2026-09-08 — AUTO layout and bench type
+- AUTO layout: the view follows the window (phone <640px, tablet 640–1023px, desktop 1024px+) and re-evaluates on resize/rotate. An explicit pick persists and overrides it; the AUTO button clears the saved pick.
+- Tablet type ~+25% and phone ~+10%, display figures included — small captions, meta lines and body copy scale with the view instead of staying at 10–12px.
+- Both calculators run one design layer: Modernist / Light / Dark / Glass themes, shared token set, glass popovers and pill controls.
+- Instructions and Notes are collapsible in every view, closed by default off desktop; per-tool storage key.
+- Catalogue data refreshed alongside the build.

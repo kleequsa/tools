@@ -11,15 +11,6 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<template id="__bundler_thumbnail">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
-    <rect width="240" height="240" fill="#1a1918"></rect>
-    <rect x="72" y="72" width="44" height="44" fill="#c9992f"></rect>
-    <rect x="124" y="72" width="44" height="44" fill="#6e5a3a"></rect>
-    <rect x="72" y="124" width="44" height="44" fill="#5b4b36"></rect>
-    <rect x="124" y="124" width="44" height="44" fill="#4a4a46"></rect>
-  </svg>
-</template>
 <title>KLEEQ · Cerakote finish catalogue</title>
 <link rel="stylesheet" href="vendor/modernist.css">
 <script src="vendor/modernist-bundle.js"></script>
@@ -118,6 +109,16 @@
   :root[data-kleeq-theme="glass"] .c-drawer { border-color: rgba(255,255,255,0.1); }
   @media (min-width: 640px) { :root[data-kleeq-theme="glass"] .c-drawer { top: 12px; right: 12px; bottom: 12px; border-radius: 26px; border: 1px solid rgba(255,255,255,0.12); } }
   .c-kbd { font-family: var(--k-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--k-label); border: 1px solid var(--k-line); padding: 1px 6px; border-radius: calc(var(--k-r-sm) * 0.5); }
+  /* Bench legibility: tablet type runs ~25% larger than desktop, phone ~10%. */
+  :root[data-kleeq-view="tablet"] .c-lab { font-size: 12.5px; }
+  :root[data-kleeq-view="tablet"] .c-seg { font-size: 14px; min-height: 44px; }
+  :root[data-kleeq-view="tablet"] .c-in { font-size: 15px !important; min-height: 44px !important; }
+  :root[data-kleeq-view="tablet"] .c-spec { font-size: 15px; }
+  :root[data-kleeq-view="tablet"] .c-spec dt { font-size: 12.5px; }
+  :root[data-kleeq-view="tablet"] .c-kbd, :root[data-kleeq-view="tablet"] .c-star { font-size: 12.5px; }
+  :root[data-kleeq-view="mobile"] .c-lab { font-size: 11px; }
+  :root[data-kleeq-view="mobile"] .c-seg { font-size: 12px; }
+  :root[data-kleeq-view="mobile"] .c-spec { font-size: 13px; }
 </style>
 </helmet>
 
@@ -160,8 +161,9 @@
       </button>
     </div>
     
-    <div class="s-pill" style="display:{{ layoutTogglesOn }};grid-template-columns:repeat(3,auto);border:1px solid var(--k-line)">
-      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center;{{ sideStyle }}" onClick="{{ setSide }}" title="Desktop width" aria-label="Desktop width">
+    <div class="s-pill" style="display:{{ layoutTogglesOn }};grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
+      <button type="button" class="c-seg" style="min-height:28px;padding:0 8px;border:none;justify-content:center;font-size:10px;letter-spacing:0.1em;{{ autoStyle }}" onClick="{{ setAuto }}" title="Follow the window size" aria-label="Automatic layout">AUTO</button>
+      <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center;{{ sideStyle }}" onClick="{{ setSide }}" title="Desktop width" aria-label="Desktop width">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <rect x="2" y="4" width="20" height="14"></rect>
           <line x1="8" y1="21" x2="16" y2="21"></line>
@@ -400,7 +402,7 @@ const SERIES = {
 const TRENDING = ['H-146', 'H-265', 'H-236', 'H-148', 'H-234', 'H-227', 'H-190', 'H-235', 'H-267', 'H-232', 'H-240', 'HIR-146', 'H-226', 'H-237', 'H-151', 'H-152', 'H-229', 'H-262', 'H-170', 'H-112', 'E-100', 'E-110'];
 const trendRank = (code) => { const i = TRENDING.indexOf(String(code || '').toUpperCase()); return i < 0 ? 0 : i + 1; };
 // Weekly Cerakote watcher output (see repo/tools/catalogue-sync). Same-directory file by default.
-const LIVE_URL = '/api/catalogue/cerakote-live.json';
+const LIVE_URL = 'cerakote-live.json';
 const NEW_DAYS = 45;
 // Cerakote stamps the upload date into every product photo URL (…dt20260812…); that is the closest
 // public record of when a colour was listed. Anything listed this calendar year gets the NEW badge.
@@ -481,10 +483,26 @@ class Component extends DCLogic {
     if (m) m.setAttribute('content', v === 'glass' ? '#0e0d0c' : v === 'dark' ? '#1a1918' : '#f3f2f2');
     this.setState({ theme: v });
   };
-  setView = (v) => { try { window.localStorage.setItem('kleeq-cat-view', v); } catch (e) {} this.setState({ view: v }); };
+  setView = (v) => {
+    // AUTO hands the layout back to the window size.
+    if (v === 'auto') {
+      try { window.localStorage.removeItem('kleeq-cat-view'); } catch (e) {}
+      this.setState({ viewAuto: true });
+      return;
+    }
+    try { window.localStorage.setItem('kleeq-cat-view', v); } catch (e) {}
+    this.setState({ view: v, viewAuto: false });
+  };
+  // Until the user picks a layout the view follows the window: phone under
+  // 640, tablet under 1024, desktop above that.
+  autoView() {
+    const w = typeof window !== 'undefined' ? window.innerWidth : 1400;
+    return w < 640 ? 'mobile' : w < 1024 ? 'tablet' : 'desktop';
+  }
   effView() {
     const w = typeof window !== 'undefined' ? window.innerWidth : 1400;
     if (w < 640) return 'mobile';
+    if (this.state.viewAuto !== false) return this.autoView();
     if (w < 1024) return this.state.view === 'mobile' ? 'mobile' : 'tablet';
     return this.state.view || 'desktop';
   }
@@ -550,7 +568,9 @@ class Component extends DCLogic {
     };
     window.addEventListener('keydown', this._kd);
     this.setTheme('glass');
-    try { const v = window.localStorage.getItem('kleeq-cat-view'); if (['desktop', 'tablet', 'mobile'].indexOf(v) >= 0) this.setState({ view: v }); } catch (e) {}
+    try { const v = window.localStorage.getItem('kleeq-cat-view'); if (['desktop', 'tablet', 'mobile'].indexOf(v) >= 0) this.setState({ view: v, viewAuto: false }); } catch (e) {}
+    this._rzv = () => { document.documentElement.setAttribute('data-kleeq-view', this.effView()); this.forceUpdate(); };
+    window.addEventListener('resize', this._rzv);
     try {
       const cm = window.localStorage.getItem('kleeq.catalogue.compare'); if (cm) this.setState({ cmp: JSON.parse(cm).slice(0, 3) });
       const u = this.readUrl(); this.setState(u);
@@ -582,7 +602,7 @@ class Component extends DCLogic {
       laser: f.laserOptimized ? '★ Optimized' : 'Not flagged', trend: trendRank(f.code) ? '#' + trendRank(f.code) + ' most requested' : '—', stock: f.stocked ? 'On the KLEEQ shelf' : 'Order in',
       starOn: f.laserOptimized ? 'inline-block' : 'none', stockOn: f.stocked ? 'inline-block' : 'none',
       url: f.url || 'https://www.cerakote.com/shop/cerakote-coating?series=cera_' + s.toLowerCase().replace(/\s+/g, '_') + '_series',
-      calcOn: si.calc ? 'inline-flex' : 'none', calcUrl: '../mixing-calculator/?code=' + encodeURIComponent(f.code)
+      calcOn: si.calc ? 'inline-flex' : 'none', calcUrl: '/mixing-calculator/?code=' + encodeURIComponent(f.code)
     };
   }
 
@@ -617,6 +637,7 @@ class Component extends DCLogic {
     const segOn = 'background:var(--k-gold);color:var(--k-on-gold);border-color:var(--k-gold)';
     const sel = 'background:var(--k-sel);color:var(--k-gold-soft)';
     const theme = st.theme, view = this.effView(), isPhone = view === 'mobile', compact = view !== 'desktop';
+    if (typeof document !== 'undefined') document.documentElement.setAttribute('data-kleeq-view', view);
     const realW = typeof window !== 'undefined' ? window.innerWidth : 1400;
     const cmpSet = st.cmp;
     const cmpLabel = (code) => cmpSet.indexOf(code.toUpperCase()) >= 0 ? '✓ COMPARING' : '+ COMPARE';
@@ -674,6 +695,8 @@ class Component extends DCLogic {
       pagePadB: cmpSet.length ? '96px' : '0',
       layoutTogglesOn: realW < 640 ? 'none' : 'inline-grid',
       sideStyle: view === 'desktop' ? sel : '', tabletStyle: view === 'tablet' ? sel : '', mobileStyle: view === 'mobile' ? sel : '',
+      autoStyle: st.viewAuto !== false ? sel : '',
+      setAuto: this._v0 || (this._v0 = (e) => { if (e) e.preventDefault(); this.setView('auto'); }),
       setSide: this._v1 || (this._v1 = (e) => { if (e) e.preventDefault(); this.setView('desktop'); }),
       setTablet: this._v2 || (this._v2 = (e) => { if (e) e.preventDefault(); this.setView('tablet'); }),
       setMobile: this._v3 || (this._v3 = (e) => { if (e) e.preventDefault(); this.setView('mobile'); }),
