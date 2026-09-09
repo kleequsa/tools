@@ -75,7 +75,7 @@ Every step heading: mono number (`01`…`07`, IBM Plex Mono 18px, letter-spacing
 - Search matches code (with or without hyphen) or name; prefix matches sort first; max 8.
 - Gating: regions with `data-gate` get `inert` and disabled controls until a product is matched.
 - Theme: `data-kleeq-theme="light"` on `<html>` swaps the token set. Default dark.
-- Layout preference persists to localStorage `kleeq.mixing.onecol` (values `split|stack|tablet|mobile`).
+- Layout preference persists to localStorage `kleeq.mixing.onecol` (values `split|stack|tablet|mobile`); absent means AUTO — the view follows the window (<640 phone, <1024 tablet, else split).
 - Focus rings: 2px gold outline, offset 1–4px. Hover on segments: ink text, label border. No transitions.
 - CSV export: columns `Logged at, Job, Notes, Code, Name, Ratio, Coating (g), Catalyst (g), Total (g)`; job sheet appends a `JOB TOTAL` row. Filename `kleeq-job-sheet-YYYY-MM-DD.csv` / `kleeq-mix-log-YYYY-MM-DD.csv`.
 - Copy the line: `H-146 Graphite Black — 23.78:1 — coating 100.00 g, catalyst 4.21 g, total 104.21 g`.
@@ -113,3 +113,9 @@ Spacing: 4 / 8 / 12 / 16 / 24 / 32 / 48 px. Radius: 0 everywhere. Borders 1px. N
 - `kleeq-finishes.json` — data
 - `kleeq-finish-render.js`, `kleeq-tokens.css` — support
 - `vendor/` — runtime and design-system files the reference needs to run
+
+## Layout and type (2026-09-08)
+- **AUTO layout** — the layout follows the window until the user picks one: phone under 640px, tablet 640–1023px, desktop/side-by-side at 1024px and up. Re-evaluated on resize and rotate.
+- An explicit pick persists (localStorage) and overrides AUTO; the **AUTO** button in the layout pill hands control back and clears the saved pick.
+- **Type scale** — `data-kleeq-view` on `<html>` carries the effective view (`mobile` | `tablet` | `split`/`desktop`). Tablet type runs ~25% larger than desktop, phone ~10%; display figures scale with it.
+- Rules that override inline sizes (doc copy, summaries, fields) carry `!important` — inline styles otherwise win.

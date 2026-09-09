@@ -52,8 +52,14 @@ Rounding is user-selectable (0.1 g or 0.01 g) to match the scale in use.
 
 - `kleeq.mixing.jobs` — current job sheet
 - `kleeq.mixing.log` — history, survives clearing the job sheet (capped at 300)
-- `kleeq.mixing.onecol` — layout preference
+- `kleeq.mixing.onecol` — layout preference (absent = AUTO, follows window size)
 
 ## Disclaimer
 
 KLEEQ is an applicator, not a manufacturer. Not affiliated with or endorsed by Cerakote or NIC Industries. Always check the current TDS on the bottle.
+
+## Layout and type (2026-09-08)
+- **AUTO layout** — the layout follows the window until the user picks one: phone under 640px, tablet 640–1023px, desktop/side-by-side at 1024px and up. Re-evaluated on resize and rotate.
+- An explicit pick persists (localStorage) and overrides AUTO; the **AUTO** button in the layout pill hands control back and clears the saved pick.
+- **Type scale** — `data-kleeq-view` on `<html>` carries the effective view (`mobile` | `tablet` | `split`/`desktop`). Tablet type runs ~25% larger than desktop, phone ~10%; display figures scale with it.
+- Rules that override inline sizes (doc copy, summaries, fields) carry `!important` — inline styles otherwise win.
