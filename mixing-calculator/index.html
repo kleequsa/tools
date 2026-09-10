@@ -211,6 +211,10 @@
           <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
             <span style="flex:none;font-family:var(--k-mono);font-size:18px;letter-spacing:0.1em;color:var(--k-label)">01</span>
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-ink);text-transform:uppercase">The coating</span>
+            <button type="button" class="s-seg" style="display:{{ startOverOn }};margin-left:auto;flex:none;min-height:36px;padding:0 12px;gap:7px;font-family:var(--k-mono);font-size:{{ capFont }};letter-spacing:0.1em" onClick="{{ startOver }}" title="Clear the colour and start over">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg>
+              START OVER
+            </button>
           </div>
           <div style="display:flex;gap:{{ infoGap }};align-items:stretch;flex-direction:{{ step1Dir }}">
         <div style="border-radius:var(--k-r-sm);display:{{ resumeOn }};gap:8px;align-items:center;margin-bottom:12px;padding:0 0 0 12px;border:1px solid var(--k-gold);background:var(--k-field)">
@@ -347,7 +351,6 @@
         <div style="display:flex;gap:8px;flex-wrap:nowrap;margin-top:{{ actGap }};min-width:0">
           <button type="button" class="s-seg" style="min-height:44px;padding:0 10px;flex:1 1 0;min-width:0;justify-content:center" onClick="{{ copyMix }}">{{ copyLabel }}</button>
           <button type="button" class="s-seg" style="min-height:44px;padding:0 10px;flex:1 1 0;min-width:0;justify-content:center" onClick="{{ shareMix }}" data-self-disabled="{{ shareOffStr }}" title="Share this mix">{{ shareLabel }}</button>
-          <button type="button" class="s-seg" style="min-height:44px;padding:0 10px;flex:1 1 0;min-width:0;justify-content:center" onClick="{{ resetAll }}">RESET</button>
           <div class="s-pill" style="flex:none;display:inline-grid;grid-template-columns:auto auto;border:1px solid var(--k-line);border-radius:var(--k-r-sm);box-sizing:border-box;min-height:44px" role="group" aria-label="Rounding">
             <button type="button" class="s-seg" style="min-height:42px;padding:0 10px;border:none;font-family:var(--k-mono);font-size:{{ metaFont }};{{ dp1Style }}" onClick="{{ dp1 }}" aria-pressed="{{ dp1On }}">0.1 g</button>
             <button type="button" class="s-seg" style="min-height:42px;padding:0 10px;border:none;border-left:1px solid var(--k-line);font-family:var(--k-mono);font-size:{{ metaFont }};{{ dp2Style }}" onClick="{{ dp2 }}" aria-pressed="{{ dp2On }}">0.01 g</button>
@@ -652,6 +655,12 @@ class Component extends DCLogic {
     setTimeout(() => {
       const el = document.querySelector('.s-big');
       if (!el) return;
+      // On phones the keyboard covers the lower half, so bring the field up
+      // near the top of the viewport before focusing it.
+      if (this.effView() === 'mobile') {
+        const top = el.getBoundingClientRect().top + window.pageYOffset - 72;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      }
       el.focus({ preventScroll: true });
       if (el.select) el.select();
     }, 60);
@@ -1072,6 +1081,13 @@ class Component extends DCLogic {
       mixOpacity: (Number(s.weight) > 0) ? '1' : '0.4',
       copyMix: this.copyMix,
       resetAll: this.resetAll,
+      startOverOn: (f || String(s.code || '').trim()) ? 'inline-flex' : 'none',
+      startOver: this._so || (this._so = (e) => {
+        if (e) e.preventDefault();
+        this.resetAll();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => { const el = document.querySelector('.s-in'); if (el) el.focus({ preventScroll: true }); }, 80);
+      }),
       optionGroups: this.groupedOptions(f),
       selectCode: f ? f.code : '',
       selectName: f ? f.name : 'Browse all finishes',
