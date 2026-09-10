@@ -29,3 +29,10 @@ index.html · kleeq-finishes.json · kleeq-finish-render.js · kleeq-tokens.css 
 - Both calculators run one design layer: Modernist / Light / Dark / Glass themes, shared token set, glass popovers and pill controls.
 - Instructions and Notes are collapsible in every view, closed by default off desktop; per-tool storage key.
 - Catalogue data refreshed alongside the build.
+
+## Release 2026-09-09 — bench workflow
+- Selecting a colour focuses the weight field in the same task as the tap (raises the keyboard on iOS) and scrolls it under the header on phone and tablet.
+- Clear (×) inside the search field; larger clear on the weight field.
+- START OVER in step 01 replaces the old RESET in the action row — one reset, not two.
+- Mobile vertical spacing trimmed a further 10%; accordion chevrons 30% larger.
+- Theme and layout pills exposed in the header again (the settings menu is gone).

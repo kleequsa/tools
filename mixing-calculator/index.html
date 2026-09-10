@@ -230,6 +230,9 @@
         <div style="display:flex;gap:8px;align-items:stretch;flex:1 1 auto;min-width:0;flex-direction:{{ fieldDir }};position:relative">
           <div style="position:relative;flex:{{ fieldGrow }};min-width:0">
             <input class="s-in" style="font-weight:700;height:100%;min-height:51px;padding-right:{{ searchPadR }}" type="text" placeholder="{{ searchPlaceholder }}" value="{{ code }}" onInput="{{ setCode }}" onFocus="{{ openSug }}" onBlur="{{ closeSug }}" onKeyDown="{{ sugKey }}" autoComplete="off" role="combobox" aria-autocomplete="list" aria-expanded="{{ sugOpen }}" aria-controls="search-list" aria-label="Search Cerakote products">
+            <button type="button" class="s-seg" style="display:{{ searchClearOn }};position:absolute;top:50%;right:6px;transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;justify-content:center;color:var(--k-label)" onClick="{{ clearSearch }}" title="Clear" aria-label="Clear search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+            </button>
             <div id="search-list" class="s-glass" role="listbox" aria-label="Matching products" style="border-radius:var(--k-r);display:{{ sugOn }};position:absolute;top:100%;left:0;right:0;z-index:20;background:var(--k-panel);border:1px solid var(--k-pop-line);max-height:240px;overflow-y:auto">
               <sc-for list="{{ suggestions }}" as="sg" hint-placeholder-count="6">
                 <button type="button" role="option" aria-selected="{{ sg.selected }}" style="{{ sg.style }}" onMouseDown="{{ sg.pick }}" onMouseEnter="{{ sg.hover }}">
@@ -652,18 +655,19 @@ class Component extends DCLogic {
   // Picking a product hands the cursor to the weight field — the next thing
   // the user does at the bench.
   focusWeight() {
-    setTimeout(() => {
-      const el = document.querySelector('.s-big');
-      if (!el) return;
-      // On phones the keyboard covers the lower half, so bring the field up
-      // near the top of the viewport before focusing it.
-      if (this.effView() === 'mobile') {
-        const top = el.getBoundingClientRect().top + window.pageYOffset - 72;
-        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-      }
-      el.focus({ preventScroll: true });
-      if (el.select) el.select();
-    }, 60);
+    const el = document.querySelector('.s-big');
+    if (!el) return;
+    // iOS only raises the keyboard when focus happens in the same task as the
+    // tap, so focus first and scroll afterwards.
+    el.focus({ preventScroll: true });
+    if (el.select) el.select();
+    const v = this.effView();
+    if (v === 'mobile' || v === 'tablet') {
+      setTimeout(() => {
+        const box = el.getBoundingClientRect();
+        window.scrollTo({ top: Math.max(0, box.top + window.pageYOffset - 72), behavior: 'smooth' });
+      }, 50);
+    }
   }
 
   // Choosing a product returns the ratio to the recommended 18:1.
@@ -1018,7 +1022,14 @@ class Component extends DCLogic {
       unitInset: view === 'mobile' ? (Number(s.weight) > 0 ? '44px' : '10px') : '14px',
       unitFont: view === 'mobile' ? '13.5px' : view === 'tablet' ? '20px' : '18px',
       layoutTogglesOn: isPhone ? 'none' : 'inline-grid',
-      searchPadR: '16px',
+      searchPadR: String(s.code || '').trim() ? '48px' : '16px',
+      searchClearOn: String(s.code || '').trim() ? 'inline-flex' : 'none',
+      clearSearch: this._csr || (this._csr = (e) => {
+        if (e) e.preventDefault();
+        this.setState({ code: '', sugOpen: false, sugAt: 0 });
+        const el = document.querySelector('.s-in');
+        if (el) el.focus({ preventScroll: true });
+      }),
       searchPlaceholder: 'Code or colour name',
       selectInk: f ? 'var(--k-ink)' : 'var(--k-gold-soft)',
       docCols: view === 'mobile' ? 'minmax(0,1fr)' : 'repeat(2,minmax(0,1fr))',
