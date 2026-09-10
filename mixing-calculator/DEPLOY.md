@@ -41,3 +41,7 @@ index.html · kleeq-finishes.json · kleeq-finish-render.js · kleeq-tokens.css 
 - Typing in the search field completes on a unique match (full code, full colour name, or a unique prefix) and hands the cursor to the weight field; ambiguous entries keep the suggestion list open.
 - Weight field uses a numeric keypad on phone and tablet (text + inputMode=decimal, so iPadOS shows the keypad); desktop keeps the number spinner.
 - Weight clear (×) is hidden when the field is empty.
+
+## Release 2026-09-09c — keypad on pick
+- Every pick path (browse list, recent chips, suggestion rows, phone dropdown, Enter on a suggestion) focuses the weight field inside the tap, so iOS and iPadOS raise the numeric keypad.
+- Suggestion rows commit on pointerdown rather than mousedown.

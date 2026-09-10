@@ -235,7 +235,7 @@
             </button>
             <div id="search-list" class="s-glass" role="listbox" aria-label="Matching products" style="border-radius:var(--k-r);display:{{ sugOn }};position:absolute;top:100%;left:0;right:0;z-index:20;background:var(--k-panel);border:1px solid var(--k-pop-line);max-height:240px;overflow-y:auto">
               <sc-for list="{{ suggestions }}" as="sg" hint-placeholder-count="6">
-                <button type="button" role="option" aria-selected="{{ sg.selected }}" style="{{ sg.style }}" onMouseDown="{{ sg.pick }}" onMouseEnter="{{ sg.hover }}">
+                <button type="button" role="option" aria-selected="{{ sg.selected }}" style="{{ sg.style }}" onPointerDown="{{ sg.pick }}" onMouseEnter="{{ sg.hover }}">
                   <span style="font-family:var(--k-mono);font-size:{{ metaFont }};font-weight:600;color:var(--k-gold-soft);flex:none">{{ sg.code }}</span>
                   <span style="font-size:{{ bodyFont }};color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ sg.name }}</span>
                   {{ sg.laser }}
@@ -675,7 +675,8 @@ class Component extends DCLogic {
     let tries = 0;
     const settle = () => {
       const now = grab();
-      if (now && document.activeElement !== now) { now.focus({ preventScroll: true }); if (now.select) now.select(); }
+      const lost = now && document.activeElement !== now;
+      if (lost) { now.focus({ preventScroll: true }); if (now.select) now.select(); }
       if (++tries < 6) requestAnimationFrame(settle);
       else {
         const v = this.effView();
@@ -696,8 +697,8 @@ class Component extends DCLogic {
   // Choosing a product returns the ratio to the recommended 18:1.
   pickCode = (code) => (e) => {
     if (e) e.preventDefault();
-    this.setState({ code: code, ratio: 18, preset: 'r18', sugOpen: false, listOpen: false });
     this.focusWeight();
+    this.setState({ code: code, ratio: 18, preset: 'r18', sugOpen: false, listOpen: false });
   };
 
   finishes() {
@@ -823,8 +824,8 @@ class Component extends DCLogic {
     } else if (e.key === 'Enter') {
       e.preventDefault();
       const c = list[this.state.sugAt] || list[0];
-      this.setState({ code: c.code, ratio: 18, preset: 'r18', sugOpen: false });
       this.focusWeight();
+      this.setState({ code: c.code, ratio: 18, preset: 'r18', sugOpen: false });
     } else if (e.key === 'Escape') {
       this.setState({ sugOpen: false });
     }
