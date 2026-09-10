@@ -36,3 +36,8 @@ index.html · kleeq-finishes.json · kleeq-finish-render.js · kleeq-tokens.css 
 - START OVER in step 01 replaces the old RESET in the action row — one reset, not two.
 - Mobile vertical spacing trimmed a further 10%; accordion chevrons 30% larger.
 - Theme and layout pills exposed in the header again (the settings menu is gone).
+
+## Release 2026-09-09b — entry handoff
+- Typing in the search field completes on a unique match (full code, full colour name, or a unique prefix) and hands the cursor to the weight field; ambiguous entries keep the suggestion list open.
+- Weight field uses a numeric keypad on phone and tablet (text + inputMode=decimal, so iPadOS shows the keypad); desktop keeps the number spinner.
+- Weight clear (×) is hidden when the field is empty.

@@ -298,7 +298,7 @@
           </div>
           <div style="display:flex;gap:8px;align-items:stretch;flex-wrap:wrap">
             <div style="position:relative;flex:1 1 140px;min-width:120px">
-              <input class="s-big" style="font-size:{{ weightFont }};padding:0 {{ weightPadR }} 0 {{ weightPadL }};height:{{ weightH }};box-sizing:border-box;text-align:right;{{ weightStyle }}" type="number" inputMode="decimal" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
+              <input class="s-big" style="font-size:{{ weightFont }};padding:0 {{ weightPadR }} 0 {{ weightPadL }};height:{{ weightH }};box-sizing:border-box;text-align:right;{{ weightStyle }}" type="{{ weightType }}" inputMode="decimal" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
               <span aria-hidden="true" style="position:absolute;top:50%;right:{{ unitInset }};transform:translateY(-50%);font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ unitFont }};line-height:1;color:var(--k-label);pointer-events:none">g</span>
               <button type="button" class="s-seg" style="position:absolute;top:50%;{{ clearPos }};transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;box-shadow:none;justify-content:center;color:var(--k-label);opacity:{{ clearVis }}" disabled="{{ clearOff }}" data-self-disabled="{{ clearOffStr }}" onClick="{{ clearWeight }}" title="Clear the weight" aria-label="Clear the weight">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
@@ -654,20 +654,43 @@ class Component extends DCLogic {
 
   // Picking a product hands the cursor to the weight field — the next thing
   // the user does at the bench.
+  // A typed entry counts as chosen when it is a full code or colour name, or
+  // when it has narrowed the list to a single product.
+  resolveTyped(v) {
+    const q = String(v || '').trim().toLowerCase();
+    if (q.length < 3) return null;
+    const all = this.catalogue ? this.catalogue() : [];
+    const exact = all.filter((f) => String(f.code).toLowerCase() === q || String(f.name).toLowerCase() === q)[0];
+    if (exact) return exact;
+    const hits = all.filter((f) => String(f.code).toLowerCase().indexOf(q) === 0 || String(f.name).toLowerCase().indexOf(q) === 0);
+    return hits.length === 1 ? hits[0] : null;
+  }
   focusWeight() {
-    const el = document.querySelector('.s-big');
-    if (!el) return;
-    // iOS only raises the keyboard when focus happens in the same task as the
-    // tap, so focus first and scroll afterwards.
-    el.focus({ preventScroll: true });
-    if (el.select) el.select();
-    const v = this.effView();
-    if (v === 'mobile' || v === 'tablet') {
-      setTimeout(() => {
-        const box = el.getBoundingClientRect();
-        window.scrollTo({ top: Math.max(0, box.top + window.pageYOffset - 72), behavior: 'smooth' });
-      }, 50);
-    }
+    const grab = () => document.querySelector('.s-big');
+    const el = grab();
+    // Focus in the same task as the tap so iOS raises the keyboard...
+    if (el) { el.focus({ preventScroll: true }); if (el.select) el.select(); }
+    // ...then re-apply after the re-render, since matching a colour can
+    // remount the field and drop the focus we just set.
+    let tries = 0;
+    const settle = () => {
+      const now = grab();
+      if (now && document.activeElement !== now) { now.focus({ preventScroll: true }); if (now.select) now.select(); }
+      if (++tries < 6) requestAnimationFrame(settle);
+      else {
+        const v = this.effView();
+        if ((v === 'mobile' || v === 'tablet') && now) {
+          const box = now.getBoundingClientRect();
+          window.scrollTo({ top: Math.max(0, box.top + window.pageYOffset - 72), behavior: 'smooth' });
+        }
+      }
+    };
+    requestAnimationFrame(settle);
+    // The field can remount a beat later once the match resolves.
+    [90, 220, 420].forEach((ms) => setTimeout(() => {
+      const now = grab();
+      if (now && document.activeElement !== now) { now.focus({ preventScroll: true }); if (now.select) now.select(); }
+    }, ms));
   }
 
   // Choosing a product returns the ratio to the recommended 18:1.
@@ -875,7 +898,14 @@ class Component extends DCLogic {
 
     return {
       code: s.code,
-      setCode: this._sc || (this._sc = (e) => this.setState({ code: e.target.value, sugOpen: true, sugAt: 0 })),
+      // Typing a complete code counts as picking it: hand the cursor on.
+      setCode: this._sc || (this._sc = (e) => {
+        const v = e.target.value;
+        const hit = this.resolveTyped(v);
+        const done = !!hit && this.state.code !== hit.code;
+        this.setState({ code: done ? hit.code : v, sugOpen: !done, sugAt: 0 });
+        if (done) this.focusWeight();
+      }),
       // A scroll over the field must not change a bench figure — keyboard and
       // the spinner arrows only.
       noWheel: this._nw || (this._nw = (e) => { e.target.blur(); }),
@@ -1080,6 +1110,7 @@ class Component extends DCLogic {
       pagePad: view === 'mobile' ? '7px 14px 25px' : view === 'tablet' ? '10px 20px 32px' : '16px clamp(14px,2.4vw,32px) 48px',
       secGap: view === 'mobile' ? '12.5px' : view === 'tablet' ? '18px' : '24px',
       partPadT: view === 'mobile' ? '9px' : view === 'tablet' ? '12px' : '16px',
+      weightType: (view === 'mobile' || view === 'tablet') ? 'text' : 'number',
       weightH: view === 'mobile' ? '58px' : view === 'tablet' ? '64px' : '76px',
       actGap: view === 'mobile' ? '9px' : view === 'tablet' ? '12px' : '16px',
       capFont: view === 'tablet' ? '11.25px' : view === 'mobile' ? '10px' : '10px',
