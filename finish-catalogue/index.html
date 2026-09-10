@@ -119,6 +119,8 @@
   :root[data-kleeq-view="mobile"] .c-lab { font-size: 11px; }
   :root[data-kleeq-view="mobile"] .c-seg { font-size: 12px; }
   :root[data-kleeq-view="mobile"] .c-spec { font-size: 13px; }
+  .k-menu { background: var(--k-panel); }
+  :root[data-kleeq-theme="glass"] .k-menu { background: #1c1a18; }
 </style>
 </helmet>
 
@@ -132,7 +134,7 @@
       <span style="font-weight:400;color:var(--k-label);font-stretch:100%;font-size:0.55em;line-height:1">×</span>
       <span style="font-size:0.55em;font-weight:600;line-height:1.1;white-space:nowrap">Cerakote finish catalogue</span>
     </h1>
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center">
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;position:relative">
     <a href="/" aria-label="Back to KLEEQ Tools" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:50%;color:var(--k-label);text-decoration:none;border:1px solid transparent" style-hover="color:var(--k-ink);border-color:var(--k-line);background:var(--k-panel)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></a>
     <div class="s-pill" style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
       <button type="button" class="c-seg" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center;{{ modStyle }}" onClick="{{ setMod }}" title="Modernist (site theme)" aria-label="Modernist theme">
@@ -197,7 +199,7 @@
       <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0;border-bottom:1px solid var(--k-line)">
         <button type="button" class="c-seg" style="{{ laserStyle }}" onClick="{{ toggleLaser }}"><span style="margin-right:10px">{{ nLaser }}</span>★ LASER OPTIMIZED</button>
         <button type="button" class="c-seg" style="{{ trendStyle }}" onClick="{{ toggleTrend }}" title="Trending: the most-requested Cerakote colours, ranked from applicator and gunsmith reports (2025)"><span style="margin-right:10px">{{ nTrend }}</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-right:5px"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>TRENDING</button>
-        <button type="button" class="c-seg" style="display:{{ newChipOn }};{{ newStyle }}" onClick="{{ toggleNew }}" title="Listed on cerakote.com this year"><span style="margin-right:10px">{{ nNew }}</span>NEW {{ thisYear }}</button>
+        <button type="button" class="c-seg" style="display:{{ newChipOn }};{{ newStyle }}" onClick="{{ toggleNew }}" title="Listed on cerakote.com this year"><span style="margin-right:10px">{{ nNew }}</span><span style="margin-right:5px">NEW</span>{{ thisYear }}</button>
         <a class="c-seg" style="gap:6px" href="https://www.cerakote.com/shop/cerakote-coating" target="_blank" rel="noopener noreferrer">CERAKOTE SHOP <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--k-gold-soft)"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
         <button type="button" class="c-seg" style="display:{{ showResetOn }}" onClick="{{ resetShow }}" title="Clear Show Only filters">RESET</button>
         <button type="button" class="c-seg" style="display:{{ stockChipOn }};{{ stockStyle }}" onClick="{{ toggleStock }}"><span style="margin-right:10px">{{ nStock }}</span>IN STOCK AT KLEEQ</button>
@@ -214,8 +216,14 @@
   <section id="results" style="margin:0 auto;padding:0 clamp(24px,4vw,64px) 56px">
     <div style="border-top:1px solid var(--k-line);padding-top:26px">
       <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;flex-wrap:wrap;margin-bottom:16px;flex-direction:{{ sortDir }}">
-        <span class="c-lab" style="margin:0">CERAKOTE · {{ count }} SHOWN OF {{ total }}{{ liveNote }}<span style="display:{{ similarOn }};color:var(--k-gold-soft)">· SIMILAR TO {{ similarTo }} <button type="button" class="c-seg" style="min-height:24px;padding:0 8px;margin-left:8px;font-size:12px" onClick="{{ clearSimilar }}">CLEAR</button></span></span>
+        <span class="c-lab" style="margin:0">CERAKOTE · {{ count }} SHOWN OF {{ total }}{{ liveNote }}<span style="display:{{ similarOn }};color:var(--k-gold-soft)">· SIMILAR TO {{ similarTo }} <button type="button" class="c-seg" style="min-height:24px;padding:0 8px;margin-left:8px;font-size:12px" onClick="{{ clearSimilar }}">CLEAR</button></span><button type="button" class="c-seg" style="display:{{ clearAllOn }};min-height:24px;padding:0 8px;margin-left:12px;font-size:12px;color:var(--k-gold-soft)" onClick="{{ clearAll }}" title="Clear search, series and Show only filters">CLEAR ALL {{ nActive }}</button></span>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="c-lab" style="margin:0">VIEW</span>
+          <div class="s-pill" style="display:inline-grid;grid-template-columns:repeat(3,auto);border:1px solid var(--k-line);border-radius:var(--k-r-sm);margin-right:14px">
+            <button type="button" class="c-seg" style="border:none;{{ lgViewStyle }}" onClick="{{ setLargeView }}" title="Large swatch cards">LARGE</button>
+            <button type="button" class="c-seg" style="border:none;border-left:1px solid var(--k-line);{{ smViewStyle }}" onClick="{{ setSmallView }}" title="Small swatch cards">SMALL</button>
+            <button type="button" class="c-seg" style="border:none;border-left:1px solid var(--k-line);{{ listViewStyle }}" onClick="{{ setListView }}" title="Compact list">LIST</button>
+          </div>
           <span class="c-lab" style="margin:0">SORT</span>
           <div class="s-pill" style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line);border-radius:var(--k-r-sm)">
             <button type="button" class="c-seg" style="border:none;{{ sortCodeStyle }}" onClick="{{ sortCode }}">CODE</button>
@@ -236,22 +244,22 @@
             </div>
             <div style="display:grid;grid-template-columns:{{ gridCols }};gap:{{ gridGap }}">
               <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="8">
-                <div class="c-row" id="{{ r.anchor }}" data-hit="{{ r.hit }}" style="border:1px solid {{ r.border }};border-radius:var(--k-r);display:grid;grid-template-rows:auto 1fr auto">
-                  <button type="button" class="c-card-btn" onClick="{{ r.open }}" title="{{ r.openTitle }}">
-                    <div class="c-sw" style="position:relative;aspect-ratio:1/1;background:{{ r.hex }}">
+                <div class="c-row" id="{{ r.anchor }}" data-hit="{{ r.hit }}" style="border:1px solid {{ r.border }};border-radius:var(--k-r);{{ rowLayout }}">
+                  <button type="button" class="c-card-btn" style="{{ cardBtnStyle }}" onClick="{{ r.open }}" title="{{ r.openTitle }}">
+                    <div class="c-sw" style="position:relative;aspect-ratio:1/1;background:{{ r.hex }};{{ swStyle }}">
                       <span class="c-star" style="display:{{ r.starOn }}">★ LASER</span>
                       <span class="c-star" style="display:{{ r.trendOn }};top:auto;bottom:8px;left:auto;right:8px;align-items:center;gap:4px" title="Trending: #{{ r.trendRank }} most-requested Cerakote colour (applicator reports, 2025)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>{{ r.trendRank }}</span>
                       <span class="c-star" style="display:{{ r.newOn }};background:var(--k-gold);color:var(--k-on-gold)">{{ r.newLabel }}</span>
                       <span class="c-star" style="display:{{ r.stockOn }};left:auto;right:8px;color:var(--k-ink)">STOCKED</span>
                       <span class="c-star" style="display:{{ r.cmpOn }};top:auto;bottom:8px;background:var(--k-gold);color:var(--k-on-gold)">COMPARE {{ r.cmpIdx }}</span>
                     </div>
-                    <div style="padding:{{ cardPad }};display:grid;gap:6px;align-content:start">
-                      <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.code }}</span><span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.12em;color:var(--k-label)">{{ r.series }}</span></span>
-                      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:15px;line-height:1.2;color:var(--k-ink)">{{ r.name }}</span>
-                      <span style="font-family:var(--k-mono);font-size:11px;letter-spacing:0.06em;color:var(--k-label);line-height:1.5">{{ r.meta }}</span>
+                    <div style="padding:{{ cardPad }};{{ textLayout }}">
+                      <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.laserMark }}{{ r.code }}</span><span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.12em;color:var(--k-label)">{{ r.series }}</span></span>
+                      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ nameSize }};line-height:1.2;color:var(--k-ink)">{{ r.name }}</span>
+                      <span style="display:{{ metaOn }};font-family:var(--k-mono);font-size:{{ metaSize }};letter-spacing:0.06em;color:var(--k-label);line-height:1.5">{{ r.meta }}</span>
                     </div>
                   </button>
-                  <div style="display:flex;gap:6px;padding:{{ cardFootPad }};flex-wrap:wrap;align-self:end">
+                  <div style="display:{{ footOn }};gap:6px;padding:{{ cardFootPad }};flex-wrap:wrap;align-self:{{ footAlign }}">
                     <button type="button" class="c-seg" style="min-height:30px;padding:0 10px;font-size:11px;white-space:nowrap;flex:none;{{ r.cmpStyle }}" onClick="{{ r.toggleCmp }}" title="Add to compare">{{ r.cmpLabel }}</button>
                     <button type="button" class="c-seg" style="min-height:30px;padding:0 10px;font-size:11px;white-space:nowrap;flex:none" onClick="{{ r.similar }}" title="Find similar finishes">SIMILAR</button>
                   </div>
@@ -483,6 +491,29 @@ class Component extends DCLogic {
     if (m) m.setAttribute('content', v === 'glass' ? '#0e0d0c' : v === 'dark' ? '#1a1918' : '#f3f2f2');
     this.setState({ theme: v });
   };
+  toggleSettings = (e) => {
+    if (e) e.preventDefault();
+    const open = !this.state.settingsOpen;
+    this.setState({ settingsOpen: open });
+    if (open && !this._setDismiss) {
+      this._setDismiss = (ev) => {
+        if (ev.type === 'keydown' && ev.key !== 'Escape') return;
+        if (ev.type === 'mousedown' && ev.target.closest && ev.target.closest('[aria-label="Display settings"]')) return;
+        this.setState({ settingsOpen: false });
+      };
+      document.addEventListener('mousedown', this._setDismiss, true);
+      document.addEventListener('keydown', this._setDismiss, true);
+    }
+  };
+  clearAll = (e) => {
+    if (e) e.preventDefault();
+    this.setState({ query: '', series: 'ALL', laserOnly: false, measuredOnly: false, stockOnly: false, trendOnly: false, newOnly: false, similar: null });
+  };
+  setSize = (v) => (e) => {
+    if (e) e.preventDefault();
+    try { window.localStorage.setItem('kleeq-cat-size', v); } catch (x) {}
+    this.setState({ size: v });
+  };
   setView = (v) => {
     // AUTO hands the layout back to the window size.
     if (v === 'auto') {
@@ -569,6 +600,11 @@ class Component extends DCLogic {
     window.addEventListener('keydown', this._kd);
     this.setTheme('glass');
     try { const v = window.localStorage.getItem('kleeq-cat-view'); if (['desktop', 'tablet', 'mobile'].indexOf(v) >= 0) this.setState({ view: v, viewAuto: false }); } catch (e) {}
+    try {
+      const sz = window.localStorage.getItem('kleeq-cat-size');
+      if (['lg', 'sm', 'list'].indexOf(sz) >= 0) this.setState({ size: sz });
+      else if (window.localStorage.getItem('kleeq-cat-dense') === '1') this.setState({ size: 'list' });
+    } catch (e) {}
     this._rzv = () => { document.documentElement.setAttribute('data-kleeq-view', this.effView()); this.forceUpdate(); };
     window.addEventListener('resize', this._rzv);
     try {
@@ -638,6 +674,8 @@ class Component extends DCLogic {
     const sel = 'background:var(--k-sel);color:var(--k-gold-soft)';
     const theme = st.theme, view = this.effView(), isPhone = view === 'mobile', compact = view !== 'desktop';
     if (typeof document !== 'undefined') document.documentElement.setAttribute('data-kleeq-view', view);
+    const size = st.size || 'lg', dense = size === 'list', small = size === 'sm';
+    const nActive = [String(st.query || '').trim(), st.series !== 'ALL' ? st.series : '', st.laserOnly, st.measuredOnly, st.stockOnly, st.trendOnly, st.newOnly, st.similar].filter(Boolean).length;
     const realW = typeof window !== 'undefined' ? window.innerWidth : 1400;
     const cmpSet = st.cmp;
     const cmpLabel = (code) => cmpSet.indexOf(code.toUpperCase()) >= 0 ? '✓ COMPARING' : '+ COMPARE';
@@ -655,10 +693,11 @@ class Component extends DCLogic {
         hit: st.hit === f.code.toUpperCase() ? '1' : '0',
         border: st.open === f.code.toUpperCase() ? 'var(--k-gold)' : 'var(--k-line)',
         hex: this.swatch(f),
-        starOn: f.laserOptimized ? 'inline-block' : 'none', stockOn: f.stocked ? 'inline-block' : 'none',
-        trendOn: trendRank(f.code) ? 'inline-block' : 'none', trendRank: trendRank(f.code),
-        newOn: isNew(f) ? 'inline-block' : 'none', newLabel: newLabel(f),
+        starOn: (!dense && f.laserOptimized) ? 'inline-block' : 'none', stockOn: (!dense && f.stocked) ? 'inline-block' : 'none',
+        trendOn: (!dense && trendRank(f.code)) ? 'inline-block' : 'none', trendRank: trendRank(f.code),
+        newOn: (!dense && isNew(f)) ? 'inline-block' : 'none', newLabel: newLabel(f),
         cmpOn: ci >= 0 ? 'inline-block' : 'none', cmpIdx: ci + 1,
+        laserMark: (dense && f.laserOptimized) ? '★' : '',
         meta: f.measured ? (f.hex + ' · ' + (f.sheen || '—') + ' · LRV ' + l.toFixed(1) + '%') : ((f.sheen ? f.sheen + ' · ' : '') + (hex ? hex.toUpperCase() + ' · SAMPLED' : f.live ? 'NEW ON CERAKOTE · SWATCH PENDING' : f.thumb ? 'CERAKOTE PHOTO' : 'NO LISTING')),
         open: this.openF(f.code), openTitle: 'Details for ' + f.code,
         cmpLabel: cmpLabel(f.code), cmpStyle: cmpStyle(f.code), toggleCmp: this.toggleCmp(f.code),
@@ -703,9 +742,32 @@ class Component extends DCLogic {
       filterCols: compact ? 'minmax(0,1fr)' : 'max-content minmax(0,1fr)',
       labPad: compact ? '16px 0 0' : '22px 0', labRule: compact ? 'none' : '1px solid var(--k-line)',
       sortDir: isPhone ? 'column' : 'row',
-      gridCols: isPhone ? 'repeat(2,minmax(0,1fr))' : compact ? 'repeat(auto-fill,minmax(150px,1fr))' : 'repeat(auto-fill,minmax(160px,1fr))',
-      gridGap: isPhone ? '10px' : '16px',
-      cardPad: isPhone ? '10px 10px 8px' : '14px 14px 10px', cardFootPad: isPhone ? '4px 10px 10px' : '4px 14px 14px',
+      setOn: st.settingsOpen ? 'grid' : 'none',
+      setExpanded: st.settingsOpen ? 'true' : 'false',
+      setBtnStyle: st.settingsOpen ? sel : '',
+      toggleSettings: this._tsg || (this._tsg = (e) => this.toggleSettings(e)),
+      clearAllOn: nActive ? 'inline-flex' : 'none',
+      nActive: nActive ? '· ' + nActive : '',
+      clearAll: this.clearAll,
+      footAlign: dense ? 'center' : 'end',
+      footOn: small ? 'none' : 'flex',
+      metaOn: small ? 'none' : 'block',
+      metaSize: dense ? '12px' : '11px',
+      nameSize: small ? '13px' : '15px',
+      lgViewStyle: (!dense && !small) ? sel : '', smViewStyle: small ? sel : '', listViewStyle: dense ? sel : '',
+      setLargeView: this._gl || (this._gl = this.setSize('lg')),
+      setSmallView: this._gs || (this._gs = this.setSize('sm')),
+      setListView: this._lv || (this._lv = this.setSize('list')),
+      rowLayout: dense ? 'display:flex;align-items:center;gap:12px;flex-wrap:wrap' : 'display:grid;grid-template-rows:auto 1fr auto',
+      cardBtnStyle: dense ? 'display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0' : '',
+      swStyle: dense ? 'aspect-ratio:auto;width:' + (isPhone ? '30px' : '34px') + ';height:' + (isPhone ? '30px' : '34px') + ';flex:none;border-radius:var(--k-r-sm);border-bottom:none;margin:5px 0 5px 5px' : '',
+      textLayout: dense ? 'display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;min-width:0' : 'display:grid;gap:6px;align-content:start',
+      gridCols: dense ? 'minmax(0,1fr)'
+        : small ? (isPhone ? 'repeat(3,minmax(0,1fr))' : 'repeat(auto-fill,minmax(112px,1fr))')
+        : (isPhone ? 'repeat(2,minmax(0,1fr))' : compact ? 'repeat(auto-fill,minmax(190px,1fr))' : 'repeat(auto-fill,minmax(210px,1fr))'),
+      gridGap: dense ? '6px' : small ? '8px' : isPhone ? '10px' : '16px',
+      cardPad: dense ? '0 4px' : small ? '7px 8px 8px' : isPhone ? '10px 10px 8px' : '14px 14px 10px',
+      cardFootPad: dense ? '0 8px 0 0' : isPhone ? '4px 10px 10px' : '4px 14px 14px',
       h2Size: isPhone ? '18px' : '22px', hintOn: compact ? 'none' : 'inline',
 
       query: st.query, setQuery: this._sq || (this._sq = (e) => this.setState({ query: e.target.value, similar: null })),

@@ -124,6 +124,8 @@
   .s-pick { border: 1px solid var(--k-line); padding: 0; background: none; cursor: pointer; display: flex; flex-direction: column; }
   .s-pick:hover { border-color: var(--k-gold-soft); }
   .s-pick:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
+  .k-menu { background: var(--k-panel); }
+  :root[data-kleeq-theme="glass"] .k-menu { background: #1c1a18; }
 </style>
 </helmet>
 
@@ -139,7 +141,7 @@
     <div style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;min-height:28px">
     <div style="display:flex;gap:8px;align-items:center">
     <a href="/" aria-label="Back to KLEEQ Tools" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:50%;color:var(--k-label);text-decoration:none;border:1px solid transparent" style-hover="color:var(--k-ink);border-color:var(--k-line);background:var(--k-panel)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></a>
-    <div style="display:flex;gap:8px;align-items:center">
+    <div style="display:flex;gap:8px;align-items:center;position:relative">
     <div class="s-pill" style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
       <button type="button" class="s-seg" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center;{{ modStyle }}" onClick="{{ setMod }}" title="Modernist (site theme)" aria-label="Modernist theme">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -292,7 +294,7 @@
               <input class="s-big" style="font-size:{{ weightFont }};padding:0 {{ weightPadR }} 0 {{ weightPadL }};height:{{ weightH }};box-sizing:border-box;text-align:right;{{ weightStyle }}" type="number" inputMode="decimal" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
               <span aria-hidden="true" style="position:absolute;top:50%;right:{{ unitInset }};transform:translateY(-50%);font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ unitFont }};line-height:1;color:var(--k-label);pointer-events:none">g</span>
               <button type="button" class="s-seg" style="position:absolute;top:50%;{{ clearPos }};transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;box-shadow:none;justify-content:center;color:var(--k-label);opacity:{{ clearVis }}" disabled="{{ clearOff }}" data-self-disabled="{{ clearOffStr }}" onClick="{{ clearWeight }}" title="Clear the weight" aria-label="Clear the weight">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
               </button>
             </div>
           </div>
@@ -358,7 +360,7 @@
 
       <div style="border-top:var(--k-rule-w) solid var(--k-rule);display:grid;gap:0 48px;grid-template-columns:{{ docCols }};padding-bottom:{{ docPadB }}">
         <details open="{{ doc_ins_open }}" style="border-bottom:1px solid {{ docRule }}">
-          <summary onClick="{{ doc_ins_toggle }}" style="list-style:none;cursor:{{ docCursor }};display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:{{ docRowH }};padding:{{ docRowPad }};margin:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-rule)">Instructions<span style="display:{{ docChevOn }};font-family:var(--k-mono);font-size:{{ metaFont }};line-height:1;color:var(--k-label)" aria-hidden="true">{{ doc_ins_chev }}</span></summary>
+          <summary onClick="{{ doc_ins_toggle }}" style="list-style:none;cursor:{{ docCursor }};display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:{{ docRowH }};padding:{{ docRowPad }};margin:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-rule)">Instructions<span style="display:{{ docChevOn }};font-family:var(--k-mono);font-size:{{ chevFont }};line-height:1;color:var(--k-label)" aria-hidden="true">{{ doc_ins_chev }}</span></summary>
           <ol style="margin:0 0 16px;padding-left:17px;max-width:60ch;display:grid;gap:8px;font-size:{{ bodyFont }};line-height:1.5;color:var(--k-label)">
             <li>Search by code or colour name, or pick from the list (example: H-146)</li>
             <li>Weigh your coating and enter the grams</li>
@@ -368,7 +370,7 @@
           </ol>
         </details>
         <details open="{{ doc_notes_open }}" style="border-bottom:1px solid {{ docRule }}">
-          <summary onClick="{{ doc_notes_toggle }}" style="list-style:none;cursor:{{ docCursor }};display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:{{ docRowH }};padding:{{ docRowPad }};margin:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-rule)">Notes<span style="display:{{ docChevOn }};font-family:var(--k-mono);font-size:{{ metaFont }};line-height:1;color:var(--k-label)" aria-hidden="true">{{ doc_notes_chev }}</span></summary>
+          <summary onClick="{{ doc_notes_toggle }}" style="list-style:none;cursor:{{ docCursor }};display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:{{ docRowH }};padding:{{ docRowPad }};margin:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-rule)">Notes<span style="display:{{ docChevOn }};font-family:var(--k-mono);font-size:{{ chevFont }};line-height:1;color:var(--k-label)" aria-hidden="true">{{ doc_notes_chev }}</span></summary>
           <ul style="margin:0 0 16px;padding-left:17px;max-width:60ch;display:grid;gap:8px;font-size:{{ bodyFont }};line-height:1.5;color:var(--k-label)">
             <li>DO NOT mix Cerakote and catalyst in plastic containers as this will compromise the integrity of the coating</li>
             <li>DO NOT exceed the recommended Cerakote to catalyst mixing ratios</li>
@@ -379,13 +381,13 @@
           </ul>
         </details>
         <details open="{{ doc_src_open }}" style="border-bottom:1px solid {{ docRule }}">
-          <summary onClick="{{ doc_src_toggle }}" style="list-style:none;cursor:{{ docCursor }};display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:{{ docRowH }};padding:{{ docRowPad }};margin:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-rule)">Source<span style="display:{{ docChevOn }};font-family:var(--k-mono);font-size:{{ metaFont }};line-height:1;color:var(--k-label)" aria-hidden="true">{{ doc_src_chev }}</span></summary>
+          <summary onClick="{{ doc_src_toggle }}" style="list-style:none;cursor:{{ docCursor }};display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:{{ docRowH }};padding:{{ docRowPad }};margin:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-rule)">Source<span style="display:{{ docChevOn }};font-family:var(--k-mono);font-size:{{ chevFont }};line-height:1;color:var(--k-label)" aria-hidden="true">{{ doc_src_chev }}</span></summary>
           <div style="max-width:60ch;margin:0 0 16px">
             <div style="font-size:{{ bodyFont }};line-height:1.5;color:var(--k-label);text-wrap:pretty">{{ sourceNote }}</div>
           </div>
         </details>
         <details open="{{ doc_about_open }}" style="border-bottom:1px solid {{ docRule }}">
-          <summary onClick="{{ doc_about_toggle }}" style="list-style:none;cursor:{{ docCursor }};display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:{{ docRowH }};padding:{{ docRowPad }};margin:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-rule)">About this tool<span style="display:{{ docChevOn }};font-family:var(--k-mono);font-size:{{ metaFont }};line-height:1;color:var(--k-label)" aria-hidden="true">{{ doc_about_chev }}</span></summary>
+          <summary onClick="{{ doc_about_toggle }}" style="list-style:none;cursor:{{ docCursor }};display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:{{ docRowH }};padding:{{ docRowPad }};margin:0;font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;color:var(--k-rule)">About this tool<span style="display:{{ docChevOn }};font-family:var(--k-mono);font-size:{{ chevFont }};line-height:1;color:var(--k-label)" aria-hidden="true">{{ doc_about_chev }}</span></summary>
           <div style="display:grid;gap:8px;max-width:60ch;margin:0 0 16px">
           <p style="margin:0;font-size:{{ bodyFont }};line-height:1.5;color:var(--k-label);text-wrap:pretty">KLEEQ built this calculator because we run one every day and wanted it to work the way a shop actually works: fast on a bench tablet, the whole Cerakote catalogue searchable by code or colour name, and the correct catalyst named for each series. It is free for any Cerakote applicator to use.</p>
           <p style="margin:0;font-size:{{ bodyFont }};line-height:1.5;color:var(--k-label);text-wrap:pretty">Every ratio, strainer size and product name here comes from Cerakote's own technical data sheets, training manuals and shop listings. KLEEQ is an applicator, not a manufacturer — we are not affiliated with or endorsed by Cerakote or NIC Industries, and nothing on this page replaces the current TDS on the bottle in your hand.</p>
@@ -617,6 +619,20 @@ class Component extends DCLogic {
     this.setState({ theme: v });
   };
 
+  toggleSettings = (e) => {
+    if (e) e.preventDefault();
+    const open = !this.state.settingsOpen;
+    this.setState({ settingsOpen: open });
+    if (open && !this._setDismiss) {
+      this._setDismiss = (ev) => {
+        if (ev.type === 'keydown' && ev.key !== 'Escape') return;
+        if (ev.type === 'mousedown' && ev.target.closest && ev.target.closest('[aria-label="Display settings"]')) return;
+        this.setState({ settingsOpen: false });
+      };
+      document.addEventListener('mousedown', this._setDismiss, true);
+      document.addEventListener('keydown', this._setDismiss, true);
+    }
+  };
   setView = (v) => {
     // AUTO hands the layout back to the window size.
     if (v === 'auto') {
@@ -925,7 +941,6 @@ class Component extends DCLogic {
       dismissResume: this._dr || (this._dr = (e) => { if (e) e.preventDefault(); this.setState({ resume: null }); try { window.localStorage.removeItem('kleeq-mix-last'); } catch (x) {} }),
       recentOn: (s.recent.length && !f) ? 'flex' : 'none',
       recent: s.recent.map((r) => ({ code: r.code, name: r.name, pick: this.pickCode(r.code) })),
-      dp1: this.pick({ dp: 1 }), dp2: this.pick({ dp: 2 }),
       dp1On: s.dp === 1, dp2On: s.dp !== 1,
       dp1Style: s.dp === 1 ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
       dp2Style: s.dp !== 1 ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
@@ -970,7 +985,7 @@ class Component extends DCLogic {
       fieldGrow2: (view === 'stack' || view === 'mobile') ? '1 1 0' : '1 1 56%',
       nameSize: view === 'mobile' ? '13.5px' : view === 'tablet' ? '18px' : '16px',
       mixFont: view === 'tablet' ? '50px' : 'clamp(34px,3.8vw,50px)',
-      rowGap: view === 'mobile' ? '12px' : '24px',
+      rowGap: view === 'mobile' ? '11px' : '24px',
       part1Gap: oneCol ? '32px' : '32px 48px',
       // In one-column views the flex basis would act on height, so it must be auto there.
       leftFlex: oneCol ? '0 0 auto' : '1.4 1 420px',
@@ -985,13 +1000,13 @@ class Component extends DCLogic {
       presetGap: view === 'mobile' ? '4px' : '8px',
       ratioFont: view === 'mobile' ? '14.5px' : view === 'tablet' ? '19px' : '17px',
       glossFont: view === 'mobile' ? '9px' : view === 'tablet' ? '11px' : '10px',
-      clearSize: view === 'mobile' ? '28px' : '28px',
+      clearSize: view === 'mobile' ? '40px' : view === 'tablet' ? '44px' : '38px',
       clearVis: Number(s.weight) > 0 ? '1' : '0',
       // Phone: field 148px, × overlays the far right only while a value exists, g sits inside it → ≥ 96px for digits.
-      weightPadR: view === 'mobile' ? (Number(s.weight) > 0 ? '52px' : '26px') : '40px',
-      weightPadL: view === 'mobile' ? '10px' : '40px',
+      weightPadR: view === 'mobile' ? (Number(s.weight) > 0 ? '62px' : '26px') : '40px',
+      weightPadL: view === 'mobile' ? '10px' : '52px',
       clearPos: view === 'mobile' ? 'right:4px' : 'left:6px',
-      unitInset: view === 'mobile' ? (Number(s.weight) > 0 ? '36px' : '10px') : '14px',
+      unitInset: view === 'mobile' ? (Number(s.weight) > 0 ? '44px' : '10px') : '14px',
       unitFont: view === 'mobile' ? '13.5px' : view === 'tablet' ? '20px' : '18px',
       layoutTogglesOn: isPhone ? 'none' : 'inline-grid',
       searchPadR: '16px',
@@ -1005,7 +1020,7 @@ class Component extends DCLogic {
       docLabH: view === 'mobile' ? '44px' : '0',
       docLabPad: view === 'mobile' ? '0' : '16px 0 8px',
       docRule: view === 'mobile' ? 'var(--k-line)' : 'transparent',
-      docPadB: view === 'mobile' ? '72px' : '0',
+      docPadB: view === 'mobile' ? '65px' : '0',
       ...this.docVals(view),
       stickyOn: (view === 'mobile' && f && Number(s.weight) > 0 && !s.mixSeen) ? 'flex' : 'none',
       // Under ~400px the label and figure no longer fit on one line per half.
@@ -1016,11 +1031,15 @@ class Component extends DCLogic {
       presetWrap: 'nowrap',
       cellH: view === 'mobile' ? '62px' : view === 'tablet' ? '70px' : '76px',
       cellFlex: '1 1 0',
-      infoGap: view === 'mobile' ? '16px' : '32px',
+      infoGap: view === 'mobile' ? '14px' : '32px',
       sideStyle: view === 'split' ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
       stackStyle: view === 'stack' ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
       tabletStyle: view === 'tablet' ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
       mobileStyle: view === 'mobile' ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
+      setOn: s.settingsOpen ? 'grid' : 'none',
+      setExpanded: s.settingsOpen ? 'true' : 'false',
+      setBtnStyle: s.settingsOpen ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
+      toggleSettings: this._tsg || (this._tsg = (e) => this.toggleSettings(e)),
       autoStyle: s.viewAuto !== false ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
       setAuto: this._v0 || (this._v0 = (e) => { if (e) e.preventDefault(); this.setView('auto'); }),
       setSide: this._v1 || (this._v1 = (e) => { if (e) e.preventDefault(); this.setView('split'); }),
@@ -1035,15 +1054,16 @@ class Component extends DCLogic {
       setMod: this._th0 || (this._th0 = (e) => { if (e) e.preventDefault(); this.setTheme('modernist'); }),
       setLight: this._th1 || (this._th1 = (e) => { if (e) e.preventDefault(); this.setTheme('light'); }),
       setDark: this._th2 || (this._th2 = (e) => { if (e) e.preventDefault(); this.setTheme('dark'); }),
-      colGap: view === 'mobile' ? '18px' : view === 'tablet' ? '22px' : '32px',
-      headPad: view === 'mobile' ? '12px 14px 6px' : view === 'tablet' ? '16px 20px 6px' : 'clamp(20px,3vw,36px) clamp(14px,2.4vw,32px) 8px',
-      headGap: view === 'mobile' ? '10px' : view === 'tablet' ? '14px' : '20px',
-      pagePad: view === 'mobile' ? '8px 14px 28px' : view === 'tablet' ? '10px 20px 32px' : '16px clamp(14px,2.4vw,32px) 48px',
-      secGap: view === 'mobile' ? '14px' : view === 'tablet' ? '18px' : '24px',
-      partPadT: view === 'mobile' ? '10px' : view === 'tablet' ? '12px' : '16px',
+      colGap: view === 'mobile' ? '16px' : view === 'tablet' ? '22px' : '32px',
+      headPad: view === 'mobile' ? '11px 14px 5px' : view === 'tablet' ? '16px 20px 6px' : 'clamp(20px,3vw,36px) clamp(14px,2.4vw,32px) 8px',
+      headGap: view === 'mobile' ? '9px' : view === 'tablet' ? '14px' : '20px',
+      pagePad: view === 'mobile' ? '7px 14px 25px' : view === 'tablet' ? '10px 20px 32px' : '16px clamp(14px,2.4vw,32px) 48px',
+      secGap: view === 'mobile' ? '12.5px' : view === 'tablet' ? '18px' : '24px',
+      partPadT: view === 'mobile' ? '9px' : view === 'tablet' ? '12px' : '16px',
       weightH: view === 'mobile' ? '58px' : view === 'tablet' ? '64px' : '76px',
-      actGap: view === 'mobile' ? '10px' : view === 'tablet' ? '12px' : '16px',
+      actGap: view === 'mobile' ? '9px' : view === 'tablet' ? '12px' : '16px',
       capFont: view === 'tablet' ? '11.25px' : view === 'mobile' ? '10px' : '10px',
+      chevFont: view === 'tablet' ? '16px' : view === 'mobile' ? '15.5px' : '14.5px',
       metaFont: view === 'tablet' ? '12.5px' : view === 'mobile' ? '10.8px' : '11px',
       bodyFont: view === 'tablet' ? '13.5px' : view === 'mobile' ? '11.7px' : '12px',
       pageW: view === 'mobile' ? '430px' : view === 'tablet' ? '1024px' : '1180px',
@@ -1066,6 +1086,8 @@ class Component extends DCLogic {
       copyLabel: s.copied ? 'COPIED' : 'COPY',
 
       meshLabel: meshRec.label,
+
+      dp1: this.pick({ dp: 1 }), dp2: this.pick({ dp: 2 }),
 
       sourceNote: "Cerakote's published ratios — 12:1, 18:1, 24:1 — are by volume. This tool converts them to scale weight with a 1.321 factor, fitted to Cerakote's own calculator: 100 g at 18:1 gives 4.21 g, at 24:1 gives 3.15 g, and 10 g at 12:1 gives 0.63 g. Strainer mesh comes from the product page where the studio has recorded it, and from the sheen and series rule otherwise. Always check the current TDS for the product in hand."
     };
