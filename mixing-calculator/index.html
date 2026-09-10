@@ -96,15 +96,15 @@
   .s-in { width: 100%; box-sizing: border-box; border-radius: var(--k-r-sm); background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: var(--k-mono); font-size: 16px; padding:8px 12px; min-height: 35px; }
   @media (min-width: 640px) { .s-in { font-size: 14px; } }
   /* Bench legibility: tablet type runs ~25% larger than desktop, phone ~10%. */
-  :root[data-kleeq-view="tablet"] .s-lab { font-size: 12.5px; }
-  :root[data-kleeq-view="tablet"] .s-seg { font-size: 15px; min-height: 44px; }
-  :root[data-kleeq-view="tablet"] .s-in { font-size: 17.5px; }
-  :root[data-kleeq-view="tablet"] details ol, :root[data-kleeq-view="tablet"] details ul, :root[data-kleeq-view="tablet"] details p, :root[data-kleeq-view="tablet"] details div { font-size: 15px !important; }
-  :root[data-kleeq-view="tablet"] details summary { font-size: 22px !important; }
-  :root[data-kleeq-view="mobile"] .s-lab { font-size: 11px; }
-  :root[data-kleeq-view="mobile"] .s-seg { font-size: 13px; }
-  :root[data-kleeq-view="mobile"] details ol, :root[data-kleeq-view="mobile"] details ul, :root[data-kleeq-view="mobile"] details p, :root[data-kleeq-view="mobile"] details div { font-size: 13px !important; }
-  :root[data-kleeq-view="mobile"] details summary { font-size: 20px !important; }
+  :root[data-kleeq-view="tablet"] .s-lab { font-size: 11.25px; }
+  :root[data-kleeq-view="tablet"] .s-seg { font-size: 13.5px; min-height: 44px; }
+  :root[data-kleeq-view="tablet"] .s-in { font-size: 15.75px; }
+  :root[data-kleeq-view="tablet"] details ol, :root[data-kleeq-view="tablet"] details ul, :root[data-kleeq-view="tablet"] details p, :root[data-kleeq-view="tablet"] details div { font-size: 13.5px !important; }
+  :root[data-kleeq-view="tablet"] details summary { font-size: 20px !important; }
+  :root[data-kleeq-view="mobile"] .s-lab { font-size: 10px; }
+  :root[data-kleeq-view="mobile"] .s-seg { font-size: 11.7px; }
+  :root[data-kleeq-view="mobile"] details ol, :root[data-kleeq-view="mobile"] details ul, :root[data-kleeq-view="mobile"] details p, :root[data-kleeq-view="mobile"] details div { font-size: 11.7px !important; }
+  :root[data-kleeq-view="mobile"] details summary { font-size: 18px !important; }
   @media (max-width: 639px) { .s-seg { min-height: 40px; } }
   input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 24px; margin: 0; background: none; cursor: pointer; }
   input[type=range]::-webkit-slider-runnable-track { height: 4px; background: var(--k-line); }
@@ -129,8 +129,8 @@
 
 <div style="background:var(--k-bg);color:var(--k-ink);font-family:var(--font-body);min-height:100vh">
 
-  <header style="max-width:{{ headerW }};margin:0 auto;padding:clamp(20px,3vw,36px) clamp(14px,2.4vw,32px) 8px">
-    <div style="width:100%;display:grid;gap:20px;justify-items:center">
+  <header style="max-width:{{ headerW }};margin:0 auto;padding:{{ headPad }}">
+    <div style="width:100%;display:grid;gap:{{ headGap }};justify-items:center">
     <h1 style="font-size:clamp(29px,2.9vw,40px);line-height:1;margin:0;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center;width:100%">
       <a href="https://www.kleeq.com" style="color:inherit;display:flex;flex:none" aria-label="KLEEQ home"><svg viewBox="0 0 720 280" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KLEEQ" style="height:1.46em;width:auto;flex:none;display:block"><polygon points="64.9 0 64.9 71.51 88.7 47.68 88.7 23.84 696.2 23.84 696.2 214.54 88.7 214.54 88.7 190.7 64.9 166.86 64.9 238.38 720 238.38 720 0 64.9 0"></polygon><polygon points="160.09 154.94 142.24 137.07 124.39 119.19 142.24 101.31 160.09 83.43 177.94 65.55 195.79 47.68 160.09 47.68 142.24 65.55 124.39 83.43 106.54 101.31 88.7 119.19 106.54 137.07 124.39 154.94 142.24 172.82 160.09 190.7 195.79 190.7 177.94 172.82 160.09 154.94"></polygon><path d="M64.9,84.77h-27.79c-2.87,0-5.62,1.2-7.65,3.34L0,119.19h0,0s0,0,0,0h0l29.46,31.07c2.03,2.14,4.78,3.34,7.65,3.34h27.79l-16.69-17.6,16.69-16.82h0s-16.69-16.82-16.69-16.82l16.69-17.6ZM42.75,128.65l-10.58-3.61-6.52,9.45v-11.68l-10.58-3.61,10.58-3.6v-11.7s6.52,9.45,6.52,9.45l10.58-3.61-6.54,9.45,6.54,9.45Z"></path><path d="M203.72,47.68h31.72v113.91h63.44v29.08h-95.17V47.68Z"></path><path d="M306.82,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M417.85,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M672.4,168.76l-12.42-10.48c7.35-11.24,11.64-24.67,11.64-39.11,0-39.49-31.96-71.49-71.38-71.49s-71.38,32.01-71.38,71.49,31.96,71.49,71.38,71.49c14.66,0,28.29-4.44,39.63-12.03l14.25,12.03,18.27-21.9ZM600.25,161.27c-23.21,0-42.03-18.85-42.03-42.1s18.82-42.1,42.03-42.1,42.03,18.85,42.03,42.1c0,7.21-1.81,14-5.01,19.94l-17.98-15.17-18.27,21.9,14.75,12.45c-4.81,1.92-10.04,2.98-15.53,2.98Z"></path><g><path d="M64.89,252.33h8.32c2.33,0,4.31.29,5.93.86,1.62.57,2.97,1.3,4.05,2.19,1.08.89,1.92,1.87,2.55,2.95.62,1.08,1.08,2.12,1.37,3.11.29.99.47,1.89.55,2.69.08.8.11,1.37.11,1.7s-.04.9-.11,1.7c-.08.8-.26,1.7-.55,2.69-.29.99-.75,2.03-1.37,3.11-.62,1.08-1.47,2.06-2.55,2.95-1.08.89-2.43,1.62-4.05,2.19-1.62.57-3.6.86-5.93.86h-8.32v-26.98ZM67.4,277.03h5.17c1.77,0,3.43-.22,4.98-.67,1.55-.44,2.89-1.12,4.03-2.04,1.14-.91,2.04-2.08,2.7-3.49.66-1.41.99-3.08.99-5.01s-.33-3.6-.99-5.01c-.66-1.41-1.56-2.57-2.7-3.49-1.14-.91-2.48-1.59-4.03-2.04-1.55-.45-3.21-.67-4.98-.67h-5.17v22.41Z"></path><path d="M108.18,252.33h7.07c.35,0,.84.01,1.44.04.61.02,1.27.1,1.98.23.71.13,1.43.33,2.17.61.73.28,1.39.69,1.98,1.22.58.53,1.06,1.21,1.44,2.02.38.81.57,1.8.57,2.97,0,1.3-.22,2.36-.66,3.2-.44.84-1,1.52-1.67,2.04s-1.41.91-2.22,1.16c-.81.25-1.58.43-2.32.53l7.83,12.96h-2.85l-7.56-12.8h-4.67v12.8h-2.51v-26.98ZM110.69,264.22h5.32c1.32,0,2.39-.17,3.21-.5.82-.33,1.46-.74,1.92-1.22.46-.48.77-1,.93-1.56.16-.56.25-1.07.25-1.52s-.08-.97-.25-1.52-.47-1.08-.93-1.56c-.46-.48-1.1-.89-1.92-1.22s-1.89-.5-3.21-.5h-5.32v9.6Z"></path><path d="M145.45,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M166.69,252.33h2.7l8.66,23.66,8.74-23.66h2.66l-10.22,26.98h-2.51l-10.03-26.98Z"></path><path d="M208.17,252.33h16.46v2.29h-13.95v9.6h13.07v2.29h-13.07v10.52h14.55v2.29h-17.06v-26.98Z"></path><path d="M244.89,252.33h3.23l16.38,23.63h.08v-23.63h2.51v26.98h-3.23l-16.38-23.63h-.08v23.63h-2.51v-26.98Z"></path><path d="M314.74,252.33h7.75c1.01,0,2.04.08,3.08.25,1.04.17,1.97.51,2.79,1.03.82.52,1.49,1.24,2.01,2.17.52.93.78,2.15.78,3.68,0,1.37-.41,2.57-1.22,3.58-.81,1.02-2.01,1.69-3.61,2.02v.08c.89.08,1.7.29,2.43.63.73.34,1.37.8,1.9,1.37.53.57.94,1.25,1.23,2.04s.44,1.65.44,2.59c0,1.55-.3,2.82-.89,3.79-.6.98-1.34,1.75-2.24,2.31-.9.56-1.88.94-2.93,1.14-1.05.2-2.03.3-2.95.3h-8.59v-26.98ZM317.24,264h5.21c1.29,0,2.34-.16,3.15-.48.81-.32,1.44-.7,1.9-1.16.46-.46.76-.95.91-1.47.15-.52.23-1,.23-1.43,0-.94-.16-1.72-.47-2.34-.32-.62-.74-1.12-1.27-1.49s-1.15-.63-1.86-.78c-.71-.15-1.46-.23-2.24-.23h-5.55v9.38ZM317.24,277.03h5.74c1.47,0,2.65-.18,3.55-.53.9-.36,1.59-.8,2.07-1.33.48-.53.8-1.1.97-1.7.16-.6.25-1.14.25-1.62,0-.99-.19-1.84-.57-2.55-.38-.71-.87-1.29-1.48-1.73-.61-.45-1.3-.77-2.07-.97-.77-.2-1.55-.3-2.34-.3h-6.12v10.75Z"></path><path d="M358.53,267.69l-9.88-15.36h3l8.13,12.8,8.32-12.8h2.81l-9.88,15.36v11.62h-2.51v-11.62Z"></path><path d="M414.66,252.33h7.75c.94,0,1.92.11,2.95.32,1.03.22,1.96.59,2.81,1.13.85.53,1.54,1.26,2.09,2.19.55.93.82,2.09.82,3.49,0,1.22-.22,2.28-.66,3.16s-1.04,1.62-1.79,2.19c-.75.57-1.61,1-2.58,1.28-.98.28-2,.42-3.06.42h-5.81v12.8h-2.51v-26.98ZM417.17,264.22h5.7c.71,0,1.41-.08,2.09-.25.68-.17,1.29-.43,1.82-.8.53-.37.96-.86,1.29-1.47.33-.61.49-1.36.49-2.25s-.17-1.6-.51-2.21c-.34-.61-.79-1.11-1.33-1.51-.55-.39-1.17-.68-1.88-.86s-1.42-.27-2.13-.27h-5.55v9.6Z"></path><path d="M450.71,252.33h7.07c.35,0,.84.01,1.44.04.61.02,1.27.1,1.98.23.71.13,1.43.33,2.17.61.73.28,1.39.69,1.98,1.22.58.53,1.06,1.21,1.44,2.02.38.81.57,1.8.57,2.97,0,1.3-.22,2.36-.66,3.2-.44.84-1,1.52-1.67,2.04-.67.52-1.41.91-2.22,1.16-.81.25-1.58.43-2.32.53l7.83,12.96h-2.85l-7.56-12.8h-4.67v12.8h-2.51v-26.98ZM453.22,264.22h5.32c1.32,0,2.39-.17,3.21-.5.82-.33,1.46-.74,1.92-1.22.46-.48.77-1,.93-1.56.16-.56.25-1.07.25-1.52s-.08-.97-.25-1.52-.47-1.08-.93-1.56c-.46-.48-1.1-.89-1.92-1.22s-1.89-.5-3.21-.5h-5.32v9.6Z"></path><path d="M488.01,252.33h16.46v2.29h-13.95v9.6h13.07v2.29h-13.07v10.52h14.55v2.29h-17.06v-26.98Z"></path><path d="M547.04,275.08c-1.29,1.75-2.79,3.01-4.48,3.77-1.7.76-3.53,1.14-5.51,1.14s-3.93-.35-5.64-1.05c-1.71-.7-3.17-1.68-4.39-2.93-1.22-1.26-2.17-2.76-2.85-4.5-.68-1.74-1.03-3.64-1.03-5.7s.34-3.95,1.03-5.68c.68-1.73,1.63-3.22,2.85-4.48,1.22-1.26,2.68-2.24,4.39-2.95,1.71-.71,3.59-1.07,5.64-1.07,1.82,0,3.53.32,5.11.97,1.58.65,2.97,1.73,4.16,3.26l-2.05,1.72c-.84-1.27-1.91-2.2-3.21-2.78-1.3-.58-2.64-.88-4.01-.88-1.75,0-3.33.31-4.73.92-1.41.61-2.6,1.45-3.59,2.51-.99,1.07-1.75,2.32-2.28,3.77-.53,1.45-.8,3.01-.8,4.69s.27,3.24.8,4.69c.53,1.45,1.29,2.71,2.28,3.77.99,1.07,2.19,1.91,3.59,2.52,1.41.61,2.98.91,4.73.91.68,0,1.39-.08,2.13-.25.73-.16,1.45-.42,2.15-.76.7-.34,1.36-.78,2-1.3.63-.52,1.19-1.15,1.67-1.89l2.05,1.56Z"></path><path d="M566.26,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M591.41,274.32c.66,1.14,1.51,2,2.56,2.55,1.05.56,2.25.84,3.59.84.84,0,1.62-.13,2.36-.38.73-.25,1.37-.61,1.92-1.07.55-.46.98-1.01,1.29-1.66.32-.65.47-1.38.47-2.19,0-.94-.2-1.71-.59-2.32-.39-.61-.92-1.11-1.58-1.51-.66-.39-1.4-.73-2.22-1.01-.82-.28-1.67-.56-2.55-.84-.87-.28-1.72-.6-2.55-.95-.82-.36-1.56-.82-2.22-1.39-.66-.57-1.18-1.29-1.58-2.15-.39-.86-.59-1.93-.59-3.2,0-1.19.23-2.25.7-3.18.47-.93,1.1-1.7,1.9-2.32.8-.62,1.72-1.09,2.76-1.41,1.04-.32,2.13-.48,3.27-.48,1.47,0,2.83.26,4.08.78,1.25.52,2.34,1.39,3.25,2.61l-2.17,1.56c-.63-.89-1.37-1.56-2.22-2-.85-.44-1.86-.67-3.02-.67-.81,0-1.58.11-2.32.32-.74.22-1.37.53-1.92.95-.55.42-.98.95-1.31,1.58s-.49,1.38-.49,2.25c0,1.35.34,2.38,1.03,3.11.68.72,1.54,1.3,2.57,1.71,1.03.42,2.14.79,3.34,1.1,1.2.32,2.32.74,3.34,1.28,1.03.53,1.88,1.28,2.56,2.23.68.95,1.03,2.27,1.03,3.94,0,1.22-.23,2.3-.68,3.24-.46.94-1.07,1.73-1.84,2.38-.77.65-1.67,1.14-2.68,1.47-1.01.33-2.07.49-3.15.49-1.77,0-3.41-.31-4.9-.93-1.5-.62-2.77-1.67-3.84-3.14l2.39-1.6Z"></path><path d="M626.46,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M649.5,265.82c0-2.06.34-3.95,1.03-5.68.68-1.73,1.63-3.22,2.85-4.48,1.22-1.26,2.68-2.24,4.39-2.95,1.71-.71,3.59-1.07,5.64-1.07s3.93.36,5.64,1.07c1.71.71,3.17,1.7,4.39,2.95,1.22,1.26,2.17,2.75,2.85,4.48.68,1.73,1.03,3.62,1.03,5.68s-.34,3.96-1.03,5.7c-.68,1.74-1.63,3.24-2.85,4.5-1.22,1.26-2.68,2.24-4.39,2.93-1.71.7-3.59,1.05-5.64,1.05s-3.93-.35-5.64-1.05c-1.71-.7-3.17-1.68-4.39-2.93-1.22-1.26-2.17-2.76-2.85-4.5-.68-1.74-1.03-3.64-1.03-5.7ZM652.01,265.82c0,1.68.27,3.24.8,4.69.53,1.45,1.29,2.71,2.28,3.77.99,1.07,2.19,1.91,3.59,2.52s2.98.91,4.73.91,3.32-.3,4.73-.91c1.41-.61,2.6-1.45,3.59-2.52.99-1.07,1.75-2.32,2.28-3.77.53-1.45.8-3.01.8-4.69s-.27-3.24-.8-4.69c-.53-1.45-1.29-2.71-2.28-3.77-.99-1.07-2.19-1.91-3.59-2.51-1.41-.61-2.98-.92-4.73-.92s-3.33.31-4.73.92c-1.41.61-2.6,1.45-3.59,2.51-.99,1.07-1.75,2.32-2.28,3.77-.53,1.45-.8,3.01-.8,4.69Z"></path><path d="M697.81,252.33h3.23l16.38,23.63h.08v-23.63h2.51v26.98h-3.23l-16.38-23.63h-.08v23.63h-2.51v-26.98Z"></path></g></svg></a>
       <span style="font-weight:400;color:var(--k-label);font-stretch:100%;font-size:0.55em;line-height:1">×</span>
@@ -199,12 +199,12 @@
     </div>
   </header>
 
-  <div style="max-width:{{ pageW }};margin:0 auto;padding:16px clamp(14px,2.4vw,32px) 48px">
+  <div style="max-width:{{ pageW }};margin:0 auto;padding:{{ pagePad }}">
 
-    <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-content:start;min-width:0">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:{{ secGap }};align-content:start;min-width:0">
 
-      <div id="part1" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:16px;scroll-margin-top:64px;display:flex;flex-wrap:wrap;gap:{{ part1Gap }};align-items:{{ colAlign }};flex-direction:{{ colDir }}">
-        <div style="flex:{{ leftFlex }};min-width:0;display:flex;flex-direction:column;gap:32px;order:{{ selectOrder }}">
+      <div id="part1" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:{{ partPadT }};scroll-margin-top:64px;display:flex;flex-wrap:wrap;gap:{{ part1Gap }};align-items:{{ colAlign }};flex-direction:{{ colDir }}">
+        <div style="flex:{{ leftFlex }};min-width:0;display:flex;flex-direction:column;gap:{{ colGap }};order:{{ selectOrder }}">
           <div>
           <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
             <span style="flex:none;font-family:var(--k-mono);font-size:18px;letter-spacing:0.1em;color:var(--k-label)">01</span>
@@ -289,7 +289,7 @@
           </div>
           <div style="display:flex;gap:8px;align-items:stretch;flex-wrap:wrap">
             <div style="position:relative;flex:1 1 140px;min-width:120px">
-              <input class="s-big" style="font-size:{{ weightFont }};padding:0 {{ weightPadR }} 0 {{ weightPadL }};height:76px;box-sizing:border-box;text-align:right;{{ weightStyle }}" type="number" inputMode="decimal" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
+              <input class="s-big" style="font-size:{{ weightFont }};padding:0 {{ weightPadR }} 0 {{ weightPadL }};height:{{ weightH }};box-sizing:border-box;text-align:right;{{ weightStyle }}" type="number" inputMode="decimal" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
               <span aria-hidden="true" style="position:absolute;top:50%;right:{{ unitInset }};transform:translateY(-50%);font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ unitFont }};line-height:1;color:var(--k-label);pointer-events:none">g</span>
               <button type="button" class="s-seg" style="position:absolute;top:50%;{{ clearPos }};transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;box-shadow:none;justify-content:center;color:var(--k-label);opacity:{{ clearVis }}" disabled="{{ clearOff }}" data-self-disabled="{{ clearOffStr }}" onClick="{{ clearWeight }}" title="Clear the weight" aria-label="Clear the weight">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
@@ -320,7 +320,7 @@
         </div>
         </div>
 
-        <div style="flex:{{ rightFlex }};min-width:0;display:flex;flex-direction:column;gap:32px;order:{{ calcOrder }}">
+        <div style="flex:{{ rightFlex }};min-width:0;display:flex;flex-direction:column;gap:{{ colGap }};order:{{ calcOrder }}">
           <div class="s-glass" style="border-radius:var(--k-r);display:{{ noCatOn }};border:1px solid {{ noCatBorder }};padding:16px">
             <span class="s-lab" style="margin-bottom:8px;color:{{ noCatInk }}">{{ noCatTitle }}</span>
             <div style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;line-height:1.15;color:var(--k-ink);margin-bottom:8px">{{ noCatHead }}</div>
@@ -342,7 +342,7 @@
             <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ mixFont }};line-height:1;white-space:nowrap">{{ outB }}</span>
           </div>
         </div>
-        <div style="display:flex;gap:8px;flex-wrap:nowrap;margin-top:16px;min-width:0">
+        <div style="display:flex;gap:8px;flex-wrap:nowrap;margin-top:{{ actGap }};min-width:0">
           <button type="button" class="s-seg" style="min-height:44px;padding:0 10px;flex:1 1 0;min-width:0;justify-content:center" onClick="{{ copyMix }}">{{ copyLabel }}</button>
           <button type="button" class="s-seg" style="min-height:44px;padding:0 10px;flex:1 1 0;min-width:0;justify-content:center" onClick="{{ shareMix }}" data-self-disabled="{{ shareOffStr }}" title="Share this mix">{{ shareLabel }}</button>
           <button type="button" class="s-seg" style="min-height:44px;padding:0 10px;flex:1 1 0;min-width:0;justify-content:center" onClick="{{ resetAll }}">RESET</button>
@@ -532,11 +532,6 @@ class Component extends DCLogic {
     if (this._io && mix && mix !== this._ioTarget) { if (this._ioTarget) this._io.unobserve(this._ioTarget); this._io.observe(mix); this._ioTarget = mix; }
   }
 
-  // Carries the effective view to CSS, which sizes type per view.
-  paint() {
-    document.documentElement.setAttribute('data-kleeq-view', this.effView());
-  }
-
   // Until a product is matched the gated regions are inert and their controls
   // disabled — not merely dimmed.
   gate() {
@@ -549,6 +544,12 @@ class Component extends DCLogic {
         c.disabled = off;
       });
     });
+  }
+
+  // Carries the effective view to CSS, which sizes type per view. The
+  // data-series and data-dp marks it used to make have nothing to mark.
+  paint() {
+    document.documentElement.setAttribute('data-kleeq-view', this.effView());
   }
 
   // Any click outside the product list closes it.
@@ -629,10 +630,22 @@ class Component extends DCLogic {
 
   pick = (patch) => (e) => { if (e) e.preventDefault(); this.setState(patch); };
 
+  // Picking a product hands the cursor to the weight field — the next thing
+  // the user does at the bench.
+  focusWeight() {
+    setTimeout(() => {
+      const el = document.querySelector('.s-big');
+      if (!el) return;
+      el.focus({ preventScroll: true });
+      if (el.select) el.select();
+    }, 60);
+  }
+
   // Choosing a product returns the ratio to the recommended 18:1.
   pickCode = (code) => (e) => {
     if (e) e.preventDefault();
     this.setState({ code: code, ratio: 18, preset: 'r18', sugOpen: false, listOpen: false });
+    this.focusWeight();
   };
 
   finishes() {
@@ -759,6 +772,7 @@ class Component extends DCLogic {
       e.preventDefault();
       const c = list[this.state.sugAt] || list[0];
       this.setState({ code: c.code, ratio: 18, preset: 'r18', sugOpen: false });
+      this.focusWeight();
     } else if (e.key === 'Escape') {
       this.setState({ sugOpen: false });
     }
@@ -855,8 +869,8 @@ class Component extends DCLogic {
       refUrl: f ? (f.url || 'https://www.cerakote.com/shop/cerakote-coating/' + f.code + '/'
         + String(f.name).toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')) : '#',
       refOn: f ? 'inline-flex' : 'none',
-      thumbImg: this.thumbEl(f && f.thumb, view === 'mobile' ? 56 : view === 'tablet' ? 85 : 68, { border: 'none', borderRadius: 'var(--k-r-sm)' }),
-      infoH: view === 'mobile' ? '64px' : view === 'tablet' ? '95px' : '76px',
+      thumbImg: this.thumbEl(f && f.thumb, view === 'mobile' ? 56 : view === 'tablet' ? 77 : 68, { border: 'none', borderRadius: 'var(--k-r-sm)' }),
+      infoH: view === 'mobile' ? '64px' : view === 'tablet' ? '86px' : '76px',
       hasThumb: !!(f && f.thumb),
       zoomOn: (s.zoom && f && f.thumb) ? 'flex' : 'none',
       zoomImg: (s.zoom && f && f.thumb) ? React.createElement('img', {
@@ -911,6 +925,7 @@ class Component extends DCLogic {
       dismissResume: this._dr || (this._dr = (e) => { if (e) e.preventDefault(); this.setState({ resume: null }); try { window.localStorage.removeItem('kleeq-mix-last'); } catch (x) {} }),
       recentOn: (s.recent.length && !f) ? 'flex' : 'none',
       recent: s.recent.map((r) => ({ code: r.code, name: r.name, pick: this.pickCode(r.code) })),
+      dp1: this.pick({ dp: 1 }), dp2: this.pick({ dp: 2 }),
       dp1On: s.dp === 1, dp2On: s.dp !== 1,
       dp1Style: s.dp === 1 ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
       dp2Style: s.dp !== 1 ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
@@ -953,23 +968,23 @@ class Component extends DCLogic {
       fieldDir: (view === 'stack' || view === 'mobile') ? 'column' : 'row',
       fieldGrow: (view === 'stack' || view === 'mobile') ? '1 1 0' : '1 1 44%',
       fieldGrow2: (view === 'stack' || view === 'mobile') ? '1 1 0' : '1 1 56%',
-      nameSize: view === 'mobile' ? '15px' : view === 'tablet' ? '20px' : '16px',
-      mixFont: view === 'tablet' ? '56px' : 'clamp(34px,3.8vw,50px)',
+      nameSize: view === 'mobile' ? '13.5px' : view === 'tablet' ? '18px' : '16px',
+      mixFont: view === 'tablet' ? '50px' : 'clamp(34px,3.8vw,50px)',
       rowGap: view === 'mobile' ? '12px' : '24px',
       part1Gap: oneCol ? '32px' : '32px 48px',
       // In one-column views the flex basis would act on height, so it must be auto there.
       leftFlex: oneCol ? '0 0 auto' : '1.4 1 420px',
       rightFlex: oneCol ? '0 0 auto' : '1 1 300px',
-      stepFont: view === 'mobile' ? '15px' : view === 'tablet' ? '22px' : '18px',
-      stepNum: view === 'mobile' ? '14px' : view === 'tablet' ? '22px' : '18px',
+      stepFont: view === 'mobile' ? '13.5px' : view === 'tablet' ? '20px' : '18px',
+      stepNum: view === 'mobile' ? '12.5px' : view === 'tablet' ? '20px' : '18px',
       weightFlex: view === 'mobile' ? '0 0 148px' : view === 'stack' ? '0 0 280px' : '0 0 200px',
       // On a phone the ratio cells drop under the weight once they'd squeeze below ~200px.
       ratioFlex: view === 'mobile' ? '1 1 200px' : '1 1 0',
       rowWrap: view === 'mobile' ? 'wrap' : 'nowrap',
-      weightFont: view === 'mobile' ? '28px' : view === 'tablet' ? '47px' : '38px',
+      weightFont: view === 'mobile' ? '25px' : view === 'tablet' ? '42px' : '38px',
       presetGap: view === 'mobile' ? '4px' : '8px',
-      ratioFont: view === 'mobile' ? '16px' : view === 'tablet' ? '21px' : '17px',
-      glossFont: view === 'mobile' ? '10px' : view === 'tablet' ? '12px' : '10px',
+      ratioFont: view === 'mobile' ? '14.5px' : view === 'tablet' ? '19px' : '17px',
+      glossFont: view === 'mobile' ? '9px' : view === 'tablet' ? '11px' : '10px',
       clearSize: view === 'mobile' ? '28px' : '28px',
       clearVis: Number(s.weight) > 0 ? '1' : '0',
       // Phone: field 148px, × overlays the far right only while a value exists, g sits inside it → ≥ 96px for digits.
@@ -977,7 +992,7 @@ class Component extends DCLogic {
       weightPadL: view === 'mobile' ? '10px' : '40px',
       clearPos: view === 'mobile' ? 'right:4px' : 'left:6px',
       unitInset: view === 'mobile' ? (Number(s.weight) > 0 ? '36px' : '10px') : '14px',
-      unitFont: view === 'mobile' ? '15px' : view === 'tablet' ? '22px' : '18px',
+      unitFont: view === 'mobile' ? '13.5px' : view === 'tablet' ? '20px' : '18px',
       layoutTogglesOn: isPhone ? 'none' : 'inline-grid',
       searchPadR: '16px',
       searchPlaceholder: 'Code or colour name',
@@ -999,7 +1014,7 @@ class Component extends DCLogic {
       stickyGap: isPhone && window.innerWidth < 400 ? '6px' : '10px',
       stickyNum: isPhone && window.innerWidth < 400 ? '24px' : '28px',
       presetWrap: 'nowrap',
-      cellH: view === 'tablet' ? '92px' : '76px',
+      cellH: view === 'mobile' ? '62px' : view === 'tablet' ? '70px' : '76px',
       cellFlex: '1 1 0',
       infoGap: view === 'mobile' ? '16px' : '32px',
       sideStyle: view === 'split' ? 'background:var(--k-sel);color:var(--k-gold-soft)' : '',
@@ -1020,11 +1035,19 @@ class Component extends DCLogic {
       setMod: this._th0 || (this._th0 = (e) => { if (e) e.preventDefault(); this.setTheme('modernist'); }),
       setLight: this._th1 || (this._th1 = (e) => { if (e) e.preventDefault(); this.setTheme('light'); }),
       setDark: this._th2 || (this._th2 = (e) => { if (e) e.preventDefault(); this.setTheme('dark'); }),
-      capFont: view === 'tablet' ? '12.5px' : view === 'mobile' ? '11px' : '10px',
-      metaFont: view === 'tablet' ? '14px' : view === 'mobile' ? '12px' : '11px',
-      bodyFont: view === 'tablet' ? '15px' : view === 'mobile' ? '13px' : '12px',
+      colGap: view === 'mobile' ? '18px' : view === 'tablet' ? '22px' : '32px',
+      headPad: view === 'mobile' ? '12px 14px 6px' : view === 'tablet' ? '16px 20px 6px' : 'clamp(20px,3vw,36px) clamp(14px,2.4vw,32px) 8px',
+      headGap: view === 'mobile' ? '10px' : view === 'tablet' ? '14px' : '20px',
+      pagePad: view === 'mobile' ? '8px 14px 28px' : view === 'tablet' ? '10px 20px 32px' : '16px clamp(14px,2.4vw,32px) 48px',
+      secGap: view === 'mobile' ? '14px' : view === 'tablet' ? '18px' : '24px',
+      partPadT: view === 'mobile' ? '10px' : view === 'tablet' ? '12px' : '16px',
+      weightH: view === 'mobile' ? '58px' : view === 'tablet' ? '64px' : '76px',
+      actGap: view === 'mobile' ? '10px' : view === 'tablet' ? '12px' : '16px',
+      capFont: view === 'tablet' ? '11.25px' : view === 'mobile' ? '10px' : '10px',
+      metaFont: view === 'tablet' ? '12.5px' : view === 'mobile' ? '10.8px' : '11px',
+      bodyFont: view === 'tablet' ? '13.5px' : view === 'mobile' ? '11.7px' : '12px',
       pageW: view === 'mobile' ? '430px' : view === 'tablet' ? '1024px' : '1180px',
-      docBodyFont: view === 'tablet' ? '15px' : view === 'mobile' ? '13px' : '12px',
+      docBodyFont: view === 'tablet' ? '13.5px' : view === 'mobile' ? '11.7px' : '12px',
       headerW: view === 'mobile' ? '430px' : view === 'tablet' ? '1024px' : '1180px',
       mixOpacity: (Number(s.weight) > 0) ? '1' : '0.4',
       copyMix: this.copyMix,
@@ -1043,8 +1066,6 @@ class Component extends DCLogic {
       copyLabel: s.copied ? 'COPIED' : 'COPY',
 
       meshLabel: meshRec.label,
-
-      dp1: this.pick({ dp: 1 }), dp2: this.pick({ dp: 2 }),
 
       sourceNote: "Cerakote's published ratios — 12:1, 18:1, 24:1 — are by volume. This tool converts them to scale weight with a 1.321 factor, fitted to Cerakote's own calculator: 100 g at 18:1 gives 4.21 g, at 24:1 gives 3.15 g, and 10 g at 12:1 gives 0.63 g. Strainer mesh comes from the product page where the studio has recorded it, and from the sheen and series rule otherwise. Always check the current TDS for the product in hand."
     };
