@@ -635,13 +635,16 @@ class Component extends DCLogic {
       code: f.code, name: f.name, hex: this.swatch(f), flat: hex || 'var(--k-field)', seriesLabel: s + ' SERIES', seriesName: si.name, type: si.type, cure: si.cure, ratio: si.ratio, catalyst: si.catalyst,
       colour: f.hex ? f.hex.toUpperCase() + ' · measured off a KLEEQ chip' : hex ? hex.toUpperCase() + ' · sampled from the Cerakote photo' : f.live ? 'Not measured yet — new on cerakote.com' : 'Not measured — Cerakote photo only',
       sheen: f.sheen || 'Not listed', lrv: l >= 0 ? l.toFixed(1) + '%' : '—',
-      // Mirrors meshFor() in the mixing calculator exactly: the coating's own TDS
-      // row, then the C/V series application guides, then the metallics Cerakote
-      // has not put on a TDS yet, then an honest "check".
-      strainer: ({ coarse: '100 MESH · SE-275', fine: '150 MESH · SE-276', finest: '325 MESH · SE-277' })[f.mesh]
-        || (['C', 'V'].indexOf(String(f.code).split('-')[0]) >= 0 ? '100 MESH · SE-275'
-          : (f.effect === 'metallic' && String(f.code).split('-')[0] === 'H') ? '100 MESH · SE-275'
-          : 'Check the TDS or bottle'),
+      // Per SKU from the live Cerakote product page (website audit snapshot
+      // 10 September 2026). Mirrors meshFor() in the mixing calculator. No
+      // series fallback: C-Series spans 100/150/325 and V-Series spans 100/150.
+      strainer: (function (m, shown) {
+        if (m === 'none') return 'None — Cerakote publishes none';
+        if (m === 'unpublished') return 'Not published — check the bottle';
+        const L = { coarse: ['100 MESH', 'SE-275'], fine: ['150 MESH', 'SE-276'], finest: ['325 MESH', 'SE-277'] }[m];
+        if (!L) return 'Check the TDS or bottle';
+        return shown === false ? L[0] + ' · part not shown' : L[0] + ' · ' + L[1];
+      })(f.mesh, f.meshPartShown),
       listed: f.live ? 'New on cerakote.com' : listedYear(f) ? 'Photo dated ' + listedYear(f) : '—',
       laser: f.laserOptimized ? '★ Optimized' : 'Not flagged', trend: trendRank(f.code) ? '#' + trendRank(f.code) + ' most requested' : '—', stock: f.stocked ? 'On the KLEEQ shelf' : 'Order in',
       starOn: f.laserOptimized ? 'inline-block' : 'none', stockOn: f.stocked ? 'inline-block' : 'none',

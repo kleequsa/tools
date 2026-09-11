@@ -87,3 +87,60 @@ Cerakote's own catalyst calculator.
 - Theme choice persists across reloads.
 - Catalogue merge now carries the whole row, so added fields can't be silently dropped.
 - Gloss level now shows on the step-01 coating card (it was computed but never rendered).
+
+## Release 2026-09-11 (rev 3) — strainer re-sourced from the live Cerakote site
+
+Replaces the TDS-derived strainer values with a SKU-by-SKU read of the "Strainer
+Size (mesh)" field on each product's live Cerakote page (website audit snapshot,
+10 September 2026, all 266 catalogue SKUs).
+
+- 96 SKUs gained a published value they never had — the whole C, V, F, MC, HIR,
+  FIR, LR, S, DFL and P ranges, which previously read "check the bottle".
+- E-250 Titanium was wrong: 150 mesh, not 325.
+- All series fallbacks removed. The audit shows C-Series spans 100, 150 and 325,
+  and V-Series spans 100 and 150, so no series rule can be right — every value is
+  now per SKU or explicitly absent.
+- SG-100 and SG-200 read NO STRAINER: Cerakote publishes "None" for Super Grip.
+- C-299, P-202 and the twelve FX additives read NOT PUBLISHED — those pages carry
+  no strainer field, and nothing is inferred.
+- Fifteen older or specialty pages list a mesh but no SE part number; those show
+  the mesh with "part not shown" rather than a part number we can't source.
+
+## Release 2026-09-11 (rev 4) — Product Technical Data audit, all six fields
+
+Source: live cerakote.com Product Technical Data block, SKU by SKU, read 10 September
+2026 across all 266 catalogue SKUs. Replaces TDS-derived values wherever the two
+disagree — the website is the source of truth for this project.
+
+### Density — now the site's value, per SKU (feeds the catalyst math)
+- 100 SKUs gained a published density: all of C, V, F, MC, HIR, FIR, LR, S, DFL and P.
+  None of these compute on the assumed 1.42 any more.
+- 22 of our TDS densities were wrong. Largest: H-189 Noveske Bazooka Green 1.33 → 1.46
+  (catalyst was 8.9% heavy), H-244 Bazooka Pink 1.52 → 1.42 (7.0% light), H-151 Satin
+  Aluminum 1.37 → 1.42, H-170 M17 Coyote Tan 1.42 → 1.47.
+- The clears sit far below the H-Series band and shift the most: MC-5100 at 0.88 and
+  P-202 at 0.83 need roughly 7 g of catalyst per 100 g at 18:1, against 4.21 g for
+  H-146. On the old assumed 1.42 they were reading about 40% light.
+- 12 SKUs publish no density (the twelve FX additives).
+
+### Gloss — site wording, per SKU
+- 238 SKUs carry the site's gloss level and gloss units (measured at 60°).
+- 28 publish no usable level and now show no gloss line: the twelve FX additives,
+  P-202, the six MC clears (which publish two levels, blasted and un-blasted steel),
+  V-166 and V-169 (their gloss field carries a thickness range), and eight H codes
+  whose pages label the level itself NOT PUBLISHED — H-227, H-259, H-294, H-318,
+  H-331, H-332, H-360 among them.
+
+### Mix ratio and catalyst part — not published anywhere
+- No audited page publishes either field. Our per-series ratios and catalyst parts stay
+  TDS-sourced and are now marked as such in the data; a per-SKU exception cannot be
+  ruled in or out from the website.
+
+### Cure schedule and film thickness — stored, not yet shown
+- Cure verbatim for 254 SKUs, film thickness for 254. No UI yet.
+- Seven pages publish two different thicknesses. Both values are kept and the row is
+  flagged: H-224, H-242, H-297, H-300, H-301, H-317, H-353.
+
+### The nine added SKUs do not exist
+- H-308, H-313, H-325, H-333, H-356, H-20180, E-220, E-260 and E-320 all 404 on
+  cerakote.com. They are not missing from our catalogue; they are discontinued.

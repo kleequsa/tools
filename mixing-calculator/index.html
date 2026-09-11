@@ -283,7 +283,7 @@
           <div style="display:{{ meshOn }};gap:8px;align-items:baseline;flex-wrap:nowrap;line-height:1;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.06em;color:var(--k-label);white-space:nowrap;overflow:hidden">
             <span style="display:{{ glossOn }};flex:none">{{ glossLabel }}</span>
             <span style="display:{{ glossOn }};flex:none;color:var(--k-rule)">·</span>
-            <span style="flex:none">STRAINER {{ meshLabel }}</span>
+            <span style="flex:none">{{ meshPrefix }}{{ meshLabel }}</span>
             <span style="flex:none;color:var(--k-rule)">·</span>
             <a href="{{ refUrl }}" target="_blank" rel="noopener noreferrer" style="display:{{ refOn }};align-items:center;gap:4px;color:var(--k-label);text-decoration:none;flex:none">CERAKOTE <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--k-gold-soft);flex:none"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
           </div>
@@ -419,12 +419,12 @@
 
   <div class="s-sticky s-glass" style="display:{{ stickyOn }};position:fixed;left:0;right:0;bottom:0;z-index:40;border-top:1px solid var(--k-gold)" aria-hidden="true">
     <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:{{ stickyDir }};align-items:{{ stickyAlign }};justify-content:space-between;gap:{{ stickyGap }};padding:12px 16px;background:var(--k-panel);color:var(--k-gold-soft)">
-      <span style="display:flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>ADD CATALYST</span>
-      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ stickyNum }};line-height:1;white-space:nowrap">{{ outCatalyst }}</span>
+      <span style="display:flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>{{ stickyCatLabel }}</span>
+      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ stickyCatFont }};line-height:1;white-space:nowrap">{{ stickyCatVal }}</span>
     </div>
     <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:{{ stickyDir }};align-items:{{ stickyAlign }};justify-content:space-between;gap:{{ stickyGap }};padding:12px 16px;background:var(--k-gold);color:var(--k-on-gold)">
       <span style="display:flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>TOTAL</span>
-      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ stickyNum }};line-height:1;white-space:nowrap">{{ outTotal }}</span>
+      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ stickyNum }};line-height:1;white-space:nowrap">{{ stickyTotalVal }}</span>
     </div>
   </div>
 
@@ -471,6 +471,10 @@ const MESH = {
   coarse: { label: '100 MESH', micron: '149 MICRON', part: 'SE-275 in-cup · SE-139 reusable' },
   fine: { label: '150 MESH', micron: '100 MICRON', part: 'SE-276 in-cup' },
   finest: { label: '325 MESH', micron: '44 MICRON', part: 'SE-277 in-cup' },
+  // Cerakote prints "None" in the strainer field for Super Grip.
+  none: { label: 'NO STRAINER', micron: 'NONE', part: 'Cerakote publishes None for this product' },
+  // The product page carries no Product Technical Data strainer field at all.
+  unpublished: { label: 'NOT PUBLISHED', micron: 'CHECK THE BOTTLE', part: 'no strainer field on the product page' },
   check: { label: 'CHECK THE BOTTLE', micron: 'PER COLOUR', part: 'read the TDS or bottle label' }
 };
 
@@ -777,17 +781,19 @@ class Component extends DCLogic {
   // code carries its own `mesh` value lifted from the H-Series TDS (v 12-14-23).
   // The sheen/series fallback only covers codes not on that sheet.
   meshFor(f) {
-    if (f && f.mesh && MESH[f.mesh]) return { key: f.mesh, from: "the coating's own TDS row" };
-    const p = this.prefixOf(f ? f.code : this.state.code);
-    // Cerakote's C-Series and V-Series application guides both specify a
-    // 100 mesh (149 micron) screen for the whole series.
-    if (p === 'C' || p === 'V') return { key: 'coarse', from: 'the ' + p + '-Series application guide' };
-    // Untinted H-Series metallics not yet on the TDS: the coarse screen keeps
-    // the flake in the cup.
-    if (p === 'H' && f && f.effect === 'metallic') return { key: 'coarse', from: 'a metallic — the coarse screen keeps the flake in the cup' };
-    // F-Series and the specialty series publish strainer size per colour and
-    // per bottle, so guessing here would be worse than saying so.
-    return { key: 'check', from: 'no single published value for this series' };
+    // Strainer size is read per SKU from the live Cerakote product page field
+    // "Strainer Size (mesh)" — website audit snapshot 10 September 2026, all 266
+    // catalogue SKUs. There is deliberately NO series or sheen fallback: the
+    // audit shows C-Series spans 100, 150 and 325, and V-Series spans 100 and
+    // 150, so any series rule is wrong for part of the series.
+    if (f && f.mesh && MESH[f.mesh]) {
+      const rec = MESH[f.mesh];
+      if (f.mesh === 'none') return { key: 'none', from: "Cerakote's product page, which states None" };
+      if (f.mesh === 'unpublished') return { key: 'unpublished', from: 'no strainer field on the Cerakote product page' };
+      // Fifteen older or specialty pages publish the mesh but no SE part number.
+      return { key: f.mesh, from: "the Cerakote product page" + (f.meshPartShown === false ? ' (mesh only, no part number shown)' : '') };
+    }
+    return { key: 'check', from: 'no published value found for this product' };
   }
 
   // Which series are two-part, which are single component, and which need the
@@ -798,7 +804,11 @@ class Component extends DCLogic {
   catalystClassOf(code) {
     const p = this.prefixOf(code);
     if (!p) return 'unknown';
-    if (['H', 'E', 'F', 'FIR', 'HIR', 'DFL', 'SG'].indexOf(p) >= 0) return 'needs';
+    if (['H', 'E', 'F', 'FIR', 'HIR', 'DFL'].indexOf(p) >= 0) return 'needs';
+    // Super Grip is air cure and its product page publishes no mix ratio and no
+    // catalyst part (Product Technical Data audit, 10 Sep 2026), so the old
+    // "use the F-Series catalyst" routing was unsourced. Say so instead.
+    if (p === 'SG') return 'check';
     if (['C', 'V', 'MC', 'FX'].indexOf(p) >= 0) return 'none';
     return 'check';
   }
@@ -814,13 +824,16 @@ class Component extends DCLogic {
     if (series === 'F-Series') return { part: 'USE THE F-SERIES CATALYST', note: 'two-part, oven cure, its own catalyst only.' };
     if (p === 'HIR') return { part: 'USE THE H-SERIES CATALYST', note: 'Gen II NiR runs on the H-Series system.' };
     if (p === 'DFL') return { part: 'USE THE F-100 CATALYST', note: 'named on the DFL-200 product page.' };
-    if (p === 'SG') return { part: 'USE THE F-SERIES CATALYST', note: 'Super Grip runs under the F-Series manual.' };
+    if (p === 'SG') return { part: 'CHECK THE BOTTLE', note: 'the product page publishes no ratio and no catalyst part.' };
     return { part: 'CHECK THE CATALYST', note: 'series catalysts are not interchangeable.' };
   }
 
   // Copy for the single-component and unverified cases.
   noCatalystNote(code) {
     const p = this.prefixOf(code);
+    // Super Grip: the product page publishes a strainer of None, an air-cure
+    // schedule, and no mix ratio or catalyst part at all.
+    if (p === 'SG') return 'Super Grip is air cure — tack free in about 2 hours, full cure 5 days. Cerakote publishes no mix ratio and no catalyst part on the product page, so check the bottle before adding anything.';
     if (p === 'C') return 'C-Series is single component and air cure. Ready to spray from the bottle — no catalyst, no oven, no primer.';
     if (p === 'V') return 'V-Series is single component. Cerakote states this product does not require catalyst.';
     if (p === 'MC') return 'MC-Series clears are single component and air dry. No catalyst.';
@@ -1064,6 +1077,12 @@ class Component extends DCLogic {
         ? 'border-color:var(--k-line)'
         : 'border-color:var(--k-gold);box-shadow:inset 0 0 0 1px var(--k-gold)',
 
+      // The sticky bar is the most prominent figure on a phone, so it has to
+      // honour the same no-catalyst routing as the step-04 panel.
+      stickyCatLabel: catClass === 'needs' ? 'ADD CATALYST' : (catClass === 'check' ? 'CHECK THE TDS' : 'NO CATALYST'),
+      stickyCatVal: catClass === 'needs' ? this.fmt(m.catalyst) : (catClass === 'check' ? 'NOT VERIFIED' : 'SINGLE COMPONENT'),
+      stickyCatFont: catClass === 'needs' ? (view === 'mobile' ? '20px' : '22px') : '12px',
+      stickyTotalVal: catClass === 'needs' ? this.fmt(m.total) : this.fmt(m.coating),
       outCatalyst: this.fmt(m.catalyst),
       outTotal: this.fmt(m.total),
       selectOrder: 1,
@@ -1196,6 +1215,9 @@ class Component extends DCLogic {
       glossLabel: (f && f.sheen) ? String(f.sheen).toUpperCase() : '',
       glossOn: (f && f.sheen) ? 'inline' : 'none',
       meshLabel: meshRec.label,
+      // These two tiers read as complete statements on their own — prefixing
+      // them gave "STRAINER NO STRAINER".
+      meshPrefix: (mesh.key === 'none' || mesh.key === 'unpublished') ? '' : 'STRAINER ',
 
       dp1: this.pick({ dp: 1 }), dp2: this.pick({ dp: 2 }),
 
