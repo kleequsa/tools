@@ -86,3 +86,4 @@ Cerakote's own catalyst calculator.
 - Scrolling with the cursor over the weight field no longer blurs it.
 - Theme choice persists across reloads.
 - Catalogue merge now carries the whole row, so added fields can't be silently dropped.
+- Gloss level now shows on the step-01 coating card (it was computed but never rendered).
