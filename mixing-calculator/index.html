@@ -432,17 +432,27 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1500}}">
 let FX = null;
 
-// Cerakote's published ratios are by VOLUME. Their own calculator divides by a
-// 1.321 density constant to reach scale weights. Fitted to three of their own
-// outputs and exact on all: 100 g @ 18:1 → 4.21, 100 g @ 24:1 → 3.15,
-// 10 g @ 12:1 → 0.63.
-const SG = 1.321;
+// Cerakote's published ratios (12:1, 18:1, 24:1) are by VOLUME. Converting to
+// scale weight needs BOTH densities: the coating's, which the TDS publishes per
+// colour (1.26–1.60), and the catalyst's.
+//
+//   catalyst weight = coating weight × CAT_SG ÷ (ratio × coating density)
+//
+// CAT_SG solved from Cerakote's own calculator: H-146 (density 1.40) at 18:1
+// returns 4.21 g per 100 g, so 4.21 × 18 × 1.40 ÷ 100 = 1.06. That one value
+// also reproduces their 100 g @ 24:1 → 3.15 and 10 g @ 12:1 → 0.63.
+//
+// This replaced a flat 1.321 divisor, which was really just 1.40 ÷ 1.06 —
+// H-146's own figure applied to every colour. It ran up to 21% light on a
+// heavy coating like H-136 Snow White (density 1.60).
+const CAT_SG = 1.06;
+// Used only when a coating has no published density (F-Series, specialty
+// codes): the H-Series median, so the answer stays in the right neighbourhood.
+const FALLBACK_SG = 1.42;
 const COLS_KEY = 'kleeq.mixing.onecol';
-const THEME_KEY = 'kleeq-mix-theme';
-const THEMES = ['glass', 'modernist', 'light', 'dark'];
 
-// Ratios as published by Cerakote: H-Series 18:1 by weight; Elite between
-// 12:1 and 24:1 depending on the gloss being built.
+// Ratios as published by Cerakote, by volume: 18:1 for H-Series, and 12:1 to
+// 24:1 across Elite depending on the gloss being built.
 const PRESETS = [
   { id: 'r12', label: '12:1 HIGHER GLOSS', ratioLabel: '12:1', glossLabel: 'HIGHER GLOSS', ratio: 12, note: '12:1 — highest gloss, top of the Elite range.' },
   { id: 'r18', label: '18:1 RECOMMENDED', ratioLabel: '18:1', glossLabel: 'RECOMMENDED', ratio: 18, note: '18:1 — the H-Series ratio, mid Elite range.' },
@@ -450,14 +460,16 @@ const PRESETS = [
 ];
 
 // Strainer guidance. Cerakote sells 100 mesh (149 micron), 150 mesh (100
-// micron) and 325 mesh (44 micron) in-cup strainers; the 150 is specified for
-// the clears and some H-Series, and SE-139 (100 mesh, reusable) is the one
-// called out for laser imaging work. Metallics and flake keep the coarse
-// screen so the effect pigment is not filtered out of the mix.
+// micron) and 325 mesh (44 micron) in-cup strainers. Which one a coating takes
+// is a published per-colour figure, not something derivable from sheen: the
+// value on each finish comes from the H-Series TDS (v 12-14-23) or the Elite
+// TDS (v 04/12/2022). 'check' is the honest answer where Cerakote publishes it
+// per bottle instead (F-Series and the specialty series).
 const MESH = {
   coarse: { label: '100 MESH', micron: '149 MICRON', part: 'SE-275 in-cup · SE-139 reusable' },
   fine: { label: '150 MESH', micron: '100 MICRON', part: 'SE-276 in-cup' },
-  finest: { label: '325 MESH', micron: '44 MICRON', part: 'SE-277 in-cup' }
+  finest: { label: '325 MESH', micron: '44 MICRON', part: 'SE-277 in-cup' },
+  check: { label: 'CHECK THE BOTTLE', micron: 'PER COLOUR', part: 'read the TDS or bottle label' }
 };
 
 class Component extends DCLogic {
@@ -472,11 +484,9 @@ class Component extends DCLogic {
     document.addEventListener('mousedown', this._outside, true);
     this._rz = () => this.forceUpdate();
     window.addEventListener('resize', this._rz);
-    // setTheme has always written the choice; read it back so it survives a
-    // reload the way the layout preference does.
-    let savedTheme = null;
-    try { savedTheme = window.localStorage.getItem(THEME_KEY); } catch (e) {}
-    this.setTheme(THEMES.indexOf(savedTheme) >= 0 ? savedTheme : 'glass');
+    let savedTheme = 'glass';
+    try { const t = window.localStorage.getItem('kleeq-mix-theme'); if (t) savedTheme = t; } catch (e) {}
+    this.setTheme(savedTheme);
     fetch('kleeq-finishes.json').then((r) => r.json()).then((d) => this.setState({ data: d })).catch(() => {});
     try {
       const savedView = window.localStorage.getItem(COLS_KEY);
@@ -508,10 +518,15 @@ class Component extends DCLogic {
     this.gate();
   }
 
-  componentWillUnmount() { document.removeEventListener('mousedown', this._outside, true); window.removeEventListener('resize', this._rz); if (this._io) this._io.disconnect(); }
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this._outside, true);
+    window.removeEventListener('resize', this._rz);
+    if (this._setDismiss) { document.removeEventListener('mousedown', this._setDismiss, true); document.removeEventListener('keydown', this._setDismiss, true); }
+    if (this._io) this._io.disconnect();
+  }
   // A real phone always gets the phone layout, whatever the saved toggle says.
   // Until the user picks a layout the view follows the window: phone under
-  // 640, tablet under 1100, side-by-side above that.
+  // 640, tablet under 1024, side-by-side above that.
   autoView() {
     const w = (typeof window !== 'undefined') ? window.innerWidth : 1200;
     return w < 640 ? 'mobile' : w < 1024 ? 'tablet' : 'split';
@@ -620,7 +635,7 @@ class Component extends DCLogic {
   }
 
   setTheme = (v) => {
-    try { window.localStorage.setItem(THEME_KEY, v); } catch (e) {}
+    try { window.localStorage.setItem('kleeq-mix-theme', v); } catch (e) {}
     document.documentElement.setAttribute('data-kleeq-theme', v);
     this.setState({ theme: v });
   };
@@ -717,9 +732,16 @@ class Component extends DCLogic {
       const f = by[c.code];
       // The Cerakote capture is authoritative for name, product URL and thumbnail.
       const laser = !!(c.laserOptimized || (f && f.laserOptimized));
-      return f
-        ? Object.assign({}, f, { name: c.name || f.name, url: c.url, thumb: c.thumb, laserOptimized: laser })
-        : { code: c.code, name: c.name, sheen: '', hex: null, url: c.url, thumb: c.thumb, laserOptimized: laser };
+      // Merge the WHOLE catalogue row rather than listing fields by hand. Three
+      // fields in a row — mesh, then effect, then density — were silently lost
+      // because they were added to the data but not to this list. Anything the
+      // catalogue carries now comes through automatically; the finish record
+      // supplies whatever the catalogue leaves blank.
+      const row = f ? Object.assign({}, f) : { code: c.code, sheen: '', hex: null };
+      Object.keys(c).forEach((k) => { const v = c[k]; if (v !== undefined && v !== null && v !== '') row[k] = v; });
+      row.name = c.name || (f && f.name) || c.code;
+      row.laserOptimized = laser;
+      return row;
     });
   }
 
@@ -727,31 +749,43 @@ class Component extends DCLogic {
     const q = String(this.state.code || '').trim().toUpperCase();
     if (!q) return null;
     const all = this.catalogue();
-    return all.filter((f) => f.code.toUpperCase() === q)[0]
-      || all.filter((f) => f.code.toUpperCase().indexOf(q) === 0)[0]
-      || null;
+    const exact = all.filter((f) => f.code.toUpperCase() === q)[0];
+    if (exact) return exact;
+    // A partial code resolves only when it can mean one product: "H" or "H-14"
+    // used to silently select whichever code happened to sort first, unlocking
+    // the whole calculator against a colour nobody chose.
+    const pre = all.filter((f) => f.code.toUpperCase().indexOf(q) === 0);
+    return pre.length === 1 ? pre[0] : null;
   }
 
   seriesOf(code) {
     const p = this.prefixOf(code);
-    return p === 'E' ? 'E-Series' : p === 'H' ? 'H-Series' : p === 'F' ? 'F-Series'
-      : p === 'FIR' ? 'FIR-Series' : p === 'V' ? 'V-Series'
-      : p === 'S' ? 'S-Series' : p === 'SG' ? 'SG-Series' : p === 'MC' ? 'Gen II NiR' : null;
+    const NAME = {
+      E: 'E-Series', H: 'H-Series', F: 'F-Series', FIR: 'FIR-Series', HIR: 'Gen II NiR',
+      C: 'C-Series', V: 'V-Series', S: 'S-Series', SG: 'Super Grip', MC: 'Micro Slick',
+      FX: 'Cerakote FX', DFL: 'Dry film lubricant', LR: 'Low release', P: 'P-Series'
+    };
+    return NAME[p] || null;
   }
 
   // Series is the code's prefix, so FIR stands apart from F.
   prefixOf(code) { return String(code || '').trim().toUpperCase().split('-')[0]; }
 
-  // Per-finish override first (the JSON can carry a `mesh` value straight from
-  // a TDS), then the sheen and series rule.
+  // Strainer size is a per-colour TDS field, not a sheen rule: every H-Series
+  // code carries its own `mesh` value lifted from the H-Series TDS (v 12-14-23).
+  // The sheen/series fallback only covers codes not on that sheet.
   meshFor(f) {
-    if (f && f.mesh && MESH[f.mesh]) return { key: f.mesh, from: 'the finish record' };
-    const sheen = String((f && f.sheen) || '').toLowerCase();
-    if (sheen === 'metallic') return { key: 'coarse', from: 'a metallic — the coarse screen keeps the flake in the cup' };
-    const series = this.seriesOf(f ? f.code : this.state.code);
-    if (series === 'E-Series') return { key: 'coarse', from: 'the E-Series rule' };
-    if (sheen === 'gloss') return { key: 'fine', from: 'a gloss H-Series — the finer screen for a cleaner lay-down' };
-    return { key: 'coarse', from: 'the H-Series default' };
+    if (f && f.mesh && MESH[f.mesh]) return { key: f.mesh, from: "the coating's own TDS row" };
+    const p = this.prefixOf(f ? f.code : this.state.code);
+    // Cerakote's C-Series and V-Series application guides both specify a
+    // 100 mesh (149 micron) screen for the whole series.
+    if (p === 'C' || p === 'V') return { key: 'coarse', from: 'the ' + p + '-Series application guide' };
+    // Untinted H-Series metallics not yet on the TDS: the coarse screen keeps
+    // the flake in the cup.
+    if (p === 'H' && f && f.effect === 'metallic') return { key: 'coarse', from: 'a metallic — the coarse screen keeps the flake in the cup' };
+    // F-Series and the specialty series publish strainer size per colour and
+    // per bottle, so guessing here would be worse than saying so.
+    return { key: 'check', from: 'no single published value for this series' };
   }
 
   // Which series are two-part, which are single component, and which need the
@@ -833,10 +867,14 @@ class Component extends DCLogic {
 
   // One place decides coating / catalyst / total, in grams.
   mix() {
-    const r = Math.max(1, Number(this.state.ratio) || 18) * SG;
+    const f = this.matched();
+    const dens = (f && Number(f.density)) || FALLBACK_SG;
+    const rVol = Math.max(1, Number(this.state.ratio) || 18);
+    // The volume ratio becomes a weight ratio through the two densities.
+    const r = rVol * dens / CAT_SG;
     const w = Math.max(0, Number(this.state.weight) || 0) * this.gPer();
     const catalyst = w / r;
-    return { coating: w, catalyst: catalyst, total: w + catalyst, ratio: r };
+    return { coating: w, catalyst: catalyst, total: w + catalyst, ratio: r, density: dens, densityKnown: !!(f && Number(f.density)) };
   }
 
   fmt = (grams) => grams.toFixed(this.state.dp) + ' g';
@@ -850,7 +888,9 @@ class Component extends DCLogic {
     if (e) e.preventDefault();
     const m = this.mix();
     const f = this.matched();
-    const line = (f ? f.code + ' ' + f.name : this.state.code) + ' — ' + m.ratio + ':1 — coating '
+    const vol = Number(this.state.ratio) || 18;
+    const line = (f ? f.code + ' ' + f.name : this.state.code) + ' — ' + vol + ':1 by volume ('
+      + m.ratio.toFixed(2) + ':1 by weight) — coating '
       + this.fmt(m.coating) + ', catalyst ' + this.fmt(m.catalyst) + ', total ' + this.fmt(m.total);
     try { navigator.clipboard.writeText(line); } catch (err) {}
     this.setState({ copied: true });
@@ -907,9 +947,10 @@ class Component extends DCLogic {
         this.setState({ code: done ? hit.code : v, sugOpen: !done, sugAt: 0 });
         if (done) this.focusWeight();
       }),
-      // A scroll over the field must not change a bench figure — keyboard and
-      // the spinner arrows only.
-      noWheel: this._nw || (this._nw = (e) => { e.target.blur(); }),
+      // Kept as a no-op: this used to blur the field so a scroll couldn't spin
+      // a number input, but it stole focus mid-entry from anyone scrolling the
+      // page. The field is type="text", so the wheel can't change it regardless.
+      noWheel: this._nw || (this._nw = () => {}),
       openSug: this.openSug,
       closeSug: this.closeSug,
       sugKey: this.sugKey,
@@ -958,7 +999,7 @@ class Component extends DCLogic {
         pick: this.pick({ preset: p.id, ratio: p.ratio })
       })),
       ratio: s.ratio,
-      effRatio: (Number(s.ratio) || 18).toFixed(2).replace(/\.00$/, '') + ':1 BY VOLUME · ' + ((Number(s.ratio) || 18) * SG).toFixed(2) + ':1 BY WEIGHT',
+      effRatio: (Number(s.ratio) || 18).toFixed(2).replace(/\.00$/, '') + ':1 BY VOLUME · ' + m.ratio.toFixed(2) + ':1 BY WEIGHT · DENSITY ' + m.density.toFixed(2) + (m.densityKnown ? '' : ' ASSUMED'),
       noCatOn: catClass === 'needs' ? 'none' : 'block',
       mixStepsOn: catClass === 'needs' ? 'grid' : 'none',
       ratioOn: catClass === 'needs' ? 'grid' : 'none',
@@ -1006,8 +1047,12 @@ class Component extends DCLogic {
       weight: s.weight,
       setWeight: this._sw || (this._sw = (e) => {
         if (!this.matched()) return;
-        const v = e.target.value;
-        this.setState({ weight: v === '' ? '' : Math.max(0, parseFloat(v) || 0) });
+        // Keep the raw string: parsing on every keystroke swallowed the decimal
+        // point ("12." → 12 → the dot never lands). mix() and every Number(weight)
+        // read below coerce it, so a trailing dot is harmless.
+        const raw = String(e.target.value).replace(/[^0-9.]/g, '');
+        const parts = raw.split('.');
+        this.setState({ weight: parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : raw });
       }),
       clearOff: !(s.weight !== '' && s.weight !== null && s.weight !== undefined),
       clearOffStr: String(!(s.weight !== '' && s.weight !== null && s.weight !== undefined)),
@@ -1045,12 +1090,12 @@ class Component extends DCLogic {
       ratioFont: view === 'mobile' ? '14.5px' : view === 'tablet' ? '19px' : '17px',
       glossFont: view === 'mobile' ? '9px' : view === 'tablet' ? '11px' : '10px',
       clearSize: view === 'mobile' ? '40px' : view === 'tablet' ? '44px' : '38px',
-      clearVis: Number(s.weight) > 0 ? '1' : '0',
+      clearVis: String(s.weight || '').length ? '1' : '0',
       // Phone: field 148px, × overlays the far right only while a value exists, g sits inside it → ≥ 96px for digits.
-      weightPadR: view === 'mobile' ? (Number(s.weight) > 0 ? '62px' : '26px') : '40px',
+      weightPadR: view === 'mobile' ? (String(s.weight || '').length ? '62px' : '26px') : '40px',
       weightPadL: view === 'mobile' ? '10px' : '52px',
       clearPos: view === 'mobile' ? 'right:4px' : 'left:6px',
-      unitInset: view === 'mobile' ? (Number(s.weight) > 0 ? '44px' : '10px') : '14px',
+      unitInset: view === 'mobile' ? (String(s.weight || '').length ? '44px' : '10px') : '14px',
       unitFont: view === 'mobile' ? '13.5px' : view === 'tablet' ? '20px' : '18px',
       layoutTogglesOn: isPhone ? 'none' : 'inline-grid',
       searchPadR: String(s.code || '').trim() ? '48px' : '16px',
@@ -1111,7 +1156,7 @@ class Component extends DCLogic {
       pagePad: view === 'mobile' ? '7px 14px 25px' : view === 'tablet' ? '10px 20px 32px' : '16px clamp(14px,2.4vw,32px) 48px',
       secGap: view === 'mobile' ? '12.5px' : view === 'tablet' ? '18px' : '24px',
       partPadT: view === 'mobile' ? '9px' : view === 'tablet' ? '12px' : '16px',
-      weightType: (view === 'mobile' || view === 'tablet') ? 'text' : 'number',
+      weightType: 'text',
       weightH: view === 'mobile' ? '58px' : view === 'tablet' ? '64px' : '76px',
       actGap: view === 'mobile' ? '9px' : view === 'tablet' ? '12px' : '16px',
       capFont: view === 'tablet' ? '11.25px' : view === 'mobile' ? '10px' : '10px',
@@ -1148,7 +1193,7 @@ class Component extends DCLogic {
 
       dp1: this.pick({ dp: 1 }), dp2: this.pick({ dp: 2 }),
 
-      sourceNote: "Cerakote's published ratios — 12:1, 18:1, 24:1 — are by volume. This tool converts them to scale weight with a 1.321 factor, fitted to Cerakote's own calculator: 100 g at 18:1 gives 4.21 g, at 24:1 gives 3.15 g, and 10 g at 12:1 gives 0.63 g. Strainer mesh comes from the product page where the studio has recorded it, and from the sheen and series rule otherwise. Always check the current TDS for the product in hand."
+      sourceNote: "Cerakote's published ratios — 12:1, 18:1, 24:1 — are by volume, so converting to scale weight needs both densities. Each coating's density comes from its own TDS row (1.26 to 1.60 across the range); the catalyst is 1.06 g/mL, solved from Cerakote's own calculator, where H-146 at density 1.40 returns 4.21 g of catalyst per 100 g at 18:1. The same figure reproduces their 100 g at 24:1 (3.15) and 10 g at 12:1 (0.63), and was confirmed against the opposite end of the density range: H-136 Snow White at 1.60 predicts 3.68 g per 100 g at 18:1, which is what Cerakote returns. Where Cerakote publishes no density — the F-Series and specialty codes — this falls back to the H-Series median of 1.42 and says so next to the ratio. Weigh, don't assume.",
     };
   }
 }

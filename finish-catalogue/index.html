@@ -323,6 +323,7 @@
         <dl class="c-spec" style="margin:0;border-top:1px solid var(--k-line);padding-top:16px">
           <dt>COLOUR</dt><dd>{{ d.colour }}</dd>
           <dt>SHEEN</dt><dd>{{ d.sheen }}</dd>
+          <dt>STRAINER</dt><dd>{{ d.strainer }}</dd>
           <dt>LRV</dt><dd>{{ d.lrv }}</dd>
           <dt>SERIES</dt><dd>{{ d.seriesName }}</dd>
           <dt>TYPE</dt><dd>{{ d.type }}</dd>
@@ -330,7 +331,6 @@
           <dt>MIX RATIO</dt><dd>{{ d.ratio }}</dd>
           <dt>CATALYST</dt><dd>{{ d.catalyst }}</dd>
           <dt>TRENDING</dt><dd>{{ d.trend }}</dd>
-          <dt>LISTED</dt><dd>{{ d.listed }}</dd>
         </dl>
         <div style="display:grid;gap:8px;border-top:1px solid var(--k-line);padding-top:16px">
           <span class="c-lab" style="margin:0">SIMILAR FINISHES</span>
@@ -366,6 +366,7 @@
               <dl class="c-spec" style="margin:0;grid-template-columns:72px minmax(0,1fr)">
                 <dt>COLOUR</dt><dd>{{ c.colour }}</dd>
                 <dt>SHEEN</dt><dd>{{ c.sheen }}</dd>
+                <dt>STRAINER</dt><dd>{{ c.strainer }}</dd>
                 <dt>LRV</dt><dd>{{ c.lrv }}</dd>
                 <dt>CURE</dt><dd>{{ c.cure }}</dd>
                 <dt>RATIO</dt><dd>{{ c.ratio }}</dd>
@@ -390,11 +391,11 @@ const gradFor = (f) => (FX ? FX.gradFor(f) : (f && f.hex) || 'none');
 const SERIES_ORDER = ['H', 'E', 'F', 'FIR', 'HIR', 'GEN II', 'C', 'V', 'S', 'SG', 'DFL', 'MC', 'FX', 'LR', 'P'];
 // Published series facts (Cerakote TDS / training manuals). Anything not verified says so.
 const SERIES = {
-  H:   { title: 'H-Series · Oven cure', name: 'H-Series', type: 'Two-part ceramic, oven cure', cure: 'Oven · 15 min ambient flash, then 121°C (250°F) for 2 h — 149°C (300°F) for 1 h; 82–121°C (180–250°F) is 2 h', sched: '121°C (250°F) / 2 h · or 149°C (300°F) / 1 h', ratio: '18:1 by volume (23.78:1 by weight)', catalyst: 'H-Series catalyst (never the Elite catalyst)', calc: true },
+  H:   { title: 'H-Series · Oven cure', name: 'H-Series', type: 'Two-part ceramic, oven cure', cure: 'Oven · 15 min ambient flash, then 121°C (250°F) for 2 h — 149°C (300°F) for 1 h; 82–121°C (180–250°F) is 2 h', sched: '121°C (250°F) / 2 h · or 149°C (300°F) / 1 h', ratio: '18:1 by volume', catalyst: 'H-Series catalyst (never the Elite catalyst)', calc: true },
   E:   { title: 'Elite · Oven cure', name: 'Elite (E-Series)', type: 'Two-part ceramic, oven cure', cure: 'Oven · 15 min ambient flash, then 149°C (300°F) for 1 h (E-100 Blackout: 149°C / 300°F for 2 h)', sched: '149°C (300°F) / 1 h', ratio: '12:1 to 24:1 (18:1 typical) — ratio sets the gloss', catalyst: 'Elite catalyst only', calc: true },
   F:   { title: 'F-Series · Laser optimized', name: 'F-Series', type: 'Two-part, PFAS-free, oven cure', cure: 'Oven · 15 min at 121°C (250°F), or 82°C (180°F) for 1 h in a paint booth', sched: '121°C (250°F) / 15 min · or 82°C (180°F) / 1 h', ratio: 'Per TDS', catalyst: 'F-Series catalyst', calc: true },
   FIR: { title: 'FIR · IR reflective', name: 'FIR-Series', type: 'Two-part, oven cure', cure: 'Oven cure — schedule per the colour TDS', sched: 'Oven · per TDS', ratio: 'Per TDS', catalyst: 'Check the FIR TDS — its own code', calc: false },
-  HIR: { title: 'HIR · IR reflective', name: 'HIR (Gen II NiR)', type: 'Two-part, oven cure', cure: 'Oven · H-Series schedule, 121°C (250°F) for 2 h — confirm on the colour TDS', sched: '121°C (250°F) / 2 h', ratio: '18:1 by volume (23.78:1 by weight)', catalyst: 'H-Series catalyst', calc: true },
+  HIR: { title: 'HIR · IR reflective', name: 'HIR (Gen II NiR)', type: 'Two-part, oven cure', cure: 'Oven · H-Series schedule, 121°C (250°F) for 2 h — confirm on the colour TDS', sched: '121°C (250°F) / 2 h', ratio: '18:1 by volume', catalyst: 'H-Series catalyst', calc: true },
   C:   { title: 'C-Series · Air cure', name: 'C-Series', type: 'Single component, air cure', cure: 'Air cure · tack free 45–60 min, ship at 24 h, full cure 5 days', sched: 'Air cure · full cure 5 days', ratio: 'None — ready to spray', catalyst: 'None', calc: false },
   V:   { title: 'V-Series · Oven cure', name: 'V-Series', type: 'Single component, high-temperature oven cure', cure: 'Oven · 15 min air dry, then 260°C (500°F) for 1 h', sched: '260°C (500°F) / 1 h', ratio: 'None', catalyst: 'None — Cerakote states no catalyst', calc: false },
   MC:  { title: 'MC · Clear', name: 'MC-Series clear', type: 'Single component clear', cure: 'Air dry — no oven', sched: 'Air dry', ratio: 'None', catalyst: 'None', calc: false },
@@ -634,6 +635,13 @@ class Component extends DCLogic {
       code: f.code, name: f.name, hex: this.swatch(f), flat: hex || 'var(--k-field)', seriesLabel: s + ' SERIES', seriesName: si.name, type: si.type, cure: si.cure, ratio: si.ratio, catalyst: si.catalyst,
       colour: f.hex ? f.hex.toUpperCase() + ' · measured off a KLEEQ chip' : hex ? hex.toUpperCase() + ' · sampled from the Cerakote photo' : f.live ? 'Not measured yet — new on cerakote.com' : 'Not measured — Cerakote photo only',
       sheen: f.sheen || 'Not listed', lrv: l >= 0 ? l.toFixed(1) + '%' : '—',
+      // Mirrors meshFor() in the mixing calculator exactly: the coating's own TDS
+      // row, then the C/V series application guides, then the metallics Cerakote
+      // has not put on a TDS yet, then an honest "check".
+      strainer: ({ coarse: '100 MESH · SE-275', fine: '150 MESH · SE-276', finest: '325 MESH · SE-277' })[f.mesh]
+        || (['C', 'V'].indexOf(String(f.code).split('-')[0]) >= 0 ? '100 MESH · SE-275'
+          : (f.effect === 'metallic' && String(f.code).split('-')[0] === 'H') ? '100 MESH · SE-275'
+          : 'Check the TDS or bottle'),
       listed: f.live ? 'New on cerakote.com' : listedYear(f) ? 'Photo dated ' + listedYear(f) : '—',
       laser: f.laserOptimized ? '★ Optimized' : 'Not flagged', trend: trendRank(f.code) ? '#' + trendRank(f.code) + ' most requested' : '—', stock: f.stocked ? 'On the KLEEQ shelf' : 'Order in',
       starOn: f.laserOptimized ? 'inline-block' : 'none', stockOn: f.stocked ? 'inline-block' : 'none',

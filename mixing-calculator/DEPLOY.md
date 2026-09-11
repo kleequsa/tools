@@ -45,3 +45,44 @@ index.html · kleeq-finishes.json · kleeq-finish-render.js · kleeq-tokens.css 
 ## Release 2026-09-09c — keypad on pick
 - Every pick path (browse list, recent chips, suggestion rows, phone dropdown, Enter on a suggestion) focuses the weight field inside the tap, so iOS and iPadOS raise the numeric keypad.
 - Suggestion rows commit on pointerdown rather than mousedown.
+
+## Release 2026-09-11 — Cerakote data fidelity and the catalyst math
+
+Everything below was verified against Cerakote's own published material: the H-Series
+TDS (v12-14-23), the Elite TDS (v04/12/2022), the series application guides and
+Cerakote's own catalyst calculator.
+
+### Catalyst math rewritten — figures change for most colours
+- Cerakote's ratios are BY VOLUME, so converting to scale weight needs both densities:
+  `catalyst = coating weight × 1.06 ÷ (ratio × coating density)`.
+- Coating density is now per colour, from the TDS (1.26–1.60 across the range).
+  Catalyst density 1.06 g/mL was solved from Cerakote's calculator (H-146 at 1.40,
+  100 g @ 18:1 → 4.21 g) and confirmed at the opposite end (H-136 Snow White at 1.60,
+  100 g @ 18:1 → 3.68 g).
+- This replaces a single 1.321 divisor, which was really 1.40 ÷ 1.06 — H-146's own
+  figure applied to every colour. Snow White was reading 14% over-catalysed.
+- The ratio line now shows the density used and marks it ASSUMED (H-Series median
+  1.42) where Cerakote publishes none.
+
+### Strainer size — now per colour
+- Was derived from sheen, which disagreed with the TDS on 17 of 45 stocked H codes.
+  Every one of the 154 codes Cerakote publishes now carries its own value.
+- C-Series and V-Series fall back to 100 mesh per their application guides; F-Series
+  and the specialty series read CHECK THE BOTTLE, because Cerakote publishes those
+  per bottle.
+- The catalogue shows the same value from the same rule — the two tools cannot disagree.
+
+### Gloss level replaces sheen
+- 45 finishes were mislabelled. H-297 Stormtrooper White was Matte and is High Gloss;
+  H-217 Bright Purple was Gloss and is Matte; H-197, H-296, H-322 and H-329 were Gloss
+  and are Flat. Cerakote's published word is now used throughout.
+- Codes with no published gloss level show no gloss line rather than a guess.
+
+### Fixes
+- Weight field accepts a decimal point (it was being parsed away on every keystroke).
+- A one-letter search no longer resolves to whichever code sorted first.
+- MC and HIR series names were swapped (MC is Micro Slick; HIR is Gen II NiR).
+- COPY MIX pasted the weight ratio as a raw float.
+- Scrolling with the cursor over the weight field no longer blurs it.
+- Theme choice persists across reloads.
+- Catalogue merge now carries the whole row, so added fields can't be silently dropped.

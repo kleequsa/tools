@@ -91,7 +91,7 @@
       "code": "E-250",
       "name": "Titanium",
       "hex": "#8d8d89",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote E-Series",
       "wall": "signature",
       "wallRank": 1,
@@ -102,7 +102,9 @@
       "shadow": "#585855",
       "highlight": "#a6a6a3",
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-250/titanium",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11554/sig-titanium-e-250-dt20210113155659623-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11554/sig-titanium-e-250-dt20210113155659623-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.42
     },
     {
       "code": "E-210",
@@ -124,7 +126,9 @@
       "lrv": "11.25%",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-210/moss",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12489/moss-e-210-dt20210113154725425-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12489/moss-e-210-dt20210113154725425-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.36
     },
     {
       "code": "E-190",
@@ -143,7 +147,9 @@
       "rgb": "123, 102, 80",
       "measured": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-190/20150",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6011/20150-e-190-dt20191210174333337-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6011/20150-e-190-dt20191210174333337-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.41
     },
     {
       "code": "E-170",
@@ -161,7 +167,9 @@
       "highlight": "#c2a58d",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-170/m17-coyote-tan",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6010/coyote-m17-tan-e-170-dt20191204192949777-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6010/coyote-m17-tan-e-170-dt20191204192949777-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.42
     },
     {
       "code": "E-160",
@@ -178,13 +186,15 @@
       "shadow": "#4a4845",
       "highlight": "#95938f",
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-160/concrete",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6009/concrete-e-160-dt20200601211519278-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6009/concrete-e-160-dt20200601211519278-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.42
     },
     {
       "code": "E-150",
       "name": "Sand",
       "hex": "#8d896f",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote E-Series",
       "wall": "signature",
       "wallRank": 6,
@@ -196,7 +206,9 @@
       "highlight": "#a4a291",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-150/sand",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6008/sand-e-150-dt20220421220707053658-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6008/sand-e-150-dt20220421220707053658-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.41
     },
     {
       "code": "E-140",
@@ -215,13 +227,15 @@
       "highlight": "#9d9a87",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-140/jungle",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6007/jungle-e-140-dt20200601211419404-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6007/jungle-e-140-dt20200601211419404-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.41
     },
     {
       "code": "E-130",
       "name": "Earth",
       "hex": "#8c6b50",
-      "sheen": "Matte",
+      "sheen": "Eggshell",
       "family": "Cerakote E-Series",
       "wall": "signature",
       "wallRank": 8,
@@ -233,13 +247,15 @@
       "highlight": "#a78b75",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-130/earth",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6006/earth-e-130-dt20191210180330077-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6006/earth-e-130-dt20191210180330077-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.41
     },
     {
       "code": "E-120",
       "name": "Smoke",
       "hex": "#4d4641",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote E-Series",
       "wall": "signature",
       "wallRank": 9,
@@ -251,7 +267,9 @@
       "highlight": "#776e68",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-120/smoke",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6005/smoke-e-120-dt20191210180457587-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6005/smoke-e-120-dt20191210180457587-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.4
     },
     {
       "code": "E-110",
@@ -268,7 +286,9 @@
       "shadow": "#0f1212",
       "highlight": "#475353",
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-110/midnight",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6004/midnight-e-110-dt20191209211535964-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6004/midnight-e-110-dt20191209211535964-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.4
     },
     {
       "code": "E-310",
@@ -285,13 +305,15 @@
       "shadow": "#781d21",
       "highlight": "#d05b60",
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-310/fire",
-      "thumb": "https://images.nicindustries.com/cerakote/products/13049/fire-e-310-dt20210813183006361-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/13049/fire-e-310-dt20210813183006361-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.41
     },
     {
       "code": "E-290",
       "name": "Storm",
       "hex": "#a5a69f",
-      "sheen": "Matte",
+      "sheen": "Eggshell",
       "family": "Cerakote E-Series",
       "wall": "signature",
       "wallRank": 12,
@@ -303,7 +325,9 @@
       "highlight": "#b8b9b5",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-290/storm",
-      "thumb": "https://images.nicindustries.com/cerakote/products/13000/storm-e-290-dt20211015200319828-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/13000/storm-e-290-dt20211015200319828-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.46
     },
     {
       "code": "E-240",
@@ -325,7 +349,9 @@
       "shadow": "#2c2b2c",
       "highlight": "#706e70",
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-240/carbon-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12494/carbon-grey-e-240-dt20210113155317675-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12494/carbon-grey-e-240-dt20210113155317675-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.38
     },
     {
       "code": "E-200",
@@ -348,13 +374,15 @@
       "highlight": "#baa388",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-200/fde",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10096/fde-e-200-dt20191210174557667-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10096/fde-e-200-dt20191210174557667-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.41
     },
     {
       "code": "E-100",
       "name": "Blackout",
       "hex": "#252526",
-      "sheen": "Matte",
+      "sheen": "Eggshell",
       "family": "Cerakote E-Series",
       "wall": "signature",
       "wallRank": 15,
@@ -370,13 +398,15 @@
       "shadow": "#171718",
       "highlight": "#545456",
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-100/blackout",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10095/blackout-e-100-dt20191211222726844-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10095/blackout-e-100-dt20191211222726844-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "density": 1.51
     },
     {
       "code": "H-190",
       "name": "Armor Black",
       "hex": "#292b2b",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 16,
@@ -392,13 +422,15 @@
       "shadow": "#191b1b",
       "highlight": "#575b5b",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-190/armor-black",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6052/armor-black-h-190-dt20200210213531006-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6052/armor-black-h-190-dt20200210213531006-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.42
     },
     {
       "code": "H-146",
       "name": "Graphite Black",
       "hex": "#2c2927",
-      "sheen": "Satin",
+      "sheen": "Matte",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 17,
@@ -415,13 +447,14 @@
       "highlight": "#5d5854",
       "mesh": "fine",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-146/graphite-black",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6029/graphite-black-h-146-dt20200210215818379-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6029/graphite-black-h-146-dt20200210215818379-thumbnail.jpg?size=200",
+      "density": 1.4
     },
     {
       "code": "H-148",
       "name": "Burnt Bronze",
       "hex": "#765c43",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 18,
@@ -432,13 +465,15 @@
       "shadow": "#48392b",
       "highlight": "#9d8064",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-148/burnt-bronze",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6031/burnt-bronze-h-148-dt20200210213859644-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6031/burnt-bronze-h-148-dt20200210213859644-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.42
     },
     {
       "code": "H-170",
       "name": "Titanium",
       "hex": "#a19c94",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 19,
@@ -449,13 +484,15 @@
       "shadow": "#65615a",
       "highlight": "#b5b2ac",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-170/titanium",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6043/titanium-h-170-dt2020021022204377-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6043/titanium-h-170-dt2020021022204377-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.38
     },
     {
       "code": "H-294",
       "name": "Midnight Bronze",
       "hex": "#5b4639",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 20,
@@ -472,13 +509,15 @@
       "highlight": "#876d5c",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-294/midnight-bronze",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6100/midnight-bronze-h-294-dt20200210220548156-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6100/midnight-bronze-h-294-dt20200210220548156-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.42
     },
     {
       "code": "H-237",
       "name": "Tungsten",
       "hex": "#777170",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 21,
@@ -489,13 +528,15 @@
       "shadow": "#4a4646",
       "highlight": "#95908f",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-237/tungsten",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6078/tungsten-h-237-dt20200210222204157-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6078/tungsten-h-237-dt20200210222204157-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.42
     },
     {
       "code": "H-267",
       "name": "Magpul Flat Dark Earth",
       "hex": "#a98761",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 22,
@@ -506,13 +547,15 @@
       "shadow": "#68543d",
       "highlight": "#b7a189",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-267/magpul-flat-dark-earth",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6096/magpultm-flat-dark-earth-h-267-dt20191210175609805-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6096/magpultm-flat-dark-earth-h-267-dt20191210175609805-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.4
     },
     {
       "code": "H-210",
       "name": "Sig Dark Grey",
       "hex": "#59686b",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 23,
@@ -523,13 +566,15 @@
       "shadow": "#384042",
       "highlight": "#7b8b8e",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-210/sig-dark-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6058/sig-dark-grey-h-210-dt20200210221530804-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6058/sig-dark-grey-h-210-dt20200210221530804-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.45
     },
     {
       "code": "H-122",
       "name": "Gold",
       "hex": "#d29d52",
-      "sheen": "Metallic",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "signature",
       "wallRank": 24,
@@ -540,13 +585,16 @@
       "shadow": "#8a632b",
       "highlight": "#d3b181",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-122/gold",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6016/gold-h-122-dt20200210215649141-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6016/gold-h-122-dt20200210215649141-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "effect": "metallic",
+      "density": 1.42
     },
     {
       "code": "H-376",
       "name": "Fools Gold",
       "hex": "#9b8e84",
-      "sheen": "Metallic",
+      "sheen": "",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 1,
@@ -557,13 +605,14 @@
       "shadow": "#615851",
       "highlight": "#afa7a1",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-376/fools-gold",
-      "thumb": "https://images.nicindustries.com/cerakote/products/17539/fools-gold-h-376-dt2024071817485639732-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/17539/fools-gold-h-376-dt2024071817485639732-thumbnail.jpg?size=200",
+      "effect": "metallic"
     },
     {
       "code": "H-375",
       "name": "Black Gold",
       "hex": "#5b5551",
-      "sheen": "Metallic",
+      "sheen": "",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 2,
@@ -574,13 +623,14 @@
       "shadow": "#383533",
       "highlight": "#817a75",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-375/black-gold",
-      "thumb": "https://images.nicindustries.com/cerakote/products/17534/black-gold-h-375-dt20240718175101954423-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/17534/black-gold-h-375-dt20240718175101954423-thumbnail.jpg?size=200",
+      "effect": "metallic"
     },
     {
       "code": "H-363",
       "name": "Champagne",
       "hex": "#bfb59a",
-      "sheen": "Metallic",
+      "sheen": "",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 3,
@@ -591,13 +641,14 @@
       "shadow": "#817555",
       "highlight": "#cac4b3",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-363/champagne",
-      "thumb": "https://images.nicindustries.com/cerakote/products/16722/champagne-h-363-dt20240718175228668202-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/16722/champagne-h-363-dt20240718175228668202-thumbnail.jpg?size=200",
+      "effect": "metallic"
     },
     {
       "code": "H-347",
       "name": "Copper",
       "hex": "#c87343",
-      "sheen": "Metallic",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 4,
@@ -608,13 +659,16 @@
       "shadow": "#7c472a",
       "highlight": "#cb9476",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-347/copper",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11328/copper-h-347-dt20200709225511959-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11328/copper-h-347-dt20200709225511959-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "effect": "metallic",
+      "density": 1.4
     },
     {
       "code": "H-349",
       "name": "Aztec Teal",
       "hex": "#299990",
-      "sheen": "Satin",
+      "sheen": "Matte",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 5,
@@ -625,13 +679,15 @@
       "shadow": "#1d5b56",
       "highlight": "#49beb5",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-349/aztec-teal",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11501/aztec-teal-h-349-dt20200915140508867-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11501/aztec-teal-h-349-dt20200915140508867-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.47
     },
     {
       "code": "H-315",
       "name": "Northern Lights",
       "hex": "#586c70",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 6,
@@ -642,13 +698,15 @@
       "shadow": "#374245",
       "highlight": "#7a8e92",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-315/northern-lights",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10448/northern-lights-h-315-dt20200210220821456-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10448/northern-lights-h-315-dt20200210220821456-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.5
     },
     {
       "code": "H-329",
       "name": "Blue Raspberry",
       "hex": "#62c3d3",
-      "sheen": "Gloss",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 7,
@@ -659,13 +717,15 @@
       "shadow": "#2f8390",
       "highlight": "#8ccbd5",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-329/blue-raspberry",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11239/blue-raspberry-h-329-dt20200504161200268-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11239/blue-raspberry-h-329-dt20200504161200268-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.5
     },
     {
       "code": "H-357",
       "name": "Periwinkle",
       "hex": "#3e66a9",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 8,
@@ -676,13 +736,15 @@
       "shadow": "#2a4065",
       "highlight": "#6988bc",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-357/periwinkle",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12900/periwinkle-h-357-dt20210617203327771-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12900/periwinkle-h-357-dt20210617203327771-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.37
     },
     {
       "code": "H-351",
       "name": "Green Mamba",
       "hex": "#76b84a",
-      "sheen": "Satin",
+      "sheen": "Eggshell",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 9,
@@ -693,13 +755,15 @@
       "shadow": "#4a6f31",
       "highlight": "#96c07a",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-351/green-mamba",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12894/green-mamba-h-351-dt20210617203700717-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12894/green-mamba-h-351-dt20210617203700717-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.47
     },
     {
       "code": "H-322",
       "name": "Blood Orange",
       "hex": "#e84730",
-      "sheen": "Gloss",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 10,
@@ -710,13 +774,15 @@
       "shadow": "#952818",
       "highlight": "#e0796a",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-322/blood-orange",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12094/blood-orange-h-322-dt20201105225831564-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12094/blood-orange-h-322-dt20201105225831564-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.38
     },
     {
       "code": "H-306",
       "name": "Ruby Red",
       "hex": "#df302e",
-      "sheen": "Gloss",
+      "sheen": "Eggshell",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 11,
@@ -727,13 +793,15 @@
       "shadow": "#8b1e1c",
       "highlight": "#da6a68",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-306/ruby-red",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10606/ruby-red-h-306-dt20200103151521903-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10606/ruby-red-h-306-dt20200103151521903-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.42
     },
     {
       "code": "H-314",
       "name": "Crushed Orchid",
       "hex": "#8177a7",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 12,
@@ -745,13 +813,15 @@
       "highlight": "#9f98b7",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-314/crushed-orchid",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10442/crushed-orchid-h-314-dt20200210214504711-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10442/crushed-orchid-h-314-dt20200210214504711-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.49
     },
     {
       "code": "H-326",
       "name": "Polar Blue",
       "hex": "#9aaec1",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 13,
@@ -763,13 +833,15 @@
       "highlight": "#b3c0cc",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-326/polar-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10172/polar-blue-h-326-dt20200210221058482-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10172/polar-blue-h-326-dt20200210221058482-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.42
     },
     {
       "code": "H-310",
       "name": "Copper Suede",
       "hex": "#c66d51",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 14,
@@ -780,13 +852,15 @@
       "shadow": "#7e422f",
       "highlight": "#ca917f",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-310/copper-suede",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10154/copper-suede-h-310-dt20200210214226348-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10154/copper-suede-h-310-dt20200210214226348-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.43
     },
     {
       "code": "H-359",
       "name": "Smoked Bronze",
       "hex": "#998569",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 15,
@@ -797,13 +871,15 @@
       "shadow": "#5e5242",
       "highlight": "#ac9f8d",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-359/smoked-bronze",
-      "thumb": "https://images.nicindustries.com/cerakote/products/13003/smoked-bronze-mto-h-359-dt20220802154601683218-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/13003/smoked-bronze-mto-h-359-dt20220802154601683218-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.43
     },
     {
       "code": "H-360",
       "name": "Crocodile",
       "hex": "#94945e",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 16,
@@ -814,13 +890,15 @@
       "shadow": "#5a5a3c",
       "highlight": "#aaaa83",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-360/crocodile",
-      "thumb": "https://images.nicindustries.com/cerakote/products/13177/crocodile-mto-h-360-dt20230112163141355631-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/13177/crocodile-mto-h-360-dt20230112163141355631-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.38
     },
     {
       "code": "H-354",
       "name": "Lemon Zest",
       "hex": "#ffe329",
-      "sheen": "Gloss",
+      "sheen": "Semi Gloss",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 17,
@@ -831,13 +909,15 @@
       "shadow": "#ae9909",
       "highlight": "#f0de67",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-354/lemon-zest",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12726/lemon-zest-h-354-dt20210423143441561-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12726/lemon-zest-h-354-dt20210423143441561-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.41
     },
     {
       "code": "H-157",
       "name": "Bright Nickel",
       "hex": "#bdb3a5",
-      "sheen": "Metallic",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 18,
@@ -848,7 +928,10 @@
       "shadow": "#7d705f",
       "highlight": "#cac3ba",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-157/bright-nickel",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6037/bright-nickel-h-157-dt20191204192320203-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6037/bright-nickel-h-157-dt20191204192320203-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "effect": "metallic",
+      "density": 1.4
     },
     {
       "code": "H-345",
@@ -865,13 +948,15 @@
       "shadow": "#3c3e3e",
       "highlight": "#828786",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-345/multicam-dark-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10740/multicam-dark-grey-h-345-dt20200117222020186-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10740/multicam-dark-grey-h-345-dt20200117222020186-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.46
     },
     {
       "code": "H-344",
       "name": "Multicam Olive",
       "hex": "#ae894a",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 20,
@@ -882,13 +967,15 @@
       "shadow": "#695431",
       "highlight": "#bba277",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-344/multicam-olive",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10735/multicam-olive-h-344-dt202001172220478-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10735/multicam-olive-h-344-dt202001172220478-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.45
     },
     {
       "code": "H-343",
       "name": "Multicam Bright Green",
       "hex": "#858545",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 21,
@@ -900,13 +987,15 @@
       "highlight": "#a6a668",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-343/multicam-bright-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10730/multicam-bright-green-h-343-dt2020011722192609-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10730/multicam-bright-green-h-343-dt2020011722192609-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.47
     },
     {
       "code": "H-342",
       "name": "Multicam Dark Brown",
       "hex": "#896143",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 22,
@@ -917,13 +1006,15 @@
       "shadow": "#533c2c",
       "highlight": "#a98366",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-342/multicam-dark-brown",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10725/multicam-dark-brown-h-342-dt2020011722194097-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10725/multicam-dark-brown-h-342-dt2020011722194097-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.51
     },
     {
       "code": "H-341",
       "name": "Multicam Dark Green",
       "hex": "#777648",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 23,
@@ -934,7 +1025,9 @@
       "shadow": "#48482e",
       "highlight": "#9c9b69",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-341/multicam-dark-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10720/multicam-dark-green-h-341-dt20200117221958336-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10720/multicam-dark-green-h-341-dt20200117221958336-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.36
     },
     {
       "code": "H-340",
@@ -951,13 +1044,15 @@
       "shadow": "#6e6033",
       "highlight": "#beae7e",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-340/multicam-light-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10716/multicam-light-green-h-340-dt20200117222034961-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10716/multicam-light-green-h-340-dt20200117222034961-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.46
     },
     {
       "code": "H-339",
       "name": "Multicam Pale Green",
       "hex": "#b2b58e",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 25,
@@ -968,7 +1063,9 @@
       "shadow": "#747751",
       "highlight": "#c1c3aa",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-339/multicam-pale-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10711/multicam-pale-green-h-339-dt20200117222100626-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10711/multicam-pale-green-h-339-dt20200117222100626-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.44
     },
     {
       "code": "H-402",
@@ -985,13 +1082,15 @@
       "shadow": "#414748",
       "highlight": "#899293",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-402/jesse-james-cold-war-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6109/jesse-james-cold-war-grey-h-402-dt2019121018073812-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6109/jesse-james-cold-war-grey-h-402-dt2019121018073812-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.4
     },
     {
       "code": "H-401",
       "name": "Jesse James Civil Defense Blue",
       "hex": "#58717a",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 27,
@@ -1002,13 +1101,15 @@
       "shadow": "#38464b",
       "highlight": "#7a919a",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-401/jesse-james-civil-defense-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6108/jesse-james-civil-defense-blue-h-401-dt20191210180643582-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6108/jesse-james-civil-defense-blue-h-401-dt20191210180643582-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.43
     },
     {
       "code": "H-400",
       "name": "Jesse James Eastern Front Green",
       "hex": "#326843",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 28,
@@ -1019,13 +1120,15 @@
       "shadow": "#213f2a",
       "highlight": "#539668",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-400/jesse-james-eastern-front-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6107/jesse-james-eastern-front-green-h-400-dt20200210220218893-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6107/jesse-james-eastern-front-green-h-400-dt20200210220218893-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.4
     },
     {
       "code": "H-297",
       "name": "Stormtrooper White",
       "hex": "#eef0f1",
-      "sheen": "Matte",
+      "sheen": "High Gloss",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 29,
@@ -1037,13 +1140,15 @@
       "highlight": "#f2f3f4",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-297/stormtrooper-white",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6103/stormtrooper-white-h-297-dt20191211233707608-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6103/stormtrooper-white-h-297-dt20191211233707608-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.58
     },
     {
       "code": "H-296",
       "name": "Cobalt Kinetics Green",
       "hex": "#777a6e",
-      "sheen": "Gloss",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 30,
@@ -1054,13 +1159,15 @@
       "shadow": "#4a4b45",
       "highlight": "#95978e",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-296/cobalt-kinetics-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6102/cobalt-kinetics-green-h-296-dt20200210214046043-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6102/cobalt-kinetics-green-h-296-dt20200210214046043-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.38
     },
     {
       "code": "H-295",
       "name": "Cobalt Kinetics Slate",
       "hex": "#5b5554",
-      "sheen": "Matte",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 31,
@@ -1071,13 +1178,15 @@
       "shadow": "#383534",
       "highlight": "#807978",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-295/cobalt-kinetics-slate",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6101/cobalt-kinetics-slate-h-295-dt20191204192223427-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6101/cobalt-kinetics-slate-h-295-dt20191204192223427-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.4
     },
     {
       "code": "H-293",
       "name": "Vortex Bronze",
       "hex": "#69504b",
-      "sheen": "Satin",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 32,
@@ -1089,13 +1198,15 @@
       "highlight": "#90736d",
       "laserOptimized": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-293/vortex-bronze",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6099/vortex-bronze-h-293-dt20191210181356791-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6099/vortex-bronze-h-293-dt20191210181356791-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "density": 1.43
     },
     {
       "code": "H-255",
       "name": "Crushed Silver",
       "hex": "#c8c6c1",
-      "sheen": "Metallic",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 33,
@@ -1106,13 +1217,16 @@
       "shadow": "#807d73",
       "highlight": "#d4d2cf",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-255/crushed-silver",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6088/crushed-silver-h-255-dt2020011516265834-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6088/crushed-silver-h-255-dt2020011516265834-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "effect": "metallic",
+      "density": 1.38
     },
     {
       "code": "H-244",
       "name": "Bazooka Pink",
       "hex": "#e99aa9",
-      "sheen": "Gloss",
+      "sheen": "Eggshell",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 34,
@@ -1123,13 +1237,15 @@
       "shadow": "#bd334d",
       "highlight": "#e8b6bf",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-244/bazooka-pink",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6082/bazooka-pink-h-244-dt20200210213658633-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6082/bazooka-pink-h-244-dt20200210213658633-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.52
     },
     {
       "code": "H-217",
       "name": "Bright Purple",
       "hex": "#925b9f",
-      "sheen": "Gloss",
+      "sheen": "Matte",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 35,
@@ -1140,13 +1256,15 @@
       "shadow": "#593b60",
       "highlight": "#a883b0",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-217/bright-purple",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6064/bright-purple-h-217-dt20200210213806472-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6064/bright-purple-h-217-dt20200210213806472-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.4
     },
     {
       "code": "H-197",
       "name": "Wild Purple",
       "hex": "#c15eb5",
-      "sheen": "Gloss",
+      "sheen": "Flat",
       "family": "Cerakote H-Series",
       "wall": "palette",
       "wallRank": 36,
@@ -1157,7 +1275,9 @@
       "shadow": "#7d3574",
       "highlight": "#c888c0",
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-197/wild-purple",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6053/wild-purple-h-197-dt20200210222256472-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6053/wild-purple-h-197-dt20200210222256472-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "density": 1.46
     }
   ],
   "series": [
@@ -1498,7 +1618,8 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-376/fools-gold",
-      "thumb": "https://images.nicindustries.com/cerakote/products/17539/fools-gold-h-376-dt2024071817485639732-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/17539/fools-gold-h-376-dt2024071817485639732-thumbnail.jpg?size=200",
+      "effect": "metallic"
     },
     {
       "code": "H-375",
@@ -1506,7 +1627,8 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-375/black-gold",
-      "thumb": "https://images.nicindustries.com/cerakote/products/17534/black-gold-h-375-dt20240718175101954423-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/17534/black-gold-h-375-dt20240718175101954423-thumbnail.jpg?size=200",
+      "effect": "metallic"
     },
     {
       "code": "H-363",
@@ -1514,7 +1636,8 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-363/champagne",
-      "thumb": "https://images.nicindustries.com/cerakote/products/16722/champagne-h-363-dt20240718175228668202-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/16722/champagne-h-363-dt20240718175228668202-thumbnail.jpg?size=200",
+      "effect": "metallic"
     },
     {
       "code": "DFL-200",
@@ -1658,7 +1781,11 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-347/copper",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11328/copper-h-347-dt20200709225511959-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11328/copper-h-347-dt20200709225511959-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "effect": "metallic",
+      "density": 1.4
     },
     {
       "code": "E-250",
@@ -1666,7 +1793,10 @@
       "series": "E",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-250/titanium",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11554/sig-titanium-e-250-dt20210113155659623-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11554/sig-titanium-e-250-dt20210113155659623-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-349",
@@ -1674,7 +1804,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-349/aztec-teal",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11501/aztec-teal-h-349-dt20200915140508867-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11501/aztec-teal-h-349-dt20200915140508867-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.47
     },
     {
       "code": "H-148",
@@ -1682,7 +1815,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-148/burnt-bronze",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6031/burnt-bronze-h-148-dt20200210213859644-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6031/burnt-bronze-h-148-dt20200210213859644-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-315",
@@ -1690,7 +1826,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-315/northern-lights",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10448/northern-lights-h-315-dt20200210220821456-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10448/northern-lights-h-315-dt20200210220821456-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.5
     },
     {
       "code": "H-158",
@@ -1698,7 +1837,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-158/shimmer-aluminum",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6038/shimmer-aluminum-h-158-dt20200210221457604-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6038/shimmer-aluminum-h-158-dt20200210221457604-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.38
     },
     {
       "code": "E-210",
@@ -1707,7 +1849,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-210/moss",
       "thumb": "https://images.nicindustries.com/cerakote/products/12489/moss-e-210-dt20210113154725425-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "finest",
+      "sheen": "Matte",
+      "density": 1.36
     },
     {
       "code": "H-329",
@@ -1715,7 +1860,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-329/blue-raspberry",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11239/blue-raspberry-h-329-dt20200504161200268-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11239/blue-raspberry-h-329-dt20200504161200268-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.5
     },
     {
       "code": "H-357",
@@ -1723,7 +1871,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-357/periwinkle",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12900/periwinkle-h-357-dt20210617203327771-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12900/periwinkle-h-357-dt20210617203327771-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.37
     },
     {
       "code": "H-351",
@@ -1731,7 +1882,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-351/green-mamba",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12894/green-mamba-h-351-dt20210617203700717-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12894/green-mamba-h-351-dt20210617203700717-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Eggshell",
+      "density": 1.47
     },
     {
       "code": "H-322",
@@ -1739,7 +1893,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-322/blood-orange",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12094/blood-orange-h-322-dt20201105225831564-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12094/blood-orange-h-322-dt20201105225831564-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.38
     },
     {
       "code": "H-306",
@@ -1747,7 +1904,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-306/ruby-red",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10606/ruby-red-h-306-dt20200103151521903-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10606/ruby-red-h-306-dt20200103151521903-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Eggshell",
+      "density": 1.42
     },
     {
       "code": "H-314",
@@ -1756,7 +1916,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-314/crushed-orchid",
       "thumb": "https://images.nicindustries.com/cerakote/products/10442/crushed-orchid-h-314-dt20200210214504711-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.49
     },
     {
       "code": "H-326",
@@ -1765,7 +1928,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-326/polar-blue",
       "thumb": "https://images.nicindustries.com/cerakote/products/10172/polar-blue-h-326-dt20200210221058482-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-310",
@@ -1773,7 +1939,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-310/copper-suede",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10154/copper-suede-h-310-dt20200210214226348-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10154/copper-suede-h-310-dt20200210214226348-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-359",
@@ -1781,7 +1950,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-359/smoked-bronze",
-      "thumb": "https://images.nicindustries.com/cerakote/products/13003/smoked-bronze-mto-h-359-dt20220802154601683218-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/13003/smoked-bronze-mto-h-359-dt20220802154601683218-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-360",
@@ -1789,7 +1961,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-360/crocodile",
-      "thumb": "https://images.nicindustries.com/cerakote/products/13177/crocodile-mto-h-360-dt20230112163141355631-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/13177/crocodile-mto-h-360-dt20230112163141355631-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.38
     },
     {
       "code": "H-151",
@@ -1797,7 +1972,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-151/satin-aluminum",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6034/satin-aluminum-h-151-dt20191210180957179-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6034/satin-aluminum-h-151-dt20191210180957179-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Eggshell",
+      "density": 1.37
     },
     {
       "code": "H-354",
@@ -1805,7 +1983,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-354/lemon-zest",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12726/lemon-zest-h-354-dt20210423143441561-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12726/lemon-zest-h-354-dt20210423143441561-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Semi Gloss",
+      "density": 1.41
     },
     {
       "code": "H-152",
@@ -1813,7 +1994,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-152/stainless",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6035/stainless-h-152-dt20191211233543481-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6035/stainless-h-152-dt20191211233543481-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-157",
@@ -1821,7 +2005,11 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-157/bright-nickel",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6037/bright-nickel-h-157-dt20191204192320203-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6037/bright-nickel-h-157-dt20191204192320203-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "effect": "metallic",
+      "density": 1.4
     },
     {
       "code": "H-345",
@@ -1829,7 +2017,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-345/multicam-dark-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10740/multicam-dark-grey-h-345-dt20200117222020186-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10740/multicam-dark-grey-h-345-dt20200117222020186-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.46
     },
     {
       "code": "H-344",
@@ -1837,7 +2028,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-344/multicam-olive",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10735/multicam-olive-h-344-dt202001172220478-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10735/multicam-olive-h-344-dt202001172220478-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.45
     },
     {
       "code": "H-343",
@@ -1846,7 +2040,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-343/multicam-bright-green",
       "thumb": "https://images.nicindustries.com/cerakote/products/10730/multicam-bright-green-h-343-dt2020011722192609-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.47
     },
     {
       "code": "H-342",
@@ -1854,7 +2051,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-342/multicam-dark-brown",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10725/multicam-dark-brown-h-342-dt2020011722194097-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10725/multicam-dark-brown-h-342-dt2020011722194097-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.51
     },
     {
       "code": "H-341",
@@ -1862,7 +2062,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-341/multicam-dark-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10720/multicam-dark-green-h-341-dt20200117221958336-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10720/multicam-dark-green-h-341-dt20200117221958336-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.36
     },
     {
       "code": "H-340",
@@ -1870,7 +2073,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-340/multicam-light-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10716/multicam-light-green-h-340-dt20200117222034961-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10716/multicam-light-green-h-340-dt20200117222034961-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.46
     },
     {
       "code": "H-339",
@@ -1878,7 +2084,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-339/multicam-pale-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10711/multicam-pale-green-h-339-dt20200117222100626-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10711/multicam-pale-green-h-339-dt20200117222100626-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "HIR-265",
@@ -1918,7 +2127,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-8000/ral-8000",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6111/ral-8000-h-8000-dt20191210180902438-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6111/ral-8000-h-8000-dt20191210180902438-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.32
     },
     {
       "code": "H-402",
@@ -1926,7 +2138,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-402/jesse-james-cold-war-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6109/jesse-james-cold-war-grey-h-402-dt2019121018073812-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6109/jesse-james-cold-war-grey-h-402-dt2019121018073812-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.4
     },
     {
       "code": "H-401",
@@ -1934,7 +2149,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-401/jesse-james-civil-defense-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6108/jesse-james-civil-defense-blue-h-401-dt20191210180643582-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6108/jesse-james-civil-defense-blue-h-401-dt20191210180643582-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-400",
@@ -1942,7 +2160,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-400/jesse-james-eastern-front-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6107/jesse-james-eastern-front-green-h-400-dt20200210220218893-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6107/jesse-james-eastern-front-green-h-400-dt20200210220218893-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.4
     },
     {
       "code": "H-33446",
@@ -1950,7 +2171,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-33446/fs-sabre-sand",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6106/federal-standard-sabre-sand-h-33446-dt20191210175232606-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6106/federal-standard-sabre-sand-h-33446-dt20191210175232606-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Eggshell",
+      "density": 1.43
     },
     {
       "code": "H-30372",
@@ -1958,7 +2182,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-30372/fs-brown-sand",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6105/fs-brown-sand-h-30372-dt2019121017535053-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6105/fs-brown-sand-h-30372-dt2019121017535053-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Eggshell",
+      "density": 1.46
     },
     {
       "code": "H-30118",
@@ -1966,7 +2193,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-30118/fs-field-drab",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6104/federal-standard-field-drab-h-30118-dt20191204192750366-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6104/federal-standard-field-drab-h-30118-dt20191204192750366-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.37
     },
     {
       "code": "H-297",
@@ -1975,7 +2205,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-297/stormtrooper-white",
       "thumb": "https://images.nicindustries.com/cerakote/products/6103/stormtrooper-white-h-297-dt20191211233707608-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "High Gloss",
+      "density": 1.58
     },
     {
       "code": "H-296",
@@ -1983,7 +2216,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-296/cobalt-kinetics-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6102/cobalt-kinetics-green-h-296-dt20200210214046043-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6102/cobalt-kinetics-green-h-296-dt20200210214046043-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.38
     },
     {
       "code": "H-295",
@@ -1991,7 +2227,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-295/cobalt-kinetics-slate",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6101/cobalt-kinetics-slate-h-295-dt20191204192223427-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6101/cobalt-kinetics-slate-h-295-dt20191204192223427-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.4
     },
     {
       "code": "H-294",
@@ -2000,7 +2239,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-294/midnight-bronze",
       "thumb": "https://images.nicindustries.com/cerakote/products/6100/midnight-bronze-h-294-dt20200210220548156-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-293",
@@ -2009,7 +2251,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-293/vortex-bronze",
       "thumb": "https://images.nicindustries.com/cerakote/products/6099/vortex-bronze-h-293-dt20191210181356791-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-269",
@@ -2017,7 +2262,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-269/barrett-brown",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6098/barrett-brown-h-269-dt20191210173611263-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6098/barrett-brown-h-269-dt20191210173611263-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-268",
@@ -2026,7 +2274,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-268/troy-coyote-tan",
       "thumb": "https://images.nicindustries.com/cerakote/products/6097/troy-coyote-tan-h-268-dt20200210222112843-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-267",
@@ -2034,7 +2285,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-267/magpul-flat-dark-earth",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6096/magpultm-flat-dark-earth-h-267-dt20191210175609805-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6096/magpultm-flat-dark-earth-h-267-dt20191210175609805-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.4
     },
     {
       "code": "H-265",
@@ -2042,7 +2296,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-265/flat-dark-earth",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6095/flat-dark-earth-h-265-dt20200210214941939-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6095/flat-dark-earth-h-265-dt20200210214941939-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-264",
@@ -2050,7 +2307,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-264/mil-spec-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6094/mil-spec-green-h-264-dt20191211234245896-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6094/mil-spec-green-h-264-dt20191211234245896-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.42
     },
     {
       "code": "H-262",
@@ -2058,7 +2318,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-262/stone-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6093/stone-grey-h-262-dt20200210221839259-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6093/stone-grey-h-262-dt20200210221839259-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.39
     },
     {
       "code": "H-261",
@@ -2066,7 +2329,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-261/glock-fde",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6092/glock-fde-h-261-dt20200210215540572-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6092/glock-fde-h-261-dt20200210215540572-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-259",
@@ -2074,7 +2340,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-259/barrett-bronze",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6091/barrett-bronze-h-259-dt20200210213614136-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6091/barrett-bronze-h-259-dt20200210213614136-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.39
     },
     {
       "code": "H-258",
@@ -2082,7 +2351,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-258/chocolate-brown",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6090/chocolate-brown-temporarily-out-of-stock-h-258-dt20191210173949788-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6090/chocolate-brown-temporarily-out-of-stock-h-258-dt20191210173949788-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.37
     },
     {
       "code": "H-256",
@@ -2090,7 +2362,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-256/desert-verde",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6089/desert-verde-h-256-dt20191210174242783-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6089/desert-verde-h-256-dt20191210174242783-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.47
     },
     {
       "code": "H-255",
@@ -2098,7 +2373,11 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-255/crushed-silver",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6088/crushed-silver-h-255-dt2020011516265834-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6088/crushed-silver-h-255-dt2020011516265834-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "effect": "metallic",
+      "density": 1.38
     },
     {
       "code": "H-250",
@@ -2106,7 +2385,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-250/ai-dark-earth",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6087/ai-dark-earth-h-250-dt2019121017351206-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6087/ai-dark-earth-h-250-dt2019121017351206-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.4
     },
     {
       "code": "H-248",
@@ -2114,7 +2396,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-248/forest-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6086/forest-green-h-248-dt20200210215158183-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6086/forest-green-h-248-dt20200210215158183-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-247",
@@ -2122,7 +2407,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-247/desert-sage",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6085/desert-sage-h-247-dt20200210214552691-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6085/desert-sage-h-247-dt20200210214552691-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.4
     },
     {
       "code": "H-245",
@@ -2130,7 +2418,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-245/socom-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6083/socom-blue-h-245-dt20191210181309039-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6083/socom-blue-h-245-dt20191210181309039-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.36
     },
     {
       "code": "H-244",
@@ -2138,7 +2429,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-244/bazooka-pink",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6082/bazooka-pink-h-244-dt20200210213658633-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6082/bazooka-pink-h-244-dt20200210213658633-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Eggshell",
+      "density": 1.52
     },
     {
       "code": "H-242",
@@ -2146,7 +2440,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-242/hidden-white",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6081/hidden-white-h-242-dt2020021022003234-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6081/hidden-white-h-242-dt2020021022003234-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-240",
@@ -2155,7 +2452,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-240/mil-spec-od-green",
       "thumb": "https://images.nicindustries.com/cerakote/products/6080/mil-spec-od-green-h-240-dt20200210220638798-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-238",
@@ -2163,7 +2463,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-238/midnight-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6079/midnight-blue-h-238-dt20200115164053748-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6079/midnight-blue-h-238-dt20200115164053748-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Satin",
+      "density": 1.45
     },
     {
       "code": "H-237",
@@ -2171,7 +2474,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-237/tungsten",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6078/tungsten-h-237-dt20200210222204157-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6078/tungsten-h-237-dt20200210222204157-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-236",
@@ -2179,7 +2485,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-236/od-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6077/od-green-h-236-dt20191211233433019-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6077/od-green-h-236-dt20191211233433019-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.39
     },
     {
       "code": "H-235",
@@ -2187,7 +2496,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-235/coyote-tan",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6076/coyote-tan-h-235-dt20191211234039107-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6076/coyote-tan-h-235-dt20191211234039107-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-234",
@@ -2195,7 +2507,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-234/sniper-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6075/sniper-grey-h-234-dt20200210221607902-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6075/sniper-grey-h-234-dt20200210221607902-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.41
     },
     {
       "code": "H-232",
@@ -2203,7 +2518,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-232/magpul-od-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6074/magpultm-od-green-h-232-dt20200115163249696-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6074/magpultm-od-green-h-232-dt20200115163249696-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-231",
@@ -2211,7 +2529,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-231/magpul-foliage-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6073/magpul-foliage-green-h-231-dt20200210220414395-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6073/magpul-foliage-green-h-231-dt20200210220414395-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.41
     },
     {
       "code": "H-229",
@@ -2219,7 +2540,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-229/sniper-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6072/sniper-green-h-229-dt20191210181222298-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6072/sniper-green-h-229-dt20191210181222298-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.36
     },
     {
       "code": "H-227",
@@ -2227,7 +2551,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-227/tactical-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6071/tactical-grey-h-227-dt20200210221919051-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6071/tactical-grey-h-227-dt20200210221919051-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.45
     },
     {
       "code": "H-226",
@@ -2236,7 +2563,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-226/patriot-brown",
       "thumb": "https://images.nicindustries.com/cerakote/products/6070/patriot-brown-h-226-dt20200210220936328-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-225",
@@ -2244,7 +2574,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-225/mud-brown",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6069/mud-brown-h-225-dt20200210220748829-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6069/mud-brown-h-225-dt20200210220748829-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.43
     },
     {
       "code": "H-224",
@@ -2252,7 +2585,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-224/sig-pink",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6068/sig-pink-h-224-dt20200115164458315-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6068/sig-pink-h-224-dt20200115164458315-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.36
     },
     {
       "code": "H-221",
@@ -2260,7 +2596,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-221/crimson",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6067/crimson-h-221-dt2020021021441569-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6067/crimson-h-221-dt2020021021441569-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Satin",
+      "density": 1.36
     },
     {
       "code": "H-220",
@@ -2268,7 +2607,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-220/ridgeway-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6066/ridgeway-blue-h-220-dt20200210221217589-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6066/ridgeway-blue-h-220-dt20200210221217589-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-219",
@@ -2276,7 +2618,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-219/gun-metal-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6065/gun-metal-grey-h-219-dt20200210215912675-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6065/gun-metal-grey-h-219-dt20200210215912675-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.46
     },
     {
       "code": "H-217",
@@ -2284,7 +2629,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-217/bright-purple",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6064/bright-purple-h-217-dt20200210213806472-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6064/bright-purple-h-217-dt20200210213806472-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.4
     },
     {
       "code": "H-216",
@@ -2292,7 +2640,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-216/firehouse-red",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6063/smith-wesson-red-h-216-dt20191211234338189-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6063/smith-wesson-red-h-216-dt20191211234338189-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.36
     },
     {
       "code": "H-214",
@@ -2301,7 +2652,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-214/bull-shark-grey",
       "thumb": "https://images.nicindustries.com/cerakote/products/6061/smith-wesson-grey-h-214-dt20191210181132943-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.49
     },
     {
       "code": "H-213",
@@ -2309,7 +2663,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-213/battleship-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6060/battleship-grey-h-213-dt20191211233012712-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6060/battleship-grey-h-213-dt20191211233012712-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.42
     },
     {
       "code": "H-212",
@@ -2317,7 +2674,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-212/federal-brown",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6059/federal-brown-h-212-dt20191210175004096-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6059/federal-brown-h-212-dt20191210175004096-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.46
     },
     {
       "code": "H-210",
@@ -2325,7 +2685,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-210/sig-dark-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6058/sig-dark-grey-h-210-dt20200210221530804-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6058/sig-dark-grey-h-210-dt20200210221530804-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.45
     },
     {
       "code": "H-204",
@@ -2333,7 +2696,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-204/hazel-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6057/hazel-green-h-204-dt20200210215956716-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6057/hazel-green-h-204-dt20200210215956716-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.38
     },
     {
       "code": "H-203",
@@ -2341,7 +2707,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-203/mcmillan-tan",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6056/mcmillan-tan-h-203-dt20191210180824736-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6056/mcmillan-tan-h-203-dt20191210180824736-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.43
     },
     {
       "code": "H-200",
@@ -2349,7 +2718,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-200/highland-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6055/highland-green-h-200-dt20200210220137719-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6055/highland-green-h-200-dt20200210220137719-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.4
     },
     {
       "code": "H-199",
@@ -2357,7 +2729,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-199/desert-sand",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6054/desert-sand-h-199-dt2020021021463937-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6054/desert-sand-h-199-dt2020021021463937-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-197",
@@ -2365,7 +2740,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-197/wild-purple",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6053/wild-purple-h-197-dt20200210222256472-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6053/wild-purple-h-197-dt20200210222256472-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.46
     },
     {
       "code": "H-190",
@@ -2373,7 +2751,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-190/armor-black",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6052/armor-black-h-190-dt20200210213531006-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6052/armor-black-h-190-dt20200210213531006-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-189",
@@ -2382,7 +2763,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-189/noveske-bazooka-green",
       "thumb": "https://images.nicindustries.com/cerakote/products/6051/noveske-bazooka-green-h-189-dt20191211233305849-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.33
     },
     {
       "code": "H-188",
@@ -2391,7 +2775,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-188/magpul-stealth-grey",
       "thumb": "https://images.nicindustries.com/cerakote/products/6050/magpul-stealth-grey-h-188-dt20200210220503341-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.41
     },
     {
       "code": "H-187",
@@ -2399,7 +2786,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-187/noveske-tiger-eye-brown",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6049/noveske-tiger-eye-brown-h-187-dt20200210220859529-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6049/noveske-tiger-eye-brown-h-187-dt20200210220859529-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.45
     },
     {
       "code": "H-185",
@@ -2407,7 +2797,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-185/blue-titanium",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6048/blue-titanium-h-185-dt20200210213731356-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6048/blue-titanium-h-185-dt20200210213731356-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.4
     },
     {
       "code": "H-184",
@@ -2415,7 +2808,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-184/glock-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6047/glock-grey-h-184-dt20191210180553194-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6047/glock-grey-h-184-dt20191210180553194-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.46
     },
     {
       "code": "H-175",
@@ -2423,7 +2819,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-175/robins-egg-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6046/robins-egg-blue-h-175-dt20200210221310009-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6046/robins-egg-blue-h-175-dt20200210221310009-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Eggshell",
+      "density": 1.48
     },
     {
       "code": "H-172",
@@ -2431,7 +2830,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-172/sea-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6045/sea-blue-h-172-dt20200210221425686-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6045/sea-blue-h-172-dt20200210221425686-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.45
     },
     {
       "code": "H-171",
@@ -2439,7 +2841,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-171/nra-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6044/nra-blue-h-171-dt20191211233336492-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6044/nra-blue-h-171-dt20191211233336492-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.47
     },
     {
       "code": "H-170",
@@ -2447,7 +2852,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-170/titanium",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6043/titanium-h-170-dt2020021022204377-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6043/titanium-h-170-dt2020021022204377-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.38
     },
     {
       "code": "H-169",
@@ -2455,7 +2863,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-169/sky-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6042/sky-blue-h-169-dt20200115164908168-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6042/sky-blue-h-169-dt20200115164908168-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-168",
@@ -2463,7 +2874,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-168/zombie-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6041/zombie-green-h-168-dt20191211233834014-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6041/zombie-green-h-168-dt20191211233834014-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-167",
@@ -2471,7 +2885,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-167/usmc-red",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6040/usmc-red-h-167-dt2019121123380131-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6040/usmc-red-h-167-dt2019121123380131-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Satin",
+      "density": 1.36
     },
     {
       "code": "H-166",
@@ -2479,7 +2896,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-166/electric-yellow",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6039/electric-yellow-h-166-dt20200210214728384-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6039/electric-yellow-h-166-dt20200210214728384-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Semi Gloss",
+      "density": 1.38
     },
     {
       "code": "H-150",
@@ -2487,7 +2907,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-150/savage-stainless",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6033/savage-stainless-h-150-dt20191210181042996-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6033/savage-stainless-h-150-dt20191210181042996-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.39
     },
     {
       "code": "H-149",
@@ -2495,7 +2918,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-149/copper-brown",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6032/copper-brown-h-149-dt20200210214134391-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6032/copper-brown-h-149-dt20200210214134391-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-147",
@@ -2503,7 +2929,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-147/satin-mag",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6030/satin-mag-h-147-dt20200210221348308-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6030/satin-mag-h-147-dt20200210221348308-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.38
     },
     {
       "code": "H-146",
@@ -2511,7 +2940,10 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-146/graphite-black",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6029/graphite-black-h-146-dt20200210215818379-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6029/graphite-black-h-146-dt20200210215818379-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.4
     },
     {
       "code": "H-144",
@@ -2519,7 +2951,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-144/corvette-yellow",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6028/corvette-yellow-h-144-dt20200210214312603-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6028/corvette-yellow-h-144-dt20200210214312603-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Gloss",
+      "density": 1.42
     },
     {
       "code": "H-143",
@@ -2527,7 +2962,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-143/benelli-sand",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6027/benelli-sand-h-143-dt201912101737186-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6027/benelli-sand-h-143-dt201912101737186-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.48
     },
     {
       "code": "H-142",
@@ -2535,7 +2973,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-142/light-sand",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6026/light-sand-h-142-dt20200210220339836-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6026/light-sand-h-142-dt20200210220339836-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-141",
@@ -2543,7 +2984,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-141/prison-pink",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6025/prison-pink-h-141-dt20200210221134637-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6025/prison-pink-h-141-dt20200210221134637-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.36
     },
     {
       "code": "H-140",
@@ -2552,7 +2996,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-140/bright-white",
       "thumb": "https://images.nicindustries.com/cerakote/products/6024/bright-white-h-140-dt20191211233954375-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Semi Gloss",
+      "density": 1.45
     },
     {
       "code": "H-139",
@@ -2560,7 +3007,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-139/steel-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6023/steel-grey-h-139-dt20200210221801985-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6023/steel-grey-h-139-dt20200210221801985-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.41
     },
     {
       "code": "H-136",
@@ -2569,7 +3019,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-136/snow-white",
       "thumb": "https://images.nicindustries.com/cerakote/products/6021/snow-white-h-136-dt20200210221644059-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.6
     },
     {
       "code": "H-130",
@@ -2577,7 +3030,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-130/combat-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6020/combat-grey-h-130-dt20191210180158609-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6020/combat-grey-h-130-dt20191210180158609-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "H-128",
@@ -2585,7 +3041,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-128/hunter-orange",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6019/hunter-orange-h-128-dt20191211233158871-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6019/hunter-orange-h-128-dt20191211233158871-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.33
     },
     {
       "code": "H-127",
@@ -2593,7 +3052,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-127/kel-tec-navy-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6018/kel-tec-navy-blue-h-127-dt20200210220305999-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6018/kel-tec-navy-blue-h-127-dt20200210220305999-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Eggshell",
+      "density": 1.37
     },
     {
       "code": "H-122",
@@ -2601,7 +3063,11 @@
       "series": "H",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-122/gold",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6016/gold-h-122-dt20200210215649141-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6016/gold-h-122-dt20200210215649141-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "effect": "metallic",
+      "density": 1.42
     },
     {
       "code": "H-112",
@@ -2609,7 +3075,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-112/cobalt",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6015/cobalt-h-112-dt20200210213950704-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6015/cobalt-h-112-dt20200210213950704-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-109",
@@ -2617,7 +3086,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-109/gloss-black",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6013/gloss-black-h-109-dt20191211233049678-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6013/gloss-black-h-109-dt20191211233049678-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Semi Gloss",
+      "density": 1.34
     },
     {
       "code": "E-190",
@@ -2625,7 +3097,10 @@
       "series": "E",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-190/20150",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6011/20150-e-190-dt20191210174333337-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6011/20150-e-190-dt20191210174333337-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "sheen": "Matte",
+      "density": 1.41
     },
     {
       "code": "E-170",
@@ -2634,7 +3109,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-170/m17-coyote-tan",
       "thumb": "https://images.nicindustries.com/cerakote/products/6010/coyote-m17-tan-e-170-dt20191204192949777-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "finest",
+      "sheen": "Matte",
+      "density": 1.42
     },
     {
       "code": "E-160",
@@ -2642,7 +3120,10 @@
       "series": "E",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-160/concrete",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6009/concrete-e-160-dt20200601211519278-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6009/concrete-e-160-dt20200601211519278-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "sheen": "Matte",
+      "density": 1.42
     },
     {
       "code": "E-150",
@@ -2651,7 +3132,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-150/sand",
       "thumb": "https://images.nicindustries.com/cerakote/products/6008/sand-e-150-dt20220421220707053658-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "finest",
+      "sheen": "Flat",
+      "density": 1.41
     },
     {
       "code": "E-140",
@@ -2660,7 +3144,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-140/jungle",
       "thumb": "https://images.nicindustries.com/cerakote/products/6007/jungle-e-140-dt20200601211419404-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "finest",
+      "sheen": "Matte",
+      "density": 1.41
     },
     {
       "code": "E-130",
@@ -2669,7 +3156,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-130/earth",
       "thumb": "https://images.nicindustries.com/cerakote/products/6006/earth-e-130-dt20191210180330077-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "finest",
+      "sheen": "Eggshell",
+      "density": 1.41
     },
     {
       "code": "E-120",
@@ -2678,7 +3168,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-120/smoke",
       "thumb": "https://images.nicindustries.com/cerakote/products/6005/smoke-e-120-dt20191210180457587-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "finest",
+      "sheen": "Flat",
+      "density": 1.4
     },
     {
       "code": "E-110",
@@ -2686,7 +3179,10 @@
       "series": "E",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-110/midnight",
-      "thumb": "https://images.nicindustries.com/cerakote/products/6004/midnight-e-110-dt20191209211535964-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/6004/midnight-e-110-dt20191209211535964-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "sheen": "Matte",
+      "density": 1.4
     },
     {
       "code": "C-30118",
@@ -2926,7 +3422,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-301/matte-armor-clear",
-      "thumb": "https://images.nicindustries.com/cerakote/products/173/matte-armor-clear-h-301-dt20200207193911948-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/173/matte-armor-clear-h-301-dt20200207193911948-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Semi Gloss",
+      "density": 1.26
     },
     {
       "code": "H-300",
@@ -2934,7 +3433,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-300/high-gloss-armor-clear",
-      "thumb": "https://images.nicindustries.com/cerakote/products/172/high-gloss-armor-clear-h-300-dt20200207193942344-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/172/high-gloss-armor-clear-h-300-dt20200207193942344-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "sheen": "High Gloss",
+      "density": 1.26
     },
     {
       "code": "H-34094",
@@ -2942,7 +3444,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-34094/fs-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/14879/fs-green-h-34094-dt20230808225845667899-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/14879/fs-green-h-34094-dt20230808225845667899-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.48
     },
     {
       "code": "H-321",
@@ -2950,7 +3455,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-321/blush",
-      "thumb": "https://images.nicindustries.com/cerakote/products/14845/blush-h-321-dt20230630203431202603-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/14845/blush-h-321-dt20230630203431202603-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-320",
@@ -2958,7 +3466,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-320/cranberry-frost",
-      "thumb": "https://images.nicindustries.com/cerakote/products/14843/cranberry-frost-h-320-dt20230630204714294455-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/14843/cranberry-frost-h-320-dt20230630204714294455-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.49
     },
     {
       "code": "LR-100",
@@ -2982,7 +3493,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-362/patriot-blue",
-      "thumb": "https://images.nicindustries.com/cerakote/products/13311/patriot-blue-h-362-dt20220527204843350441-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/13311/patriot-blue-h-362-dt20220527204843350441-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.38
     },
     {
       "code": "E-310",
@@ -2990,7 +3504,10 @@
       "series": "E",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-310/fire",
-      "thumb": "https://images.nicindustries.com/cerakote/products/13049/fire-e-310-dt20210813183006361-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/13049/fire-e-310-dt20210813183006361-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "sheen": "Matte",
+      "density": 1.41
     },
     {
       "code": "E-290",
@@ -2999,7 +3516,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-290/storm",
       "thumb": "https://images.nicindustries.com/cerakote/products/13000/storm-e-290-dt20211015200319828-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "finest",
+      "sheen": "Eggshell",
+      "density": 1.46
     },
     {
       "code": "H-348",
@@ -3007,7 +3527,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-348/sangria",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12888/sangria-h-348-dt2021061720391525-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12888/sangria-h-348-dt2021061720391525-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Eggshell",
+      "density": 1.42
     },
     {
       "code": "MC-2200",
@@ -3023,7 +3546,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-353/island-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12720/island-green-h-353-dt20210401184349112-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12720/island-green-h-353-dt20210401184349112-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.43
     },
     {
       "code": "E-240",
@@ -3031,7 +3557,10 @@
       "series": "E",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-240/carbon-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12494/carbon-grey-e-240-dt20210113155317675-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12494/carbon-grey-e-240-dt20210113155317675-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.38
     },
     {
       "code": "H-319",
@@ -3039,7 +3568,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-319/black-cherry",
-      "thumb": "https://images.nicindustries.com/cerakote/products/12089/black-cherry-h-319-dt20201105230251938-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/12089/black-cherry-h-319-dt20201105230251938-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.41
     },
     {
       "code": "H-337",
@@ -3047,7 +3579,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-337/platinum-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11322/platinum-grey-h-337-dt20200709225426615-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11322/platinum-grey-h-337-dt20200709225426615-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.46
     },
     {
       "code": "H-312",
@@ -3055,7 +3590,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-312/frost",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11317/frost-h-312-dt20200709225450666-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11317/frost-h-312-dt20200709225450666-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.41
     },
     {
       "code": "H-332",
@@ -3063,7 +3601,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-332/purplexed",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11245/purplexed-h-332-dt20200504161233406-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11245/purplexed-h-332-dt20200504161233406-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.5
     },
     {
       "code": "H-331",
@@ -3071,7 +3612,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-331/parakeet-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11164/parakeet-green-h-331-dt20200313170943425-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11164/parakeet-green-h-331-dt20200313170943425-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.44
     },
     {
       "code": "H-328",
@@ -3079,7 +3623,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-328/pink-sherbet",
-      "thumb": "https://images.nicindustries.com/cerakote/products/11159/pink-sherbet-h-328-dt20200313171150577-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/11159/pink-sherbet-h-328-dt20200313171150577-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.45
     },
     {
       "code": "H-346",
@@ -3087,7 +3634,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-346/hi-vis-orange",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10745/hi-vis-orange-h-346-dt20200117221903657-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10745/hi-vis-orange-h-346-dt20200117221903657-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.33
     },
     {
       "code": "H-338",
@@ -3096,7 +3646,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-338/charcoal-green",
       "thumb": "https://images.nicindustries.com/cerakote/products/10611/charcoal-green-h-338-dt20200103151447607-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.45
     },
     {
       "code": "H-327",
@@ -3104,7 +3657,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-327/rose-gold",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10535/rose-gold-h-327-dt20191211231623244-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10535/rose-gold-h-327-dt20191211231623244-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.41
     },
     {
       "code": "H-318",
@@ -3112,7 +3668,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-318/habanero-red",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10504/habanero-red-h-318-dt20191211234216052-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10504/habanero-red-h-318-dt20191211234216052-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Eggshell",
+      "density": 1.32
     },
     {
       "code": "H-317",
@@ -3120,7 +3679,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-317/sunflower",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10501/sunflower-h-317-dt20191211234920104-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10501/sunflower-h-317-dt20191211234920104-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.42
     },
     {
       "code": "H-316",
@@ -3128,7 +3690,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-316/squatch-green",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10498/squatch-green-h-316-dt20191211234418766-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10498/squatch-green-h-316-dt20191211234418766-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.51
     },
     {
       "code": "H-309",
@@ -3136,7 +3701,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-309/tequila-sunrise",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10437/tequila-sunrise-h-309-dt20200210222006144-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10437/tequila-sunrise-h-309-dt20200210222006144-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.49
     },
     {
       "code": "H-311",
@@ -3144,7 +3712,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-311/pink-champagne",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10159/pink-champagne-h-311-dt20200210221018034-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10159/pink-champagne-h-311-dt20200210221018034-thumbnail.jpg?size=200",
+      "mesh": "coarse",
+      "sheen": "Flat",
+      "density": 1.36
     },
     {
       "code": "V-119",
@@ -3264,7 +3835,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-900/electrical-barrier",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10119/electrical-barrier-h-900-dt20200210153442342-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10119/electrical-barrier-h-900-dt20200210153442342-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Matte",
+      "density": 1.45
     },
     {
       "code": "H-305",
@@ -3272,7 +3846,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-305/springfield-fde",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10117/springfield-fde-h-305-dt20191210175943048-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10117/springfield-fde-h-305-dt20191210175943048-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.44
     },
     {
       "code": "H-304",
@@ -3280,7 +3857,10 @@
       "series": "H",
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-304/springfield-grey",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10116/springfield-grey-h-304-dt20200210221725067-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10116/springfield-grey-h-304-dt20200210221725067-thumbnail.jpg?size=200",
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.46
     },
     {
       "code": "H-298",
@@ -3289,7 +3869,10 @@
       "stocked": false,
       "url": "https://www.cerakote.com/shop/cerakote-coating/H-298/plum-brown",
       "thumb": "https://images.nicindustries.com/cerakote/products/10115/plum-brown-h-298-dt2019121017590954-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "fine",
+      "sheen": "Flat",
+      "density": 1.46
     },
     {
       "code": "E-200",
@@ -3298,7 +3881,10 @@
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-200/fde",
       "thumb": "https://images.nicindustries.com/cerakote/products/10096/fde-e-200-dt20191210174557667-thumbnail.jpg?size=200",
-      "laserOptimized": true
+      "laserOptimized": true,
+      "mesh": "finest",
+      "sheen": "Matte",
+      "density": 1.41
     },
     {
       "code": "E-100",
@@ -3306,7 +3892,10 @@
       "series": "E",
       "stocked": true,
       "url": "https://www.cerakote.com/shop/cerakote-coating/E-100/blackout",
-      "thumb": "https://images.nicindustries.com/cerakote/products/10095/blackout-e-100-dt20191211222726844-thumbnail.jpg?size=200"
+      "thumb": "https://images.nicindustries.com/cerakote/products/10095/blackout-e-100-dt20191211222726844-thumbnail.jpg?size=200",
+      "mesh": "finest",
+      "sheen": "Eggshell",
+      "density": 1.51
     },
     {
       "code": "C-7900",

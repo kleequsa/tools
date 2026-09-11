@@ -36,3 +36,14 @@ Built from `KLEEQ Finish Catalogue Lite.dc.html`. Differences from the internal 
 - Both calculators run one design layer: Modernist / Light / Dark / Glass themes, shared token set, glass popovers and pill controls.
 - Instructions and Notes are collapsible in every view, closed by default off desktop; per-tool storage key.
 - Catalogue data refreshed alongside the build.
+
+## Release 2026-09-11 — strainer, gloss and series corrections
+- STRAINER added to the detail drawer and the compare columns, per colour from the
+  H-Series TDS (v12-14-23) and Elite TDS (v04/12/2022); same rule as the mixing
+  calculator, so the two tools always agree.
+- SHEEN now carries Cerakote's published gloss level. 45 finishes were wrong —
+  H-297 Stormtrooper White read Matte and is High Gloss. Codes with no published
+  level show none.
+- V-Series was titled "Air cure" while its own cure text correctly says oven at 500°F.
+- LISTED row removed from the drawer.
+- Every coating now carries its TDS density.
