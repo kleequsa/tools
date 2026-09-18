@@ -297,7 +297,7 @@
           </div>
           <div style="display:flex;gap:8px;align-items:stretch;flex-wrap:wrap">
             <div style="position:relative;flex:1 1 140px;min-width:120px">
-              <input class="s-big" style="font-size:{{ weightFont }};padding:0 {{ weightPadR }} 0 {{ weightPadL }};height:{{ weightH }};box-sizing:border-box;text-align:right;{{ weightStyle }}" type="{{ weightType }}" inputMode="decimal" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
+              <input class="s-big" style="font-size:{{ weightFont }};padding:0 {{ weightPadR }} 0 {{ weightPadL }};height:{{ weightH }};box-sizing:border-box;text-align:right;{{ weightStyle }}" data-fit-num="1" type="{{ weightType }}" inputMode="decimal" min="0" step="0.1" placeholder="0" value="{{ weight }}" onInput="{{ setWeight }}" onWheel="{{ noWheel }}" aria-label="Weight in grams">
               <span aria-hidden="true" style="position:absolute;top:50%;right:{{ unitInset }};transform:translateY(-50%);font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ unitFont }};line-height:1;color:var(--k-label);pointer-events:none">g</span>
               <button type="button" class="s-seg" style="position:absolute;top:50%;{{ clearPos }};transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;box-shadow:none;justify-content:center;color:var(--k-label);opacity:{{ clearVis }}" disabled="{{ clearOff }}" data-self-disabled="{{ clearOffStr }}" onClick="{{ clearWeight }}" title="Clear the weight" aria-label="Clear the weight">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
@@ -342,12 +342,12 @@
           </div>
           <div id="mix-out" style="display:grid" aria-live="polite" aria-atomic="true">
           <div style="display:flex;gap:16px;align-items:baseline;justify-content:space-between;min-width:0;padding-bottom:16px;opacity:{{ mixOpacity }}">
-            <span style="display:flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.14em;white-space:nowrap;color:var(--k-gold-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>{{ outLabelA }}</span>
-            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ mixFont }};line-height:1;white-space:nowrap;color:var(--k-gold-soft)">{{ outA }}</span>
+            <span style="display:flex;align-items:center;gap:8px;font-family:var(--k-mono);font-size:{{ mixCapFont }};letter-spacing:0.14em;white-space:nowrap;color:var(--k-gold-soft)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>{{ outLabelA }}</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ mixFont }};line-height:1;white-space:nowrap;color:var(--k-gold-soft)" data-fit-num="1">{{ outA }}</span>
           </div>
           <div class="s-mix" style="border-radius:var(--k-r);display:flex;gap:16px;align-items:baseline;justify-content:space-between;min-width:0;background:var(--k-gold);color:var(--k-on-gold);padding:16px;opacity:{{ mixOpacity }}">
-            <span style="display:flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>{{ outLabelB }}</span>
-            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ mixFont }};line-height:1;white-space:nowrap">{{ outB }}</span>
+            <span style="display:flex;align-items:center;gap:8px;font-family:var(--k-mono);font-size:{{ mixCapFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>{{ outLabelB }}</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ mixFont }};line-height:1;white-space:nowrap" data-fit-num="1">{{ outB }}</span>
           </div>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:nowrap;margin-top:{{ actGap }};min-width:0">
@@ -416,11 +416,11 @@
 
   <div class="s-sticky s-glass" style="display:{{ stickyOn }};position:fixed;left:0;right:0;bottom:0;z-index:40;border-top:1px solid var(--k-gold)" aria-hidden="true">
     <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:{{ stickyDir }};align-items:{{ stickyAlign }};justify-content:space-between;gap:{{ stickyGap }};padding:12px 16px;background:var(--k-panel);color:var(--k-gold-soft)">
-      <span style="display:flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>{{ stickyCatLabel }}</span>
+      <span style="display:flex;align-items:center;gap:8px;font-family:var(--k-mono);font-size:{{ mixCapFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>{{ stickyCatLabel }}</span>
       <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ stickyCatFont }};line-height:1;white-space:nowrap">{{ stickyCatVal }}</span>
     </div>
     <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:{{ stickyDir }};align-items:{{ stickyAlign }};justify-content:space-between;gap:{{ stickyGap }};padding:12px 16px;background:var(--k-gold);color:var(--k-on-gold)">
-      <span style="display:flex;align-items:center;gap:6px;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>TOTAL</span>
+      <span style="display:flex;align-items:center;gap:8px;font-family:var(--k-mono);font-size:{{ mixCapFont }};letter-spacing:0.14em;white-space:nowrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>TOTAL</span>
       <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ stickyNum }};line-height:1;white-space:nowrap">{{ stickyTotalVal }}</span>
     </div>
   </div>
@@ -484,14 +484,50 @@ class Component extends DCLogic {
 
   // A long colour name shrinks to fit its row instead of truncating — down to
   // a 12px floor, after which the ellipsis takes over.
+  // A weight or a result that outgrows its box shrinks to fit rather than
+  // clipping — down to a 16px floor. Inputs are measured with a canvas because
+  // scrollWidth does not report overflow for text inputs reliably.
+  fitNumbers() {
+    const els = document.querySelectorAll('#part1 [data-fit-num="1"]');
+    const ctx = (this._mc = this._mc || document.createElement('canvas').getContext('2d'));
+    for (let i = 0; i < els.length; i++) {
+      const el = els[i];
+      if (el.offsetParent === null) continue;
+      // React only re-applies an inline style when its value changes, so once
+      // this code touches font-size the template's value is gone for good.
+      // Capture the template's size the first time (before any override) and
+      // restore it explicitly from then on.
+      if (!el.hasAttribute('data-fit-base')) el.setAttribute('data-fit-base', el.style.fontSize || getComputedStyle(el).fontSize);
+      el.style.fontSize = el.getAttribute('data-fit-base');
+      const cs = getComputedStyle(el);
+      const base = parseFloat(cs.fontSize) || 40;
+      if (el.tagName === 'INPUT') {
+        // Inputs don't report overflow, so measure the text with a canvas.
+        const text = el.value || el.placeholder || '0';
+        const avail = el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 4;
+        if (!(avail > 0)) continue;
+        let size = base;
+        const measure = (sz) => { ctx.font = cs.fontWeight + ' ' + sz + 'px ' + cs.fontFamily; return ctx.measureText(text).width; };
+        while (size > 12 && measure(size) > avail) size -= 1;
+        el.style.fontSize = size + 'px';
+        continue;
+      }
+      // Result figures sit in a flex row next to their caption. Shrink only
+      // while the row genuinely overflows — never on an estimate.
+      const row = el.parentNode;
+      let size = base;
+      while (size > 16 && row.scrollWidth > row.clientWidth + 1) { size -= 1; el.style.fontSize = size + 'px'; }
+    }
+  }
   fitNames() {
+    this.fitNumbers();
     const els = document.querySelectorAll('#part1 [data-fit="1"]');
     for (let i = 0; i < els.length; i++) {
       const el = els[i];
       if (el.offsetParent === null) continue;
-      const base = parseFloat(el.getAttribute('data-fit-base') || getComputedStyle(el).fontSize) || 17;
-      if (!el.getAttribute('data-fit-base')) el.setAttribute('data-fit-base', String(base));
-      el.style.fontSize = base + 'px';
+      if (!el.hasAttribute('data-fit-base')) el.setAttribute('data-fit-base', el.style.fontSize || getComputedStyle(el).fontSize);
+      el.style.fontSize = el.getAttribute('data-fit-base');
+      const base = parseFloat(getComputedStyle(el).fontSize) || 17;
       let size = base;
       while (el.scrollWidth > el.clientWidth && size > 12) { size -= 0.5; el.style.fontSize = size + 'px'; }
     }
@@ -501,6 +537,8 @@ class Component extends DCLogic {
     document.addEventListener('mousedown', this._outside, true);
     this._rz = () => this.forceUpdate();
     window.addEventListener('resize', this._rz);
+    this._rzFit = () => this.fitNames();
+    window.addEventListener('resize', this._rzFit);
     let savedTheme = 'glass';
     try { const t = window.localStorage.getItem('kleeq-mix-theme'); if (t) savedTheme = t; } catch (e) {}
     this.setTheme(savedTheme);
@@ -1081,6 +1119,7 @@ class Component extends DCLogic {
         const raw = String(e.target.value).replace(/[^0-9.]/g, '');
         const parts = raw.split('.');
         this.setState({ weight: parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : raw });
+        requestAnimationFrame(() => this.fitNumbers());
       }),
       clearOff: !(s.weight !== '' && s.weight !== null && s.weight !== undefined),
       clearOffStr: String(!(s.weight !== '' && s.weight !== null && s.weight !== undefined)),
@@ -1110,6 +1149,7 @@ class Component extends DCLogic {
       nameSize: view === 'mobile' ? '13.5px' : view === 'tablet' ? '18px' : '16px',
       bigNameSize: view === 'mobile' ? '20px' : view === 'tablet' ? '26px' : '24px',
       strainerFont: view === 'mobile' ? '14px' : view === 'tablet' ? '17px' : '16px',
+      mixCapFont: view === 'mobile' ? '13px' : view === 'tablet' ? '16px' : '15px',
       listCodeFont: view === 'mobile' ? '13px' : '14px',
       listNameFont: view === 'mobile' ? '15px' : '17px',
       listMaxH: view === 'mobile' ? 'min(60vh, 420px)' : '480px',

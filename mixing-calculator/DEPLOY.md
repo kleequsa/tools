@@ -166,3 +166,10 @@ disagree — the website is the source of truth for this project.
   at 17px (15px on phone), code bold in gold.
 - Long colour names shrink to fit their row (12px floor) instead of truncating.
 - List panels are taller: 480px on desktop, up to 60% of the screen on phone.
+
+## Release 2026-09-17 (rev 8) — fit-to-box figures, larger mix captions
+- Weight entry, ADD CATALYST and TOTAL MIX shrink to fit their box when a long number
+  would overflow (weight floor 12px, results 16px) and spring back when it shortens.
+- ADD CATALYST / TOTAL MIX captions and icons enlarged (15px caption, 18px icon).
+- Fix: the fit routine had been dropping result figures to the 16px default on every
+  render; template size is now captured once and restored explicitly.
