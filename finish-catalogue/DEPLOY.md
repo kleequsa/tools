@@ -115,3 +115,8 @@ disagree — the website is the source of truth for this project.
 - Coating card: code and name on one large line, the strainer size and micron on
   its own semibold line beneath, then gloss · Cerakote link.
 - Catalogue card names are all caps.
+
+## Release 2026-09-17 (rev 6) — TOOLS link
+- Header back link now reads TOOLS with a grid icon, bordered like the pills, and
+  points to https://tools.kleeq.com.
+- Strainer line on the coating card shows mesh only (micron removed).
