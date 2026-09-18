@@ -144,3 +144,14 @@ disagree — the website is the source of truth for this project.
 ### The nine added SKUs do not exist
 - H-308, H-313, H-325, H-333, H-356, H-20180, E-220, E-260 and E-320 all 404 on
   cerakote.com. They are not missing from our catalogue; they are discontinued.
+
+## Release 2026-09-17 (rev 5) — step 01 merged, card re-laid
+
+- Search and browse are one field: type to filter, or tap the chevron on the right
+  to open the full grouped list. The clear × sits beside it when there's text.
+- Typing no longer moves the cursor to the weight field mid-entry. Enter or a list
+  pick resolves the code and moves on; Enter with nothing highlighted still accepts
+  a fully typed code or name.
+- Coating card: code and name on one large line, the strainer size and micron on
+  its own semibold line beneath, then gloss · Cerakote link.
+- Catalogue card names are all caps.

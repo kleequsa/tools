@@ -255,7 +255,7 @@
                     </div>
                     <div style="padding:{{ cardPad }};{{ textLayout }}">
                       <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.1em;color:var(--k-gold-soft)">{{ r.laserMark }}{{ r.code }}</span><span style="font-family:var(--k-mono);font-size:12px;letter-spacing:0.12em;color:var(--k-label)">{{ r.series }}</span></span>
-                      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ nameSize }};line-height:1.2;color:var(--k-ink)">{{ r.name }}</span>
+                      <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:{{ nameSize }};line-height:1.2;color:var(--k-ink);text-transform:uppercase">{{ r.name }}</span>
                       <span style="display:{{ metaOn }};font-family:var(--k-mono);font-size:{{ metaSize }};letter-spacing:0.06em;color:var(--k-label);line-height:1.5">{{ r.meta }}</span>
                     </div>
                   </button>
@@ -311,7 +311,7 @@
         </div>
         <div style="display:grid;gap:6px">
           <span style="font-family:var(--k-mono);font-size:13px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ d.code }} · {{ d.seriesLabel }}</span>
-          <h2 style="margin:0;font-size:28px;line-height:1;color:var(--k-ink)">{{ d.name }}</h2>
+          <h2 style="margin:0;font-size:28px;line-height:1;color:var(--k-ink);text-transform:uppercase">{{ d.name }}</h2>
           <span style="display:{{ d.noteOn }};font-size:14px;line-height:1.5;color:var(--k-copy);margin-top:4px">{{ d.note }}</span>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
