@@ -236,7 +236,7 @@
             <button type="button" class="s-seg" style="position:absolute;top:50%;right:6px;transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;justify-content:center;color:{{ chevInk }}" onMouseDown="{{ toggleList }}" title="Browse all finishes" aria-haspopup="listbox" aria-expanded="{{ listOpen }}" aria-controls="product-list" aria-label="{{ selectAria }}">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true" style="transform:{{ chevRot }};transition:transform .15s"><path d="m6 9 6 6 6-6"></path></svg>
             </button>
-            <div id="product-list" class="s-glass" role="listbox" aria-label="Cerakote products" style="border-radius:var(--k-r);display:{{ listOn }};position:absolute;top:100%;left:0;right:0;z-index:25;pointer-events:auto;background:var(--k-panel);border:1px solid var(--k-pop-line);max-height:320px;overflow-y:auto">
+            <div id="product-list" class="s-glass" role="listbox" aria-label="Cerakote products" style="border-radius:var(--k-r);display:{{ listOn }};position:absolute;top:100%;left:0;right:0;z-index:25;pointer-events:auto;background:var(--k-panel);border:1px solid var(--k-pop-line);max-height:{{ listMaxH }};overflow-y:auto">
               <sc-for list="{{ optionGroups }}" as="g" hint-placeholder-count="4">
                 <div>
                   <div role="presentation" style="position:sticky;top:0;z-index:2;display:flex;gap:8px;align-items:baseline;background:var(--k-sticky);border-bottom:1px solid var(--k-line);padding:8px 12px">
@@ -245,8 +245,8 @@
                   </div>
                   <sc-for list="{{ g.rows }}" as="o" hint-placeholder-count="6">
                     <button type="button" role="option" aria-selected="{{ o.selected }}" style="{{ o.style }}" onMouseDown="{{ o.pick }}">
-                      <span style="font-family:var(--k-mono);font-size:{{ metaFont }};font-weight:600;color:var(--k-gold-soft);flex:none">{{ o.code }}</span>
-                      <span style="font-size:{{ bodyFont }};color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ o.name }}</span>
+                      <span style="font-family:var(--k-mono);font-size:{{ listNameFont }};font-weight:700;color:var(--k-gold-soft);flex:none;min-width:5.6em">{{ o.code }}</span>
+                      <span data-fit="1" style="font-family:var(--font-heading);font-weight:600;font-size:{{ listNameFont }};color:var(--k-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ o.name }}</span>
                       {{ o.laser }}
                       {{ o.img }}
                     </button>
@@ -254,11 +254,11 @@
                 </div>
               </sc-for>
             </div>
-            <div id="search-list" class="s-glass" role="listbox" aria-label="Matching products" style="border-radius:var(--k-r);display:{{ sugOn }};position:absolute;top:100%;left:0;right:0;z-index:20;background:var(--k-panel);border:1px solid var(--k-pop-line);max-height:240px;overflow-y:auto">
+            <div id="search-list" class="s-glass" role="listbox" aria-label="Matching products" style="border-radius:var(--k-r);display:{{ sugOn }};position:absolute;top:100%;left:0;right:0;z-index:20;background:var(--k-panel);border:1px solid var(--k-pop-line);max-height:{{ listMaxH }};overflow-y:auto">
               <sc-for list="{{ suggestions }}" as="sg" hint-placeholder-count="6">
                 <button type="button" role="option" aria-selected="{{ sg.selected }}" style="{{ sg.style }}" onPointerDown="{{ sg.pick }}" onMouseEnter="{{ sg.hover }}">
-                  <span style="font-family:var(--k-mono);font-size:{{ metaFont }};font-weight:600;color:var(--k-gold-soft);flex:none">{{ sg.code }}</span>
-                  <span style="font-size:{{ bodyFont }};color:var(--k-copy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ sg.name }}</span>
+                  <span style="font-family:var(--k-mono);font-size:{{ listNameFont }};font-weight:700;color:var(--k-gold-soft);flex:none;min-width:5.6em">{{ sg.code }}</span>
+                  <span data-fit="1" style="font-family:var(--font-heading);font-weight:600;font-size:{{ listNameFont }};color:var(--k-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto">{{ sg.name }}</span>
                   {{ sg.laser }}
                   {{ sg.img }}
                 </button>
@@ -482,6 +482,20 @@ class Component extends DCLogic {
     copied: false, shared: false, toolsOpen: false, recent: [], resume: null
   };
 
+  // A long colour name shrinks to fit its row instead of truncating — down to
+  // a 12px floor, after which the ellipsis takes over.
+  fitNames() {
+    const els = document.querySelectorAll('#part1 [data-fit="1"]');
+    for (let i = 0; i < els.length; i++) {
+      const el = els[i];
+      if (el.offsetParent === null) continue;
+      const base = parseFloat(el.getAttribute('data-fit-base') || getComputedStyle(el).fontSize) || 17;
+      if (!el.getAttribute('data-fit-base')) el.setAttribute('data-fit-base', String(base));
+      el.style.fontSize = base + 'px';
+      let size = base;
+      while (el.scrollWidth > el.clientWidth && size > 12) { size -= 0.5; el.style.fontSize = size + 'px'; }
+    }
+  }
   componentDidMount() {
     import('./kleeq-finish-render.js').then((m) => { FX = m; this.forceUpdate(); }).catch(() => {});
     document.addEventListener('mousedown', this._outside, true);
@@ -542,6 +556,7 @@ class Component extends DCLogic {
   componentDidUpdate(pp, ps) {
     this.paint();
     this.gate();
+    this.fitNames();
     const s = this.state; const f = this.matched();
     if (ps && s.dp !== ps.dp) { try { window.localStorage.setItem('kleeq-mix-dp', String(s.dp)); } catch (e) {} }
     if (ps && f && (s.code !== ps.code || s.weight !== ps.weight || s.preset !== ps.preset)) {
@@ -628,8 +643,8 @@ class Component extends DCLogic {
         code: c.code, name: c.name,
         selected: !!(f && f.code === c.code),
         laser: this.laserTag(c.laserOptimized),
-        img: this.thumbEl(c.thumb, 35, { marginLeft: 'auto' }),
-        style: 'display:flex;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 12px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:'
+        img: this.thumbEl(c.thumb, 52, { marginLeft: 'auto', borderRadius: 'var(--k-r-sm)' }),
+        style: 'display:flex;gap:12px;align-items:center;width:100%;text-align:left;padding:10px 14px;min-height:64px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:'
           + (f && f.code === c.code ? 'var(--k-field)' : 'none'),
         pick: this.pickCode(c.code)
       }))
@@ -972,8 +987,8 @@ class Component extends DCLogic {
         code: c.code, name: c.name,
         selected: i === s.sugAt,
         laser: this.laserTag(c.laserOptimized),
-        img: this.thumbEl(c.thumb, 35, { marginLeft: 'auto' }),
-        style: 'display:flex;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 12px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:' + (i === s.sugAt ? 'var(--k-field)' : 'none'),
+        img: this.thumbEl(c.thumb, 52, { marginLeft: 'auto', borderRadius: 'var(--k-r-sm)' }),
+        style: 'display:flex;gap:12px;align-items:center;width:100%;text-align:left;padding:10px 14px;min-height:64px;border:none;border-bottom:1px solid var(--k-field);cursor:pointer;background:' + (i === s.sugAt ? 'var(--k-field)' : 'none'),
         hover: () => this.setState({ sugAt: i }),
         pick: this.pickCode(c.code)
       })),
@@ -1095,6 +1110,9 @@ class Component extends DCLogic {
       nameSize: view === 'mobile' ? '13.5px' : view === 'tablet' ? '18px' : '16px',
       bigNameSize: view === 'mobile' ? '20px' : view === 'tablet' ? '26px' : '24px',
       strainerFont: view === 'mobile' ? '14px' : view === 'tablet' ? '17px' : '16px',
+      listCodeFont: view === 'mobile' ? '13px' : '14px',
+      listNameFont: view === 'mobile' ? '15px' : '17px',
+      listMaxH: view === 'mobile' ? 'min(60vh, 420px)' : '480px',
       // Block, not flex: the line is one run of text and flex trims the spaces
       // between its interpolated parts.
       strainerOn: f ? 'block' : 'none',

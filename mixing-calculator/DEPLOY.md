@@ -160,3 +160,9 @@ disagree — the website is the source of truth for this project.
 - Header back link now reads TOOLS with a grid icon, bordered like the pills, and
   points to https://tools.kleeq.com.
 - Strainer line on the coating card shows mesh only (micron removed).
+
+## Release 2026-09-17 (rev 7) — larger product lists
+- Browse and suggestion rows are 64px tall with 52px thumbnails; code and name both
+  at 17px (15px on phone), code bold in gold.
+- Long colour names shrink to fit their row (12px floor) instead of truncating.
+- List panels are taller: 480px on desktop, up to 60% of the screen on phone.
