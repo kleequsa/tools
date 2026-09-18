@@ -278,7 +278,7 @@
             <span style="color:var(--k-gold);letter-spacing:0.02em;flex:none">{{ codeOnly }}</span>
             <span style="color:var(--k-ink);min-width:0;overflow:hidden;text-overflow:ellipsis">{{ nameTitle }}</span>
           </div>
-          <div style="display:{{ meshOn }};line-height:1;font-family:var(--k-mono);font-size:{{ strainerFont }};font-weight:600;letter-spacing:0.06em;color:var(--k-copy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ meshPrefix }}{{ meshLabel }} · {{ meshMicron }}</div>
+          <div style="display:{{ strainerOn }};line-height:1;font-family:var(--k-mono);font-size:{{ strainerFont }};font-weight:600;letter-spacing:0.06em;color:var(--k-copy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ meshPrefix }}{{ meshLabel }}</div>
           <div style="display:{{ meshOn }};gap:8px;align-items:baseline;flex-wrap:nowrap;line-height:1;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.06em;color:var(--k-label);white-space:nowrap;overflow:hidden">
             <span style="display:{{ glossOn }};flex:none">{{ glossLabel }}</span>
             <span style="display:{{ glossOn }};flex:none;color:var(--k-rule)">·</span>
@@ -1095,6 +1095,9 @@ class Component extends DCLogic {
       nameSize: view === 'mobile' ? '13.5px' : view === 'tablet' ? '18px' : '16px',
       bigNameSize: view === 'mobile' ? '20px' : view === 'tablet' ? '26px' : '24px',
       strainerFont: view === 'mobile' ? '14px' : view === 'tablet' ? '17px' : '16px',
+      // Block, not flex: the line is one run of text and flex trims the spaces
+      // between its interpolated parts.
+      strainerOn: f ? 'block' : 'none',
       mixFont: view === 'tablet' ? '50px' : 'clamp(34px,3.8vw,50px)',
       rowGap: view === 'mobile' ? '11px' : '24px',
       part1Gap: oneCol ? '32px' : '32px 48px',
@@ -1216,10 +1219,10 @@ class Component extends DCLogic {
       glossLabel: (f && f.sheen) ? String(f.sheen).toUpperCase() : '',
       glossOn: (f && f.sheen) ? 'inline' : 'none',
       meshLabel: meshRec.label,
-      meshMicron: meshRec.micron,
       // These two tiers read as complete statements on their own — prefixing
       // them gave "STRAINER NO STRAINER".
       meshPrefix: (mesh.key === 'none' || mesh.key === 'unpublished') ? '' : 'STRAINER ',
+      meshMicron: meshRec.micron,
 
       dp1: this.pick({ dp: 1 }), dp2: this.pick({ dp: 2 }),
 
