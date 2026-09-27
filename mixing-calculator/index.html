@@ -597,7 +597,10 @@ class Component extends DCLogic {
     this.fitNames();
     const s = this.state; const f = this.matched();
     if (ps && s.dp !== ps.dp) { try { window.localStorage.setItem('kleeq-mix-dp', String(s.dp)); } catch (e) {} }
-    if (ps && f && (s.code !== ps.code || s.weight !== ps.weight || s.preset !== ps.preset)) {
+    // Compare against our own snapshot; the runtime does not always pass prevState.
+    const prev = this._saved || {};
+    this._saved = { code: s.code, weight: s.weight, preset: s.preset };
+    if (f && (s.code !== prev.code || s.weight !== prev.weight || s.preset !== prev.preset) && prev.code !== undefined) {
       try {
         window.localStorage.setItem('kleeq-mix-last', JSON.stringify({ code: f.code, weight: s.weight, preset: s.preset }));
         if (!s.recent.length || s.recent[0].code !== f.code) {
@@ -673,11 +676,17 @@ class Component extends DCLogic {
       const ia = ORDER.indexOf(a), ib = ORDER.indexOf(b);
       return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
     });
-    return keys.map((k) => ({
-      key: k,
-      label: LABEL[k] || k + '-SERIES',
-      count: bucket[k].length + (bucket[k].length === 1 ? ' COLOUR' : ' COLOURS'),
-      rows: bucket[k].map((c) => ({
+    // Last five finishes used, kept in localStorage ('kleeq-mix-recent'), shown above the series groups.
+    const byCode = {};
+    this.catalogue().forEach((c) => { byCode[c.code] = c; });
+    const rec = (this.state.recent || []).map((r) => byCode[r.code]).filter(Boolean).slice(0, 5);
+    const groups = keys.map((k) => ({ key: k, label: LABEL[k] || k + '-SERIES', list: bucket[k] }));
+    if (rec.length) groups.unshift({ key: 'recent', label: 'RECENT', list: rec });
+    return groups.map((g) => ({
+      key: g.key,
+      label: g.label,
+      count: g.list.length + (g.list.length === 1 ? ' COLOUR' : ' COLOURS'),
+      rows: g.list.map((c) => ({
         code: c.code, name: c.name,
         selected: !!(f && f.code === c.code),
         laser: this.laserTag(c.laserOptimized),
@@ -768,7 +777,7 @@ class Component extends DCLogic {
   pickCode = (code) => (e) => {
     if (e) e.preventDefault();
     this.focusWeight();
-    this.setState({ code: code, ratio: 18, preset: 'r18', sugOpen: false, listOpen: false });
+    this.setState({ code: code, weight: '', ratio: 18, preset: 'r18', sugOpen: false, listOpen: false });
   };
 
   finishes() {
@@ -924,7 +933,7 @@ class Component extends DCLogic {
       const c = list[this.state.sugAt] || list[0] || this.resolveTyped(this.state.code) || this.matched(this.state.code);
       if (!c) return;
       this.focusWeight();
-      this.setState({ code: c.code, ratio: 18, preset: 'r18', sugOpen: false });
+      this.setState({ code: c.code, weight: '', ratio: 18, preset: 'r18', sugOpen: false });
     } else if (e.key === 'Escape') {
       this.setState({ sugOpen: false });
     }
@@ -1148,7 +1157,7 @@ class Component extends DCLogic {
       chevRot: s.listOpen ? 'rotate(180deg)' : 'none',
       nameSize: view === 'mobile' ? '13.5px' : view === 'tablet' ? '18px' : '16px',
       bigNameSize: view === 'mobile' ? '20px' : view === 'tablet' ? '26px' : '24px',
-      strainerFont: view === 'mobile' ? '14px' : view === 'tablet' ? '17px' : '16px',
+      strainerFont: view === 'mobile' ? '16.8px' : view === 'tablet' ? '20.4px' : '19.2px',
       mixCapFont: view === 'mobile' ? '13px' : view === 'tablet' ? '16px' : '15px',
       listCodeFont: view === 'mobile' ? '13px' : '14px',
       listNameFont: view === 'mobile' ? '15px' : '17px',
