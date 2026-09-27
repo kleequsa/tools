@@ -217,10 +217,6 @@
             </button>
           </div>
           <div style="display:flex;gap:{{ infoGap }};align-items:stretch;flex-direction:{{ step1Dir }}">
-        <div style="border-radius:var(--k-r-sm);display:{{ resumeOn }};gap:8px;align-items:center;margin-bottom:12px;padding:0 0 0 12px;border:1px solid var(--k-gold);background:var(--k-field)">
-          <button type="button" style="flex:1 1 auto;min-width:0;min-height:44px;padding:0;border:none;background:none;text-align:left;cursor:pointer;font-family:var(--k-mono);font-size:{{ metaFont }};letter-spacing:0.1em;color:var(--k-gold-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis" onClick="{{ resume }}">RESUME <span style="color:var(--k-ink);margin-left:8px">{{ resumeText }}</span></button>
-          <button type="button" class="s-seg" style="flex:none;width:44px;min-height:44px;padding:0;border:none;background:none;border-radius:0 var(--k-r-sm) var(--k-r-sm) 0;justify-content:center;color:var(--k-label)" onClick="{{ dismissResume }}" aria-label="Dismiss"><span aria-hidden="true">×</span></button>
-        </div>
         <div style="display:{{ recentOn }};gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
           <span style="font-family:var(--k-mono);font-size:{{ capFont }};letter-spacing:0.12em;color:var(--k-label);margin-right:4px">RECENT</span>
           <sc-for list="{{ recent }}" as="r" hint-placeholder-count="0">
@@ -553,7 +549,7 @@ class Component extends DCLogic {
       const last = JSON.parse(window.localStorage.getItem('kleeq-mix-last') || 'null');
       const dp = window.localStorage.getItem('kleeq-mix-dp');
       // Mixes always run from the coating weight; drop any reverse-mode figure saved by an earlier version.
-      if (last && last.mode === 'reverse') last.weight = '';
+      
       this.setState({ recent: Array.isArray(r) ? r.slice(0, 5) : [], resume: (last && last.code) ? last : null, dp: dp === '1' ? 1 : 2 });
     } catch (e) {}
     try { const d = JSON.parse(window.localStorage.getItem('kleeq-mix-docs') || '{}'); if (d && typeof d === 'object') this.setState({ docs: d }); } catch (e) {}
