@@ -230,11 +230,11 @@
         <div style="display:flex;gap:8px;align-items:stretch;flex:1 1 auto;min-width:0;flex-direction:{{ fieldDir }};position:relative">
           <div style="position:relative;flex:{{ fieldGrow }};min-width:0">
             <input class="s-in" style="font-weight:700;height:100%;min-height:51px;padding-right:{{ searchPadR }}" type="text" placeholder="{{ searchPlaceholder }}" value="{{ code }}" onInput="{{ setCode }}" onFocus="{{ openSug }}" onBlur="{{ closeSug }}" onKeyDown="{{ sugKey }}" autoComplete="off" role="combobox" aria-autocomplete="list" aria-expanded="{{ sugOpen }}" aria-controls="search-list" aria-label="Search Cerakote products">
-            <button type="button" class="s-seg" style="display:{{ searchClearOn }};position:absolute;top:50%;right:46px;transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;justify-content:center;color:var(--k-label)" onClick="{{ clearSearch }}" title="Clear" aria-label="Clear search">
+            <button type="button" class="s-seg" style="display:{{ searchClearOn }};position:absolute;top:50%;right:62px;transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;justify-content:center;color:var(--k-label)" onClick="{{ clearSearch }}" title="Clear" aria-label="Clear search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
             </button>
-            <button type="button" class="s-seg" style="position:absolute;top:50%;right:6px;transform:translateY(-50%);width:{{ clearSize }};min-height:{{ clearSize }};padding:0;border:none;background:none;justify-content:center;color:{{ chevInk }}" onMouseDown="{{ toggleList }}" title="Browse all finishes" aria-haspopup="listbox" aria-expanded="{{ listOpen }}" aria-controls="product-list" aria-label="{{ selectAria }}">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" aria-hidden="true" style="transform:{{ chevRot }};transition:transform .15s"><path d="m6 9 6 6 6-6"></path></svg>
+            <button type="button" class="s-seg" style="position:absolute;top:50%;right:6px;transform:translateY(-50%);width:56px;min-height:{{ clearSize }};padding:0;border:none;background:none;justify-content:center;color:{{ chevInk }}" onMouseDown="{{ toggleList }}" title="Browse all finishes" aria-haspopup="listbox" aria-expanded="{{ listOpen }}" aria-controls="product-list" aria-label="{{ selectAria }}">
+              <svg width="21.6" height="21.6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="square" aria-hidden="true" style="transform:{{ chevRot }};transition:transform .15s"><path d="m6 9 6 6 6-6"></path></svg>
             </button>
             <div id="product-list" class="s-glass" role="listbox" aria-label="Cerakote products" style="border-radius:var(--k-r);display:{{ listOn }};position:absolute;top:100%;left:0;right:0;z-index:25;pointer-events:auto;background:var(--k-panel);border:1px solid var(--k-pop-line);max-height:{{ listMaxH }};overflow-y:auto">
               <sc-for list="{{ optionGroups }}" as="g" hint-placeholder-count="4">
@@ -1190,7 +1190,7 @@ class Component extends DCLogic {
       unitInset: view === 'mobile' ? (String(s.weight || '').length ? '44px' : '10px') : '14px',
       unitFont: view === 'mobile' ? '13.5px' : view === 'tablet' ? '20px' : '18px',
       layoutTogglesOn: isPhone ? 'none' : 'inline-grid',
-      searchPadR: String(s.code || '').trim() ? '88px' : '52px',
+      searchPadR: String(s.code || '').trim() ? '104px' : '66px',
       searchClearOn: String(s.code || '').trim() ? 'inline-flex' : 'none',
       clearSearch: this._csr || (this._csr = (e) => {
         if (e) e.preventDefault();
