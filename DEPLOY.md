@@ -15,5 +15,5 @@ Repo: kleequsa/tools · branch: main · live: https://tools.kleeq.com/
    - Vendored support.js and Modernist css/bundle under vendor/"
    git push origin main
    ```
-3. Deploy: `npx wrangler deploy` from the repo root (one Worker serves / and /mixing-calculator/; retire the separate kleeq-mixing-calculator Worker or keep it and route only the root here).
+3. Deploy: `npx wrangler deploy` from the repo root. One Worker, `kleeq-tools`, serves everything: /, /mixing-calculator/, /finish-catalogue/ and the gated /camo-studio/. The separate kleeq-mixing-calculator Worker was retired on 2026-10-11.
 4. Smoke test: / loads the hub, theme switcher works, "Open the calculator" goes to /mixing-calculator/.
