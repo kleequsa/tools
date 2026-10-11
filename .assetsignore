@@ -9,3 +9,4 @@ wrangler.jsonc
 /.github/
 /catalogue-sync/
 /scripts/
+_worker.js
