@@ -151,3 +151,6 @@ Thumbs.db
 
 # wrangler build cache and local account record
 .wrangler/
+
+# local wrangler dev secrets
+.dev.vars
