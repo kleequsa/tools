@@ -22,11 +22,20 @@ export default {
     const rule = PROTECTED.find((r) => url.pathname === r.prefix || url.pathname.startsWith(r.prefix + '/'));
     if (rule) {
       const want = env[rule.pass];
-      if (!want) return new Response('Password not configured: run wrangler secret put ' + rule.pass, { status: 503 });
+      // no-store: otherwise a browser caches this and keeps showing it after
+      // the secret is set.
+      if (!want) return new Response('Password not configured: run wrangler secret put ' + rule.pass, { status: 503, headers: { 'Cache-Control': 'no-store' } });
       const hdr = request.headers.get('Authorization') || '';
       if (!hdr.startsWith('Basic ')) return deny(rule.realm);
       let user = '', pass = '';
-      try { const dec = atob(hdr.slice(6)); const i = dec.indexOf(':'); user = dec.slice(0, i); pass = dec.slice(i + 1); } catch (e) { return deny(rule.realm); }
+      // atob yields one character per byte, so a UTF-8 password would arrive
+      // as its raw bytes and never match the stored string. Decode it properly.
+      try {
+        const raw = atob(hdr.slice(6));
+        const dec = new TextDecoder().decode(Uint8Array.from(raw, (c) => c.charCodeAt(0)));
+        const i = dec.indexOf(':');
+        user = dec.slice(0, i); pass = dec.slice(i + 1);
+      } catch (e) { return deny(rule.realm); }
       if (!same(pass, want)) return deny(rule.realm);
       if (env[rule.user] && !same(user, env[rule.user])) return deny(rule.realm);
     }
