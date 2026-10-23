@@ -1,6 +1,5 @@
 {
   "name": "kleeq-tools",
-  "main": "_worker.js",
-  "compatibility_date": "2026-09-04",
-  "assets": { "directory": "./", "binding": "ASSETS", "run_worker_first": ["/camo-studio", "/camo-studio/*"] }
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-09-04"
 }

@@ -44,21 +44,22 @@
     --k-bg:#1a1918; --k-panel:#141312; --k-sticky:#1f1e1c; --k-field:#2a2724;
     --k-line:#3d3934; --k-rule:#57534d; --k-label:#9c958a; --k-copy:#c9c3b9;
     --k-ink:#ddd8d0; --k-gold:#c9992f; --k-gold-soft:#e2bd6d; --k-on-gold:#17150f;
-    --k-warn:#c9272e; --k-ok:#7fae6a; --k-mono-w:400; --k-mono:'IBM Plex Mono', ui-monospace, monospace; --k-rule-w:1px; --k-r-sm:0px; --k-outline:#141312;
+    --k-warn:#d9463f; --k-ok:#7fae6a; --k-mono-w:400; --k-mono:'IBM Plex Mono', ui-monospace, monospace; --k-rule-w:1px; --k-r-sm:0px;
+    --k-bar:rgba(26,25,24,0.92);
   }
   :root[data-kleeq-theme="light"] {
     color-scheme: light;
     --k-bg:#f3f2f2; --k-panel:#ffffff; --k-sticky:#e7e4e0; --k-field:#ffffff;
     --k-line:#9c948a; --k-rule:#4a453f; --k-label:#5a544c; --k-copy:#2b2825;
     --k-ink:#141312; --k-gold:#8a6612; --k-gold-soft:#6b5010; --k-on-gold:#ffffff;
-    --k-warn:#9e1b24; --k-ok:#3f7a2e; --k-mono-w:500;
+    --k-warn:#9e1b24; --k-ok:#3f7a2e; --k-mono-w:500; --k-bar:rgba(243,242,242,0.92);
   }
   :root[data-kleeq-theme="modernist"] {
     color-scheme: light;
     --k-bg:var(--color-bg); --k-panel:var(--color-surface, #ffffff); --k-sticky:var(--color-neutral-200); --k-field:#ffffff;
     --k-line:var(--color-neutral-600); --k-rule:var(--color-text); --k-label:var(--color-neutral-800); --k-copy:var(--color-neutral-900);
     --k-ink:var(--color-text); --k-gold:var(--color-accent); --k-gold-soft:var(--color-accent-700); --k-on-gold:#ffffff;
-    --k-warn:var(--color-accent-700); --k-ok:#2f6b2a; --k-mono-w:500; --k-mono:var(--font-body); --k-rule-w:2px;
+    --k-warn:var(--color-accent-700); --k-ok:#2f6b2a; --k-mono-w:500; --k-mono:var(--font-body); --k-rule-w:2px; --k-bar:rgba(243,242,242,0.94);
   }
   :root[data-kleeq-theme="modernist"] .s-lab, :root[data-kleeq-theme="modernist"] .s-seg, :root[data-kleeq-theme="modernist"] .s-in { letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
   :root[data-kleeq-theme="modernist"] .s-seg { border-color: var(--color-text); color: var(--color-text); }
@@ -71,283 +72,460 @@
   .s-lab { font-family: var(--k-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--k-label); display: block; margin-bottom: 8px; }
   .s-seg { min-height: 36px; padding: 0 12px; border-radius: var(--k-r-sm); font-family: var(--k-mono); font-weight: var(--k-mono-w); font-size: 12px; letter-spacing: 0.08em; background: none; border: 1px solid var(--k-line); color: var(--k-label); cursor: pointer; display: inline-flex; align-items: center; gap: 7px; touch-action: manipulation; white-space: nowrap; }
   .s-seg:hover { color: var(--k-ink); border-color: var(--k-label); }
-  .s-seg:focus-visible, .s-in:focus-visible, .s-slot:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
+  .s-seg:focus-visible, .s-in:focus-visible, .s-slot:focus-visible, .s-row:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
   .s-seg[data-on="1"] { background: var(--k-gold); color: var(--k-on-gold); border-color: var(--k-gold); }
+  .s-seg.s-pri { background: var(--k-ink); color: var(--k-bg); border-color: var(--k-ink); }
+  .s-seg.s-pri:hover { background: var(--k-gold); color: var(--k-on-gold); border-color: var(--k-gold); }
+  .s-seg:disabled { opacity: 0.4; cursor: default; }
   .s-in { width: 100%; box-sizing: border-box; border-radius: var(--k-r-sm); background: var(--k-field); border: 1px solid var(--k-line); color: var(--k-ink); font-family: var(--k-mono); font-size: 16px; padding: 8px 12px; min-height: 44px; }
   .s-in::placeholder { color: var(--k-label); opacity: 1; }
   .s-slot { border: 1px solid var(--k-line); background: var(--k-panel); padding: 0; cursor: pointer; display: flex; flex-direction: column; text-align: left; color: var(--k-ink); min-width: 0; }
   .s-slot:hover { border-color: var(--k-gold-soft); }
+  .s-share::-webkit-inner-spin-button, .s-share::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  .s-share:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 1px; }
   .s-slot[data-on="1"] { border-color: var(--k-gold); box-shadow: inset 0 0 0 1px var(--k-gold); }
   .s-row { display: flex; gap: 10px; align-items: center; width: 100%; padding: 8px 10px; background: none; border: none; border-bottom: 1px solid var(--k-line); color: var(--k-ink); cursor: pointer; text-align: left; min-height: 44px; }
   .s-row:hover { background: var(--k-sticky); }
   .s-row[data-on="1"] { background: var(--k-sticky); }
-  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 24px; margin: 0; background: none; cursor: pointer; }
-  input[type=range]::-webkit-slider-runnable-track { height: 4px; background: var(--k-line); }
-  input[type=range]::-moz-range-track { height: 4px; background: var(--k-line); }
-  input[type=range]::-moz-range-progress { height: 4px; background: var(--k-gold); }
-  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 8px; height: 14px; background: var(--k-gold); border: none; border-radius: 0; margin-top: -5px; box-shadow: -1000px 0 0 996px var(--k-gold); clip-path: inset(5px -1000px 5px 0); }
-  input[type=range]::-moz-range-thumb { width: 8px; height: 14px; background: var(--k-gold); border: none; border-radius: 0; }
+  .s-step { font-family: var(--k-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--k-label); display: flex; gap: 10px; align-items: center; }
+  .s-step b { font-family: var(--font-heading); font-weight: 800; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em; color: var(--k-ink); }
+  .s-app { display: grid; grid-template-columns: minmax(0,1fr); gap: 32px; }
+  .s-stickypv { position: static; }
+  @media (min-width: 1040px) {
+    .s-app { grid-template-columns: minmax(0,7fr) minmax(0,8fr); gap: 40px; align-items: start; }
+    .s-stickypv { position: sticky; top: 72px; }
+  }
+  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 24px; margin: 0; cursor: pointer; background: linear-gradient(var(--k-line), var(--k-line)) no-repeat center / 100% 2px; }
+  input[type=range]::-webkit-slider-runnable-track { height: 24px; background: transparent; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 16px; margin-top: 4px; background: var(--k-gold); border: none; border-radius: 0; }
+  input[type=range]::-moz-range-track { height: 2px; background: var(--k-line); }
+  input[type=range]::-moz-range-thumb { width: 10px; height: 16px; background: var(--k-gold); border: none; border-radius: 0; }
   input[type=range]:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 4px; }
   @media print {
     .no-print { display: none !important; }
     html, body { background: #fff; color: #000; }
-    :root { --k-bg:#fff; --k-panel:#fff; --k-ink:#000; --k-copy:#222; --k-label:#444; --k-line:#999; --k-rule:#000; --k-gold-soft:#000; }
+    :root { --k-bg:#fff; --k-panel:#fff; --k-ink:#000; --k-copy:#222; --k-label:#444; --k-line:#999; --k-rule:#000; --k-gold-soft:#000; --k-field:#fff; }
+    .s-app { grid-template-columns: minmax(0,1fr); }
+    .s-stickypv { position: static; }
   }
 </style>
 </helmet>
 
 <div style="background:var(--k-bg);color:var(--k-ink);font-family:var(--font-body);min-height:100vh">
 
-  <header style="max-width:1180px;margin:0 auto;padding:28px 20px 8px">
-    <div style="display:grid;gap:18px;justify-items:center">
-      <h1 style="font-size:clamp(29px,2.9vw,40px);line-height:1;margin:0;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center;width:100%">
-        <a href="https://www.kleeq.com" style="color:inherit;display:flex;flex:none" aria-label="KLEEQ home"><svg viewBox="0 0 720 240" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KLEEQ" style="height:1.46em;width:auto;flex:none;display:block"><polygon points="64.9 0 64.9 71.51 88.7 47.68 88.7 23.84 696.2 23.84 696.2 214.54 88.7 214.54 88.7 190.7 64.9 166.86 64.9 238.38 720 238.38 720 0 64.9 0"></polygon><polygon points="160.09 154.94 142.24 137.07 124.39 119.19 142.24 101.31 160.09 83.43 177.94 65.55 195.79 47.68 160.09 47.68 142.24 65.55 124.39 83.43 106.54 101.31 88.7 119.19 106.54 137.07 124.39 154.94 142.24 172.82 160.09 190.7 195.79 190.7 177.94 172.82 160.09 154.94"></polygon><path d="M64.9,84.77h-27.79c-2.87,0-5.62,1.2-7.65,3.34L0,119.19h0,0s0,0,0,0h0l29.46,31.07c2.03,2.14,4.78,3.34,7.65,3.34h27.79l-16.69-17.6,16.69-16.82h0s-16.69-16.82-16.69-16.82l16.69-17.6ZM42.75,128.65l-10.58-3.61-6.52,9.45v-11.68l-10.58-3.61,10.58-3.6v-11.7s6.52,9.45,6.52,9.45l10.58-3.61-6.54,9.45,6.54,9.45Z"></path><path d="M203.72,47.68h31.72v113.91h63.44v29.08h-95.17V47.68Z"></path><path d="M306.82,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M417.85,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M672.4,168.76l-12.42-10.48c7.35-11.24,11.64-24.67,11.64-39.11,0-39.49-31.96-71.49-71.38-71.49s-71.38,32.01-71.38,71.49,31.96,71.49,71.38,71.49c14.66,0,28.29-4.44,39.63-12.03l14.25,12.03,18.27-21.9ZM600.25,161.27c-23.21,0-42.03-18.85-42.03-42.1s18.82-42.1,42.03-42.1,42.03,18.85,42.03,42.1c0,7.21-1.81,14-5.01,19.94l-17.98-15.17-18.27,21.9,14.75,12.45c-4.81,1.92-10.04,2.98-15.53,2.98Z"></path></svg></a>
-        <span style="font-weight:400;color:var(--k-label);font-stretch:100%;font-size:0.55em;line-height:1">×</span>
-        <span style="font-size:0.55em;font-weight:600;line-height:1.1;white-space:nowrap">Camo colour studio</span>
-      </h1>
-      <div class="no-print" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center">
-        <a href="https://tools.kleeq.com" aria-label="Back to KLEEQ Tools" style="display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px 0 9px;border-radius:15px;color:var(--k-label);border:1px solid var(--k-line);font-family:var(--k-mono);font-size:11px;font-weight:600;letter-spacing:0.14em" style-hover="color:var(--k-ink);background:var(--k-panel)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="7" height="7" x="3" y="3"></rect><rect width="7" height="7" x="14" y="3"></rect><rect width="7" height="7" x="14" y="14"></rect><rect width="7" height="7" x="3" y="14"></rect></svg>TOOLS</a>
-        <div style="display:inline-grid;grid-template-columns:repeat(3,auto);border:1px solid var(--k-line)">
-          <button type="button" class="s-seg" data-on="{{ modOn }}" style="min-height:28px;width:34px;padding:0;border:none;justify-content:center" onClick="{{ setMod }}" title="Modernist (site theme)" aria-label="Modernist theme"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="9" x2="9" y2="21"></line></svg></button>
-          <button type="button" class="s-seg" data-on="{{ lightOn }}" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center" onClick="{{ setLight }}" title="Light" aria-label="Light theme"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"></path></svg></button>
-          <button type="button" class="s-seg" data-on="{{ darkOn }}" style="min-height:28px;width:34px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center" onClick="{{ setDark }}" title="Dark" aria-label="Dark theme"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path></svg></button>
+  <header class="no-print" style="position:sticky;top:0;z-index:20;background:var(--k-bar);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--k-line)">
+    <div style="max-width:1320px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <a href="https://tools.kleeq.com" style="color:inherit;display:flex;flex:none" aria-label="KLEEQ Tools"><svg viewBox="0 0 720 240" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KLEEQ" style="height:26px;width:auto;display:block"><polygon points="64.9 0 64.9 71.51 88.7 47.68 88.7 23.84 696.2 23.84 696.2 214.54 88.7 214.54 88.7 190.7 64.9 166.86 64.9 238.38 720 238.38 720 0 64.9 0"></polygon><polygon points="160.09 154.94 142.24 137.07 124.39 119.19 142.24 101.31 160.09 83.43 177.94 65.55 195.79 47.68 160.09 47.68 142.24 65.55 124.39 83.43 106.54 101.31 88.7 119.19 106.54 137.07 124.39 154.94 142.24 172.82 160.09 190.7 195.79 190.7 177.94 172.82 160.09 154.94"></polygon><path d="M64.9,84.77h-27.79c-2.87,0-5.62,1.2-7.65,3.34L0,119.19h0,0s0,0,0,0h0l29.46,31.07c2.03,2.14,4.78,3.34,7.65,3.34h27.79l-16.69-17.6,16.69-16.82h0s-16.69-16.82-16.69-16.82l16.69-17.6ZM42.75,128.65l-10.58-3.61-6.52,9.45v-11.68l-10.58-3.61,10.58-3.6v-11.7s6.52,9.45,6.52,9.45l10.58-3.61-6.54,9.45,6.54,9.45Z"></path><path d="M203.72,47.68h31.72v113.91h63.44v29.08h-95.17V47.68Z"></path><path d="M306.82,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M417.85,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M672.4,168.76l-12.42-10.48c7.35-11.24,11.64-24.67,11.64-39.11,0-39.49-31.96-71.49-71.38-71.49s-71.38,32.01-71.38,71.49,31.96,71.49,71.38,71.49c14.66,0,28.29-4.44,39.63-12.03l14.25,12.03,18.27-21.9ZM600.25,161.27c-23.21,0-42.03-18.85-42.03-42.1s18.82-42.1,42.03-42.1,42.03,18.85,42.03,42.1c0,7.21-1.81,14-5.01,19.94l-17.98-15.17-18.27,21.9,14.75,12.45c-4.81,1.92-10.04,2.98-15.53,2.98Z"></path></svg></a>
+      <span style="font-family:var(--font-heading);font-weight:700;font-size:15px;letter-spacing:0.02em;white-space:nowrap">Camo Studio</span>
+      <a href="https://tools.kleeq.com" aria-label="Back to KLEEQ Applicator Tools" style="display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px 0 9px;flex:none;border-radius:15px;color:var(--k-label);text-decoration:none;border:1px solid var(--k-line);font-family:var(--k-mono);font-size:11px;font-weight:600;letter-spacing:0.14em;white-space:nowrap" style-hover="color:var(--k-ink);background:var(--k-panel)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>APPLICATOR TOOLS</a>
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:8px" title="{{ barTitle }}">
+          <span style="display:flex;gap:1px"><sc-for list="{{ barChips }}" as="c" hint-placeholder-count="3"><span style="width:16px;height:22px;background:{{ c.hex }};border:1px solid var(--k-line)"></span></sc-for></span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:18px;line-height:1;color:{{ scoreInk }}">{{ barScore }}</span>
+        </div>
+        <button type="button" class="s-seg" style="min-height:32px" onClick="{{ pinSet }}" title="Pin this set to compare" disabled="{{ pinDisabled }}">PIN</button>
+        <button type="button" class="s-seg" style="min-height:32px" onClick="{{ copyLink }}" title="Copy a link to this set">{{ copyLabel }}</button>
+        <button type="button" class="s-seg s-pri" style="min-height:32px" onClick="{{ saveSet }}" disabled="{{ saveDisabled }}">{{ saveLabel }}</button>
+        <div style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
+          <button type="button" class="s-seg" data-on="{{ modOn }}" style="min-height:30px;width:32px;padding:0;border:none;justify-content:center" onClick="{{ setMod }}" title="Modernist (site theme)" aria-label="Modernist theme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="9" x2="9" y2="21"></line></svg></button>
+          <button type="button" class="s-seg" data-on="{{ lightOn }}" style="min-height:30px;width:32px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center" onClick="{{ setLight }}" title="Light" aria-label="Light theme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"></path></svg></button>
+          <button type="button" class="s-seg" data-on="{{ darkOn }}" style="min-height:30px;width:32px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center" onClick="{{ setDark }}" title="Dark" aria-label="Dark theme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path></svg></button>
+          <button type="button" class="s-seg" data-on="{{ glassOn }}" style="min-height:30px;width:32px;padding:0;border:none;border-left:1px solid var(--k-line);justify-content:center" onClick="{{ setGlass }}" title="Glass (phone)" aria-label="Glass theme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.9 3.6a.5.5 0 0 1 .95 0l1.3 3.9a2 2 0 0 0 1.27 1.27l3.9 1.3a.5.5 0 0 1 0 .95l-3.9 1.3a2 2 0 0 0-1.27 1.27l-1.3 3.9a.5.5 0 0 1-.95 0l-1.3-3.9a2 2 0 0 0-1.27-1.27l-3.9-1.3a.5.5 0 0 1 0-.95l3.9-1.3a2 2 0 0 0 1.27-1.27z"></path><path d="M19 3v3M17.5 4.5h3M19 17v3M17.5 18.5h3"></path></svg></button>
         </div>
       </div>
     </div>
   </header>
 
-  <div style="max-width:1180px;margin:0 auto;padding:24px 20px 80px;display:grid;gap:40px">
+  <div style="max-width:1320px;margin:0 auto;padding:28px 20px 80px;display:grid;gap:36px">
 
-    <section id="part1" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:20px">
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <span style="font-family:var(--k-mono);font-size:18px;letter-spacing:0.1em;color:var(--k-label)">01</span>
-        <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;text-transform:uppercase">The set</span>
-        <button type="button" class="s-seg no-print" style="margin-left:auto" onClick="{{ clearAll }}" title="Clear every slot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg>START OVER</button>
-      </div>
+    <div class="s-app">
 
-      <div class="no-print" style="display:flex;gap:24px;flex-wrap:wrap;align-items:end">
-        <div>
-          <span class="s-lab">COLOURS</span>
-          <div style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
-            <sc-for list="{{ sizes }}" as="z" hint-placeholder-count="4">
-              <button type="button" class="s-seg" data-on="{{ z.on }}" style="border:none;border-left:{{ z.bl }};min-width:52px;justify-content:center;font-size:14px" onClick="{{ z.pick }}">{{ z.n }}</button>
+      <div style="display:grid;gap:28px;min-width:0">
+
+        <section id="build" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:16px;display:grid;gap:18px">
+          <div class="s-step"><span>01</span><b>BUILD THE SET</b>
+            <button type="button" class="s-seg no-print" style="margin-left:auto;min-height:30px" onClick="{{ clearAll }}" title="Clear every slot">START OVER</button>
+          </div>
+
+          <div class="no-print" style="display:flex;gap:18px;flex-wrap:wrap;align-items:end">
+            <div>
+              <span class="s-lab">COLORS</span>
+              <div style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
+                <sc-for list="{{ sizes }}" as="z" hint-placeholder-count="4">
+                  <button type="button" class="s-seg" data-on="{{ z.on }}" style="border:none;border-left:{{ z.bl }};min-width:48px;justify-content:center;font-size:14px" onClick="{{ z.pick }}">{{ z.n }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div style="min-width:0">
+              <span class="s-lab">MOOD</span>
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <sc-for list="{{ moods }}" as="m" hint-placeholder-count="6">
+                  <button type="button" class="s-seg" data-on="{{ m.on }}" onClick="{{ m.pick }}">{{ m.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">
+            <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
+              <div class="s-slot" data-on="{{ s.on }}" style="position:relative">
+                <button type="button" class="no-print" data-on="{{ s.lockOn }}" style="display:{{ s.lockShow }};position:absolute;top:6px;right:6px;z-index:2;width:28px;height:28px;align-items:center;justify-content:center;padding:0;border:1px solid {{ s.onHex }};background:{{ s.hex }};color:{{ s.onHex }};cursor:pointer;opacity:0.9" onClick="{{ s.toggleLock }}" title="{{ s.lockTitle }}" aria-label="{{ s.lockTitle }}" aria-pressed="{{ s.lockOn }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:{{ s.lockedShow }}"><rect x="3" y="11" width="18" height="11" rx="1"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:{{ s.unlockedShow }};opacity:0.6"><rect x="3" y="11" width="18" height="11" rx="1"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg></button>
+              <span style="position:absolute;top:50px;right:8px;z-index:2;display:{{ s.shareShow }};align-items:center;gap:2px;color:{{ s.onHex }};font-family:var(--font-heading);font-weight:800;font-size:17px;line-height:1" onClick="{{ s.stop }}"><input type="number" inputmode="numeric" min="1" max="97" step="1" value="{{ s.shareNum }}" onInput="{{ s.setShare }}" onClick="{{ s.stop }}" aria-label="Share of the surface, percent" title="Type a share; the other slots rebalance to 100" class="s-share" style="width:3.4em;min-width:56px;box-sizing:border-box;padding:2px 5px;border:1px solid {{ s.onHex }};border-radius:4px;background:rgba(0,0,0,0.22);color:inherit;font:inherit;text-align:right;-moz-appearance:textfield;appearance:textfield"><span>%</span></span>
+              <button type="button" style="display:block;width:100%;padding:0;border:none;background:none;color:inherit;text-align:left;font:inherit;cursor:pointer" onClick="{{ s.open }}" aria-label="{{ s.aria }}">
+                <span style="display:block;height:84px;width:100%;background:{{ s.hex }};border-bottom:1px solid var(--k-line);position:relative">
+                  <span style="position:absolute;top:8px;left:10px;font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:{{ s.onHex }};opacity:0.85">{{ s.role }}</span>
+                  <span style="position:absolute;bottom:8px;left:10px;font-family:var(--k-mono);font-size:10px;letter-spacing:0.1em;color:{{ s.onHex }};opacity:0.85">{{ s.lrv }}</span>
+                </span>
+                <span style="display:grid;gap:3px;padding:9px 10px 11px;min-width:0">
+                  <span style="font-family:var(--k-mono);font-size:13px;font-weight:700;color:var(--k-gold-soft)">{{ s.code }}</span>
+                  <span style="font-family:var(--font-heading);font-weight:600;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ s.name }}</span>
+                  <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.06em;color:var(--k-label);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ s.meta }}</span>
+                </span>
+              </button>
+              </div>
             </sc-for>
           </div>
-        </div>
-        <div>
-          <span class="s-lab">MOOD</span>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <sc-for list="{{ moods }}" as="m" hint-placeholder-count="6">
-              <button type="button" class="s-seg" data-on="{{ m.on }}" onClick="{{ m.pick }}">{{ m.label }}</button>
+
+          <div class="no-print" style="display:flex;gap:6px;flex-wrap:wrap">
+            <button type="button" class="s-seg s-pri" onClick="{{ fillEmpty }}" title="Suggest colors for every empty slot">{{ fillLabel }}</button>
+            <button type="button" class="s-seg" onClick="{{ dealAgain }}" title="Try a different fill" disabled="{{ dealDisabled }}">DEAL AGAIN</button>
+            <span style="font-size:12px;color:var(--k-label);align-self:center;margin-left:4px">{{ fillHint }}</span>
+          </div>
+
+          <div class="no-print" style="display:{{ pickerOn }};grid-template-columns:minmax(0,1fr);gap:12px;border:1px solid var(--k-gold);background:var(--k-panel);padding:14px">
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <span style="font-family:var(--k-mono);font-size:11px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ pickerTitle }}</span>
+              <div style="margin-left:auto;display:flex;gap:6px">
+                <button type="button" class="s-seg" style="display:{{ removeOn }};min-height:30px" onClick="{{ removePick }}">EMPTY SLOT</button>
+                <button type="button" class="s-seg" style="min-height:30px" onClick="{{ closePicker }}" aria-label="Close">CLOSE</button>
+              </div>
+            </div>
+            <input class="s-in" type="text" placeholder="Search a code or name: H-146, Graphite, FDE…" value="{{ query }}" onInput="{{ setQuery }}" aria-label="Search finishes">
+            <div style="display:flex;gap:10px;align-items:baseline">
+              <span class="s-lab" style="margin:0">{{ listTitle }}</span>
+              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto">{{ listCount }}</span>
+            </div>
+            <div style="max-height:360px;overflow-y:auto;border-top:1px solid var(--k-line)">
+              <sc-for list="{{ candidates }}" as="c" hint-placeholder-count="6">
+                <button type="button" class="s-row" data-on="{{ c.on }}" onClick="{{ c.pick }}">
+                  <span style="width:44px;height:30px;flex:none;background:{{ c.hex }};border:1px solid var(--k-line)"></span>
+                  <span style="font-family:var(--k-mono);font-size:13px;font-weight:700;color:var(--k-gold-soft);flex:none;min-width:5.6em">{{ c.code }}</span>
+                  <span style="font-family:var(--font-heading);font-weight:600;font-size:14px;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.name }}</span>
+                  <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label);flex:none">{{ c.meta }}</span>
+                  <span style="font-family:var(--k-mono);font-size:12px;font-weight:700;color:{{ c.scoreInk }};flex:none;min-width:2.4em;text-align:right">{{ c.score }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div class="no-print" style="display:grid;gap:8px">
+            <div style="display:flex;gap:10px;align-items:baseline">
+              <span class="s-lab" style="margin:0">START FROM AN IDEA</span>
+              <div style="display:inline-grid;grid-template-columns:repeat(3,auto);border:1px solid var(--k-line);margin-left:auto">
+                <sc-for list="{{ ideaGroups }}" as="g" hint-placeholder-count="3"><button type="button" class="s-seg" data-on="{{ g.on }}" style="min-height:28px;border:none;border-left:{{ g.bl }};font-size:10px" onClick="{{ g.pick }}">{{ g.label }}</button></sc-for>
+              </div>
+            </div>
+            <div style="display:grid;grid-auto-flow:column;grid-auto-columns:minmax(180px,1fr);gap:8px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x proximity">
+              <sc-for list="{{ ideas }}" as="d" hint-placeholder-count="4">
+                <button type="button" class="s-slot" data-on="{{ d.on }}" style="scroll-snap-align:start" onClick="{{ d.pick }}" title="{{ d.title }}">
+                  <span style="display:flex;height:36px;width:100%;border-bottom:1px solid var(--k-line)"><sc-for list="{{ d.chips }}" as="c" hint-placeholder-count="3"><span style="flex:1;background:{{ c.hex }}"></span></sc-for></span>
+                  <span style="display:grid;gap:3px;padding:8px 10px 10px;min-width:0">
+                    <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--font-heading);font-weight:700;font-size:13px">{{ d.name }}</span><span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.12em;color:var(--k-gold-soft);margin-left:auto">{{ d.group }}</span></span>
+                    <span style="font-size:11px;line-height:1.4;color:var(--k-label);white-space:normal">{{ d.note }}</span>
+                  </span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div class="no-print" style="display:{{ recentOn }};gap:6px;flex-wrap:wrap;align-items:center">
+            <span class="s-lab" style="margin:0 4px 0 0">SAVED SETS</span>
+            <sc-for list="{{ recents }}" as="r" hint-placeholder-count="0">
+              <button type="button" class="s-seg" style="padding:0 10px 0 6px" onClick="{{ r.pick }}" title="{{ r.title }}">
+                <span style="display:flex;gap:1px"><sc-for list="{{ r.chips }}" as="c" hint-placeholder-count="3"><span style="width:12px;height:18px;background:{{ c.hex }}"></span></sc-for></span>{{ r.label }}
+              </button>
             </sc-for>
           </div>
-        </div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <button type="button" class="s-seg" style="border-color:var(--k-gold-soft);color:var(--k-ink)" onClick="{{ fillEmpty }}" title="Suggest colours for every empty slot">FILL THE SET</button>
-          <button type="button" class="s-seg" onClick="{{ dealAgain }}" title="Try a different fill">DEAL AGAIN</button>
-        </div>
-      </div>
+        </section>
 
-      <div class="no-print" style="display:grid;gap:8px">
-        <div style="display:flex;gap:10px;align-items:baseline">
-          <span class="s-lab" style="margin:0">IDEAS</span>
-          <div style="display:inline-grid;grid-template-columns:repeat(3,auto);border:1px solid var(--k-line);margin-left:auto">
-            <sc-for list="{{ ideaGroups }}" as="g" hint-placeholder-count="3"><button type="button" class="s-seg" data-on="{{ g.on }}" style="min-height:28px;border:none;border-left:{{ g.bl }};font-size:10px" onClick="{{ g.pick }}">{{ g.label }}</button></sc-for>
+        <section id="check" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:16px;display:grid;gap:14px">
+          <div class="s-step"><span>03</span><b>CHECK</b>
+            <span style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:30px;line-height:1;color:{{ scoreInk }}">{{ scoreText }}</span>
           </div>
-        </div>
-        <div style="display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,1fr);gap:8px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x proximity">
-          <sc-for list="{{ ideas }}" as="d" hint-placeholder-count="4">
-            <button type="button" class="s-slot" data-on="{{ d.on }}" style="scroll-snap-align:start" onClick="{{ d.pick }}" title="{{ d.title }}">
-              <span style="display:flex;height:40px;width:100%;border-bottom:1px solid var(--k-line)"><sc-for list="{{ d.chips }}" as="c" hint-placeholder-count="3"><span style="flex:1;background:{{ c.hex }}"></span></sc-for></span>
-              <span style="display:grid;gap:3px;padding:8px 10px 10px;min-width:0">
-                <span style="display:flex;gap:8px;align-items:baseline"><span style="font-family:var(--font-heading);font-weight:700;font-size:14px">{{ d.name }}</span><span style="font-family:var(--k-mono);font-size:9px;letter-spacing:0.12em;color:var(--k-gold-soft);margin-left:auto">{{ d.group }}</span></span>
-                <span style="font-size:11px;line-height:1.4;color:var(--k-label);white-space:normal">{{ d.note }}</span>
-              </span>
-            </button>
-          </sc-for>
-        </div>
-      </div>
-
-      <div class="no-print" style="display:{{ recentOn }};gap:6px;flex-wrap:wrap;align-items:center">
-        <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:var(--k-label);margin-right:4px">RECENT SETS</span>
-        <sc-for list="{{ recents }}" as="r" hint-placeholder-count="0">
-          <button type="button" class="s-seg" style="padding:0 10px 0 6px" onClick="{{ r.pick }}" title="{{ r.title }}">
-            <span style="display:flex;gap:1px"><sc-for list="{{ r.chips }}" as="c" hint-placeholder-count="3"><span style="width:12px;height:18px;background:{{ c.hex }}"></span></sc-for></span>{{ r.label }}
-          </button>
-        </sc-for>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px">
-        <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
-          <button type="button" class="s-slot" data-on="{{ s.on }}" onClick="{{ s.open }}" aria-label="{{ s.aria }}">
-            <span style="display:block;height:96px;width:100%;background:{{ s.hex }};border-bottom:1px solid var(--k-line);position:relative">
-              <span style="position:absolute;top:8px;left:10px;font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:{{ s.onHex }};opacity:0.85">{{ s.role }}</span>
-              <span style="position:absolute;bottom:8px;right:10px;font-family:var(--font-heading);font-weight:800;font-size:18px;color:{{ s.onHex }}">{{ s.share }}</span>
-            </span>
-            <span style="display:grid;gap:3px;padding:10px 10px 12px;min-width:0">
-              <span style="font-family:var(--k-mono);font-size:13px;font-weight:700;color:var(--k-gold-soft)">{{ s.code }}</span>
-              <span style="font-family:var(--font-heading);font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ s.name }}</span>
-              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label)">{{ s.meta }}</span>
-            </span>
-          </button>
-        </sc-for>
-      </div>
-
-      <div class="no-print" style="display:{{ pickerOn }};grid-template-columns:minmax(0,1fr);gap:12px;border:1px solid var(--k-line);background:var(--k-panel);padding:14px">
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <span style="font-family:var(--k-mono);font-size:11px;letter-spacing:0.12em;color:var(--k-gold-soft)">{{ pickerTitle }}</span>
-          <div style="margin-left:auto;display:flex;gap:6px">
-            <button type="button" class="s-seg" style="display:{{ removeOn }}" onClick="{{ removePick }}">EMPTY THIS SLOT</button>
-            <button type="button" class="s-seg" onClick="{{ closePicker }}" aria-label="Close">CLOSE</button>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:var(--k-copy);max-width:64ch">{{ readSummary }}</p>
+          <div style="display:grid;gap:0;border-top:1px solid var(--k-line)">
+            <sc-for list="{{ rules }}" as="r" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;padding:10px 0;border-bottom:1px solid var(--k-line)">
+                <button type="button" class="s-seg no-print" data-on="{{ r.on }}" style="min-width:124px;min-height:32px" onClick="{{ r.toggle }}" title="{{ r.hint }}">{{ r.label }}</button>
+                <span style="display:grid;gap:2px;padding-top:3px;min-width:0">
+                  <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.14em;font-weight:700;color:{{ r.dot }}">{{ r.verdict }}</span>
+                  <span style="font-size:13px;line-height:1.5;color:var(--k-copy)">{{ r.note }}</span>
+                </span>
+              </div>
+            </sc-for>
           </div>
-        </div>
-        <input class="s-in" type="text" placeholder="Search a code or name — H-146, Graphite, FDE…" value="{{ query }}" onInput="{{ setQuery }}" aria-label="Search finishes">
-        <div style="display:flex;gap:10px;align-items:baseline">
-          <span class="s-lab" style="margin:0">{{ listTitle }}</span>
-          <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label);margin-left:auto">{{ listCount }}</span>
-        </div>
-        <div style="max-height:380px;overflow-y:auto;border-top:1px solid var(--k-line)">
-          <sc-for list="{{ candidates }}" as="c" hint-placeholder-count="6">
-            <button type="button" class="s-row" data-on="{{ c.on }}" onClick="{{ c.pick }}">
-              <span style="width:44px;height:30px;flex:none;background:{{ c.hex }};border:1px solid var(--k-line)"></span>
-              <span style="font-family:var(--k-mono);font-size:13px;font-weight:700;color:var(--k-gold-soft);flex:none;min-width:5.6em">{{ c.code }}</span>
-              <span style="font-family:var(--font-heading);font-weight:600;font-size:14px;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.name }}</span>
-              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label);flex:none">{{ c.meta }}</span>
-              <span style="font-family:var(--k-mono);font-size:12px;font-weight:700;color:{{ c.scoreInk }};flex:none;min-width:2.4em;text-align:right">{{ c.score }}</span>
-            </button>
-          </sc-for>
-        </div>
+        </section>
       </div>
-    </section>
 
-    <section id="part2" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:16px">
-      <div style="display:flex;gap:8px;align-items:center">
-        <span style="font-family:var(--k-mono);font-size:18px;letter-spacing:0.1em;color:var(--k-label)">02</span>
-        <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;text-transform:uppercase">The look</span>
-      </div>
-      <div class="no-print" style="display:flex;gap:20px;flex-wrap:wrap;align-items:end">
-        <div>
-          <span class="s-lab">PATTERN</span>
-          <div style="display:inline-grid;grid-template-columns:repeat(3,auto);border:1px solid var(--k-line)">
-            <sc-for list="{{ patterns }}" as="p" hint-placeholder-count="3"><button type="button" class="s-seg" data-on="{{ p.on }}" style="border:none;border-left:{{ p.bl }}" onClick="{{ p.pick }}">{{ p.label }}</button></sc-for>
+      <div class="s-stickypv" style="display:grid;gap:14px;min-width:0">
+        <section id="preview" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:16px;display:grid;gap:14px">
+          <div class="s-step"><span>02</span><b>PREVIEW</b>
+            <span style="margin-left:auto;font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:var(--k-label)">{{ previewMeta }}</span>
           </div>
-        </div>
-        <div>
-          <span class="s-lab">ON</span>
-          <div style="display:inline-grid;grid-template-columns:repeat(4,auto);border:1px solid var(--k-line)">
-            <sc-for list="{{ surfaces }}" as="p" hint-placeholder-count="4"><button type="button" class="s-seg" data-on="{{ p.on }}" style="border:none;border-left:{{ p.bl }}" onClick="{{ p.pick }}">{{ p.label }}</button></sc-for>
+          <div style="border:1px solid var(--k-line);background:var(--k-panel);padding:16px;display:grid;place-items:center;min-height:260px;position:relative">
+            {{ preview }}
           </div>
-        </div>
-        <div>
-          <span class="s-lab">SHARES</span>
-          <div style="display:inline-grid;grid-template-columns:repeat(2,auto);border:1px solid var(--k-line)">
-            <button type="button" class="s-seg" data-on="{{ heavyOn }}" style="border:none" onClick="{{ setHeavy }}">BASE HEAVY</button>
-            <button type="button" class="s-seg" data-on="{{ evenOn }}" style="border:none;border-left:1px solid var(--k-line)" onClick="{{ setEven }}">EVEN</button>
-          </div>
-        </div>
-        <div style="min-width:160px;flex:1 1 160px;max-width:260px">
-          <span class="s-lab">PATCH SIZE</span>
-          <input type="range" min="50" max="200" step="5" value="{{ scalePct }}" onInput="{{ setScale }}" aria-label="Patch size">
-        </div>
-        <button type="button" class="s-seg" onClick="{{ reshuffle }}" title="New random layout, same colours"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg>RESHUFFLE</button>
-      </div>
-      <div style="border:1px solid var(--k-line);background:var(--k-panel);padding:18px;display:grid;place-items:center;min-height:240px">
-        {{ preview }}
-      </div>
-      <p style="margin:0;font-size:12px;line-height:1.5;color:var(--k-label);max-width:72ch">Screen simulation only. Signature and Palette colours use the studio's measured values; Core colours are sampled from Cerakote's product thumbnails and marked SAMPLED. Spray a coupon before committing a customer to a set.</p>
-    </section>
 
-    <section id="part3" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:16px">
-      <div style="display:flex;gap:8px;align-items:center">
-        <span style="font-family:var(--k-mono);font-size:18px;letter-spacing:0.1em;color:var(--k-label)">03</span>
-        <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;text-transform:uppercase">The read</span>
-        <span style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:34px;line-height:1;color:{{ scoreInk }}">{{ scoreText }}</span>
-      </div>
-      <div style="display:grid;gap:0;border-top:1px solid var(--k-line)">
-        <sc-for list="{{ rules }}" as="r" hint-placeholder-count="4">
-          <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid var(--k-line)">
-            <button type="button" class="s-seg no-print" data-on="{{ r.on }}" style="min-width:132px" onClick="{{ r.toggle }}" title="{{ r.hint }}">{{ r.label }}</button>
-            <span style="display:grid;gap:2px;padding-top:4px;min-width:0">
-              <span style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.14em;font-weight:700;color:{{ r.dot }}">{{ r.verdict }}</span>
-              <span style="font-size:13px;line-height:1.5;color:var(--k-copy)">{{ r.note }}</span>
-            </span>
+          <div class="no-print" style="display:grid;gap:12px">
+            <div>
+              <span class="s-lab">ON</span>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+                <div style="display:inline-grid;grid-template-columns:repeat(6,auto);border:1px solid var(--k-line)">
+                  <sc-for list="{{ surfaces }}" as="p" hint-placeholder-count="6"><button type="button" class="s-seg" data-on="{{ p.on }}" style="border:none;border-left:{{ p.bl }};min-height:32px" onClick="{{ p.pick }}">{{ p.label }}</button></sc-for>
+                </div>
+                <label class="s-seg" style="display:{{ photoBtnOn }};min-height:32px;cursor:pointer">{{ photoLabel }}<input type="file" accept="image/*" onChange="{{ loadPhoto }}" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"></label>
+                <button type="button" class="s-seg" style="display:{{ photoBtnOn }};min-height:32px" onClick="{{ coloursFromPhoto }}" disabled="{{ noPhoto }}" title="Lift the dominant colors from the photo and match them to the catalogue">COLORS FROM PHOTO</button>
+                <button type="button" class="s-seg" style="display:{{ quadResetOn }};min-height:32px" onClick="{{ resetQuad }}" title="Put the four corners back">RESET CORNERS</button>
+                <label class="s-seg" style="display:{{ outlineBtnOn }};min-height:32px;cursor:pointer" title="{{ outlineHint }}">{{ outlineLabel }}<input type="file" accept=".svg,image/svg+xml" onChange="{{ loadOutline }}" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"></label>
+              </div>
+            </div>
+            <div>
+              <span class="s-lab">PATTERN</span>
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <sc-for list="{{ patterns }}" as="p" hint-placeholder-count="9"><button type="button" class="s-seg" data-on="{{ p.on }}" style="min-height:32px" onClick="{{ p.pick }}">{{ p.label }}</button></sc-for>
+              </div>
+            </div>
+            <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:end">
+              <div>
+                <span class="s-lab">{{ sharesLab }}</span>
+                <div style="display:inline-grid;grid-template-columns:repeat(2,auto);border:1px solid var(--k-line)">
+                  <button type="button" class="s-seg" data-on="{{ heavyOn }}" style="border:none;min-height:32px" onClick="{{ setHeavy }}">BASE HEAVY</button>
+                  <button type="button" class="s-seg" data-on="{{ evenOn }}" style="border:none;border-left:1px solid var(--k-line);min-height:32px" onClick="{{ setEven }}">EVEN</button>
+                </div>
+              </div>
+              <div style="min-width:140px;flex:1 1 140px;max-width:220px">
+                <span class="s-lab">PATCH SIZE</span>
+                <input type="range" min="25" max="200" step="5" value="{{ scalePct }}" onInput="{{ setScale }}" aria-label="Patch size">
+              </div>
+              <button type="button" class="s-seg" data-on="{{ sheenOn }}" style="min-height:32px" onClick="{{ toggleSheen }}" title="Simulate the published gloss of the set">SHEEN</button>
+              <button type="button" class="s-seg" style="min-height:32px" onClick="{{ reshuffle }}" title="New random layout, same colors (R or the arrow keys)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg>RESHUFFLE</button>
+            </div>
           </div>
-        </sc-for>
-      </div>
-    </section>
 
-    <section id="part4" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:20px;display:grid;gap:16px">
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <span style="font-family:var(--k-mono);font-size:18px;letter-spacing:0.1em;color:var(--k-label)">04</span>
-        <span style="font-family:var(--font-heading);font-weight:800;font-stretch:112%;font-size:18px;letter-spacing:0.04em;text-transform:uppercase">The sheet</span>
+          <div class="no-print" style="display:{{ pinsOn }};gap:8px">
+            <div style="display:flex;gap:10px;align-items:baseline">
+              <span class="s-lab" style="margin:0">COMPARE</span>
+              <span style="font-size:11px;color:var(--k-label)">{{ pinsHint }}</span>
+              <button type="button" class="s-seg" style="margin-left:auto;min-height:26px;font-size:10px" onClick="{{ clearPins }}">CLEAR</button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px">
+              <sc-for list="{{ pins }}" as="p" hint-placeholder-count="0">
+                <div class="s-slot" data-on="{{ p.on }}" style="cursor:default">
+                  <button type="button" style="display:block;padding:0;border:none;background:var(--k-panel);cursor:pointer;width:100%" onClick="{{ p.load }}" title="Load this set">{{ p.svg }}</button>
+                  <span style="display:flex;gap:6px;align-items:center;padding:6px 8px;border-top:1px solid var(--k-line)">
+                    <span style="display:flex;gap:1px"><sc-for list="{{ p.chips }}" as="c" hint-placeholder-count="3"><span style="width:10px;height:14px;background:{{ c.hex }}"></span></sc-for></span>
+                    <span style="font-family:var(--k-mono);font-size:10px;color:var(--k-label);margin-left:auto">{{ p.score }}</span>
+                    <button type="button" class="s-seg" style="min-height:22px;padding:0 6px;font-size:10px" onClick="{{ p.remove }}" aria-label="Remove">×</button>
+                  </span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <p style="margin:0;font-size:11px;line-height:1.5;color:var(--k-label);max-width:72ch">Screen simulation. Signature and Palette colors use the studio's measured values; Core colors are sampled from Cerakote's thumbnails and marked SAMPLED. Spray a coupon before committing a customer to a set.</p>
+        </section>
+      </div>
+    </div>
+
+    <section id="sheet" style="border-top:var(--k-rule-w) solid var(--k-rule);padding-top:16px;display:grid;gap:18px">
+      <div class="s-step"><span>04</span><b>JOB SHEET</b>
         <div class="no-print" style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap">
-          <button type="button" class="s-seg" onClick="{{ copyLink }}">{{ copyLabel }}</button>
-          <button type="button" class="s-seg" onClick="{{ printSheet }}">PRINT SHEET</button>
-          <button type="button" class="s-seg" style="border-color:var(--k-gold-soft);color:var(--k-ink)" onClick="{{ saveSet }}">{{ saveLabel }}</button>
+          <button type="button" class="s-seg" style="min-height:32px" onClick="{{ savePng }}" disabled="{{ saveDisabled }}">SAVE IMAGE</button>
+          <button type="button" class="s-seg" style="min-height:32px" onClick="{{ saveStencils }}" disabled="{{ saveDisabled }}" title="One SVG, one layer per color: black = spray, white = mask. Cuts on a vinyl plotter.">STENCILS (SVG)</button>
+          <button type="button" class="s-seg" style="min-height:32px" onClick="{{ sendSet }}" disabled="{{ saveDisabled }}">EMAIL TO CUSTOMER</button>
+          <button type="button" class="s-seg" style="min-height:32px" onClick="{{ printSheet }}">PRINT</button>
         </div>
       </div>
-      <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:560px">
-          <thead>
-            <tr style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:var(--k-label);text-align:left">
-              <th style="padding:8px 8px 8px 0;border-bottom:1px solid var(--k-line);font-weight:500">LAYER</th>
-              <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500"></th>
-              <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">CODE</th>
-              <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">NAME</th>
-              <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">SERIES</th>
-              <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">GLOSS</th>
-              <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">LRV</th>
-              <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500;text-align:right">SHARE</th>
-              <th style="padding:8px 0 8px 8px;border-bottom:1px solid var(--k-line);font-weight:500">SCREEN</th>
-            </tr>
-          </thead>
-          <tbody>
-            <sc-for list="{{ sheet }}" as="w" hint-placeholder-count="3">
-              <tr>
-                <td style="padding:10px 8px 10px 0;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);color:var(--k-label)">{{ w.n }}</td>
-                <td style="padding:10px 8px;border-bottom:1px solid var(--k-line)"><span style="display:block;width:36px;height:22px;background:{{ w.hex }};border:1px solid var(--k-line)"></span></td>
-                <td style="padding:10px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);font-weight:700;color:var(--k-gold-soft)">{{ w.code }}</td>
-                <td style="padding:10px 8px;border-bottom:1px solid var(--k-line);font-weight:600">{{ w.name }}</td>
-                <td style="padding:10px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono)">{{ w.series }}</td>
-                <td style="padding:10px 8px;border-bottom:1px solid var(--k-line)">{{ w.gloss }}</td>
-                <td style="padding:10px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono)">{{ w.lrv }}</td>
-                <td style="padding:10px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);text-align:right">{{ w.share }}</td>
-                <td style="padding:10px 0 10px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);font-size:10px;letter-spacing:0.08em;color:var(--k-label)">{{ w.src }}</td>
-              </tr>
-            </sc-for>
-          </tbody>
-        </table>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
+        <label style="display:grid;gap:6px"><span class="s-lab" style="margin:0">CUSTOMER</span><input class="s-in" type="text" value="{{ qCustomer }}" onInput="{{ setQCustomer }}" placeholder="Name"></label>
+        <label style="display:grid;gap:6px"><span class="s-lab" style="margin:0">PART / MODEL</span><input class="s-in" type="text" value="{{ qPart }}" onInput="{{ setQPart }}" placeholder="e.g. Glock 19 slide + frame"></label>
+        <label style="display:grid;gap:6px"><span class="s-lab" style="margin:0">PRICE</span><input class="s-in" type="text" value="{{ qPrice }}" onInput="{{ setQPrice }}" placeholder="$"></label>
+        <label style="display:grid;gap:6px"><span class="s-lab" style="margin:0">LEAD TIME</span><input class="s-in" type="text" value="{{ qLead }}" onInput="{{ setQLead }}" placeholder="e.g. 2 weeks"></label>
       </div>
-      <p style="margin:0;font-size:12px;line-height:1.5;color:var(--k-label);max-width:72ch">{{ sheetNote }}</p>
+      <label style="display:grid;gap:6px"><span class="s-lab" style="margin:0">NOTES</span><input class="s-in" type="text" value="{{ qNotes }}" onInput="{{ setQNotes }}" placeholder="Masking requests, logo placement, what stays bare"></label>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px;align-items:start">
+        <div style="display:grid;gap:10px;min-width:0">
+          <span class="s-lab" style="margin:0">COLORS</span>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:var(--k-label);text-align:left">
+                  <th style="padding:8px 8px 8px 0;border-bottom:1px solid var(--k-line);font-weight:500">#</th>
+                  <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500"></th>
+                  <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">CODE</th>
+                  <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">NAME</th>
+                  <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">GLOSS</th>
+                  <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500;white-space:nowrap">LRV</th>
+                  <th style="padding:8px 0 8px 8px;border-bottom:1px solid var(--k-line);font-weight:500;text-align:right">SHARE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <sc-for list="{{ sheet }}" as="w" hint-placeholder-count="3">
+                  <tr>
+                    <td style="padding:9px 8px 9px 0;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);color:var(--k-label)">{{ w.n }}</td>
+                    <td style="padding:9px 8px;border-bottom:1px solid var(--k-line)"><span style="display:block;width:34px;height:22px;background:{{ w.hex }};border:1px solid var(--k-line)"></span></td>
+                    <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);font-weight:700;color:var(--k-gold-soft);white-space:nowrap">{{ w.code }}</td>
+                    <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-weight:600">{{ w.name }}<span style="display:block;font-family:var(--k-mono);font-size:10px;letter-spacing:0.06em;color:var(--k-label);font-weight:400">{{ w.sub }}</span></td>
+                    <td style="padding:9px 8px;border-bottom:1px solid var(--k-line)">{{ w.gloss }}</td>
+                    <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono)">{{ w.lrv }}</td>
+                    <td style="padding:9px 0 9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);text-align:right">{{ w.share }}</td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div style="display:grid;gap:10px;min-width:0">
+          <span class="s-lab" style="margin:0">LAYER PLAN</span>
+          <ol style="margin:0;padding:0;list-style:none;display:grid;gap:0;border-top:1px solid var(--k-line)">
+            <sc-for list="{{ plan }}" as="p" hint-placeholder-count="3">
+              <li style="display:grid;grid-template-columns:28px 34px minmax(0,1fr);gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--k-line)">
+                <span style="font-family:var(--k-mono);font-size:12px;color:var(--k-label);padding-top:2px">{{ p.n }}</span>
+                <span style="display:block;width:34px;height:22px;background:{{ p.hex }};border:1px solid var(--k-line)"></span>
+                <span style="display:grid;gap:2px;min-width:0">
+                  <span style="font-size:14px;font-weight:600">{{ p.title }}</span>
+                  <span style="font-size:12px;line-height:1.5;color:var(--k-copy)">{{ p.body }}</span>
+                </span>
+              </li>
+            </sc-for>
+          </ol>
+          <p style="margin:0;font-size:11px;line-height:1.5;color:var(--k-label)">{{ sheetNote }}</p>
+        </div>
+      </div>
+
+      <div style="display:grid;gap:12px;border-top:1px solid var(--k-line);padding-top:16px">
+        <div style="display:flex;gap:16px;align-items:end;flex-wrap:wrap">
+          <span class="s-lab" style="margin:0;align-self:center">MIX PER COLOR</span>
+          <label style="display:grid;gap:6px;margin-left:auto;min-width:200px"><span class="s-lab" style="margin:0">COATING FOR THE WHOLE PART (g)</span><input class="s-in" type="number" inputmode="decimal" min="0" step="1" value="{{ mixG }}" onInput="{{ setMixG }}" aria-label="Total coating weight in grams"></label>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <thead>
+              <tr style="font-family:var(--k-mono);font-size:10px;letter-spacing:0.12em;color:var(--k-label);text-align:left">
+                <th style="padding:8px 8px 8px 0;border-bottom:1px solid var(--k-line);font-weight:500">#</th>
+                <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500"></th>
+                <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">CODE</th>
+                <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500;text-align:right">SHARE</th>
+                <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500;text-align:right">COATING</th>
+                <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500;text-align:right">CATALYST</th>
+                <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">RATIO</th>
+                <th style="padding:8px;border-bottom:1px solid var(--k-line);font-weight:500">DENSITY</th>
+                <th style="padding:8px 0 8px 8px;border-bottom:1px solid var(--k-line);font-weight:500">STRAINER</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ mix }}" as="m" hint-placeholder-count="3">
+                <tr>
+                  <td style="padding:9px 8px 9px 0;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);color:var(--k-label)">{{ m.n }}</td>
+                  <td style="padding:9px 8px;border-bottom:1px solid var(--k-line)"><span style="display:block;width:34px;height:22px;background:{{ m.hex }};border:1px solid var(--k-line)"></span></td>
+                  <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);font-weight:700;color:var(--k-gold-soft);white-space:nowrap">{{ m.code }}</td>
+                  <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);text-align:right">{{ m.share }}</td>
+                  <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);font-weight:700;text-align:right;white-space:nowrap">{{ m.coat }}</td>
+                  <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);font-weight:700;text-align:right;white-space:nowrap;color:{{ m.catInk }}">{{ m.cat }}</td>
+                  <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);white-space:nowrap">{{ m.ratio }}</td>
+                  <td style="padding:9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);white-space:nowrap">{{ m.density }}</td>
+                  <td style="padding:9px 0 9px 8px;border-bottom:1px solid var(--k-line);font-family:var(--k-mono);white-space:nowrap">{{ m.mesh }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:0;font-size:11px;line-height:1.5;color:var(--k-label);max-width:90ch">{{ mixNote }}</p>
+      </div>
     </section>
   </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 let K = null;
-const THEME_KEY = 'kleeq-mix-theme';
+const THEME_KEY = 'kleeq-theme';
 const RECENT_KEY = 'kleeq-camo-recents';
-const PATTERNS = [{ id: 'blotch', label: 'BLOTCH' }, { id: 'digital', label: 'DIGITAL' }, { id: 'stripes', label: 'STRIPES' }];
-const SURF = [{ id: 'panel', label: 'PANEL' }, { id: 'handgun', label: 'HANDGUN' }, { id: 'rifle', label: 'RIFLE' }, { id: 'knife', label: 'KNIFE' }];
+const SURF = [{ id: 'panel', label: 'PANEL' }, { id: 'handgun', label: '1911' }, { id: 'rifle', label: 'AR-15' }, { id: 'knife', label: 'KNIFE' }, { id: 'custom', label: 'MY PART' }, { id: 'photo', label: 'PHOTO' }];
+const OUTLINE_KEY = 'kleeq-camo-outline';
+// A mood also picks the pattern it is usually sprayed in.
+const MOOD_PATTERN = { tactical: 'blotch', desert: 'splinter', woodland: 'blotch', urban: 'hex', bold: 'stripes' };
+// Mix ratios BY VOLUME from the series TDS. H-Series TDS v12-14-23: 18:1.
+// Elite TDS v04/12/2022: 12:1 to 24:1 by gloss, 18:1 recommended. Gen II NiR
+// runs on the H-Series system. Nothing is published for the other series on
+// the product pages, so the card says CHECK THE TDS rather than guessing.
+const RATIO = { H: 18, HIR: 18, E: 18 };
+// Single component per Cerakote's product pages: C, V and MC state "does not
+// require catalyst"; FX is a powder additive for clears, not a coating.
+const NO_CAT = { C: 1, V: 1, MC: 1, FX: 1 };
+const CAT_DENSITY = 1.06; // g/mL, solved from Cerakote's own calculator (see the Mixing Calculator)
+// Strainer keys as stored in kleeq-finishes.json (read per SKU from the
+// Cerakote product page), labelled the same way as the Mixing Calculator.
+const MESH_LABEL = { coarse: '100 MESH', fine: '150 MESH', finest: '325 MESH', none: 'NO STRAINER', unpublished: 'NOT PUBLISHED' };
+const DEFAULT_QUAD = [[0.15, 0.2], [0.85, 0.2], [0.85, 0.8], [0.15, 0.8]];
+// Unit square -> quad homography (Heckbert), returned as matrix3d coefficients
+// for a w x h source. X = (a u + b v + c) / (g u + h v + 1).
+const homography = (w, h, q) => {
+  const [[x0, y0], [x1, y1], [x2, y2], [x3, y3]] = q.map(([x, y]) => [x * w, y * h]);
+  const sx = x0 - x1 + x2 - x3, sy = y0 - y1 + y2 - y3;
+  const dx1 = x1 - x2, dx2 = x3 - x2, dy1 = y1 - y2, dy2 = y3 - y2;
+  const det = dx1 * dy2 - dx2 * dy1 || 1e-9;
+  const g = (sx * dy2 - dx2 * sy) / det, hh = (dx1 * sy - sx * dy1) / det;
+  return { a: (x1 - x0 + g * x1) / w, b: (x3 - x0 + hh * x3) / h, c: x0, d: (y1 - y0 + g * y1) / w, e: (y3 - y0 + hh * y3) / h, f: y0, g: g / w, h: hh / h };
+};
+const matrix3d = (m) => 'matrix3d(' + [m.a, m.d, 0, m.g, m.b, m.e, 0, m.h, 0, 0, 1, 0, m.c, m.f, 0, 1].map((v) => Math.round(v * 1e6) / 1e6).join(',') + ')';
+const warp = (m, x, y) => { const w = m.g * x + m.h * y + 1; return [(m.a * x + m.b * y + m.c) / w, (m.d * x + m.e * y + m.f) / w]; };
+// Draw img through the homography: the image is cut into N x N cells and each
+// cell is drawn as two affine triangles (canvas has no perspective transform).
+const drawWarped = (ctx, img, w, h, m, N) => {
+  const tri = (s, d) => {
+    const [[sx0, sy0], [sx1, sy1], [sx2, sy2]] = s, [[dx0, dy0], [dx1, dy1], [dx2, dy2]] = d;
+    const den = sx0 * (sy1 - sy2) + sx1 * (sy2 - sy0) + sx2 * (sy0 - sy1); if (!den) return;
+    const A = (dx0 * (sy1 - sy2) + dx1 * (sy2 - sy0) + dx2 * (sy0 - sy1)) / den, B = (dy0 * (sy1 - sy2) + dy1 * (sy2 - sy0) + dy2 * (sy0 - sy1)) / den;
+    const C = (dx0 * (sx2 - sx1) + dx1 * (sx0 - sx2) + dx2 * (sx1 - sx0)) / den, D = (dy0 * (sx2 - sx1) + dy1 * (sx0 - sx2) + dy2 * (sx1 - sx0)) / den;
+    const Ex = (dx0 * (sx1 * sy2 - sx2 * sy1) + dx1 * (sx2 * sy0 - sx0 * sy2) + dx2 * (sx0 * sy1 - sx1 * sy0)) / den, F = (dy0 * (sx1 * sy2 - sx2 * sy1) + dy1 * (sx2 * sy0 - sx0 * sy2) + dy2 * (sx0 * sy1 - sx1 * sy0)) / den;
+    ctx.save(); ctx.beginPath(); ctx.moveTo(dx0, dy0); ctx.lineTo(dx1, dy1); ctx.lineTo(dx2, dy2); ctx.closePath(); ctx.clip();
+    ctx.setTransform(A, B, C, D, Ex, F); ctx.drawImage(img, 0, 0, w, h); ctx.restore();
+  };
+  for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+    const s = [[i / N * w, j / N * h], [(i + 1) / N * w, j / N * h], [(i + 1) / N * w, (j + 1) / N * h], [i / N * w, (j + 1) / N * h]];
+    const d = s.map(([x, y]) => warp(m, x, y));
+    const pad = (p, q) => p.map((pt, k) => { const c = [(p[0][0] + p[1][0] + p[2][0]) / 3, (p[0][1] + p[1][1] + p[2][1]) / 3]; return [pt[0] + (pt[0] - c[0]) * 0.02, pt[1] + (pt[1] - c[1]) * 0.02]; });
+    tri([s[0], s[1], s[2]], pad([d[0], d[1], d[2]])); tri([s[0], s[2], s[3]], pad([d[0], d[2], d[3]]));
+  }
+};
 const RULE_IDS = ['value', 'hue', 'series', 'gloss'];
 const onHex = (hex) => { const h = String(hex || '#888').replace('#', ''); const [r, g, b] = [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16) || 0); return (0.299 * r + 0.587 * g + 0.114 * b) > 150 ? '#141312' : '#f3f2f2'; };
+const patIds = () => (K ? K.PATTERNS : [{ id: 'blotch' }]).map((p) => p.id);
 
 class Component extends DCLogic {
   state = { pool: null, size: 3, set: ['', '', ''], mood: '', rules: { value: true, hue: true, series: true, gloss: true },
-    pattern: 'blotch', surface: 'panel', seed: 1, scale: 100, even: false, variant: 0,
-    picker: -1, query: '', theme: 'dark', recents: [], copied: false, saved: false, auto: [], ideas: [], ideaGroup: 'ALL' };
+    pattern: 'blotch', surface: 'panel', seed: 1, scale: 100, even: false, variant: 0, sheen: true,
+    picker: -1, query: '', theme: 'dark', recents: [], copied: false, saved: false, auto: [], ideas: [], ideaGroup: 'ALL',
+    photo: null, photoW: 4, photoH: 3, photoName: '', pins: [], quote: { customer: '', part: '', price: '', lead: '', notes: '' },
+    locked: [], custom: null, quad: DEFAULT_QUAD, mixG: '60', boxW: 0, boxH: 0, custShares: null };
 
   componentDidMount() {
-    let t = 'dark';
-    try { t = window.localStorage.getItem(THEME_KEY) || 'dark'; } catch (e) {}
-    this.setTheme(t === 'glass' ? 'dark' : t);
+    this.setTheme((function(){ try { return window.localStorage.getItem('kleeq-theme') || window.localStorage.getItem('kleeq-mix-theme') || 'glass'; } catch (e) { return 'glass'; } })());
     try { this.setState({ recents: JSON.parse(window.localStorage.getItem(RECENT_KEY) || '[]') }); } catch (e) {}
+    try { const c = JSON.parse(window.localStorage.getItem(OUTLINE_KEY) || 'null'); if (c && c.clip) this.setState({ custom: c }); } catch (e) {}
+    // Bench shortcuts: arrows step the layout seed, R reshuffles. Ignored while typing.
+    window.addEventListener('keydown', this._onKey = (e) => {
+      const t = e.target; if (e.metaKey || e.ctrlKey || e.altKey || (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable))) return;
+      if (e.key === 'ArrowRight' || e.key === 'r' || e.key === 'R') { e.preventDefault(); this.setState({ seed: this.state.seed + 1 }); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); this.setState({ seed: Math.max(1, this.state.seed - 1) }); }
+    });
     Promise.all([import(new URL('kleeq-camo.js', document.baseURI).href), fetch('kleeq-finishes.json').then((r) => r.json()), fetch('kleeq-thumb-hex.json').then((r) => r.json()).catch(() => ({}))])
       .then(([m, data, thumbs]) => { K = m; const pool = m.buildPool(data, thumbs); this.setState({ pool: pool, ideas: m.loadIdeas(data, pool) }, () => this.readHash()); })
       .catch((e) => console.error('Camo Studio: catalogue failed to load', e && e.message));
     window.addEventListener('hashchange', this._onHash = () => this.readHash());
   }
-  componentWillUnmount() { window.removeEventListener('hashchange', this._onHash); }
+  componentWillUnmount() { window.removeEventListener('hashchange', this._onHash); window.removeEventListener('keydown', this._onKey); if (this._ro) this._ro.disconnect(); }
 
   setTheme(t) {
     document.documentElement.setAttribute('data-kleeq-theme', t);
@@ -362,49 +540,241 @@ class Component extends DCLogic {
     const codes = q.s.split(',');
     const n = Math.min(5, Math.max(2, codes.length));
     const set = Array(n).fill('').map((_, i) => codes[i] || '');
-    this.setState({ size: n, set: set, pattern: PATTERNS.some((p) => p.id === q.p) ? q.p : 'blotch', surface: SURF.some((p) => p.id === q.f) ? q.f : 'panel',
-      seed: parseInt(q.seed, 10) || 1, scale: parseInt(q.sc, 10) || 100, even: q.ev === '1', mood: q.m || '' });
+    this.setState({ size: n, set: set, pattern: patIds().indexOf(q.p) >= 0 ? q.p : 'blotch', surface: SURF.some((p) => p.id === q.f && p.id !== 'photo') && (q.f !== 'custom' || this.state.custom) ? q.f : 'panel',
+      seed: parseInt(q.seed, 10) || 1, scale: parseInt(q.sc, 10) || 100, even: q.ev === '1', mood: q.m || '', sheen: q.sh !== '0',
+      custShares: (function () { const a = (q.shr || '').split(',').map((v) => parseInt(v, 10)).filter((v) => v > 0); return a.length === n && a.reduce((x, y) => x + y, 0) === 100 ? a : null; })() });
   }
   writeHash() {
     const s = this.state;
-    const h = 's=' + s.set.join(',') + '&p=' + s.pattern + '&f=' + s.surface + '&seed=' + s.seed + '&sc=' + s.scale + (s.even ? '&ev=1' : '') + (s.mood ? '&m=' + s.mood : '');
+    const h = 's=' + s.set.join(',') + '&p=' + s.pattern + '&f=' + (s.surface === 'photo' ? 'panel' : s.surface) + '&seed=' + s.seed + '&sc=' + s.scale + (s.even ? '&ev=1' : '') + (s.custShares ? '&shr=' + s.custShares.join(',') : '') + (s.mood ? '&m=' + s.mood : '') + (s.sheen ? '' : '&sh=0');
     if (window.location.hash.replace(/^#/, '') !== h) window.history.replaceState(null, '', '#' + h);
   }
-  setState(patch, cb) {
-    super.setState(patch, () => { if (this.state.pool) this.writeHash(); if (cb) cb(); });
-  }
+  setState(patch, cb) { super.setState(patch, () => { if (this.state.pool) this.writeHash(); if (cb) cb(); }); }
 
   finish(code) { return code && this.state.pool ? this.state.pool.find((f) => f.code === code) : null; }
-  setObjs() { return this.state.set.map((c) => this.finish(c) || null); }
-  shares() { const n = this.state.size; return K ? K.defaultShares(n, this.state.even) : []; }
+  setObjs(set) { return (set || this.state.set).map((c) => this.finish(c) || null); }
+  shares(n, even) {
+    const c = this.state.custShares, sz = n == null ? this.state.size : n;
+    if (c && sz === this.state.size && c.length === sz) return c;
+    return K ? K.defaultShares(sz, even == null ? this.state.even : even) : [];
+  }
+  // Typed share: the other slots scale to keep the total at 100.
+  setShare(i, raw) {
+    const n = this.state.size; const cur = this.shares().slice();
+    const v = Math.max(1, Math.min(100 - (n - 1), Math.round(parseFloat(raw)) || 1));
+    const ot = cur.reduce((a, x, k) => a + (k === i ? 0 : x), 0) || 1;
+    const out = cur.map((x, k) => (k === i ? v : Math.max(1, Math.round(x / ot * (100 - v)))));
+    const diff = 100 - out.reduce((a, b) => a + b, 0);
+    if (diff) { let j = -1; out.forEach((x, k) => { if (k !== i && (j < 0 || x > out[j])) j = k; }); if (j >= 0) out[j] += diff; }
+    this.setState({ custShares: out, copied: false, saved: false });
+  }
+  prefer() { return { recent: [].concat.apply([], this.state.recents.map((r) => r.set)) }; }
 
   setSize(n) {
     const set = Array(n).fill('').map((_, i) => this.state.set[i] || '');
-    this.setState({ size: n, set: set, picker: this.state.picker >= n ? -1 : this.state.picker, copied: false, saved: false });
+    this.setState({ size: n, set: set, custShares: null, picker: this.state.picker >= n ? -1 : this.state.picker, copied: false, saved: false });
   }
   place(i, code) {
     const set = this.state.set.slice(); set[i] = code;
-    const auto = this.state.auto.filter((k) => k !== i);
-    this.setState({ set: set, auto: auto, picker: -1, query: '', copied: false, saved: false });
+    this.setState({ set: set, auto: this.state.auto.filter((k) => k !== i), picker: -1, query: '', copied: false, saved: false });
   }
-  // FILL completes the empty slots; DEAL AGAIN re-deals the slots the tool
-  // chose last time and leaves the user's own picks alone.
   fill(variant) {
     if (!K || !this.state.pool) return;
     const base = this.setObjs();
-    if (variant) this.state.auto.forEach((k) => { if (k < base.length) base[k] = null; });
-    const out = K.fillSet(base, this.state.pool, this.state.rules, this.state.mood, variant);
+    if (variant) this.state.auto.forEach((k) => { if (k < base.length && this.state.locked.indexOf(k) < 0) base[k] = null; });
+    const out = K.fillSet(base, this.state.pool, this.state.rules, this.state.mood, variant, this.prefer());
     const auto = out.map((f, i) => (f && !base[i] ? i : -1)).filter((i) => i >= 0);
     this.setState({ set: out.map((f) => (f ? f.code : '')), auto: auto, variant: variant, copied: false, saved: false });
+  }
+  // Mood steers what the tool deals. Changing it re-deals the auto-picked
+  // slots (and empty ones) so the change shows; hand-picked colours stay.
+  setMood(id) {
+    const patch = { mood: id, picker: -1 };
+    if (MOOD_PATTERN[id]) patch.pattern = MOOD_PATTERN[id];
+    this.setState(patch, () => {
+      const s = this.state;
+      if (!K || !s.pool) return;
+      const base = this.setObjs();
+      s.auto.forEach((k) => { if (k < base.length && s.locked.indexOf(k) < 0) base[k] = null; });
+      if (!base.some((f) => !f)) return;
+      const out = K.fillSet(base, s.pool, s.rules, id, 0, this.prefer());
+      const auto = out.map((f, i) => (f && !base[i] ? i : -1)).filter((i) => i >= 0);
+      this.setState({ set: out.map((f) => (f ? f.code : '')), auto: auto, variant: 0, copied: false, saved: false });
+    });
   }
   saveRecent() {
     const s = this.state;
     if (s.set.some((c) => !c)) return;
-    const entry = { set: s.set.slice(), p: s.pattern, f: s.surface, seed: s.seed, ev: s.even };
+    const entry = { set: s.set.slice(), p: s.pattern, f: s.surface === 'photo' ? 'panel' : s.surface, seed: s.seed, ev: s.even };
     const key = entry.set.join(',');
     const list = [entry].concat(s.recents.filter((r) => r.set.join(',') !== key)).slice(0, 6);
     try { window.localStorage.setItem(RECENT_KEY, JSON.stringify(list)); } catch (e) {}
     this.setState({ recents: list, saved: true });
+  }
+
+  // ---- rendering helpers ----
+  colsAndShares(set, even) {
+    const objs = this.setObjs(set);
+    const sh = this.shares(set.length, even);
+    const cols = [], norm = [];
+    objs.forEach((f, i) => { if (f) { cols.push(f.hex); norm.push(sh[i]); } });
+    const tot = norm.reduce((a, b) => a + b, 0) || 1;
+    return { objs: objs, cols: cols, shares: norm.map((v) => v * 100 / tot) };
+  }
+  sheenLevel(objs) {
+    if (!this.state.sheen || !K) return 0;
+    const lv = objs.filter(Boolean).map((f) => K.glossLevel(f.sheen)).filter((v) => v != null);
+    return lv.length ? lv.reduce((a, b) => a + b, 0) / lv.length : 0;
+  }
+  ink() { return this.state.theme === 'dark' ? '#0c0b0a' : '#141312'; }
+  // What renderSurface gets: a built-in id, or the loaded outline object.
+  surfaceArg(surface) {
+    const sf = surface || this.state.surface;
+    if (sf === 'custom') return this.state.custom ? Object.assign({ id: 'custom' }, this.state.custom) : 'panel';
+    return sf === 'photo' ? 'panel' : sf;
+  }
+  svgFor(set, pattern, seed, even, scale, surface) {
+    const { objs, cols, shares } = this.colsAndShares(set, even);
+    if (!cols.length) return null;
+    if (surface === 'photo' && this.state.photo) {
+      const W = 1000, H = Math.round(1000 * this.state.photoH / this.state.photoW);
+      return { W: W, H: H, inner: K.render(pattern, cols, shares, W, H, seed, scale / 100), photo: true };
+    }
+    return K.renderSurface(this.surfaceArg(surface), pattern, cols, shares, seed, scale / 100, this.ink(), this.sheenLevel(objs));
+  }
+  // One SVG, one group per layer colour: black where that colour is sprayed,
+  // white where it is masked, a red line for the part edge. Groups import as
+  // separate layers in plotter software.
+  stencilSvg() {
+    const s = this.state;
+    const { objs, cols, shares } = this.colsAndShares(s.set, s.even);
+    if (cols.length < 2 || !K) return null;
+    const surf = this.surfaceArg();
+    const S = typeof surf === 'object' ? surf : (K.SURFACES[surf] || K.SURFACES.panel);
+    const W = S.W, H = S.H, gap = Math.round(H * 0.16);
+    const used = objs.filter(Boolean);
+    let body = '', y = 0;
+    cols.forEach((hex, i) => {
+      if (i === 0) return;
+      const mask = cols.map((c, k) => (k === i ? '#000000' : '#ffffff'));
+      const r = K.renderSurface(surf, s.pattern, mask, shares, s.seed, s.scale / 100, '#e03a2f', 0, '#ffffff');
+      const inner = r.inner.split('id="').join('id="l' + i + '-').split('url(#').join('url(#l' + i + '-').split('href="#').join('href="#l' + i + '-');
+      const f = used[i];
+      body += '<g id="layer-' + (i + 1) + '-' + f.code + '" transform="translate(0 ' + y + ')"><rect width="' + W + '" height="' + H + '" fill="#ffffff"/>' + inner
+        + '<text x="0" y="' + (H + gap * 0.6) + '" font-family="monospace" font-size="' + Math.round(gap * 0.38) + '" fill="#000000">LAYER ' + (i + 1) + ' \u00b7 ' + f.code + ' ' + f.name.toUpperCase() + ' \u00b7 BLACK = SPRAY \u00b7 WHITE = MASK \u00b7 RED = PART EDGE</text></g>';
+      y += H + gap;
+    });
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + y + '" width="' + W + '" height="' + y + '">' + body + '</svg>';
+  }
+  saveStencils() {
+    const svg = this.stencilSvg(); if (!svg) return;
+    const a = document.createElement('a'); a.download = 'kleeq-stencils-' + this.state.set.join('-') + '.svg';
+    a.href = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' })); a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  }
+  // Outline the applicator loads: every path/polygon/rect/circle/ellipse in
+  // the SVG becomes the clip. Shapes inside transformed groups lose the
+  // transform, so the hint asks for flattened artwork.
+  loadOutline(e) {
+    const file = e.target.files && e.target.files[0]; if (!file) return;
+    const rd = new FileReader();
+    rd.onload = () => {
+      try {
+        const doc = new DOMParser().parseFromString(rd.result, 'image/svg+xml');
+        const svg = doc.querySelector('svg'); if (!svg) throw new Error('no svg');
+        const vb = (svg.getAttribute('viewBox') || '').split(/[\s,]+/).map(Number).filter((v) => !isNaN(v));
+        const W = vb.length === 4 ? vb[2] : parseFloat(svg.getAttribute('width')) || 1000;
+        const H = vb.length === 4 ? vb[3] : parseFloat(svg.getAttribute('height')) || 500;
+        const ox = vb.length === 4 ? vb[0] : 0, oy = vb.length === 4 ? vb[1] : 0;
+        const shapes = Array.from(svg.querySelectorAll('path, polygon, rect, circle, ellipse')).map((el) => { const c = el.cloneNode(false); ['fill', 'stroke', 'stroke-width', 'style', 'class', 'id', 'opacity', 'fill-opacity', 'stroke-opacity'].forEach((a) => c.removeAttribute(a)); return c.outerHTML; }).join('');
+        if (!shapes) throw new Error('no shapes');
+        const custom = { W: Math.round(W), H: Math.round(H), clip: shapes, tx: (ox || oy) ? 'translate(' + (-ox) + ' ' + (-oy) + ')' : '', sw: Math.max(1.5, Math.round(W / 300 * 10) / 10), lines: '', name: file.name };
+        try { window.localStorage.setItem(OUTLINE_KEY, JSON.stringify(custom)); } catch (err) {}
+        this.setState({ custom: custom, surface: 'custom' });
+      } catch (err) { window.alert('Could not read an outline from that SVG. Export the part as flattened paths: no groups with transforms, no text, no images.'); }
+    };
+    rd.readAsText(file); e.target.value = '';
+  }
+  svgMarkup(r) { return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + r.W + ' ' + r.H + '" width="' + r.W + '" height="' + r.H + '">' + r.inner + '</svg>'; }
+
+  // ---- photo ----
+  loadPhoto(e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const rd = new FileReader();
+    rd.onload = () => {
+      const img = new Image();
+      img.onload = () => this.setState({ photo: rd.result, photoW: img.naturalWidth, photoH: img.naturalHeight, photoName: file.name, surface: 'photo' });
+      img.src = rd.result;
+    };
+    rd.readAsDataURL(file);
+    e.target.value = '';
+  }
+  coloursFromPhoto() {
+    if (!this.state.photo || !K) return;
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement('canvas'); c.width = 64; c.height = 64;
+      const x = c.getContext('2d'); x.drawImage(img, 0, 0, 64, 64);
+      const d = x.getImageData(0, 0, 64, 64).data;
+      const bins = {};
+      for (let i = 0; i < d.length; i += 4) {
+        const r = d[i] >> 4, g = d[i + 1] >> 4, b = d[i + 2] >> 4; const k = (r << 8) | (g << 4) | b;
+        const e = bins[k] || (bins[k] = { n: 0, r: 0, g: 0, b: 0 }); e.n++; e.r += d[i]; e.g += d[i + 1]; e.b += d[i + 2];
+      }
+      const list = Object.values(bins).map((e) => ({ n: e.n, hex: '#' + [e.r / e.n, e.g / e.n, e.b / e.n].map((v) => Math.round(v).toString(16).padStart(2, '0')).join('') })).sort((a, b) => b.n - a.n);
+      const picked = [];
+      const far = (a, b) => { const A = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16)), B = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16)); return Math.sqrt((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2 + (A[2] - B[2]) ** 2) > 48; };
+      list.forEach((e) => { if (picked.length < this.state.size && picked.every((p) => far(p, e.hex))) picked.push(e.hex); });
+      const near = K.nearestFinishes(picked, this.state.pool, this.state.size);
+      const set = Array(this.state.size).fill('').map((_, i) => (near[i] ? near[i].code : ''));
+      this.setState({ set: set, auto: [], picker: -1, copied: false, saved: false }, () => { if (set.some((c) => !c)) this.fill(0); });
+    };
+    img.src = this.state.photo;
+  }
+
+  // ---- export ----
+  savePng() {
+    const s = this.state;
+    const r = this.svgFor(s.set, s.pattern, s.seed, s.even, s.scale, s.surface);
+    if (!r) return;
+    const scale = 2;
+    const c = document.createElement('canvas'); c.width = r.W * scale; c.height = r.H * scale;
+    const x = c.getContext('2d');
+    const draw = (bg) => {
+      if (bg) { x.filter = 'grayscale(1) contrast(1.05) brightness(1.15)'; x.drawImage(bg, 0, 0, c.width, c.height); x.filter = 'none'; x.globalCompositeOperation = 'multiply'; }
+      const im = new Image();
+      im.onload = () => {
+        if (bg) { x.globalAlpha = 0.92; drawWarped(x, im, c.width, c.height, homography(c.width, c.height, s.quad), 24); x.globalAlpha = 1; }
+        else x.drawImage(im, 0, 0, c.width, c.height);
+        x.globalCompositeOperation = 'source-over';
+        const a = document.createElement('a'); a.download = 'kleeq-camo-' + s.set.join('-') + '.png'; a.href = c.toDataURL('image/png'); a.click();
+      };
+      im.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(this.svgMarkup(r));
+    };
+    if (r.photo) { const bg = new Image(); bg.onload = () => draw(bg); bg.src = s.photo; } else { x.fillStyle = s.theme === 'dark' ? '#141312' : '#ffffff'; x.fillRect(0, 0, c.width, c.height); draw(null); }
+  }
+  sendSet() {
+    const s = this.state;
+    this.writeHash();
+    // mailto cannot carry an attachment: the preview image downloads first so it can be dropped into the draft.
+    this.savePng();
+    const objs = this.setObjs(); const sh = this.shares();
+    const lines = objs.map((f, i) => f ? (i + 1) + '. ' + f.code + ' ' + f.name + ' (' + (f.sheen || 'gloss: see TDS') + ') – ' + sh[i] + '%' : null).filter(Boolean);
+    const q = s.quote;
+    const body = ['Hi' + (q.customer ? ' ' + q.customer : '') + ',', '', 'Here is the camo set we put together' + (q.part ? ' for your ' + q.part : '') + ':', ''].concat(lines)
+      .concat(['', 'Pattern: ' + s.pattern, q.price ? 'Price: ' + q.price : '', q.lead ? 'Lead time: ' + q.lead : '', q.notes ? 'Notes: ' + q.notes : '', '', 'The preview image has just downloaded; attach it to this email.', '', 'Preview and adjust here:', window.location.href, '', 'KLEEQ', 'www.kleeq.com'].filter((l) => l !== ''));
+    window.location.href = 'mailto:?subject=' + encodeURIComponent('KLEEQ camo set: ' + s.set.join(' / ')) + '&body=' + encodeURIComponent(body.join('\n'));
+  }
+
+  // ---- pins ----
+  pinSet() {
+    const s = this.state;
+    if (s.set.some((c) => !c)) return;
+    const key = s.set.join(',') + '|' + s.pattern;
+    if (s.pins.some((p) => p.key === key)) return;
+    const pin = { key: key, set: s.set.slice(), pattern: s.pattern, seed: s.seed, even: s.even, scale: s.scale };
+    this.setState({ pins: [pin].concat(s.pins).slice(0, 3) });
   }
 
   renderVals() {
@@ -413,8 +783,11 @@ class Component extends DCLogic {
     const objs = this.setObjs();
     const shares = this.shares();
     const filled = objs.filter(Boolean);
+    const complete = filled.length === s.size;
     const read = K && filled.length >= 2 ? K.scoreSet(objs, s.rules) : { score: 0, parts: [] };
     const bl = (i) => (i ? '1px solid var(--k-line)' : 'none');
+    const score = read.score;
+    const scoreInk = filled.length < 2 ? 'var(--k-label)' : score >= 75 ? 'var(--k-ok)' : score >= 50 ? 'var(--k-ink)' : 'var(--k-warn)';
 
     const slots = objs.map((f, i) => ({
       on: s.picker === i ? '1' : '0',
@@ -423,13 +796,17 @@ class Component extends DCLogic {
       role: i === 0 ? 'BASE' : i === s.size - 1 && s.size > 2 ? 'ACCENT' : 'LAYER ' + (i + 1),
       share: shares[i] != null ? shares[i] + '%' : '',
       code: f ? f.code : '—',
-      name: f ? f.name : 'Pick a colour',
-      meta: f ? [f.series + '-SERIES', f.sheen ? f.sheen.toUpperCase() : 'GLOSS: CHECK TDS', f.hexSource === 'thumb' ? 'SAMPLED' : ''].filter(Boolean).join(' · ') : 'Tap to choose',
+      name: f ? f.name : 'Pick a color',
+      meta: f ? [f.series, f.sheen ? f.sheen.toUpperCase() : 'GLOSS: TDS', f.hexSource === 'thumb' ? 'SAMPLED' : ''].filter(Boolean).join(' · ') : 'Tap to choose',
       aria: 'Slot ' + (i + 1) + (f ? ': ' + f.code + ' ' + f.name : ': empty'),
+      lrv: f && K ? 'LRV ' + K.lrv(f.hex) : '',
+      shareNum: shares[i] != null ? String(shares[i]) : '', shareShow: f && shares[i] != null ? 'inline-flex' : 'none', setShare: (e) => this.setShare(i, e.target.value), stop: (e) => e.stopPropagation(),
+      lockOn: s.locked.indexOf(i) >= 0 ? '1' : '0', lockShow: f ? 'inline-flex' : 'none', lockedShow: s.locked.indexOf(i) >= 0 ? 'block' : 'none', unlockedShow: s.locked.indexOf(i) >= 0 ? 'none' : 'block',
+      lockTitle: s.locked.indexOf(i) >= 0 ? 'Locked: Deal Again and Mood keep this color' : 'Lock this color through Deal Again and Mood',
+      toggleLock: () => this.setState({ locked: s.locked.indexOf(i) >= 0 ? s.locked.filter((k) => k !== i) : s.locked.concat([i]) }),
       open: () => this.setState({ picker: s.picker === i ? -1 : i, query: '' })
     }));
 
-    // picker list
     let candidates = [], listTitle = '', listCount = '';
     if (s.picker >= 0 && K && pool.length) {
       const q = s.query.trim().toLowerCase();
@@ -439,89 +816,174 @@ class Component extends DCLogic {
         listTitle = 'MATCHING'; listCount = hits.length + (hits.length === 40 ? '+' : '');
       } else {
         const others = objs.filter((x, k) => x && k !== s.picker);
-        if (others.length) { candidates = K.candidatesFor(objs, s.picker, pool, s.rules, s.mood, 30); listTitle = 'SUGGESTED FOR THIS SLOT'; }
+        if (others.length) { candidates = K.candidatesFor(objs, s.picker, pool, s.rules, s.mood, 30, this.prefer()); listTitle = 'BEST FITS FOR THIS SLOT'; }
         else { candidates = pool.filter((f) => K.inMood(f, s.mood)).map((f) => ({ finish: f, score: null })); listTitle = s.mood ? 'IN THIS MOOD' : 'ALL FINISHES'; }
         listCount = String(candidates.length);
       }
       candidates = candidates.map((c) => ({
         on: s.set[s.picker] === c.finish.code ? '1' : '0',
         hex: c.finish.hex, code: c.finish.code, name: c.finish.name,
-        meta: [c.finish.series, c.finish.sheen ? c.finish.sheen.toUpperCase() : '', c.finish.hexSource === 'thumb' ? 'SAMPLED' : ''].filter(Boolean).join(' · '),
-        score: c.score == null ? '' : String(Math.round(c.score)),
+        meta: [c.finish.wall === 'signature' ? 'SIGNATURE' : c.finish.wall === 'palette' ? 'PALETTE' : c.finish.series, c.finish.sheen ? c.finish.sheen.toUpperCase() : '', c.finish.hexSource === 'thumb' ? 'SAMPLED' : ''].filter(Boolean).join(' · '),
+        score: c.score == null ? '' : String(Math.min(100, Math.round(c.score))),
         scoreInk: c.score == null ? 'var(--k-label)' : c.score >= 75 ? 'var(--k-ok)' : c.score >= 50 ? 'var(--k-ink)' : 'var(--k-warn)',
         pick: () => this.place(s.picker, c.finish.code)
       }));
     }
 
     // preview
-    let preview = null;
-    if (K && filled.length) {
-      const cols = objs.map((f) => (f ? f.hex : null)).filter(Boolean);
-      const sh = objs.map((f, i) => (f ? shares[i] : null)).filter((v) => v != null);
-      const tot = sh.reduce((a, b) => a + b, 0) || 1;
-      const norm = sh.map((v) => v * 100 / tot);
-      const ink = s.theme === 'dark' ? '#0c0b0a' : '#141312';
-      const r = K.renderSurface(s.surface, s.pattern, cols, norm, s.seed, s.scale / 100, ink);
-      preview = React.createElement('svg', { key: s.surface + s.pattern + s.seed + s.scale + cols.join() + norm.join(), viewBox: '0 0 ' + r.W + ' ' + r.H, style: { width: '100%', maxWidth: Math.min(r.W, 1100) + 'px', maxHeight: '460px', height: 'auto', display: 'block' }, role: 'img', 'aria-label': 'Camo preview', dangerouslySetInnerHTML: { __html: r.inner } });
+    let preview = null, previewMeta = '';
+    const r = K && filled.length ? this.svgFor(s.set, s.pattern, s.seed, s.even, s.scale, s.surface) : null;
+    if (r && r.photo) {
+      const key = s.pattern + s.seed + s.scale + s.set.join() + s.photoName;
+      const box = (e) => e.currentTarget.parentElement.getBoundingClientRect();
+      // The wrapper is measured after layout so the matrix3d is in pixels.
+      const measure = (el) => { if (!el) return; if (this._ro) this._ro.disconnect(); this._ro = new ResizeObserver(() => { const b = el.getBoundingClientRect(); if (Math.abs(b.width - this.state.boxW) > 0.5 || Math.abs(b.height - this.state.boxH) > 0.5) this.setState({ boxW: b.width, boxH: b.height }); }); this._ro.observe(el); };
+      const handles = s.quad.map((p, i) => React.createElement('button', { key: 'h' + i, type: 'button', 'aria-label': 'Corner ' + (i + 1),
+        style: { position: 'absolute', left: (p[0] * 100) + '%', top: (p[1] * 100) + '%', width: '22px', height: '22px', margin: '-11px 0 0 -11px', padding: 0, border: '2px solid var(--k-gold)', background: 'rgba(20,19,18,0.6)', borderRadius: '50%', cursor: 'grab', touchAction: 'none', boxSizing: 'border-box' },
+        onPointerDown: (e) => { e.preventDefault(); e.currentTarget.setPointerCapture(e.pointerId); this._drag = i; },
+        onPointerMove: (e) => { if (this._drag !== i) return; const b = box(e); const q = s.quad.map((pt) => pt.slice()); q[i] = [Math.min(1, Math.max(0, (e.clientX - b.left) / b.width)), Math.min(1, Math.max(0, (e.clientY - b.top) / b.height))]; this.setState({ quad: q }); },
+        onPointerUp: () => { this._drag = -1; } }));
+      preview = React.createElement('div', { key: key, ref: measure, style: { position: 'relative', width: '100%', maxWidth: '900px', lineHeight: 0 } },
+        React.createElement('img', { src: s.photo, alt: s.photoName, style: { width: '100%', height: 'auto', display: 'block', filter: 'grayscale(1) contrast(1.05) brightness(1.15)', maxHeight: '520px', objectFit: 'contain' } }),
+        React.createElement('div', { style: { position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' } },
+          React.createElement('svg', { viewBox: '0 0 ' + r.W + ' ' + r.H, preserveAspectRatio: 'none', style: { position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', mixBlendMode: 'multiply', opacity: 0.92, transformOrigin: '0 0', transform: s.boxW ? matrix3d(homography(s.boxW, s.boxH, s.quad)) : 'none', visibility: s.boxW ? 'visible' : 'hidden' }, dangerouslySetInnerHTML: { __html: r.inner } })),
+        React.createElement('svg', { 'aria-hidden': true, viewBox: '0 0 100 100', preserveAspectRatio: 'none', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' } },
+          React.createElement('polygon', { points: s.quad.map((p) => (p[0] * 100) + ',' + (p[1] * 100)).join(' '), fill: 'none', stroke: 'var(--k-gold)', strokeWidth: 0.4, strokeDasharray: '1.2 1.2', vectorEffect: 'non-scaling-stroke' })),
+        handles);
+      previewMeta = s.photoName.toUpperCase().slice(0, 28) + ' · DRAG THE CORNERS ONTO THE PART';
+    } else if (r) {
+      preview = React.createElement('svg', { key: s.surface + s.pattern + s.seed + s.scale + s.set.join() + s.even + s.sheen + s.theme, viewBox: '0 0 ' + r.W + ' ' + r.H, style: { width: '100%', maxWidth: Math.min(r.W, 1000) + 'px', maxHeight: '440px', height: 'auto', display: 'block' }, role: 'img', 'aria-label': 'Camo preview', dangerouslySetInnerHTML: { __html: r.inner } });
+      previewMeta = (SURF.find((x) => x.id === s.surface) || SURF[0]).label + ' · ' + s.pattern.toUpperCase();
+    } else if (s.surface === 'photo' && !s.photo) {
+      preview = React.createElement('span', { style: { fontFamily: 'var(--k-mono)', fontSize: '12px', letterSpacing: '0.12em', color: 'var(--k-label)', textAlign: 'center', lineHeight: 1.8 } }, 'ADD A PHOTO OF THE PART');
     } else {
-      preview = React.createElement('span', { style: { fontFamily: 'var(--k-mono)', fontSize: '12px', letterSpacing: '0.12em', color: 'var(--k-label)' } }, s.pool ? 'PICK A BASE COLOUR OR FILL THE SET' : 'LOADING THE CATALOGUE');
+      preview = React.createElement('span', { style: { fontFamily: 'var(--k-mono)', fontSize: '12px', letterSpacing: '0.12em', color: 'var(--k-label)' } }, s.pool ? 'PICK A BASE COLOR OR FILL THE SET' : 'LOADING THE CATALOGUE');
     }
 
-    const score = read.score;
-    const rules = (K ? K.RULES : RULE_IDS.map((id) => ({ id: id, label: id, hint: '' }))).map((r) => {
-      const p = read.parts.find((x) => x.id === r.id);
-      return { on: s.rules[r.id] ? '1' : '0', label: r.label.toUpperCase(), hint: r.hint,
+    const rules = (K ? K.RULES : RULE_IDS.map((id) => ({ id: id, label: id, hint: '' }))).map((rl) => {
+      const p = read.parts.find((x) => x.id === rl.id);
+      return { on: s.rules[rl.id] ? '1' : '0', label: rl.label.toUpperCase(), hint: rl.hint,
         dot: !p ? 'var(--k-label)' : p.score >= 0.75 ? 'var(--k-ok)' : p.score >= 0.4 ? 'var(--k-gold-soft)' : 'var(--k-warn)',
-        verdict: !p ? 'WAITING' : !s.rules[r.id] ? 'OFF' : p.score >= 0.75 ? 'PASS' : p.score >= 0.4 ? 'CHECK' : 'FAIL',
-        note: p ? p.note : r.hint + '.',
-        toggle: () => this.setState({ rules: Object.assign({}, s.rules, { [r.id]: !s.rules[r.id] }) }) };
+        verdict: !p ? 'WAITING' : !s.rules[rl.id] ? 'OFF' : p.score >= 0.75 ? 'PASS' : p.score >= 0.4 ? 'CHECK' : 'FAIL',
+        note: p ? p.note : rl.hint + '.',
+        toggle: () => this.setState({ rules: Object.assign({}, s.rules, { [rl.id]: !s.rules[rl.id] }) }) };
     });
+    const fails = read.parts.filter((p) => p.on && p.score < 0.4).length, checks = read.parts.filter((p) => p.on && p.score >= 0.4 && p.score < 0.75).length;
+    const readSummary = filled.length < 2 ? 'Place two colors and the four bench rules start scoring the set. Switch any rule off if it does not apply to this job.'
+      : fails ? 'This set breaks ' + fails + ' rule' + (fails > 1 ? 's' : '') + '. Open a slot for better fits, or turn the rule off if the customer wants it anyway.'
+      : checks ? 'Close. ' + checks + ' rule' + (checks > 1 ? 's need' : ' needs') + ' a look before you spray.'
+      : 'Passes every active rule. Pin it, then try a variant to compare.';
 
-    const sheet = objs.map((f, i) => f ? ({ n: String(i + 1).padStart(2, '0'), hex: f.hex, code: f.code, name: f.name, series: f.series, gloss: f.sheen || 'Check the TDS', lrv: String(K ? K.lrv(f.hex) : ''), share: shares[i] + '%', src: f.hexSource === 'thumb' ? 'SAMPLED' : 'STUDIO' }) : null).filter(Boolean);
+    // sheet + plan
+    const sheet = objs.map((f, i) => f ? ({ n: String(i + 1).padStart(2, '0'), hex: f.hex, code: f.code, name: f.name, sub: [f.series + '-Series', f.wall === 'signature' ? 'Signature' : f.wall === 'palette' ? 'Palette' : 'Core', f.hexSource === 'thumb' ? 'screen value sampled' : 'studio value'].join(' · '), gloss: f.sheen || 'Check the TDS', lrv: String(K ? K.lrv(f.hex) : ''), share: shares[i] + '%' }) : null).filter(Boolean);
+    let plan = [];
+    if (K && filled.length >= 2) {
+      const base = objs[0];
+      const layers = objs.map((f, i) => ({ f: f, i: i })).filter((x) => x.f && x.i > 0).sort((a, b) => K.lrv(b.f.hex) - K.lrv(a.f.hex));
+      const series = Array.from(new Set(filled.map((f) => f.series)));
+      plan.push({ n: '01', hex: base ? base.hex : 'var(--k-field)', title: base ? 'Base coat: ' + base.code + ' ' + base.name : 'Base coat: pick a base color', body: base ? 'Prep, blast and degrease per the ' + base.series + '-Series TDS. Spray the whole part at ' + shares[0] + '% coverage target; this is the color that shows through everything.' : '' });
+      layers.forEach((x, k) => {
+        const keep = [base].concat(layers.slice(0, k).map((y) => y.f)).filter(Boolean).map((f) => f.code).join(', ');
+        plan.push({ n: String(k + 2).padStart(2, '0'), hex: x.f.hex, title: 'Layer ' + (k + 2) + ': ' + x.f.code + ' ' + x.f.name, body: 'Mask the areas staying ' + keep + '. Spray ' + x.f.code + ' to about ' + shares[x.i] + '% of the surface' + (k === layers.length - 1 && layers.length > 1 ? ' as the final accent' : '') + '. Flash off before the next mask.' });
+      });
+      plan.push({ n: String(layers.length + 2).padStart(2, '0'), hex: 'var(--k-field)', title: 'Unmask and cure', body: (series.length > 1 ? 'Mixed series (' + series.join(', ') + '): cure to the longest schedule on the TDS set, and check that the lower-temperature product tolerates it. ' : 'Cure per the ' + series[0] + '-Series TDS. ') + 'Layers go lightest to darkest so each coat covers the one before.' });
+    }
 
-    const recents = s.recents.map((r) => ({
-      chips: r.set.map((c) => { const f = this.finish(c); return { hex: f ? f.hex : '#888' }; }),
-      label: r.set.length + ' COLOURS', title: r.set.join(' · '),
-      pick: () => this.setState({ size: r.set.length, set: r.set.slice(), pattern: r.p || 'blotch', surface: r.f || 'panel', seed: r.seed || 1, even: !!r.ev, picker: -1 })
+    // Mix per colour: coating by share of the total, catalyst by volume ratio
+    // converted through both densities (see the Mixing Calculator for sources).
+    const mixTot = parseFloat(s.mixG) || 0;
+    const mix = objs.map((f, i) => {
+      if (!f) return null;
+      const g = mixTot * shares[i] / 100;
+      const rt = RATIO[f.series];
+      const single = !!NO_CAT[f.series];
+      const cat = rt && f.density ? g * CAT_DENSITY / (rt * f.density) : null;
+      return { n: String(i + 1).padStart(2, '0'), hex: f.hex, code: f.code, share: shares[i] + '%',
+        coat: mixTot ? g.toFixed(1) + ' g' : '—',
+        cat: single ? 'NONE · SINGLE COMPONENT' : !mixTot ? '—' : cat != null ? cat.toFixed(2) + ' g' : rt ? 'CHECK THE BOTTLE' : 'CHECK THE TDS',
+        catInk: single || cat != null || !mixTot ? 'var(--k-ink)' : 'var(--k-warn)',
+        ratio: single ? '—' : rt ? rt + ':1' : 'CHECK THE TDS',
+        density: f.density ? f.density.toFixed(2) : 'NOT PUBLISHED',
+        mesh: MESH_LABEL[f.mesh] || (f.mesh && f.mesh !== 'unpublished' ? String(f.mesh).toUpperCase() : 'CHECK THE TDS') };
+    }).filter(Boolean);
+    const mixNote = mix.length ? 'Coating grams are the share of the total you enter; add your usual overspray. Catalyst = coating \u00d7 1.06 \u00f7 (ratio \u00d7 coating density), ratios by volume from the series TDS (H and Elite 18:1; Elite runs 12:1\u201324:1 by gloss). C, V and MC are single component (Cerakote: no catalyst). Mixed series need their own catalyst each. Strainer and density are read from the Cerakote product page.' : 'Enter the coating weight for the whole part and the card fills in per colour.';
+    const recents = s.recents.map((rc) => ({
+      chips: rc.set.map((c) => { const f = this.finish(c); return { hex: f ? f.hex : '#888' }; }),
+      label: rc.set.length + ' COLORS', title: rc.set.join(' · '),
+      pick: () => this.setState({ size: rc.set.length, set: rc.set.slice(), pattern: rc.p || 'blotch', surface: rc.f || 'panel', seed: rc.seed || 1, even: !!rc.ev, picker: -1, auto: [] })
     }));
-
     const curKey = s.set.join(',');
     const ideas = s.ideas.filter((d) => s.ideaGroup === 'ALL' || d.group === s.ideaGroup).map((d) => ({
       on: d.codes.join(',') === curKey ? '1' : '0', name: d.name, group: d.group, note: d.note, title: d.codes.join(' · '),
       chips: d.codes.map((c) => { const f = this.finish(c); return { hex: f ? f.hex : '#888' }; }),
       pick: () => this.setState({ size: d.codes.length, set: d.codes.slice(), auto: [], picker: -1, copied: false, saved: false })
     }));
+
+    const pins = K ? s.pins.map((p) => {
+      const pr = this.svgFor(p.set, p.pattern, p.seed, p.even, p.scale, s.surface === 'photo' ? 'panel' : s.surface === 'custom' && !s.custom ? 'panel' : s.surface);
+      const sc = K.scoreSet(this.setObjs(p.set), s.rules).score;
+      return {
+        on: p.key === curKey + '|' + s.pattern ? '1' : '0',
+        svg: pr ? React.createElement('svg', { viewBox: '0 0 ' + pr.W + ' ' + pr.H, style: { width: '100%', height: 'auto', display: 'block' }, dangerouslySetInnerHTML: { __html: pr.inner.split('clip-' + s.surface).join('clip-pin-' + p.key.replace(/[^a-z0-9]/gi, '')).split('sheen-' + s.surface).join('sheen-pin-' + p.key.replace(/[^a-z0-9]/gi, '')) } }) : null,
+        chips: p.set.map((c) => { const f = this.finish(c); return { hex: f ? f.hex : '#888' }; }),
+        score: sc + ' · ' + p.pattern.toUpperCase(),
+        load: () => this.setState({ size: p.set.length, set: p.set.slice(), pattern: p.pattern, seed: p.seed, even: p.even, scale: p.scale, auto: [], picker: -1 }),
+        remove: () => this.setState({ pins: s.pins.filter((x) => x.key !== p.key) })
+      };
+    }) : [];
+
+    const setQ = (k) => (e) => this.setState({ quote: Object.assign({}, s.quote, { [k]: e.target.value }) });
     return {
-      ideaGroups: ['ALL', 'SIGNATURE', 'FIELD'].map((g, i) => ({ label: g, on: s.ideaGroup === g ? '1' : '0', bl: bl(i), pick: () => this.setState({ ideaGroup: g }) })),
-      ideas: ideas,
-      modOn: s.theme === 'modernist' ? '1' : '0', lightOn: s.theme === 'light' ? '1' : '0', darkOn: s.theme === 'dark' ? '1' : '0',
-      setMod: () => this.setTheme('modernist'), setLight: () => this.setTheme('light'), setDark: () => this.setTheme('dark'),
+      barChips: filled.map((f) => ({ hex: f.hex })), barScore: filled.length >= 2 ? String(score) : '—', barTitle: filled.map((f) => f.code).join(' · '),
+      scoreInk: scoreInk,
+      pinSet: () => this.pinSet(), pinDisabled: !complete || s.pins.length >= 3 && !s.pins.some((p) => p.key === curKey + '|' + s.pattern) ? true : false,
+      saveDisabled: !complete,
+      modOn: s.theme === 'modernist' ? '1' : '0', lightOn: s.theme === 'light' ? '1' : '0', darkOn: s.theme === 'dark' ? '1' : '0', glassOn: s.theme === 'glass' ? '1' : '0',
+      setMod: () => this.setTheme('modernist'), setLight: () => this.setTheme('light'), setDark: () => this.setTheme('dark'), setGlass: () => this.setTheme('glass'),
       sizes: [2, 3, 4, 5].map((n, i) => ({ n: String(n), on: s.size === n ? '1' : '0', bl: bl(i), pick: () => this.setSize(n) })),
-      moods: [{ id: '', label: 'ANY' }].concat((K ? K.MOODS : []).map((m) => ({ id: m.id, label: m.label.toUpperCase() }))).map((m) => ({ label: m.label, on: s.mood === m.id ? '1' : '0', pick: () => this.setState({ mood: m.id }) })),
-      fillEmpty: () => this.fill(0), dealAgain: () => { if (!s.auto.length && s.set.every(Boolean)) this.setState({ auto: s.set.map((_, i) => i).slice(1) }, () => this.fill(s.variant + 1)); else this.fill(s.variant + 1); },
-      clearAll: () => this.setState({ set: Array(s.size).fill(''), auto: [], picker: -1, query: '', copied: false, saved: false }),
+      moods: [{ id: '', label: 'ANY' }].concat((K ? K.MOODS : []).map((m) => ({ id: m.id, label: m.label.toUpperCase() }))).map((m) => ({ label: m.label, on: s.mood === m.id ? '1' : '0', pick: () => this.setMood(m.id) })),
+      fillLabel: complete ? 'SET COMPLETE' : filled.length ? 'FILL THE REST' : 'SUGGEST A SET',
+      fillHint: complete ? 'Open any slot to swap a color, or deal again.' : filled.length ? 'Your picks stay; the tool fills the empty slots.' : 'Or tap a slot to pick by hand.',
+      fillEmpty: () => this.fill(0),
+      dealDisabled: filled.length < 1,
+      dealAgain: () => { if (!s.auto.length && complete) this.setState({ auto: s.set.map((_, i) => i).slice(1).filter((i) => s.locked.indexOf(i) < 0) }, () => this.fill(s.variant + 1)); else this.fill(s.variant + 1); },
+      clearAll: () => this.setState({ set: Array(s.size).fill(''), auto: [], locked: [], picker: -1, query: '', copied: false, saved: false }),
       recentOn: recents.length ? 'flex' : 'none', recents: recents,
       slots: slots,
       pickerOn: s.picker >= 0 ? 'grid' : 'none',
-      pickerTitle: s.picker >= 0 ? (s.picker === 0 ? 'BASE COLOUR' : s.picker === s.size - 1 && s.size > 2 ? 'ACCENT' : 'LAYER ' + (s.picker + 1)) + ' · SLOT ' + (s.picker + 1) : '',
+      pickerTitle: s.picker >= 0 ? (s.picker === 0 ? 'BASE COLOR' : s.picker === s.size - 1 && s.size > 2 ? 'ACCENT' : 'LAYER ' + (s.picker + 1)) + ' · SLOT ' + (s.picker + 1) : '',
       removeOn: s.picker >= 0 && s.set[s.picker] ? 'inline-flex' : 'none',
       removePick: () => this.place(s.picker, ''),
       closePicker: () => this.setState({ picker: -1, query: '' }),
       query: s.query, setQuery: (e) => this.setState({ query: e.target.value }),
       listTitle: listTitle, listCount: listCount, candidates: candidates,
-      patterns: PATTERNS.map((p, i) => ({ label: p.label, on: s.pattern === p.id ? '1' : '0', bl: bl(i), pick: () => this.setState({ pattern: p.id }) })),
-      surfaces: SURF.map((p, i) => ({ label: p.label, on: s.surface === p.id ? '1' : '0', bl: bl(i), pick: () => this.setState({ surface: p.id }) })),
-      heavyOn: s.even ? '0' : '1', evenOn: s.even ? '1' : '0', setHeavy: () => this.setState({ even: false }), setEven: () => this.setState({ even: true }),
-      scalePct: s.scale, setScale: (e) => this.setState({ scale: parseInt(e.target.value, 10) }),
-      reshuffle: () => this.setState({ seed: s.seed + 1 }),
+      ideaGroups: ['ALL', 'SIGNATURE', 'FIELD'].map((g, i) => ({ label: g, on: s.ideaGroup === g ? '1' : '0', bl: bl(i), pick: () => this.setState({ ideaGroup: g }) })),
+      ideas: ideas,
+      previewMeta: previewMeta,
       preview: preview,
-      scoreText: filled.length >= 2 ? score + ' / 100' : '—',
-      scoreInk: filled.length < 2 ? 'var(--k-label)' : score >= 75 ? 'var(--k-ok)' : score >= 50 ? 'var(--k-ink)' : 'var(--k-warn)',
-      rules: rules,
-      sheet: sheet,
-      sheetNote: sheet.length ? 'Shares are starting proportions for masking; the base carries the part. LRV is computed from the screen value, not measured. Confirm gloss, mesh and cure on each colour\u2019s TDS before spraying.' : 'The sheet fills in as colours are placed.',
+      surfaces: SURF.map((p, i) => ({ label: p.label, on: s.surface === p.id ? '1' : '0', bl: bl(i), pick: () => this.setState({ surface: p.id }) })),
+      photoBtnOn: s.surface === 'photo' ? 'inline-flex' : 'none', photoLabel: s.photo ? 'CHANGE PHOTO' : 'ADD PHOTO', noPhoto: !s.photo,
+      loadPhoto: (e) => this.loadPhoto(e), coloursFromPhoto: () => this.coloursFromPhoto(),
+      quadResetOn: s.surface === 'photo' && s.photo ? 'inline-flex' : 'none', resetQuad: () => this.setState({ quad: DEFAULT_QUAD }),
+      outlineBtnOn: s.surface === 'custom' ? 'inline-flex' : 'none', outlineLabel: s.custom ? 'CHANGE OUTLINE' : 'LOAD OUTLINE (SVG)', outlineHint: s.surface === 'custom' ? (s.custom ? s.custom.name : 'Flattened SVG paths of the part. Stays on this device.') : '',
+      loadOutline: (e) => this.loadOutline(e),
+      saveStencils: () => this.saveStencils(),
+      mix: mix, mixNote: mixNote, mixG: s.mixG, setMixG: (e) => this.setState({ mixG: e.target.value }),
+      patterns: (K ? K.PATTERNS : [{ id: 'blotch', label: 'Blotch' }]).map((p) => ({ label: p.label.toUpperCase(), on: s.pattern === p.id ? '1' : '0', pick: () => this.setState({ pattern: p.id }) })),
+      heavyOn: !s.custShares && !s.even ? '1' : '0', evenOn: !s.custShares && s.even ? '1' : '0', setHeavy: () => this.setState({ even: false, custShares: null }), setEven: () => this.setState({ even: true, custShares: null }),
+      sharesLab: s.custShares ? 'SHARES · CUSTOM, TYPED ON THE SLOTS' : 'SHARES',
+      scalePct: s.scale, setScale: (e) => this.setState({ scale: parseInt(e.target.value, 10) }),
+      sheenOn: s.sheen ? '1' : '0', toggleSheen: () => this.setState({ sheen: !s.sheen }),
+      reshuffle: () => this.setState({ seed: s.seed + 1 }),
+      pinsOn: pins.length ? 'grid' : 'none', pins: pins, pinsHint: pins.length + ' of 3 pinned. Tap one to load it.', clearPins: () => this.setState({ pins: [] }),
+      scoreText: filled.length >= 2 ? score + ' / 100' : '—', readSummary: readSummary, rules: rules,
+      sheet: sheet, plan: plan,
+      sheetNote: sheet.length ? 'Shares are starting proportions for masking; the base carries the part. LRV is computed from the screen value, not measured. Confirm gloss, mesh and cure on each color\u2019s TDS before spraying.' : 'The sheet fills in as colors are placed.',
+      qCustomer: s.quote.customer, qPart: s.quote.part, qPrice: s.quote.price, qLead: s.quote.lead, qNotes: s.quote.notes,
+      setQCustomer: setQ('customer'), setQPart: setQ('part'), setQPrice: setQ('price'), setQLead: setQ('lead'), setQNotes: setQ('notes'),
       copyLabel: s.copied ? 'LINK COPIED' : 'COPY LINK',
       copyLink: () => { this.writeHash(); const url = window.location.href; (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => this.setState({ copied: true })).catch(() => window.prompt('Copy this link', url)); },
+      savePng: () => this.savePng(), sendSet: () => this.sendSet(),
       printSheet: () => window.print(),
       saveLabel: s.saved ? 'SAVED' : 'SAVE SET',
       saveSet: () => this.saveRecent()

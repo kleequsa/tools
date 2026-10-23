@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGMXVJ7D2C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XGMXVJ7D2C');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../vendor/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>KLEEQ · Space</title>
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1a1918">
+<link rel="stylesheet" href="../vendor/modernist.css">
+<script src="../vendor/modernist-bundle.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="kleeq-tokens.css">
+<style>
+  :root { color-scheme: dark; --k-bar:rgba(26,25,24,0.92); --k-r:0px; --k-r-sm:0px; --k-rule-w:1px; --k-mono:'IBM Plex Mono', ui-monospace, monospace; --k-photo:none; }
+  :root[data-kleeq-theme="light"] { color-scheme: light; --k-bar:rgba(243,242,242,0.92); }
+  :root[data-kleeq-theme="modernist"] {
+    color-scheme: light;
+    --k-bg:var(--color-bg); --k-panel:var(--color-surface, #ffffff); --k-bar:rgba(243,242,242,0.94); --k-field:#ffffff;
+    --k-line:var(--color-neutral-600); --k-hair:var(--color-neutral-300); --k-rule:var(--color-text); --k-label:var(--color-neutral-800); --k-copy:var(--color-neutral-900); --k-dune:var(--color-neutral-800);
+    --k-ink:var(--color-text); --k-gold:var(--color-accent); --k-gold-soft:var(--color-accent-700); --k-on-gold:#ffffff;
+    --k-mono:var(--font-body); --k-mono-w:500; --k-rule-w:2px; --k-photo:grayscale(1) contrast(1.05);
+  }
+  :root[data-kleeq-theme="glass"] { --k-bar:var(--k-sticky); }
+  html, body { margin: 0; background: var(--k-bg); color: var(--k-ink); }
+  a { color: var(--k-gold-soft); text-decoration: none; }
+  a:hover { color: var(--k-gold); }
+  h1, h2, h3 { font-family: var(--font-heading); font-stretch: 115%; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
+  .s-lab { font-family: var(--k-mono); font-weight: var(--k-mono-w); font-size: 11px; letter-spacing: 0.16em; color: var(--k-gold-soft); text-transform: uppercase; }
+  .s-cap { font-family: var(--k-mono); font-weight: var(--k-mono-w); font-size: 10px; letter-spacing: 0.14em; color: var(--k-label); text-transform: uppercase; }
+  .s-photo { filter: var(--k-photo); display: block; width: 100%; height: 100%; object-fit: cover; }
+  .s-wrap { max-width: 1320px; margin: 0 auto; padding: 0 20px; }
+  .s-sec { border-top: var(--k-rule-w) solid var(--k-rule); padding: 28px 0 64px; display: grid; gap: 28px; }
+  .s-seg { min-height: 30px; width: 32px; padding: 0; background: none; border: none; color: var(--k-label); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  .s-seg:hover { color: var(--k-ink); }
+  .s-seg[data-on="1"] { background: var(--k-gold); color: var(--k-on-gold); }
+  .s-seg:focus-visible, a:focus-visible { outline: 2px solid var(--k-gold); outline-offset: 2px; }
+  .s-pill { display: inline-flex; align-items: center; gap: 6px; height: 32px; line-height: 1; box-sizing: border-box; padding: 0 10px 0 9px; border-radius: 15px; color: var(--k-label); border: 1px solid var(--k-line); font-family: var(--k-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; white-space: nowrap; }
+  .s-pill:hover { color: var(--k-ink); background: var(--k-panel); }
+  .s-cta { min-height: 44px; padding: 0 18px; display: inline-flex; align-items: center; gap: 10px; background: var(--k-gold); color: var(--k-on-gold); border: 1px solid var(--k-gold); border-radius: var(--k-r-sm); font-family: var(--k-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; }
+  .s-cta:hover { background: var(--k-gold-soft); border-color: var(--k-gold-soft); color: var(--k-on-gold); }
+  .s-ghost { min-height: 44px; padding: 0 18px; display: inline-flex; align-items: center; gap: 10px; color: var(--k-ink); border: 1px solid var(--k-line); border-radius: var(--k-r-sm); font-family: var(--k-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; }
+  .s-ghost:hover { border-color: var(--k-gold); color: var(--k-ink); }
+  .s-split { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; }
+  .s-3 { display: grid; grid-template-columns: minmax(0,1fr); gap: 20px; }
+  .s-coll { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; gap: 8px; }
+  .s-coll > :first-child { grid-column: 1 / -1; grid-row: span 2; }
+  @media (min-width: 820px) {
+    .s-split { grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 40px; align-items: start; }
+    .s-split.rev > :first-child { order: 2; }
+    .s-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .s-coll { grid-template-columns: 1.25fr 0.75fr 1fr; grid-template-rows: 260px 260px; }
+    .s-coll > :first-child { grid-column: 1; grid-row: 1 / 3; }
+    .s-coll > :nth-child(3) { grid-column: 3; grid-row: 1 / 3; }
+  }
+</style>
+</helmet>
+
+<div style="background:var(--k-bg);color:var(--k-ink);font-family:var(--font-body);min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:var(--k-bar);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--k-line)">
+    <div class="s-wrap" style="padding:10px 20px;display:flex;align-items:center;gap:14px;flex-wrap:nowrap;min-height:72px">
+      <a href="https://tools.kleeq.com" style="color:inherit;display:flex;flex:none" aria-label="KLEEQ Tools"><svg viewBox="0 0 732 280" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KLEEQ — Driven by precision" style="height:53px;width:auto;display:block"><polygon points="64.9 0 64.9 71.51 88.7 47.68 88.7 23.84 696.2 23.84 696.2 214.54 88.7 214.54 88.7 190.7 64.9 166.86 64.9 238.38 720 238.38 720 0 64.9 0"></polygon><polygon points="160.09 154.94 142.24 137.07 124.39 119.19 142.24 101.31 160.09 83.43 177.94 65.55 195.79 47.68 160.09 47.68 142.24 65.55 124.39 83.43 106.54 101.31 88.7 119.19 106.54 137.07 124.39 154.94 142.24 172.82 160.09 190.7 195.79 190.7 177.94 172.82 160.09 154.94"></polygon><path d="M64.9,84.77h-27.79c-2.87,0-5.62,1.2-7.65,3.34L0,119.19h0,0s0,0,0,0h0l29.46,31.07c2.03,2.14,4.78,3.34,7.65,3.34h27.79l-16.69-17.6,16.69-16.82h0s-16.69-16.82-16.69-16.82l16.69-17.6ZM42.75,128.65l-10.58-3.61-6.52,9.45v-11.68l-10.58-3.61,10.58-3.6v-11.7s6.52,9.45,6.52,9.45l10.58-3.61-6.54,9.45,6.54,9.45Z"></path><path d="M203.72,47.68h31.72v113.91h63.44v29.08h-95.17V47.68Z"></path><path d="M306.82,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M417.85,47.68h103.1v29.08h-71.6v26.66h71.6v29.08h-71.6v29.08h71.6v29.08h-103.1V47.68Z"></path><path d="M672.4,168.76l-12.42-10.48c7.35-11.24,11.64-24.67,11.64-39.11,0-39.49-31.96-71.49-71.38-71.49s-71.38,32.01-71.38,71.49,31.96,71.49,71.38,71.49c14.66,0,28.29-4.44,39.63-12.03l14.25,12.03,18.27-21.9ZM600.25,161.27c-23.21,0-42.03-18.85-42.03-42.1s18.82-42.1,42.03-42.1,42.03,18.85,42.03,42.1c0,7.21-1.81,14-5.01,19.94l-17.98-15.17-18.27,21.9,14.75,12.45c-4.81,1.92-10.04,2.98-15.53,2.98Z"></path><path d="M64.89,252.33h8.32c2.33,0,4.31.29,5.93.86,1.62.57,2.97,1.3,4.05,2.19,1.08.89,1.92,1.87,2.55,2.95.62,1.08,1.08,2.12,1.37,3.11.29.99.47,1.89.55,2.69.08.8.11,1.37.11,1.7s-.04.9-.11,1.7c-.08.8-.26,1.7-.55,2.69-.29.99-.75,2.03-1.37,3.11-.62,1.08-1.47,2.06-2.55,2.95-1.08.89-2.43,1.62-4.05,2.19-1.62.57-3.6.86-5.93.86h-8.32v-26.98ZM67.4,277.03h5.17c1.77,0,3.43-.22,4.98-.67,1.55-.44,2.89-1.12,4.03-2.04,1.14-.91,2.04-2.08,2.7-3.49.66-1.41.99-3.08.99-5.01s-.33-3.6-.99-5.01c-.66-1.41-1.56-2.57-2.7-3.49-1.14-.91-2.48-1.59-4.03-2.04-1.55-.45-3.21-.67-4.98-.67h-5.17v22.41Z"></path><path d="M108.18,252.33h7.07c.35,0,.84.01,1.44.04.61.02,1.27.1,1.98.23.71.13,1.43.33,2.17.61.73.28,1.39.69,1.98,1.22.58.53,1.06,1.21,1.44,2.02.38.81.57,1.8.57,2.97,0,1.3-.22,2.36-.66,3.2-.44.84-1,1.52-1.67,2.04s-1.41.91-2.22,1.16c-.81.25-1.58.43-2.32.53l7.83,12.96h-2.85l-7.56-12.8h-4.67v12.8h-2.51v-26.98ZM110.69,264.22h5.32c1.32,0,2.39-.17,3.21-.5.82-.33,1.46-.74,1.92-1.22.46-.48.77-1,.93-1.56.16-.56.25-1.07.25-1.52s-.08-.97-.25-1.52-.47-1.08-.93-1.56c-.46-.48-1.1-.89-1.92-1.22s-1.89-.5-3.21-.5h-5.32v9.6Z"></path><path d="M145.45,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M166.69,252.33h2.7l8.66,23.66,8.74-23.66h2.66l-10.22,26.98h-2.51l-10.03-26.98Z"></path><path d="M208.17,252.33h16.46v2.29h-13.95v9.6h13.07v2.29h-13.07v10.52h14.55v2.29h-17.06v-26.98Z"></path><path d="M244.89,252.33h3.23l16.38,23.63h.08v-23.63h2.51v26.98h-3.23l-16.38-23.63h-.08v23.63h-2.51v-26.98Z"></path><path d="M314.74,252.33h7.75c1.01,0,2.04.08,3.08.25,1.04.17,1.97.51,2.79,1.03.82.52,1.49,1.24,2.01,2.17.52.93.78,2.15.78,3.68,0,1.37-.41,2.57-1.22,3.58-.81,1.02-2.01,1.69-3.61,2.02v.08c.89.08,1.7.29,2.43.63.73.34,1.37.8,1.9,1.37.53.57.94,1.25,1.23,2.04s.44,1.65.44,2.59c0,1.55-.3,2.82-.89,3.79-.6.98-1.34,1.75-2.24,2.31-.9.56-1.88.94-2.93,1.14-1.05.2-2.03.3-2.95.3h-8.59v-26.98ZM317.24,264h5.21c1.29,0,2.34-.16,3.15-.48.81-.32,1.44-.7,1.9-1.16.46-.46.76-.95.91-1.47.15-.52.23-1,.23-1.43,0-.94-.16-1.72-.47-2.34-.32-.62-.74-1.12-1.27-1.49s-1.15-.63-1.86-.78c-.71-.15-1.46-.23-2.24-.23h-5.55v9.38ZM317.24,277.03h5.74c1.47,0,2.65-.18,3.55-.53.9-.36,1.59-.8,2.07-1.33.48-.53.8-1.1.97-1.7.16-.6.25-1.14.25-1.62,0-.99-.19-1.84-.57-2.55-.38-.71-.87-1.29-1.48-1.73-.61-.45-1.3-.77-2.07-.97-.77-.2-1.55-.3-2.34-.3h-6.12v10.75Z"></path><path d="M358.53,267.69l-9.88-15.36h3l8.13,12.8,8.32-12.8h2.81l-9.88,15.36v11.62h-2.51v-11.62Z"></path><path d="M414.66,252.33h7.75c.94,0,1.92.11,2.95.32,1.03.22,1.96.59,2.81,1.13.85.53,1.54,1.26,2.09,2.19.55.93.82,2.09.82,3.49,0,1.22-.22,2.28-.66,3.16s-1.04,1.62-1.79,2.19c-.75.57-1.61,1-2.58,1.28-.98.28-2,.42-3.06.42h-5.81v12.8h-2.51v-26.98ZM417.17,264.22h5.7c.71,0,1.41-.08,2.09-.25.68-.17,1.29-.43,1.82-.8.53-.37.96-.86,1.29-1.47.33-.61.49-1.36.49-2.25s-.17-1.6-.51-2.21c-.34-.61-.79-1.11-1.33-1.51-.55-.39-1.17-.68-1.88-.86s-1.42-.27-2.13-.27h-5.55v9.6Z"></path><path d="M450.71,252.33h7.07c.35,0,.84.01,1.44.04.61.02,1.27.1,1.98.23.71.13,1.43.33,2.17.61.73.28,1.39.69,1.98,1.22.58.53,1.06,1.21,1.44,2.02.38.81.57,1.8.57,2.97,0,1.3-.22,2.36-.66,3.2-.44.84-1,1.52-1.67,2.04-.67.52-1.41.91-2.22,1.16-.81.25-1.58.43-2.32.53l7.83,12.96h-2.85l-7.56-12.8h-4.67v12.8h-2.51v-26.98ZM453.22,264.22h5.32c1.32,0,2.39-.17,3.21-.5.82-.33,1.46-.74,1.92-1.22.46-.48.77-1,.93-1.56.16-.56.25-1.07.25-1.52s-.08-.97-.25-1.52-.47-1.08-.93-1.56c-.46-.48-1.1-.89-1.92-1.22s-1.89-.5-3.21-.5h-5.32v9.6Z"></path><path d="M488.01,252.33h16.46v2.29h-13.95v9.6h13.07v2.29h-13.07v10.52h14.55v2.29h-17.06v-26.98Z"></path><path d="M547.04,275.08c-1.29,1.75-2.79,3.01-4.48,3.77-1.7.76-3.53,1.14-5.51,1.14s-3.93-.35-5.64-1.05c-1.71-.7-3.17-1.68-4.39-2.93-1.22-1.26-2.17-2.76-2.85-4.5-.68-1.74-1.03-3.64-1.03-5.7s.34-3.95,1.03-5.68c.68-1.73,1.63-3.22,2.85-4.48,1.22-1.26,2.68-2.24,4.39-2.95,1.71-.71,3.59-1.07,5.64-1.07,1.82,0,3.53.32,5.11.97,1.58.65,2.97,1.73,4.16,3.26l-2.05,1.72c-.84-1.27-1.91-2.2-3.21-2.78-1.3-.58-2.64-.88-4.01-.88-1.75,0-3.33.31-4.73.92-1.41.61-2.6,1.45-3.59,2.51-.99,1.07-1.75,2.32-2.28,3.77-.53,1.45-.8,3.01-.8,4.69s.27,3.24.8,4.69c.53,1.45,1.29,2.71,2.28,3.77.99,1.07,2.19,1.91,3.59,2.52,1.41.61,2.98.91,4.73.91.68,0,1.39-.08,2.13-.25.73-.16,1.45-.42,2.15-.76.7-.34,1.36-.78,2-1.3.63-.52,1.19-1.15,1.67-1.89l2.05,1.56Z"></path><path d="M566.26,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M591.41,274.32c.66,1.14,1.51,2,2.56,2.55,1.05.56,2.25.84,3.59.84.84,0,1.62-.13,2.36-.38.73-.25,1.37-.61,1.92-1.07.55-.46.98-1.01,1.29-1.66.32-.65.47-1.38.47-2.19,0-.94-.2-1.71-.59-2.32-.39-.61-.92-1.11-1.58-1.51-.66-.39-1.4-.73-2.22-1.01-.82-.28-1.67-.56-2.55-.84-.87-.28-1.72-.6-2.55-.95-.82-.36-1.56-.82-2.22-1.39-.66-.57-1.18-1.29-1.58-2.15-.39-.86-.59-1.93-.59-3.2,0-1.19.23-2.25.7-3.18.47-.93,1.1-1.7,1.9-2.32.8-.62,1.72-1.09,2.76-1.41,1.04-.32,2.13-.48,3.27-.48,1.47,0,2.83.26,4.08.78,1.25.52,2.34,1.39,3.25,2.61l-2.17,1.56c-.63-.89-1.37-1.56-2.22-2-.85-.44-1.86-.67-3.02-.67-.81,0-1.58.11-2.32.32-.74.22-1.37.53-1.92.95-.55.42-.98.95-1.31,1.58s-.49,1.38-.49,2.25c0,1.35.34,2.38,1.03,3.11.68.72,1.54,1.3,2.57,1.71,1.03.42,2.14.79,3.34,1.1,1.2.32,2.32.74,3.34,1.28,1.03.53,1.88,1.28,2.56,2.23.68.95,1.03,2.27,1.03,3.94,0,1.22-.23,2.3-.68,3.24-.46.94-1.07,1.73-1.84,2.38-.77.65-1.67,1.14-2.68,1.47-1.01.33-2.07.49-3.15.49-1.77,0-3.41-.31-4.9-.93-1.5-.62-2.77-1.67-3.84-3.14l2.39-1.6Z"></path><path d="M626.46,252.33h2.51v26.98h-2.51v-26.98Z"></path><path d="M649.5,265.82c0-2.06.34-3.95,1.03-5.68.68-1.73,1.63-3.22,2.85-4.48,1.22-1.26,2.68-2.24,4.39-2.95,1.71-.71,3.59-1.07,5.64-1.07s3.93.36,5.64,1.07c1.71.71,3.17,1.7,4.39,2.95,1.22,1.26,2.17,2.75,2.85,4.48.68,1.73,1.03,3.62,1.03,5.68s-.34,3.96-1.03,5.7c-.68,1.74-1.63,3.24-2.85,4.5-1.22,1.26-2.68,2.24-4.39,2.93-1.71.7-3.59,1.05-5.64,1.05s-3.93-.35-5.64-1.05c-1.71-.7-3.17-1.68-4.39-2.93-1.22-1.26-2.17-2.76-2.85-4.5-.68-1.74-1.03-3.64-1.03-5.7ZM652.01,265.82c0,1.68.27,3.24.8,4.69.53,1.45,1.29,2.71,2.28,3.77.99,1.07,2.19,1.91,3.59,2.52s2.98.91,4.73.91,3.32-.3,4.73-.91c1.41-.61,2.6-1.45,3.59-2.52.99-1.07,1.75-2.32,2.28-3.77.53-1.45.8-3.01.8-4.69s-.27-3.24-.8-4.69c-.53-1.45-1.29-2.71-2.28-3.77-.99-1.07-2.19-1.91-3.59-2.51-1.41-.61-2.98-.92-4.73-.92s-3.33.31-4.73.92c-1.41.61-2.6,1.45-3.59,2.51-.99,1.07-1.75,2.32-2.28,3.77-.53,1.45-.8,3.01-.8,4.69Z"></path><path d="M697.81,252.33h3.23l16.38,23.63h.08v-23.63h2.51v26.98h-3.23l-16.38-23.63h-.08v23.63h-2.51v-26.98Z"></path></svg></a>
+      <a href="https://tools.kleeq.com" class="s-pill" aria-label="Back to KLEEQ Applicator Tools" style="height:40px;padding:0 16px 0 14px;font-size:13px;color:var(--k-ink);border-color:var(--k-rule);background:var(--k-panel)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>APPLICATOR TOOLS</a>
+      <a href="deck/" class="s-pill" style="margin-left:auto;height:40px;padding:0 16px;font-size:13px;color:var(--k-gold-soft);border-color:var(--k-gold)">PRESENTATION →</a>
+    </div>
+  </header>
+
+  <section data-screen-label="Hero" style="position:relative;min-height:min(78vh,760px);display:grid;align-items:end;overflow:hidden;background:#141312;color:#f2efe9">
+    <img src="photos/DE61C6D6-88D0-4763-A605-501CBD2090A2_1_201_a.jpeg" alt="KLEEQ showroom color wall" class="s-photo" style="position:absolute;inset:0;object-position:60% 50%">
+    <div style="position:absolute;inset:0;background:rgba(20,19,18,0.5)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,0.3) 0%,rgba(20,19,18,0.1) 30%,rgba(20,19,18,0.75) 60%,rgba(20,19,18,0.96) 100%)"></div>
+    <div class="s-wrap" style="position:relative;padding:120px 20px 48px;display:grid;gap:18px;width:100%;box-sizing:border-box">
+      <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;font-weight:600;letter-spacing:0.22em;color:#f2efe9;text-shadow:0 1px 2px rgba(0,0,0,0.6)">STUDIO · SHOWROOM · WORKSHOP</span>
+      <h1 style="font-size:clamp(56px,9vw,148px);line-height:0.86;color:#f2efe9">KLEEQ<br>SPACE</h1>
+      <div style="width:96px;height:3px;background:#c9992f"></div>
+      <p style="margin:0;max-width:56ch;font-size:clamp(16px,1.4vw,20px);line-height:1.5;font-weight:300;color:#dcd7cd;text-wrap:pretty">A showroom where every Cerakote finish can be held under real light, and a workshop built around the bench where those finishes are applied. Both sit behind the same door.</p>
+    </div>
+  </section>
+
+  <div class="s-wrap" style="display:grid;gap:0;padding-top:48px">
+
+    <section class="s-sec" data-screen-label="Statement">
+      <div class="s-split">
+        <div style="display:grid;gap:14px;align-content:start">
+          <span class="s-lab">01 — The space</span>
+          <h2 style="font-size:clamp(30px,3.6vw,52px);line-height:0.98;text-wrap:balance">Precision, start to finish.</h2>
+        </div>
+        <div class="s-3" style="border-top:1px solid var(--k-line);padding-top:20px;gap:20px">
+          <div style="display:grid;gap:8px"><span class="s-cap">Showroom</span><span style="font-size:17px;line-height:1.35">Color wall, category plinths, meeting room</span></div>
+          <div style="display:grid;gap:8px"><span class="s-cap">Workshop</span><span style="font-size:17px;line-height:1.35">Prep, blast, spray, cure, inspect</span></div>
+          <div style="display:grid;gap:8px"><span class="s-cap">Finish</span><span style="font-size:17px;line-height:1.35">Cerakote, applied here</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="s-sec" data-screen-label="Showroom">
+      <div style="position:relative;aspect-ratio:21/9;min-height:320px;overflow:hidden;background:#141312;color:#f2efe9;display:grid;align-items:end">
+        <img src="photos/664648E5-9598-43DB-92E8-8177BEF2DFF5_1_201_a.jpeg" alt="KLEEQ showroom with category plinths" class="s-photo" style="position:absolute;inset:0;object-position:50% 55%">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,0) 40%,rgba(20,19,18,0.85) 100%)"></div>
+        <div style="position:relative;padding:28px;display:grid;gap:10px">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;color:#e2bd6d">02 — SHOWROOM</span>
+          <h2 style="font-size:clamp(40px,6vw,96px);line-height:0.9;color:#f2efe9">The Showroom</h2>
+        </div>
+      </div>
+      <div class="s-split">
+        <div style="display:grid;gap:14px;align-content:start">
+          <span class="s-lab">02.1 — Color wall</span>
+          <h2 style="font-size:clamp(26px,2.6vw,38px);line-height:1;text-wrap:balance">Choose your finish in person, not on a screen.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">Coated steel panels, grouped the way the catalogue is: Signature, Palette and Core. Pick one up, hold it against the part, decide.</p>
+          <div style="display:grid;gap:10px;border-top:1px solid var(--k-line);padding-top:16px">
+            <div style="display:flex;justify-content:space-between"><span class="s-cap">Signature</span><span class="s-cap" style="color:var(--k-gold-soft)">KLEEQ curated</span></div>
+            <div style="display:flex;justify-content:space-between"><span class="s-cap">Palette</span><span class="s-cap" style="color:var(--k-gold-soft)">Working set</span></div>
+            <div style="display:flex;justify-content:space-between"><span class="s-cap">Core</span><span class="s-cap" style="color:var(--k-gold-soft)">Full range</span></div>
+          </div>
+        </div>
+        <div style="aspect-ratio:4/3;overflow:hidden;background:var(--k-panel)"><img src="photos/F4CA2827-C42A-4C82-A870-797EF3B3A6B8_1_201_a.jpeg" alt="Signature, Palette and Core color wall" class="s-photo" style="object-fit:contain"></div>
+      </div>
+      <div class="s-coll">
+        <div style="position:relative;overflow:hidden;background:var(--k-panel)"><img src="photos/6E220633-299F-4C2B-8730-D03569466D3E_1_201_a.jpeg" alt="Process, Marking, Lifestyle, Defense and Studio walls" class="s-photo" style="object-position:55% 50%"><span class="s-cap" style="position:absolute;left:14px;bottom:12px;background:rgba(20,19,18,0.75);color:#f2efe9;padding:6px 10px">Showroom</span></div>
+        <div style="overflow:hidden;background:var(--k-panel)"><img src="photos/654A8D26-02C8-4A8B-871A-BDC9776248D7_1_201_a.jpeg" alt="Looking toward the meeting room" class="s-photo" style="object-position:70% 45%"></div>
+        <div style="position:relative;overflow:hidden;background:var(--k-panel)"><img src="photos/CB4EDA41-2FD3-480D-B58D-D693CD768301_1_201_a.jpeg" alt="Meeting room with sample table" class="s-photo" style="object-position:65% 50%"><span class="s-cap" style="position:absolute;left:14px;bottom:12px;background:rgba(20,19,18,0.75);color:#f2efe9;padding:6px 10px">Meeting room</span></div>
+        <div style="overflow:hidden;background:var(--k-panel)"><img src="photos/DE61C6D6-88D0-4763-A605-501CBD2090A2_1_201_a.jpeg" alt="KLEEQ sign on the dark wall" class="s-photo" style="object-position:8% 50%"></div>
+      </div>
+      <div class="s-split rev">
+        <div style="aspect-ratio:4/3;overflow:hidden;background:var(--k-panel)"><img src="photos/6E220633-299F-4C2B-8730-D03569466D3E_1_201_a.jpeg" alt="Studio wall detail" class="s-photo" style="object-position:40% 50%"></div>
+        <div style="display:grid;gap:14px;align-content:start">
+          <span class="s-lab">02.3 — Founder's touch</span>
+          <h2 style="font-size:clamp(26px,2.6vw,38px);line-height:1">Attention to detail.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">Nothing in the showroom is off the shelf. The walls were composed like pages: a title, a graphic, the pieces, and air around them. Every panel on the color wall is a real coated part, hung in catalogue order so the room reads the way the website does.</p>
+          <div style="display:grid;gap:10px;border-top:1px solid var(--k-line);padding-top:16px">
+            <div style="display:grid;grid-template-columns:36px 1fr;gap:10px"><span class="s-cap" style="color:var(--k-gold-soft)">01</span><span style="font-size:15px;line-height:1.4">Black ceiling and trim so the color does the talking</span></div>
+            <div style="display:grid;grid-template-columns:36px 1fr;gap:10px"><span class="s-cap" style="color:var(--k-gold-soft)">02</span><span style="font-size:15px;line-height:1.4">Wall graphics drawn for each category, not stock vinyl</span></div>
+            <div style="display:grid;grid-template-columns:36px 1fr;gap:10px"><span class="s-cap" style="color:var(--k-gold-soft)">03</span><span style="font-size:15px;line-height:1.4">Panels arranged Signature, Palette, Core, left to right</span></div>
+            <div style="display:grid;grid-template-columns:36px 1fr;gap:10px"><span class="s-cap" style="color:var(--k-gold-soft)">04</span><span style="font-size:15px;line-height:1.4">Plinths at hand height so pieces get picked up</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:21/9;min-height:300px;overflow:hidden;background:#141312;color:#f2efe9;display:grid;align-items:end">
+        <img src="photos/CB4EDA41-2FD3-480D-B58D-D693CD768301_1_201_a.jpeg" alt="Meeting room" class="s-photo" style="position:absolute;inset:0">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,19,18,0.88) 0%,rgba(20,19,18,0.2) 45%,rgba(20,19,18,0) 70%)"></div>
+        <div style="position:relative;padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px 40px;align-items:end">
+          <div style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;color:#e2bd6d">02.4 — MEETING ROOM</span><h2 style="font-size:clamp(28px,3.4vw,52px);line-height:0.96;color:#f2efe9">Where the brief starts.</h2></div>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#dcd7cd;text-wrap:pretty">Samples on the table, finished parts within reach. Clients sit with the colors before anything is sprayed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-sec" data-screen-label="Workshop">
+      <div style="position:relative;aspect-ratio:21/9;min-height:320px;overflow:hidden;background:#141312;color:#f2efe9;display:grid;align-items:end">
+        <img src="photos/031F1905-C949-4630-A6B6-B3E4FF128042_1_201_a.jpeg" alt="KLEEQ workshop, main bench" class="s-photo" style="position:absolute;inset:0">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,0) 40%,rgba(20,19,18,0.88) 100%)"></div>
+        <div style="position:relative;padding:28px;display:grid;gap:10px">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;color:#e2bd6d">03 — WORKSHOP</span>
+          <h2 style="font-size:clamp(40px,6vw,96px);line-height:0.9;color:#f2efe9">The Workshop</h2>
+        </div>
+      </div>
+      <div class="s-split">
+        <div style="display:grid;gap:14px;align-content:start">
+          <span class="s-lab">03.1 — The floor</span>
+          <h2 style="font-size:clamp(26px,2.6vw,38px);line-height:1;text-wrap:balance">Laid out in the order a part moves.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">Blast cabinet and booth at the far end, the central bench under the camera arm, flammables and the mixing station along the wall.</p>
+          <div style="display:grid;gap:10px;border-top:1px solid var(--k-line);padding-top:16px">
+            <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">01</span><span class="s-cap">Blast cabinet</span></div>
+            <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">02</span><span class="s-cap">Spray booth</span></div>
+            <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">03</span><span class="s-cap">Curing oven</span></div>
+            <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">04</span><span class="s-cap">Mixing station</span></div>
+            <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">05</span><span class="s-cap">Inspection bench</span></div>
+          </div>
+        </div>
+        <div style="aspect-ratio:4/3;overflow:hidden;background:var(--k-panel)"><img src="photos/BEFE0A01-B051-44CC-989A-86FB86AF16E6_1_201_a.jpeg" alt="Workshop from above" class="s-photo"></div>
+      </div>
+      <div class="s-3">
+        <div style="display:grid;gap:12px">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:var(--k-panel)"><img src="photos/8EE3C297-3E79-4D2B-A542-5EC0B693ACA3_1_201_a.jpeg" alt="Blast cabinet and spray booth" class="s-photo" style="object-position:50% 40%"></div>
+          <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">01–02</span><span class="s-cap">Blast &amp; spray</span></div>
+        </div>
+        <div style="display:grid;gap:12px">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:var(--k-panel)"><img src="photos/4787A510-3E4F-4DF0-B64F-C99ADC4AB3F7_1_102_a.jpeg" alt="Mixing station and flammables cabinets" class="s-photo" style="object-position:60% 50%"></div>
+          <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">04</span><span class="s-cap">Mixing station</span></div>
+        </div>
+        <div style="display:grid;gap:12px">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:var(--k-panel)"><img src="photos/A7B7813D-7626-4D2B-9216-D72FB0B599D1_1_201_a.jpeg" alt="Curing oven and inspection bench" class="s-photo" style="object-position:40% 55%"></div>
+          <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">03</span><span class="s-cap">Curing oven</span></div>
+        </div>
+      </div>
+      <div class="s-split rev">
+        <div style="aspect-ratio:4/3;overflow:hidden;background:var(--k-panel)"><img src="photos/4787A510-3E4F-4DF0-B64F-C99ADC4AB3F7_1_102_a.jpeg" alt="Mixing station" class="s-photo" style="object-position:55% 45%"></div>
+        <div style="display:grid;gap:14px;align-content:start">
+          <span class="s-lab">03.3 — Founder's touch</span>
+          <h2 style="font-size:clamp(26px,2.6vw,38px);line-height:1;text-wrap:balance">Built like a lab, run like a studio.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">The floor is laid out in process order and everything rolls, so the room can be reset for a single part or a production run. Mixing is done by weight on a scale, under the same blue‑tape line the catalogue uses, and every batch is logged.</p>
+          <div style="display:grid;gap:10px;border-top:1px solid var(--k-line);padding-top:16px">
+            <div style="display:grid;grid-template-columns:36px 1fr;gap:10px"><span class="s-cap" style="color:var(--k-gold-soft)">01</span><span style="font-size:15px;line-height:1.4">Sealed grey floor, blue air lines, nothing on the ground</span></div>
+            <div style="display:grid;grid-template-columns:36px 1fr;gap:10px"><span class="s-cap" style="color:var(--k-gold-soft)">02</span><span style="font-size:15px;line-height:1.4">Mixing by weight, not by eye, with the KLEEQ calculator</span></div>
+            <div style="display:grid;grid-template-columns:36px 1fr;gap:10px"><span class="s-cap" style="color:var(--k-gold-soft)">03</span><span style="font-size:15px;line-height:1.4">Camera arm over the bench records every part before it ships</span></div>
+            <div style="display:grid;grid-template-columns:36px 1fr;gap:10px"><span class="s-cap" style="color:var(--k-gold-soft)">04</span><span style="font-size:15px;line-height:1.4">Flammables, eyewash and first aid where the hand already is</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:21/9;min-height:300px;overflow:hidden;background:#141312;color:#f2efe9;display:grid;align-items:end">
+        <img src="photos/E11E36F6-E0BF-4510-982F-23CD8F02BAAE_1_201_a.jpeg" alt="Curing oven, ultrasonic cleaner and inspection bench" class="s-photo" style="position:absolute;inset:0;object-position:50% 60%">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,19,18,0.9) 0%,rgba(20,19,18,0.25) 45%,rgba(20,19,18,0) 70%)"></div>
+        <div style="position:relative;padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px 40px;align-items:end">
+          <div style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;color:#e2bd6d">03.4 — CURE &amp; INSPECT</span><h2 style="font-size:clamp(28px,3.4vw,52px);line-height:0.96;color:#f2efe9">The quiet end of the room.</h2></div>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#dcd7cd;text-wrap:pretty">Every part is inspected under the light before it leaves. Batch, color, cure and operator are logged, so each finish is traceable back to the bench it came from.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-sec" data-screen-label="Services">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap">
+        <h2 style="font-size:clamp(28px,3vw,44px);line-height:1">Coat. Engrave. Print.</h2>
+        <span class="s-lab">03.5 — Services</span>
+      </div>
+      <div class="s-3">
+        <div style="display:grid;gap:16px">
+          <div style="aspect-ratio:4/3;overflow:hidden;background:var(--k-panel)"><img src="photos/DEA9C413-1D0A-4728-9F42-EF43B37EE49F_1_105_c.jpeg" alt="Marking wall with engraved tiles" class="s-photo" style="object-position:50% 45%"></div>
+          <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">01</span><span class="s-cap">Cerakote coating</span></div>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">Certified application across the full H, C and Elite ranges. Firearms, knives, optics, aerospace and automotive parts, one-offs to production runs.</p>
+        </div>
+        <div style="display:grid;gap:16px">
+          <div style="aspect-ratio:4/3;overflow:hidden;background:var(--k-panel)"><img src="photos/E6B825ED-90F6-4644-8563-279D63F0984D_1_102_o.jpeg" alt="Laser and printer bench" class="s-photo" style="object-position:60% 50%"></div>
+          <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">02</span><span class="s-cap">Laser engraving</span></div>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">Fibre laser engraving through Cerakote, with Cerakote laser-optimised coatings and per-finish recipes: power, speed, frequency, passes.</p>
+        </div>
+        <div style="display:grid;gap:16px">
+          <div style="aspect-ratio:4/3;overflow:hidden;background:var(--k-panel)"><img src="photos/7ADA8C39-3B80-4258-8BEC-F89C5F09C838_1_102_o.jpeg" alt="3D printer under the aircraft prints" class="s-photo" style="object-position:60% 50%"></div>
+          <div style="display:flex;gap:14px"><span class="s-cap" style="color:var(--k-gold-soft)">03</span><span class="s-cap">3D printing</span></div>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--k-copy);text-wrap:pretty">In-house printing for fixtures, masks, jigs and prototype parts, so a custom build goes from drawing to coated part under one roof.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-sec" data-screen-label="Full room" style="border-top:none;padding-top:0">
+      <div style="display:grid;gap:14px">
+        <div style="aspect-ratio:21/9;min-height:260px;overflow:hidden;background:var(--k-panel)"><img src="photos/4E6E77C8-D33D-40A3-BB9E-B53B7212FD8A_1_201_a.jpeg" alt="Workshop with mezzanine stairs" class="s-photo" style="object-position:50% 55%"></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px 32px;align-items:baseline;border-top:1px solid var(--k-line);padding-top:14px">
+          <span class="s-lab">03.6 — Full room</span>
+          <h3 style="font-size:20px;line-height:1.15;text-wrap:pretty">Room to run one part or a whole production batch, without compromising either.</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-sec" data-screen-label="Founder">
+      <div class="s-split" style="grid-template-columns:minmax(0,1fr)">
+        <div style="display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr);gap:24px;align-items:start;border:1px solid var(--k-line);background:var(--k-panel);padding:24px;border-radius:var(--k-r)">
+          <div style="aspect-ratio:3/4;overflow:hidden;border-radius:var(--k-r-sm)"><img src="photos/faran-najafi.jpg" alt="Faran Najafi, founder and CEO of KLEEQ" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;filter:grayscale(1) contrast(1.05)"></div>
+          <div style="display:grid;gap:14px;min-width:0">
+            <span class="s-lab">04 — The founder</span>
+            <div style="display:grid;gap:4px">
+              <h2 style="font-size:clamp(28px,3vw,44px);line-height:0.98">Faran Najafi</h2>
+              <span class="s-cap" style="color:var(--k-gold-soft)">Founder &amp; CEO · KLEEQ</span>
+            </div>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:var(--k-copy);text-wrap:pretty">Twenty-five years in technology, designing and building software for startups and Fortune 500 companies including Adobe, Oracle and Salesforce. Faran founded KLEEQ to follow a long-held passion: bringing a designer's eye and an engineer's rigour into the industrial and manufacturing space. While the shop focuses on coating and engraving for the tactical, aerospace and automotive industries, he is building the software he wishes he had, and sharing it with everyone else at the bench.</p>
+            <a href="https://www.kleeq.com" class="s-cap" style="color:var(--k-gold-soft);justify-self:start">KLEEQ.COM →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-sec" data-screen-label="Visit" style="padding-bottom:80px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px 48px;align-items:end">
+        <div style="display:grid;gap:14px;max-width:56ch">
+          <span class="s-lab">Come and see it</span>
+          <h2 style="font-size:clamp(30px,3.6vw,52px);line-height:0.98;text-wrap:balance">Visits by appointment. Bring the part, we will bring the color.</h2>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:start">
+          <a href="https://www.kleeq.com" class="s-cta">START A PROJECT AT KLEEQ.COM <span aria-hidden="true">→</span></a>
+          <a href="deck/" class="s-ghost">VIEW AS PRESENTATION</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: 'glass' };
+  setTheme(t) {
+    document.documentElement.setAttribute('data-kleeq-theme', t);
+    this.setState({ theme: t });
+  }
+  componentDidMount() {
+    this.setTheme('glass');
+  }
+  renderVals() {
+    const s = this.state;
+    return {
+    };
+  }
+}
+</script>
+</body>
+</html>

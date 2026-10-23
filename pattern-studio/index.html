@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../vendor/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>KLEEQ · Pattern Studio</title>
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+      <rect width="240" height="240" fill="#0c0c0e"></rect>
+      <circle cx="96" cy="96" r="22" fill="#d4a53a"></circle><circle cx="144" cy="96" r="22" fill="none" stroke="#d4a53a" stroke-width="4"></circle>
+      <circle cx="96" cy="144" r="22" fill="none" stroke="#d4a53a" stroke-width="4"></circle><circle cx="144" cy="144" r="22" fill="#d4a53a"></circle>
+    </svg>
+  </template>
+  <script src="kleeq-analytics.js"></script>
+  <link rel="stylesheet" href="../vendor/modernist.css">
+  <script src="../vendor/modernist-bundle.js"></script>
+  <script src="kleeq-pattern-engine.js?v=13"></script>
+  <script src="kleeq-glyph-fields.js"></script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    :root {
+      --color-bg: #0c0c0e;
+      --color-surface: #161618;
+      --color-surface-2: #1d1d20;
+      --color-text: #f5f5f7;
+      --color-text-muted: #8e8e95;
+      --color-divider: rgba(255,255,255,.08);
+      --color-neutral-100: #1f1f22;
+      --color-neutral-200: #29292d;
+      --color-neutral-300: #37373c;
+      --color-neutral-400: #46464c;
+      --color-accent: #d4a53a;
+      --color-accent-600: #e3b955;
+      --color-accent-700: #efcd7c;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.5);
+      --shadow-md: 0 6px 16px rgba(0,0,0,.45);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,.6);
+      color-scheme: dark;
+    }
+    [data-theme="light"] {
+      --color-bg: #f3f2f2;
+      --color-surface: #ffffff;
+      --color-surface-2: #f7f6f5;
+      --color-text: #1c1b1a;
+      --color-text-muted: #6f6c69;
+      --color-divider: rgba(0,0,0,.09);
+      --color-neutral-100: #efeeec;
+      --color-neutral-200: #e4e2df;
+      --color-neutral-300: #d4d1cd;
+      --color-neutral-400: #bdb9b4;
+      --color-accent: #b8860b;
+      --color-accent-600: #d4a53a;
+      --color-accent-700: #8a6508;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.08);
+      --shadow-md: 0 6px 16px rgba(0,0,0,.1);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,.16);
+      color-scheme: light;
+    }
+    [data-theme="light"] .btn-primary { color: #fff; }
+    [data-theme="light"] [data-logo="dark"] { display: none !important; }
+    [data-theme="light"] [data-logo="light"] { display: block !important; }
+    [data-theme="light"] input[type=range]::-webkit-slider-thumb { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25), 0 0 0 .5px rgba(0,0,0,.15); }
+    [data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.18); }
+    body { background: var(--color-bg); color: var(--color-text); font-size: 13px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+    body, button, input, select { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Archivo", sans-serif; }
+    h1, h2, h6 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Archivo", sans-serif; }
+    h6 { margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--color-text-muted); }
+    a { color: var(--color-accent); } a:hover { color: var(--color-accent-600); }
+    ::selection { background: var(--color-accent); color: #fff; }
+    .btn { font-size: 13px; font-weight: 500; letter-spacing: 0; border-radius: 7px; padding: 6px 12px; border: none; white-space: nowrap; transition: background .15s ease, transform .05s ease; }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: linear-gradient(180deg, var(--color-accent-600), var(--color-accent)); color: #1c1507; font-weight: 600; box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 1px 2px rgba(0,0,0,.4); }
+    .btn-primary:hover { background: var(--color-accent-600); }
+    .btn-secondary { background: var(--color-neutral-200); color: var(--color-text); }
+    .btn-secondary:hover { background: var(--color-neutral-400); }
+    .btn-ghost { color: var(--color-text-muted); background: transparent; }
+    .btn-ghost:hover { color: var(--color-text); background: var(--color-neutral-300); }
+    .btn:focus-visible, .input:focus-visible, .seg-opt:focus-within { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+    .input, sc-raw-select select, select.input, input.input { background: var(--color-neutral-100); color: var(--color-text); border: 1px solid transparent; border-radius: 7px; font-size: 13px; font-weight: 450; }
+    .input:focus, input.input:focus, sc-raw-select select:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 30%, transparent); }
+    input[type=number] { font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield; }
+    input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .seg { display: inline-flex; background: var(--color-neutral-100); border: none; border-radius: 7px; padding: 2px; gap: 2px; }
+    .seg-opt { border: none !important; border-radius: 5px; padding: 4px 10px; font-size: 12px; font-weight: 500; color: var(--color-text-muted); cursor: pointer; transition: background .15s ease, color .15s ease; white-space: nowrap; }
+    .seg-opt:hover { color: var(--color-text); background: var(--color-neutral-200); }
+    .seg-opt:has(input:checked) { background: var(--color-neutral-300); color: var(--color-text); box-shadow: 0 1px 2px rgba(0,0,0,.4); }
+    .seg-opt input { display: none; }
+    .tag { border-radius: 5px; font-size: 11px; font-weight: 500; }
+    .tag-neutral { background: var(--color-neutral-200); color: var(--color-text-muted); }
+    .tag-accent { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-accent-700); }
+    input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 20px; margin: 0; background: transparent; cursor: pointer; }
+    input[type=range]::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: var(--color-neutral-300); }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: -7px; border-radius: 50%; background: #fff; border: none; box-shadow: 0 1px 3px rgba(0,0,0,.5), 0 0 0 .5px rgba(0,0,0,.25); }
+    input[type=range]::-moz-range-track { height: 4px; border-radius: 2px; background: var(--color-neutral-300); }
+    input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; border: none; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
+    input[type=range]:focus-visible { outline: none; }
+    input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow: 0 1px 3px rgba(0,0,0,.5), 0 0 0 3px color-mix(in oklab, var(--color-accent) 45%, transparent); }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.14); border-radius: 5px; border: 3px solid transparent; background-clip: content-box; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.14) transparent; }
+    .row-actions { opacity: 0; pointer-events: none; transition: opacity .12s ease; }
+    [role="button"]:hover > .row-actions, .row-actions:hover { opacity: 1 !important; pointer-events: auto; }
+    .tool { padding: 5px 10px; font-size: 12px; font-weight: 500; border: none; border-radius: 6px; cursor: pointer; background: transparent; color: var(--color-text-muted); white-space: nowrap; transition: background .15s ease, color .15s ease; }
+    .tool:hover { color: var(--color-text); background: var(--color-neutral-300); }
+    @media (max-width: 1180px) { .kq-pill { padding: 0 7px !important; gap: 0 !important; margin-left: 0 !important; } .kq-pill .kq-pill-lbl { display: none; } }
+    @media (max-width: 1000px) { .kq-app-lbl { display: none; } }
+    @keyframes kq-spin { to { transform: rotate(360deg); } }
+    @keyframes kq-fade { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+    @keyframes kq-pulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+    @keyframes kq-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes kq-toast { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  </style>
+</helmet>
+<div data-theme="{{ theme }}" style="height:100vh;display:flex;flex-direction:column;background:var(--color-bg);color:var(--color-text);overflow:hidden;position:relative">
+
+  <sc-if value="{{ loading }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;background:var(--color-bg)">
+      <img data-logo="dark" src="kleeq-logo-id.svg" alt="KLEEQ" style="height:44px;width:auto;display:block;animation:kq-pulse 1.6s ease-in-out infinite"><img data-logo="light" src="kleeq-logo-id-black.svg" alt="KLEEQ" style="height:44px;width:auto;display:none;animation:kq-pulse 1.6s ease-in-out infinite">
+      <div style="position:relative;width:28px;height:28px">
+        <div style="position:absolute;inset:0;border-radius:50%;border:2px solid var(--color-neutral-300)"></div>
+        <div style="position:absolute;inset:0;border-radius:50%;border:2px solid transparent;border-top-color:var(--color-accent);animation:kq-spin .9s linear infinite"></div>
+      </div>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted)">{{ loadingLabel }}</span>
+    </div>
+  </sc-if>
+
+  <div style="flex:none;height:56px;display:flex;align-items:center;gap:20px;padding:0 20px;border-bottom:1px solid var(--color-divider);background:linear-gradient(90deg, color-mix(in oklab, var(--color-accent) 16%, var(--color-surface)) 0%, var(--color-surface) 38%, var(--color-surface) 100%)">
+    <div style="display:flex;align-items:center;gap:10px;flex:none"><img data-logo="dark" src="kleeq-logo-id.svg" alt="KLEEQ" style="height:28px;width:auto;display:block"><img data-logo="light" src="kleeq-logo-id-black.svg" alt="KLEEQ" style="height:28px;width:auto;display:none"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--color-accent)" class="kq-app-lbl">Pattern Studio</span><a href="https://tools.kleeq.com" aria-label="Back to KLEEQ Applicator Tools" class="kq-pill" title="KLEEQ Applicator Tools" style="display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px 0 9px;flex:none;border-radius:14px;color:var(--color-text-muted);text-decoration:none;border:1px solid var(--color-neutral-300);font-size:10px;font-weight:600;letter-spacing:0.12em;white-space:nowrap;margin-left:6px" style-hover="color:var(--color-text);background:var(--color-neutral-200)"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg><span class="kq-pill-lbl">APPLICATOR TOOLS</span></a></div>
+    <div style="flex:1"></div>
+    <sc-if value="{{ copied }}" hint-placeholder-val="{{ false }}"><span class="tag tag-accent" style="white-space:nowrap">Copied</span></sc-if>
+    <div style="display:flex;align-items:center;gap:6px;flex:none">
+      <sc-raw-select class="input" value="{{ presetSel }}" onChange="{{ onPresetSel }}" style="padding:5px 8px;font-size:12px;flex:none;width:auto;min-width:96px;max-width:150px">
+        <option value="">Presets</option>
+        <sc-for list="{{ presetOptions }}" as="pn" hint-placeholder-count="0"><option value="{{ pn }}">{{ pn }}</option></sc-for>
+      </sc-raw-select>
+      <button class="btn btn-ghost" onClick="{{ savePreset }}">Save</button>
+      <sc-if value="{{ hasPresetSel }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" onClick="{{ delPreset }}" title="Delete selected preset">Delete</button></sc-if>
+    </div>
+    <div style="width:1px;height:20px;background:var(--color-divider);flex:none"></div>
+    <div style="display:flex;align-items:center;gap:2px;flex:none">
+      <button class="btn btn-ghost" onClick="{{ toggleHist }}">History</button>
+      <sc-if value="{{ canEdit }}" hint-placeholder-val="{{ true }}"><button class="btn btn-ghost" onClick="{{ toggleBatch }}">{{ batchLabel }}</button></sc-if>
+      <button class="btn btn-ghost" onClick="{{ toggleTheme }}" title="Switch theme">{{ themeLabel }}</button>
+    </div>
+    <div style="width:1px;height:20px;background:var(--color-divider);flex:none"></div>
+    <sc-if value="{{ curLocked }}" hint-placeholder-val="{{ false }}">
+      <button class="btn btn-primary" onClick="{{ openLicenseCur }}">Request license</button>
+    </sc-if>
+    <sc-if value="{{ curOpen }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;gap:8px;flex:none">
+        <sc-if value="{{ canEdit }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:2px;padding:2px;border-radius:9px;background:var(--color-neutral-100);flex:none">
+          <button class="tool" onClick="{{ copySvg }}">Copy SVG</button>
+          <button class="tool" onClick="{{ downloadPng }}" title="Download PNG (⇧⌘S)">PNG</button>
+          <sc-if value="{{ showLayers }}" hint-placeholder-val="{{ true }}"><button class="tool" onClick="{{ downloadLayers }}">Engrave layers</button></sc-if>
+        </div>
+        <button class="btn btn-primary" onClick="{{ downloadSvg }}" title="Download SVG (⌘S)">Download SVG</button>
+        </sc-if>
+        <sc-if value="{{ published }}" hint-placeholder-val="{{ false }}">
+        <button class="btn btn-primary" onClick="{{ downloadPng }}" title="Download PNG (⌘S)">Download PNG</button>
+        </sc-if>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ histOn }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;right:16px;top:60px;z-index:60;width:340px;max-height:60vh;overflow:auto;background:var(--color-surface-2);border:1px solid var(--color-divider);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;gap:2px">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 10px 8px">
+        <h6>Recent exports</h6>
+        <button class="btn btn-ghost" onClick="{{ clearHist }}" style="font-size:11px;padding:2px 8px">Clear</button>
+      </div>
+      <sc-if value="{{ hasExports }}" hint-placeholder-val="{{ true }}"><span></span></sc-if>
+      <sc-if value="{{ noExports }}" hint-placeholder-val="{{ false }}"><span style="padding:4px 10px 10px;font-size:12px;line-height:1.5;color:var(--color-text-muted)">Nothing exported yet. Downloads and copies will show up here so you can jump back to their settings.</span></sc-if>
+      <sc-for list="{{ exRows }}" as="x" hint-placeholder-count="3">
+        <div onClick="{{ x.apply }}" role="button" style="display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:7px;cursor:pointer" style-hover="background:var(--color-neutral-200)"><span style="font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ x.label }}</span><span style="font-size:11px;color:var(--color-text-muted);white-space:nowrap">{{ x.when }}</span></div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hoverOn }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ hoverStyle }}">
+      <div style="{{ hoverThumb }}"></div>
+      <span style="display:block;padding:8px 4px 2px;font-size:12px;font-weight:500">{{ hoverLabel }}</span>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ gateOn }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ gateClose }}" style="position:fixed;inset:0;z-index:140;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px">
+      <div onClick="{{ stopProp }}" style="width:min(400px,94vw);background:var(--color-surface-2);border:1px solid var(--color-divider);border-radius:14px;box-shadow:var(--shadow-lg);padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:15px;font-weight:600">Before you download</span>
+        <span style="font-size:13px;line-height:1.55;color:var(--color-text-muted);text-wrap:pretty">Leave an email so we can send licensing updates. Downloads carry the KLEEQ mark and are for KLEEQ products and authorised projects only.</span>
+        <input class="input" type="email" value="{{ gateEmail }}" onInput="{{ onGateEmail }}" onKeyDown="{{ onGateKey }}" placeholder="you@company.com" autoFocus="{{ true }}" style="font-size:14px;padding:8px 10px">
+        <sc-if value="{{ gateErr }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;color:var(--color-accent-700)">Please enter a valid email address.</span></sc-if>
+        <div style="display:flex;align-items:center;gap:8px;padding-top:2px">
+          <div style="flex:1"></div>
+          <button class="btn btn-ghost" onClick="{{ gateClose }}">Cancel</button>
+          <button class="btn btn-primary" onClick="{{ gateSubmit }}">Continue</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ sheetOn }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeSheet }}" style="position:fixed;inset:0;z-index:140;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px">
+      <div onClick="{{ stopProp }}" style="width:min(400px,94vw);background:var(--color-surface-2);border:1px solid var(--color-divider);border-radius:14px;box-shadow:var(--shadow-lg);padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:15px;font-weight:600">{{ sheetTitle }}</span>
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:var(--color-text-muted)">{{ sheetLabel }}</span><input class="input" value="{{ sheetValue }}" onInput="{{ onSheetInput }}" onKeyDown="{{ onSheetKey }}" placeholder="{{ sheetPlaceholder }}" autoFocus="{{ true }}" style="font-size:14px;padding:8px 10px"></label>
+        <div style="display:flex;align-items:center;gap:8px;padding-top:2px">
+          <div style="flex:1"></div>
+          <button class="btn btn-ghost" onClick="{{ closeSheet }}">Cancel</button>
+          <button class="btn btn-primary" onClick="{{ sheetOk }}">{{ sheetCta }}</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ dismissToast }}" role="status" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:150;display:flex;align-items:center;gap:12px;padding:10px 14px 10px 12px;border-radius:10px;background:var(--color-surface-2);box-shadow:var(--shadow-lg),0 0 0 1px var(--color-divider);animation:kq-toast .22s ease;cursor:pointer">
+      <span style="width:22px;height:22px;border-radius:50%;background:var(--color-accent);display:flex;align-items:center;justify-content:center;flex:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1c1507" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
+      <span style="display:flex;flex-direction:column;gap:1px"><span style="font-size:13px;font-weight:500">{{ toastTitle }}</span><span style="font-size:11px;color:var(--color-text-muted);font-variant-numeric:tabular-nums">{{ toastSub }}</span></span>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ licenseOn }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLicense }}" style="position:fixed;inset:0;z-index:130;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px">
+      <div onClick="{{ stopProp }}" style="width:min(440px,94vw);background:var(--color-surface-2);border:1px solid var(--color-divider);border-radius:14px;box-shadow:var(--shadow-lg);padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent">Premium</span><span style="font-size:15px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ licenseMotif }}</span></div>
+        <span style="font-size:13px;line-height:1.55;color:var(--color-text-muted);text-wrap:pretty">Part of the KLEEQ Premium collection, available under a commercial license. Tell us a little about the project and we will come back with terms.</span>
+        <sc-if value="{{ licNotSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <input class="input" value="{{ licName }}" onInput="{{ onLicName }}" placeholder="Name" style="padding:8px 10px;font-size:13px;min-width:0">
+            <input class="input" value="{{ licCompany }}" onInput="{{ onLicCompany }}" placeholder="Company" style="padding:8px 10px;font-size:13px;min-width:0">
+            <input class="input" type="email" value="{{ licEmail }}" onInput="{{ onLicEmail }}" placeholder="Email (required)" style="padding:8px 10px;font-size:13px;min-width:0;grid-column:1/-1">
+            <sc-raw-select class="input" value="{{ licUse }}" onChange="{{ onLicUse }}" style="padding:8px 10px;font-size:13px;grid-column:1/-1">
+              <option value="">Intended use…</option>
+              <option value="product">Product line (engraving / print)</option>
+              <option value="interior">Interior / architectural</option>
+              <option value="apparel">Apparel / textile</option>
+              <option value="digital">Digital / packaging</option>
+              <option value="other">Other</option>
+            </sc-raw-select>
+            <textarea class="input" value="{{ licNote }}" onInput="{{ onLicNote }}" placeholder="Anything else: quantities, territories, timeline" rows="3" style="grid-column:1/-1;resize:vertical;padding:8px 10px;font-size:13px;font-family:inherit"></textarea>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding-top:2px">
+            <button class="btn btn-primary" onClick="{{ sendLicense }}">{{ licBtnLabel }}</button>
+            <button class="btn btn-ghost" onClick="{{ closeLicense }}">Close</button>
+            <div style="flex:1"></div>
+            <span style="font-size:11px;color:var(--color-text-muted)">connect@kleeq.com</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ licSent }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:13px;line-height:1.55">{{ licSentMsg }}</span>
+          <div style="display:flex;gap:8px"><button class="btn btn-secondary" onClick="{{ closeLicense }}">Done</button></div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ wizOn }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeWiz }}" style="position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px">
+      <div onClick="{{ stopProp }}" style="width:min(760px,94vw);max-height:90vh;overflow:auto;background:var(--color-surface-2);border:1px solid var(--color-divider);border-radius:14px;box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--color-divider)">
+          <span style="font-size:15px;font-weight:600">New pattern</span>
+          <span style="font-size:12px;color:var(--color-text-muted)">Step {{ wizStep }} of 3 · {{ wizTitle }}</span>
+          <div style="flex:1"></div>
+          <button class="btn btn-ghost" onClick="{{ closeWiz }}" style="padding:4px 10px">×</button>
+        </div>
+        <div style="display:flex;gap:20px;padding:20px;min-height:320px">
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px">
+            <sc-if value="{{ wizStep1 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <span style="font-size:13px;color:var(--color-text-muted)">Pick the base shape. Every element of the pattern is drawn with it.</span>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+                  <sc-for list="{{ wizGlyphs }}" as="g" hint-placeholder-count="8">
+                    <div onClick="{{ g.select }}" role="button" style="{{ g.style }}"><span style="{{ g.thumbStyle }}"></span><span>{{ g.label }}</span></div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ wizStep2 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-size:13px;color:var(--color-text-muted)">Arrangement: how the shapes sit on the tile.</span>
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+                    <sc-for list="{{ wizLayouts }}" as="g" hint-placeholder-count="3">
+                      <div onClick="{{ g.select }}" role="button" style="{{ g.style }}"><span>{{ g.label }}</span></div>
+                    </sc-for>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-size:13px;color:var(--color-text-muted)">Pattern style: the character of the field.</span>
+                  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px">
+                    <sc-for list="{{ wizWeights }}" as="g" hint-placeholder-count="7">
+                      <div onClick="{{ g.select }}" role="button" style="{{ g.style }}"><span>{{ g.label }}</span></div>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ wizStep3 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <span style="font-size:13px;color:var(--color-text-muted)">Review the preview, adjust the name, then create. The pattern joins the library under Custom.</span>
+                <input class="input" value="{{ wizName }}" onInput="{{ onWizName }}" placeholder="e.g. Star brick camo" style="font-size:14px;padding:8px 10px">
+                <span style="font-size:12px;color:var(--color-text-muted)">{{ wizSummary }}</span>
+              </div>
+            </sc-if>
+          </div>
+          <div style="flex:none;width:280px;display:flex;flex-direction:column;gap:10px">
+            <h6>Live preview</h6>
+            <div style="width:280px;height:280px;border-radius:10px;background:#f3f2f2;overflow:hidden">{{ wizPreviewImg }}</div>
+            <button class="btn btn-secondary" onClick="{{ wizShuffle }}" style="align-self:flex-start;padding:5px 12px;font-size:12px">Shuffle preview</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;padding:14px 20px;border-top:1px solid var(--color-divider)">
+          <button class="btn btn-ghost" onClick="{{ closeWiz }}">Cancel</button>
+          <div style="flex:1"></div>
+          <sc-if value="{{ wizNotFirst }}" hint-placeholder-val="{{ false }}"><button class="btn btn-secondary" onClick="{{ wizBack }}">Back</button></sc-if>
+          <sc-if value="{{ wizNotLast }}" hint-placeholder-val="{{ false }}"><button class="btn btn-primary" onClick="{{ wizNext }}">Next</button></sc-if>
+          <sc-if value="{{ wizStep3 }}" hint-placeholder-val="{{ false }}"><button class="btn btn-primary" onClick="{{ wizCreate }}">Create pattern</button></sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <div style="{{ shellStyle }}">
+
+    <aside style="{{ libStyle }};background:var(--color-surface);overflow-y:auto;display:flex;flex-direction:column">
+      <div style="position:sticky;top:0;z-index:2;background:var(--color-surface);padding:20px 16px 16px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <h6>Library</h6>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="seg">
+              <label class="seg-opt" style="padding:3px 9px;font-size:11px"><input type="radio" name="mview" checked="{{ mv1 }}" onChange="{{ setMv1 }}">List</label>
+              <label class="seg-opt" style="padding:3px 9px;font-size:11px"><input type="radio" name="mview" checked="{{ mv2 }}" onChange="{{ setMv2 }}">Grid</label>
+            </div>
+            <sc-if value="{{ canEdit }}" hint-placeholder-val="{{ true }}"><button class="btn btn-primary" onClick="{{ openWiz }}" style="padding:4px 10px;font-size:12px" title="Create a new pattern">New</button></sc-if>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center">
+          <input class="input" type="text" placeholder="Search" value="{{ q }}" onInput="{{ onQ }}" style="flex:1;padding:6px 10px;font-size:13px;min-width:0">
+          <sc-raw-select class="input" value="{{ sortBy }}" onChange="{{ onSortBy }}" style="padding:6px 8px;font-size:12px;flex:none;width:96px" title="Sort patterns">
+            <option value="family">Family</option>
+            <option value="name">Name</option>
+            <option value="date">Newest</option>
+            <option value="recent">Recent</option>
+            <option value="premium">Premium</option>
+          </sc-raw-select>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ fams }}" as="f" hint-placeholder-count="6"><span role="button" onClick="{{ f.select }}" style="{{ f.style }}" style-hover="color:var(--color-text)">{{ f.label }}</span></sc-for>
+        </div>
+      </div>
+      <div style="padding:4px 10px 24px">
+        <div style="display:grid;grid-template-columns:{{ motifCols }};gap:4px 8px">
+          <sc-for list="{{ motifs }}" as="m" hint-placeholder-count="10">
+            <div style="display:contents">
+              <sc-if value="{{ m.showGroup }}" hint-placeholder-val="{{ false }}"><div style="grid-column:1/-1;padding:20px 8px 8px;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--color-text-muted)">{{ m.groupLabel }}</div></sc-if>
+              <div onClick="{{ m.select }}" onMouseEnter="{{ m.hoverIn }}" onMouseLeave="{{ m.hoverOut }}" role="button" style="{{ m.style }}" style-hover="background:var(--color-neutral-300);box-shadow:inset 0 0 0 1px var(--color-divider)" title="{{ m.lockTitle }}">
+                <span style="{{ m.thumbStyle }}"></span>
+                <span title="{{ m.created }}" style="{{ m.labelStyle }}"><span style="color:var(--color-text-muted);font-variant-numeric:tabular-nums;margin-right:6px">{{ m.num }}</span>{{ m.label }}</span>
+                <sc-if value="{{ m.isPrem }}" hint-placeholder-val="{{ false }}"><span style="{{ m.premBadgeStyle }}" title="Premium — commercial license"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Premium</span></sc-if>
+                <sc-if value="{{ canEdit }}" hint-placeholder-val="{{ true }}">
+                  <span style="{{ m.actionsStyle }}" class="row-actions">
+                    <span onClick="{{ m.togglePrem }}" title="{{ m.premTitle }}" role="button" style="{{ m.premIconStyle }}" style-hover="opacity:1;background:var(--color-neutral-300)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
+                    <span onClick="{{ m.pin }}" title="Pin to top" role="button" style="{{ m.pinStyle }}" style-hover="opacity:1;background:var(--color-neutral-300)"><svg width="12" height="12" viewBox="0 0 24 24" fill="{{ m.starFill }}" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2.6l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.1l6.1-.9Z"></path></svg></span>
+                    <span onClick="{{ m.rename }}" title="Rename" role="button" style="{{ m.iconStyle }}" style-hover="opacity:1;background:var(--color-neutral-300)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></span>
+                    <span onClick="{{ m.remove }}" title="Remove from list" role="button" style="{{ m.iconStyle }}" style-hover="opacity:1;background:var(--color-neutral-300)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span>
+                  </span>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:28px 10px">
+            <span style="font-size:13px;font-weight:500">{{ emptyTitle }}</span>
+            <span style="font-size:12px;color:var(--color-text-muted);line-height:1.5">{{ emptyHint }}</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ hiddenCtl }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:8px;padding:16px 6px 0">
+            <div style="display:flex;gap:4px;flex-wrap:wrap">
+              <button class="btn btn-ghost" onClick="{{ toggleHidden }}" style="font-size:12px;padding:4px 10px">{{ hiddenToggleLabel }}</button>
+              <button class="btn btn-ghost" onClick="{{ undoRemove }}" style="font-size:12px;padding:4px 10px">Undo remove</button>
+              <button class="btn btn-ghost" onClick="{{ restoreHidden }}" style="font-size:12px;padding:4px 10px">Restore all</button>
+            </div>
+            <sc-if value="{{ showHidden }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px;padding:8px;border-radius:9px;background:var(--color-bg)">
+                <sc-for list="{{ hiddenList }}" as="h" hint-placeholder-count="3">
+                  <div style="display:flex;align-items:center;gap:8px;min-height:52px;padding:4px 6px;font-size:12px;line-height:1.25;border-radius:7px;background:var(--color-surface);opacity:.75">
+                    <span style="{{ h.thumbStyle }}"></span>
+                    <span style="min-width:0;flex:1">{{ h.label }}</span>
+                    <span onClick="{{ h.restore }}" role="button" title="Restore" style="flex:none;padding:3px 8px;font-size:11px;border-radius:5px;color:var(--color-text);background:var(--color-neutral-200);cursor:pointer" style-hover="background:var(--color-neutral-300)">Restore</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+    </aside>
+
+    <main style="{{ mainStyle }}">
+      <div style="display:flex;flex-direction:column;gap:10px;flex:none;min-width:0">
+        <div style="display:flex;align-items:center;gap:10px;min-width:0">
+          <h1 style="margin:0;font-size:24px;line-height:1.2;font-weight:600;letter-spacing:-0.02em;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ motifLabel }}</h1>
+          <sc-if value="{{ curPrem }}" hint-placeholder-val="{{ false }}"><span class="tag tag-accent" style="flex:none">Premium</span></sc-if>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap;font-size:12px;line-height:1.6;color:var(--color-text-muted);font-variant-numeric:tabular-nums">
+          <span style="white-space:nowrap">{{ createdLabel }}</span>
+          <span style="white-space:nowrap">{{ cutStats }}</span>
+          <span style="white-space:nowrap">Repeat {{ repeat }} px</span>
+          <span style="white-space:nowrap">Exports {{ exportLabel }}</span>
+          <span style="color:var(--color-text);opacity:.75;min-width:0;text-wrap:pretty">{{ recipe }}</span>
+          <sc-if value="{{ cutWarn }}" hint-placeholder-val="{{ false }}"><span class="tag tag-accent" title="{{ cutWarnLabel }}">Fine detail below 5 mm cut minimum</span></sc-if>
+        </div>
+      </div>
+      <div style="flex:none;display:flex;flex-direction:column;min-width:0;border-radius:14px;overflow:hidden;background:var(--color-surface);box-shadow:0 0 0 1px var(--color-divider), var(--shadow-md);position:relative">
+        <div style="height:clamp(300px, calc(100vh - 420px), 1200px);display:flex;min-width:0;position:relative">
+          <div style="flex:1;min-width:0;overflow:auto" onWheel="{{ onPreviewWheel }}" onDoubleClick="{{ onPreviewDbl }}" title="Double-click: Fit / 100% · ⌘ + scroll: zoom">{{ previewImg }}</div>
+          <sc-if value="{{ curLocked }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(12,12,14,.55);backdrop-filter:blur(2px)">
+              <div style="display:flex;flex-direction:column;gap:10px;padding:20px 24px;border-radius:12px;background:var(--color-surface-2);box-shadow:var(--shadow-lg);max-width:320px">
+                <span class="tag tag-accent" style="align-self:flex-start">Premium</span>
+                <span style="font-size:13px;line-height:1.5;color:var(--color-text-muted)">This pattern is available under a commercial license.</span>
+                <button class="btn btn-primary" onClick="{{ openLicenseCur }}" style="align-self:flex-start">Request a license</button>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ cmpOn }}" hint-placeholder-val="{{ false }}">
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;border-left:1px solid var(--color-divider)">
+              <div style="flex:none;display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--color-divider)">
+                <h6>Compare with</h6>
+                <sc-raw-select class="input" value="{{ cmpMotif }}" onChange="{{ onCmpChange }}" style="padding:4px 8px;font-size:12px;max-width:220px">
+                  <option value="">Pick a pattern…</option>
+                  <sc-for list="{{ cmpOptions }}" as="o" hint-placeholder-count="0"><option value="{{ o.id }}">{{ o.label }}</option></sc-for>
+                </sc-raw-select>
+                <span style="font-size:12px;color:var(--color-text-muted)">or click one in the library</span>
+              </div>
+              <sc-if value="{{ cmpEmpty }}" hint-placeholder-val="{{ false }}">
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px">
+                  <span style="font-size:13px;color:var(--color-text-muted);max-width:260px;line-height:1.5">Your current pattern stays on the left. Pick the second pattern from the library to compare it against.</span>
+                </div>
+              </sc-if>
+              <div style="flex:1;min-height:0;overflow:auto">{{ previewImgB }}</div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;padding:10px 12px;border-top:1px solid var(--color-divider);background:var(--color-surface-2)">
+          <div class="seg" style="flex:0 1 auto;flex-wrap:wrap;min-width:0;max-width:100%">
+            <label class="seg-opt" title="Fit (1 or F)"><input type="radio" name="zoom" checked="{{ zFit }}" onChange="{{ setZoomFit }}">Fit</label>
+            <label class="seg-opt" title="25% (2)"><input type="radio" name="zoom" checked="{{ zQ }}" onChange="{{ setZoomQ }}">25%</label>
+            <label class="seg-opt" title="50% (3)"><input type="radio" name="zoom" checked="{{ zH }}" onChange="{{ setZoomH }}">50%</label>
+            <label class="seg-opt" title="100% (4)"><input type="radio" name="zoom" checked="{{ z1 }}" onChange="{{ setZoom1 }}">100%</label>
+            <label class="seg-opt" title="200% (5)"><input type="radio" name="zoom" checked="{{ z2 }}" onChange="{{ setZoom2 }}">200%</label>
+            <label class="seg-opt" title="True print size on screen"><input type="radio" name="zoom" checked="{{ zT }}" onChange="{{ setZoomTrue }}">1:1</label>
+          </div>
+          <div style="display:flex;align-items:center;gap:2px;padding:2px;border-radius:9px;background:var(--color-neutral-100);flex:0 1 auto;flex-wrap:wrap;min-width:0;max-width:100%">
+            <button onClick="{{ toggleRuler }}" style="{{ rulerStyle }}" title="Inch ruler along the preview edges (R)">{{ rulerLabel }}</button>
+            <button onClick="{{ toggleBA }}" style="{{ baStyle }}" title="Compare with default settings (\)">{{ baLabel }}</button>
+            <button onClick="{{ toggleWall }}" style="{{ wallStyle }}" title="Tile the pattern across a wall (W)">{{ wallLabel }}</button>
+            <button onClick="{{ toggleCmp }}" style="{{ cmpStyle }}" title="Compare against a second pattern (C)">{{ cmpLabel }}</button>
+          </div>
+        </div>
+      </div>
+      <sc-if value="{{ batchOn }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:none;display:flex;align-items:center;gap:12px;border-radius:12px;padding:12px 16px;background:color-mix(in oklab, var(--color-accent) 14%, var(--color-surface));box-shadow:inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 40%, transparent)">
+          <span style="font-size:13px"><strong style="font-weight:600">{{ batchCount }} selected</strong> · click patterns in the library to add or remove</span>
+          <div style="flex:1"></div>
+          <button class="btn btn-primary" onClick="{{ batchExport }}">Export SVGs</button>
+        </div>
+      </sc-if>
+      <div style="flex:none;display:flex;align-items:flex-start;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--color-divider);font-size:11px;line-height:1.55;color:var(--color-text-muted)">
+        <span style="flex:1 1 420px;min-width:0;max-width:640px;text-wrap:pretty;padding-top:8px">© 2026 KLEEQ. All patterns, motifs and generated tiles are the intellectual property of KLEEQ and are protected by copyright. Exports are licensed for use on KLEEQ products and KLEEQ-authorised projects only. Reproduction, redistribution, resale, or use on third-party products without a written license from KLEEQ is prohibited. For commercial licensing, contact <a href="mailto:connect@kleeq.com" style="color:var(--color-text-muted);text-decoration:underline;text-underline-offset:2px">connect@kleeq.com</a>.</span>
+        <span style="flex:none;white-space:nowrap;padding-top:8px;display:flex;flex-direction:column;align-items:flex-end;gap:2px"><span>KLEEQ Pattern Studio · Proprietary</span><sc-if value="{{ exportsMarked }}" hint-placeholder-val="{{ false }}"><span>Exports carry the KLEEQ mark</span></sc-if></span>
+      </div>
+    </main>
+
+    <aside style="{{ inspStyle }};display:flex;flex-direction:column;overflow-y:auto;background:var(--color-surface)">
+
+      <div style="display:flex;flex-direction:column;gap:20px;padding:24px 20px 28px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:-4px"><h6>Canvas</h6><button class="btn btn-ghost" onClick="{{ resetOutput }}" style="font-size:11px;padding:2px 8px">Reset</button></div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:13px">Size</span>
+          <sc-raw-select class="input" value="{{ aspect }}" onChange="{{ onAspect }}" style="padding:5px 8px;font-size:12px">
+            <option value="square">Square · 1:1</option>
+            <option value="2x1">Landscape · 2:1</option>
+            <option value="1x2">Portrait · 1:2</option>
+            <option value="17x11">Tabloid · 17 × 11 in</option>
+            <option value="11x17">Tabloid portrait · 11 × 17 in</option>
+            <option value="24x12">Sheet · 24 × 12 in</option>
+            <option value="custom">Custom…</option>
+          </sc-raw-select>
+          <sc-if value="{{ isCustomSize }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:6px">
+              <input class="input" type="number" min="0.1" step="0.5" value="{{ canvasW }}" onInput="{{ onCanvasW }}" title="Width" style="flex:1;min-width:0;padding:4px 8px;font-size:12px;text-align:right">
+              <span style="font-size:12px;color:var(--color-text-muted)">×</span>
+              <input class="input" type="number" min="0.1" step="0.5" value="{{ canvasH }}" onInput="{{ onCanvasH }}" title="Height" style="flex:1;min-width:0;padding:4px 8px;font-size:12px;text-align:right">
+              <sc-raw-select class="input" value="{{ canvasUnit }}" onChange="{{ onCanvasUnit }}" style="flex:none;width:62px;padding:4px 6px;font-size:12px">
+                <option value="in">in</option>
+                <option value="mm">mm</option>
+                <option value="px">px</option>
+              </sc-raw-select>
+            </div>
+            <span style="font-size:11px;line-height:1.4;color:var(--color-text-muted)">Exports at 100 px per inch.</span>
+          </sc-if>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-size:13px">Tiling</span>
+          <div class="seg">
+            <label class="seg-opt"><input type="radio" name="tmode" checked="{{ tmSeam }}" onChange="{{ setTmSeam }}">Seamless</label>
+            <label class="seg-opt"><input type="radio" name="tmode" checked="{{ tmSingle }}" onChange="{{ setTmSingle }}">Single</label>
+          </div>
+        </div>
+      </div>
+
+
+      <div style="display:flex;flex-direction:column;gap:20px;padding:24px 20px 28px;border-top:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:-4px"><h6>Pattern</h6><button class="btn btn-ghost" onClick="{{ resetPattern }}" style="font-size:11px;padding:2px 8px">Reset</button></div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Scale</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="24" max="180" value="{{ scale }}" onInput="{{ onScale }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">px</span></span></div>
+          <input type="range" min="24" max="180" value="{{ scale }}" onInput="{{ onScale }}">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Spacing</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="0" max="200" value="{{ gap }}" onInput="{{ onGap }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">px</span></span></div>
+          <input type="range" min="0" max="200" value="{{ gap }}" onInput="{{ onGap }}">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Rotation</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="-90" max="90" value="{{ rotation }}" onInput="{{ onRotation }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">°</span></span></div>
+          <input type="range" min="-90" max="90" value="{{ rotation }}" onInput="{{ onRotation }}">
+          <div style="display:flex;gap:2px;padding:2px;border-radius:7px;background:var(--color-neutral-100);margin-top:4px">
+            <button onClick="{{ rotN45 }}" style="{{ rotN45Style }}" title="Lean left 45 degrees">−45°</button>
+            <button onClick="{{ rot0 }}" style="{{ rot0Style }}" title="Upright">0°</button>
+            <button onClick="{{ rot45 }}" style="{{ rot45Style }}" title="Lean right 45 degrees">45°</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:13px">Mirror</span>
+          <div style="display:flex;gap:2px;padding:2px;border-radius:7px;background:var(--color-neutral-100)">
+            <button onClick="{{ toggleMirX }}" style="{{ mirXStyle }}" title="Flip horizontally">Horizontal</button>
+            <button onClick="{{ toggleMirY }}" style="{{ mirYStyle }}" title="Flip vertically">Vertical</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;padding:24px 20px 28px;border-top:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:-4px"><h6>Variation</h6><button class="btn btn-ghost" onClick="{{ resetVariation }}" style="font-size:11px;padding:2px 8px">Reset</button></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-size:13px">Seed</span>
+          <div style="display:flex;align-items:center;gap:6px">
+            <input class="input" type="number" min="1" value="{{ seed }}" onInput="{{ onSeed }}" style="width:64px;padding:3px 6px;font-size:12px;text-align:right">
+            <button class="btn btn-secondary" onClick="{{ shuffle }}" style="padding:4px 10px;font-size:12px" title="Shuffle seed (S)">Shuffle</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Jitter</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="0" max="100" value="{{ jitter }}" onInput="{{ onJitter }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">%</span></span></div>
+          <input type="range" min="0" max="100" value="{{ jitter }}" onInput="{{ onJitter }}">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Blotch quantity</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="25" max="250" step="5" value="{{ blotchQty }}" onInput="{{ onBlotchQty }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">%</span></span></div>
+          <input type="range" min="25" max="250" step="5" value="{{ blotchQty }}" onInput="{{ onBlotchQty }}">
+          <span style="font-size:11px;line-height:1.4;color:var(--color-text-muted)">Fewer blotches means larger patches.</span>
+        </div>
+        <sc-if value="{{ isWaveGrad }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:13px">Fade direction</span>
+            <sc-raw-select class="input" value="{{ gradient }}" onChange="{{ onGradient }}" style="padding:5px 8px;font-size:12px">
+              <option value="lr">Dense left → light right</option>
+              <option value="rl">Light left → dense right</option>
+              <option value="tb">Dense top → light bottom</option>
+              <option value="bt">Light top → dense bottom</option>
+              <option value="center">Dense center</option>
+              <option value="uniform">Uniform</option>
+            </sc-raw-select>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;padding:24px 20px 28px;border-top:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:-4px"><h6>Topo underlay</h6>
+          <div class="seg">
+            <label class="seg-opt" style="padding:3px 9px;font-size:11px"><input type="radio" name="topo" checked="{{ topoOn }}" onChange="{{ toggleTopo }}">On</label>
+            <label class="seg-opt" style="padding:3px 9px;font-size:11px"><input type="radio" name="topo" checked="{{ topoOff }}" onChange="{{ toggleTopo }}">Off</label>
+          </div>
+        </div>
+        <sc-if value="{{ topoOn }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Strength</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="0" max="100" value="{{ topoMix }}" onInput="{{ onTopoMix }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">%</span></span></div>
+            <input type="range" min="0" max="100" value="{{ topoMix }}" onInput="{{ onTopoMix }}">
+          </div>
+        </sc-if>
+        <sc-if value="{{ topoCtl }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Contour bands</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="3" max="24" value="{{ topoBands }}" onInput="{{ onTopoBands }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="width:14px"></span></span></div>
+            <input type="range" min="3" max="24" value="{{ topoBands }}" onInput="{{ onTopoBands }}">
+          </div>
+          <sc-if value="{{ isHatchCamo }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Shape line weight</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="30" max="220" value="{{ hatchGround }}" onInput="{{ onHatchGround }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">%</span></span></div>
+              <input type="range" min="30" max="220" value="{{ hatchGround }}" onInput="{{ onHatchGround }}">
+            </div>
+          </sc-if>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Smoothness</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="0" max="100" value="{{ topoSmooth }}" onInput="{{ onTopoSmooth }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">%</span></span></div>
+            <input type="range" min="0" max="100" value="{{ topoSmooth }}" onInput="{{ onTopoSmooth }}">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Stroke softness</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="0" max="100" value="{{ topoSoften }}" onInput="{{ onTopoSoften }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">%</span></span></div>
+            <input type="range" min="0" max="100" value="{{ topoSoften }}" onInput="{{ onTopoSoften }}">
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;padding:24px 20px 28px;border-top:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:-4px"><h6>Ink</h6><button class="btn btn-ghost" onClick="{{ resetInk }}" style="font-size:11px;padding:2px 8px">Reset</button></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-size:13px">Style</span>
+          <div class="seg">
+            <label class="seg-opt"><input type="radio" name="pstyle" checked="{{ isFill }}" onChange="{{ setFill }}">Filled</label>
+            <label class="seg-opt"><input type="radio" name="pstyle" checked="{{ isOutline }}" onChange="{{ setOutline }}">Outline</label>
+          </div>
+        </div>
+        <sc-if value="{{ isOutline }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Stroke weight</span><span style="display:flex;align-items:center;gap:4px"><input class="input" type="number" min="1" max="16" value="{{ stroke }}" onInput="{{ onStroke }}" style="width:56px;padding:3px 6px;font-size:12px;text-align:right"><span style="font-size:11px;color:var(--color-text-muted);width:14px">px</span></span></div>
+            <input type="range" min="1" max="16" value="{{ stroke }}" onInput="{{ onStroke }}">
+          </div>
+        </sc-if>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-size:13px">Ink</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <sc-for list="{{ inkSwatches }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.select }}" style="{{ c.style }}"></button></sc-for>
+            <input type="color" value="{{ ink }}" onInput="{{ onInkInput }}" style="width:22px;height:22px;padding:0;border:none;border-radius:50%;background:none;cursor:pointer">
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-size:13px">Ground</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <sc-for list="{{ groundSwatches }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.select }}" style="{{ c.style }}"></button></sc-for>
+            <input type="color" value="{{ ground }}" onInput="{{ onGroundInput }}" style="width:22px;height:22px;padding:0;border:none;border-radius:50%;background:none;cursor:pointer">
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;padding:24px 20px 28px;border-top:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:-4px"><h6>Marks</h6><button class="btn btn-ghost" onClick="{{ resetMarks }}" style="font-size:11px;padding:2px 8px">Reset</button></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-size:13px">Kleeq logo</span>
+          <div class="seg">
+            <label class="seg-opt" style="padding:3px 9px;font-size:11px"><input type="radio" name="wm" checked="{{ wmOn }}" onChange="{{ wmEnable }}">On</label>
+            <label class="seg-opt" style="padding:3px 9px;font-size:11px"><input type="radio" name="wm" checked="{{ wmOff }}" onChange="{{ wmDisable }}">Off</label>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-size:13px">Accent marks</span>
+          <div class="seg">
+            <label class="seg-opt" style="padding:3px 9px;font-size:11px"><input type="radio" name="accent" checked="{{ accentOn }}" onChange="{{ accentEnable }}">On</label>
+            <label class="seg-opt" style="padding:3px 9px;font-size:11px"><input type="radio" name="accent" checked="{{ accentOff }}" onChange="{{ accentDisable }}">Off</label>
+          </div>
+        </div>
+        <sc-if value="{{ accentOn }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-raw-select class="input" value="{{ accentStyle }}" onChange="{{ onAccentStyle }}" style="padding:5px 8px;font-size:12px">
+              <option value="ticks">Registration ticks</option>
+              <option value="dots">Node dots</option>
+              <option value="grid">Hairline grid</option>
+              <option value="brackets">Crop brackets</option>
+              <option value="diagonals">Diagonal cut-lines</option>
+              <option value="none">None (accent Ks only)</option>
+            </sc-raw-select>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="font-size:13px">Accent</span>
+              <div style="display:flex;align-items:center;gap:8px">
+                <sc-for list="{{ accentSwatches }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.select }}" style="{{ c.style }}"></button></sc-for>
+                <input type="color" value="{{ accent }}" onInput="{{ onAccentInput }}" style="width:22px;height:22px;padding:0;border:none;border-radius:50%;background:none;cursor:pointer">
+              </div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;padding:24px 20px 28px;border-top:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;justify-content:space-between"><h6>Notes</h6><span style="font-size:11px;color:var(--color-text-muted)">saved per pattern</span></div>
+        <textarea class="input" value="{{ note }}" onInput="{{ onNote }}" placeholder="Material, laser settings, what worked…" rows="4" style="resize:vertical;padding:8px 10px;font-size:12px;line-height:1.5;font-family:inherit;min-height:72px"></textarea>
+      </div>
+      <div style="padding:20px 20px 28px;border-top:1px solid var(--color-divider);margin-top:auto">
+        <button class="btn btn-ghost btn-block" onClick="{{ resetAll }}" style="font-size:12px">Reset all adjustments</button>
+      </div>
+    </aside>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;published&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Publishing&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'light'&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
+/* Pattern Studio is the shared engine; the class lives in kleeq-pattern-engine.js so the
+   Tumbler Wrap and Block Projection studios draw the very same motifs. This subclass adds
+   the publish gate (editing tools hidden), the Premium flag and the startup loader. */
+class Component extends window.KleeqPatternEngineOn(DCLogic) {
+  constructor(...args){
+    super(...args);
+    this._lazyThumbs=true;                         // thumbnails render in idle chunks after first paint
+    // published visitors: downloads carry the Kleeq mark and pass through a one-time email gate
+    // Premium motifs never export in published mode: every export path (buttons, ⌘S / ⇧⌘S, batch) opens the license sheet instead
+    // live site: PNG is the only export; SVG, copy, layers and batch route to PNG (or are dropped)
+    for(const k of ['downloadSvg','downloadPng','copySvg','downloadLayers']){ const orig=this[k]; this[k]=(...a)=>{ if(this._published()&&k!=='downloadPng'){ this.downloadPng(...a); return; } if(this._lockedId(this.state.motif)){ this._openLicense(this._motifName(this.state.motif))(); return; } if(this._published()&&!this._gateOk()){ this._pendingExport=()=>orig(...a); this.setState({gateOn:true}); return; } return orig(...a); }; }
+    const origBatch=this.batchExport; this.batchExport=(...a)=>{ if(this._published()){ const sel=(this.state.batchSel||[]).filter(id=>!this._lockedId(id)); if(!sel.length){ this._toast&&this._toast('Nothing to export','Premium patterns need a license'); return; } this._toast&&this._toast('Batch export is SVG only','Download PNG for each pattern on the live site'); return; } if(false){ const sel=(this.state.batchSel||[]).filter(id=>!this._lockedId(id)); if(sel.length!==(this.state.batchSel||[]).length){ this.setState({batchSel:sel}); this._toast&&this._toast('Premium patterns skipped','Request a license to export them'); } } return origBatch(...a); };
+  }
+  // published = live site (tools.kleeq.com) or the explicit prop; the editor preview stays unlocked for flagging
+  _published(){ return !!this.props.published || /(^|\.)kleeq\.com$/i.test(location.hostname); }
+  _lockedId(id){ return this._published() && this._premLoad().includes(id); }
+  _motifName(id){ return ((window.KLEEQ_MOTIFS||[]).find(d=>d[0]===id)||[])[1]||id; }
+  getParams(){ return super.getParams(); } // watermark off: live site exports PNG only
+  _ls(k,d){ try{ return JSON.parse(localStorage.getItem(k)||d); }catch(e){ return JSON.parse(d); } }
+  _premLoad(){ const baked=window.KLEEQ_PREMIUM||[]; const local=this._ls('kleeq-premium-motifs','[]'); return baked.concat(local.filter(x=>!baked.includes(x))); }
+  _premSave(l){ localStorage.setItem('kleeq-premium-motifs',JSON.stringify(l)); this._motifKey=null; this.forceUpdate(); }
+  _togglePrem(id){ return e=>{ e.stopPropagation(); const l=this._ls('kleeq-premium-motifs','[]'), i=l.indexOf(id); if(i<0) l.push(id); else l.splice(i,1); this._premSave(l); }; }
+  _openLicense(label){ return ()=>this.setState({licenseOn:true,licenseMotif:label,licSent:false}); }
+  // license request form
+  onLic=k=>e=>this.setState({ lic:{ ...(this.state.lic||{}), [k]:e.target.value } });
+  // POST to the edge Worker (/api/license → Resend → connect@kleeq.com); mailto: is the fallback if the endpoint is unreachable
+  _post(payload){ return fetch('/api/license',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }); }
+  sendLicense=()=>{ const l=this.state.lic||{}, m=this.state.licenseMotif||''; if(!l.email||this.state.licBusy) return;
+    const payload={kind:'license',pattern:m,name:l.name||'',company:l.company||'',email:l.email,use:l.use||'',note:l.note||'',page:location.href};
+    this.setState({licBusy:true});
+    this._post(payload).then(()=>this.setState({licSent:true,licBusy:false,licVia:'server'})).catch(()=>{
+      const body=encodeURIComponent('Pattern: '+m+'\nName: '+(l.name||'')+'\nCompany: '+(l.company||'')+'\nEmail: '+l.email+'\nIntended use: '+(l.use||'')+'\n\n'+(l.note||''));
+      window.location.href='mailto:connect@kleeq.com?subject='+encodeURIComponent('KLEEQ Premium license — '+m)+'&body='+body; this.setState({licSent:true,licBusy:false,licVia:'mailto'}); }); };
+  // email gate (published mode)
+  _gateOk(){ return !!localStorage.getItem('kleeq-export-email'); }
+  onGateEmail=e=>this.setState({gateEmail:e.target.value});
+  gateSubmit=()=>{ const em=(this.state.gateEmail||'').trim(); if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { this.setState({gateErr:true}); return; } localStorage.setItem('kleeq-export-email',em); this._post({kind:'gate',email:em,page:location.href}).catch(()=>{}); this.setState({gateOn:false,gateErr:false}); const f=this._pendingExport; this._pendingExport=null; if(f) setTimeout(f,50); };
+  gateClose=()=>{ this._pendingExport=null; this.setState({gateOn:false,gateErr:false}); };
+  onGateKey=e=>{ if(e.key==='Enter'){ e.preventDefault(); this.gateSubmit(); } };
+  // hover preview
+  _hoverIn(id){ this._hiC=this._hiC||{}; return this._hiC[id]||(this._hiC[id]=e=>{ const r=e.currentTarget.getBoundingClientRect(); clearTimeout(this._hT); this._hT=setTimeout(()=>this.setState({hoverId:id,hoverY:r.top+r.height/2,hoverX:r.right}),260); }); }
+  hoverOut=()=>{ clearTimeout(this._hT); if(this.state.hoverId) this.setState({hoverId:null}); };
+  // theme
+  toggleTheme=()=>this.setState({theme:(this.state.theme||this.props.theme||'dark')==='dark'?'light':'dark'});
+  // notes
+  _notesLoad(){ return this._ls('kleeq-motif-notes','{}'); }
+  onNote=e=>{ const o=this._notesLoad(); const t=e.target.value; if(t.trim()) o[this.state.motif]=t; else delete o[this.state.motif]; try{ localStorage.setItem('kleeq-motif-notes',JSON.stringify(o)); }catch(err){} this.setState({noteTick:(this.state.noteTick||0)+1}); };
+  componentDidMount(){
+    if(super.componentDidMount) super.componentDidMount();
+    const legacy={ '24x11':[24,11], '32x11':[32,11], '32x22':[32,22] }, a=this.state.aspect;
+    if(legacy[a]) this.setState({ aspect:'custom', canvasW:legacy[a][0], canvasH:legacy[a][1], canvasUnit:'in' });
+    this._readyT=setTimeout(()=>this.setState({appReady:true}),200);
+    this._onResize=()=>{ const n=innerWidth<900; if(n!==this.state.narrow) this.setState({narrow:n}); }; this._onResize(); window.addEventListener('resize',this._onResize);
+  }
+  componentWillUnmount(){ clearTimeout(this._readyT); clearTimeout(this._hT); window.removeEventListener('resize',this._onResize); if(super.componentWillUnmount) super.componentWillUnmount(); }
+  componentDidUpdate(pp,ps){
+    if(super.componentDidUpdate) super.componentDidUpdate(pp,ps);
+    const s=this.state; const th=(this._thumbs||{})[s.motif];
+    if(ps&&ps.motif===s.motif&&this._titleSet&&this._favFor===s.motif) return; this._titleSet=true;
+    const name=((window.KLEEQ_MOTIFS||[]).find(d=>d[0]===s.motif)||[])[1]||'Pattern';
+    document.title=name+' \u00b7 KLEEQ Pattern Studio';
+    if(th){ let l=document.querySelector('link[rel="icon"]'); if(!l){ l=document.createElement('link'); l.rel='icon'; document.head.appendChild(l); } l.type='image/svg+xml'; l.href=th; this._favFor=s.motif; }
+  }
+  renderVals(){
+    const v=super.renderVals(), s=this.state;
+    const published=this._published(), canEdit=!published;
+    const prem=this._premLoad(), mvList=(this._mv?this._mv():'1')==='1';
+    const premSort=s.sortBy==='premium';
+    let motifs=(v.motifs||[]).filter(m=>!premSort||prem.includes(m.id)).map((m,i)=>premSort?{...m, num:String(i+1).padStart(2,'0'), showGroup:i===0, groupLabel:'Premium collection', label:m.fullLabel||m.label}:m);
+    motifs=motifs.map(m=>{
+      const isPrem=prem.includes(m.id), locked=isPrem&&published, full=m.fullLabel||m.label, baked=(window.KLEEQ_PREMIUM||[]).includes(m.id);
+      return { ...m, isPrem, locked,
+        togglePrem:baked?(e=>e.stopPropagation()):this._togglePrem(m.id),
+        premTitle:baked?'Premium (shipped with the app)':(isPrem?'Remove Premium flag':'Flag as Premium'),
+        premIconStyle:m.iconStyle+(isPrem?'color:var(--color-accent);opacity:1;':''),
+        premBadgeStyle:'display:inline-flex;align-items:center;gap:4px;flex:none;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1c1507;background:var(--color-accent);box-shadow:0 1px 2px rgba(0,0,0,.4);'+(mvList?'order:1;':'position:absolute;top:10px;left:10px;z-index:1;'),
+        actionsStyle:mvList?m.actionsStyle:m.actionsStyle.replace('top:10px;','top:auto;bottom:8px;').replace('right:10px;','right:8px;'),
+        select:locked?this._openLicense(full):m.select,
+        hoverIn:this._hoverIn(m.id), hoverOut:this.hoverOut,
+        thumbStyle:m.thumbStyle+(isPrem?';opacity:.5':'')+(locked?';filter:grayscale(1)':''),
+        labelStyle:m.labelStyle+(isPrem?';opacity:.5':'')+(mvList?';order:2':''),
+        style:m.style+(locked?';cursor:default':''),
+        lockTitle:locked?'Premium — commercial license required':'' };
+    });
+    const famFilter=s.famFilter||'';
+    if(famFilter) motifs=motifs.filter(m=>m.famName===famFilter);
+    const famList=[]; (window.KLEEQ_MOTIFS||[]).forEach(d=>{ if(d[2]&&!famList.includes(d[2])) famList.push(d[2]); });
+    const chip=on=>'flex:none;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background .15s ease,color .15s ease;background:'+(on?'var(--color-text)':'var(--color-neutral-100)')+';color:'+(on?'var(--color-bg)':'var(--color-text-muted)');
+    this._famC=this._famC||{};
+    const fams=[{label:'All',style:chip(!famFilter),select:this._famC['']||(this._famC['']=()=>this.setState({famFilter:''}))}].concat(famList.map(f=>({label:f,style:chip(famFilter===f),select:this._famC[f]||(this._famC[f]=()=>this.setState({famFilter:this.state.famFilter===f?'':f}))})));
+    const curPrem=prem.includes(s.motif), curLocked=curPrem&&published;
+    // locked motifs never reach the DOM at full size: no preview image, no compare image
+    const previewImg=(v.previewImg&&!curLocked)?React.createElement('div',{key:s.motif,style:{width:'100%',height:'100%',animation:'kq-in .28s ease'}},v.previewImg):null;
+    const previewImgB=(s.cmpOn&&s.cmpMotif&&this._lockedId(s.cmpMotif))?null:v.previewImgB;
+    // hover preview panel
+    const hov=s.hoverId?motifs.find(m=>m.id===s.hoverId):null, hth=hov?(this._thumbs||{})[hov.id]:'';
+    const hoverStyle=hov?('position:fixed;z-index:90;left:'+Math.round((s.hoverX||0)+12)+'px;top:'+Math.round(Math.max(72,Math.min(innerHeight-260,(s.hoverY||0)-120)))+'px;width:240px;padding:8px;border-radius:12px;background:var(--color-surface-2);box-shadow:var(--shadow-lg),0 0 0 1px var(--color-divider);pointer-events:none;animation:kq-in .16s ease'):'';
+    const theme=s.theme||this.props.theme||'dark';
+    const notes=this._notesLoad(), note=notes[s.motif]||'';
+    const lic=s.lic||{};
+    return { ...v, motifs, canEdit, published, fams, previewImg, previewImgB,
+      noResults:!!((s.q||famFilter||premSort)&&motifs.length===0),
+      emptyTitle:premSort&&!s.q&&!famFilter?'No Premium patterns yet':'No patterns match',
+      emptyHint:premSort&&!s.q&&!famFilter?'Hover a pattern in the library and click the lock icon to flag it as Premium.':'Try a shorter search, or clear the family filter.',
+      hiddenCtl:canEdit&&!!v.hasHidden,
+      curPrem, curLocked, curOpen:!curLocked,
+      openLicenseCur:this._openLicense(v.motifLabel||''),
+      licenseOn:!!s.licenseOn, licenseMotif:s.licenseMotif||'', closeLicense:()=>this.setState({licenseOn:false}),
+      licBtnLabel:s.licBusy?'Sending…':'Send request', licSentMsg:s.licVia==='mailto'?'Your mail client should have opened with the request. We reply within two business days.':'Thanks. Your request has been sent to connect@kleeq.com. We reply within two business days.',
+      licName:lic.name||'', licCompany:lic.company||'', licEmail:lic.email||'', licUse:lic.use||'', licNote:lic.note||'', onLicName:this.onLic('name'), onLicCompany:this.onLic('company'), onLicEmail:this.onLic('email'), onLicUse:this.onLic('use'), onLicNote:this.onLic('note'), sendLicense:this.sendLicense, licSent:!!s.licSent, licNotSent:!s.licSent,
+      gateOn:!!s.gateOn, gateEmail:s.gateEmail||'', onGateEmail:this.onGateEmail, gateSubmit:this.gateSubmit, gateClose:this.gateClose, onGateKey:this.onGateKey, gateErr:!!s.gateErr,
+      hoverOn:!!hov, hoverStyle, hoverLabel:hov?(hov.fullLabel||hov.label):'', hoverThumb:'width:100%;aspect-ratio:1;border-radius:8px;background:#f3f2f2 '+(hth?'url("'+hth+'") center/cover no-repeat':''),
+      theme, themeLabel:theme==='dark'?'Light':'Dark', toggleTheme:this.toggleTheme, logoSrc:theme==='dark'?'kleeq-logo-id.svg':'kleeq-logo-id-black.svg',
+      narrow:!!s.narrow, shellStyle:s.narrow?'flex:1;display:flex;flex-direction:column;min-height:0;overflow-y:auto':'flex:1;display:flex;min-height:0',
+      libStyle:s.narrow?'width:100%;max-height:42vh;flex:none;border-bottom:1px solid var(--color-divider)':'width:'+v.asideW+';min-width:300px;max-width:75vw;resize:horizontal;flex:none;border-right:1px solid var(--color-divider)',
+      inspStyle:s.narrow?'width:100%;flex:none;border-top:1px solid var(--color-divider)':'flex:none;width:300px;min-width:0;border-left:1px solid var(--color-divider)',
+      mainStyle:s.narrow?'flex:none;min-width:0;padding:20px 16px;display:flex;flex-direction:column;gap:20px':'flex:1;min-width:0;padding:28px 32px 24px;display:flex;flex-direction:column;gap:24px;overflow-y:auto',
+      note, onNote:this.onNote, hasNote:!!note,
+      exportsMarked:published,
+      loading:!s.appReady, loadingLabel:'Loading patterns' };
+  }
+}
+</script>
+</body>
+</html>

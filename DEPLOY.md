@@ -1,19 +1,56 @@
-# Deploy — KLEEQ Tools hub (site root)
+# Deploy KLEEQ Tools
 
-Repo: kleequsa/tools · branch: main · live: https://tools.kleeq.com/
+Production is Cloudflare **Pages**, project `kleeq-tools`, at https://tools.kleeq.com.
 
-## Steps (Claude Code)
-1. Copy these root files into the repo root: index.html · kleeq-tokens.css · faran-najafi.png · favicon.svg · favicon-32.png · apple-touch-icon.png · vendor/ (support.js, modernist.css, modernist-bundle.js) · wrangler.jsonc · .assetsignore
-2. Commit:
-   ```
-   git add index.html kleeq-tokens.css faran-najafi.png favicon.svg favicon-32.png apple-touch-icon.png vendor mixing-calculator/index.html finish-catalogue/index.html wrangler.jsonc .assetsignore
-   git commit -m "root: KLEEQ Tools hub landing" -m "- Tools hub at / with Glass default theme + Dark/Light/Modernist
-   - Founder note + bio, Let's connect section, favicon set
-   - Coming Soon / Pro sections dimmed
-   - Back-to-Tools button in calculator + catalogue headers; catalogue filter dividers fixed; dark-theme swatch fix
-   - Links to /mixing-calculator/; finish-catalogue/ reserved (not yet deployed)
-   - Vendored support.js and Modernist css/bundle under vendor/"
-   git push origin main
-   ```
-3. Deploy: `npx wrangler deploy` from the repo root. One Worker, `kleeq-tools`, serves everything: /, /mixing-calculator/, /finish-catalogue/ and the gated /camo-studio/. The separate kleeq-mixing-calculator Worker was retired on 2026-10-11.
-4. Smoke test: / loads the hub, theme switcher works, "Open the calculator" goes to /mixing-calculator/.
+Cloudflare's Git integration deploys `main` with these settings:
+
+- Build command: `node scripts/build-pages.mjs`
+- Build output: `dist`
+- Root directory: repository root
+
+The build copies the complete site and `_worker.js`, excluding repository tooling,
+documentation, local secrets, and archives. Merge update bundles into the repository;
+they do not contain every asset and must not replace the entire site directory.
+
+For a manual deployment after authenticating Wrangler:
+
+```sh
+node scripts/build-pages.mjs
+npx wrangler pages deploy dist --project-name kleeq-tools --branch main
+```
+
+Use `wrangler pages deploy` for this Pages project. `wrangler deploy` targets a
+separate Workers service.
+
+## Production secrets
+
+Configure these as encrypted Pages secrets, then deploy again:
+
+- `CAMO_PASSWORD`
+- `MIXLAB_PASSWORD`
+- `PATTERN_PASSWORD`
+- `SPACE_PASSWORD`
+- `RESEND_API_KEY`
+
+For example:
+
+```sh
+npx wrangler pages secret put RESEND_API_KEY --project-name kleeq-tools
+```
+
+The worker preserves each tool's password form and 30-day session cookie.
+Changing a tool password invalidates its existing sessions.
+
+## License requests
+
+`POST /api/license` sends through Resend from `KLEEQ Tools <tools@kleeq.com>`
+to `connect@kleeq.com`, with the requester's email as Reply-To. The `kleeq.com`
+domain must be verified in Resend and the key must allow sending for that domain.
+The handler validates the request origin and email, and escapes HTML content.
+
+After deployment, open a Premium pattern in Pattern Studio, choose **Request
+license**, and send a clearly labeled test. Success displays **Thanks. Your
+request has been sent to connect@kleeq.com**. Confirm the corresponding delivery
+in Resend. A mail-client fallback message does not confirm server delivery.
+
+Pattern exports are PNG only, and watermark defaults are off.
