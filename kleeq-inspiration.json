@@ -1,0 +1,55 @@
+{
+  "note": "Reference palettes collected by KLEEQ from public colour-inspiration posts (dopely.colors, suraj.dsgn). Hex values were sampled from the saved screenshots, not from Cerakote. The Cerakote match for each reference is computed at run time from the finish catalogue and is a screen approximation.",
+  "palettes": [
+    { "id": "monochrome-steel", "name": "Monochrome steel", "mood": "Industrial", "source": "dopely.colors", "colors": [
+      { "name": "True black", "hex": "#111111" }, { "name": "Soft graphite", "hex": "#343434" }, { "name": "Middle gray", "hex": "#777777" }, { "name": "Pale silver", "hex": "#d6d6d6" }, { "name": "Clean white", "hex": "#ffffff" } ] },
+    { "id": "letterpress", "name": "Letterpress", "mood": "Industrial", "source": "dopely.colors", "colors": [
+      { "name": "Pure black", "hex": "#000000" }, { "name": "Ink black", "hex": "#252525" }, { "name": "Text gray", "hex": "#666666" }, { "name": "Paper warm", "hex": "#eae4db" }, { "name": "Paper white", "hex": "#fffdf9" } ] },
+    { "id": "warm-ink", "name": "Warm ink", "mood": "Earth", "source": "dopely.colors", "colors": [
+      { "name": "Warm ink", "hex": "#191411" }, { "name": "Charcoal brown", "hex": "#3a342f" }, { "name": "Taupe gray", "hex": "#8b8078" }, { "name": "Paper beige", "hex": "#dcd4cb" }, { "name": "Soft cream", "hex": "#f9f6ee" } ] },
+    { "id": "espresso-linen", "name": "Espresso linen", "mood": "Earth", "source": "dopely.colors", "colors": [
+      { "name": "Espresso ink", "hex": "#27231e" }, { "name": "Warm taupe", "hex": "#706357" }, { "name": "Soft mushroom", "hex": "#b4a898" }, { "name": "Linen beige", "hex": "#e9dcce" }, { "name": "Ivory cream", "hex": "#fcf7eb" } ] },
+    { "id": "dark-cocoa", "name": "Dark cocoa", "mood": "Earth", "source": "dopely.colors", "colors": [
+      { "name": "Dark cocoa", "hex": "#1f140c" }, { "name": "Coffee brown", "hex": "#482f25" }, { "name": "Soft leather", "hex": "#896455" }, { "name": "Warm clay", "hex": "#cfb4a6" }, { "name": "Cream paper", "hex": "#f6e8df" } ] },
+    { "id": "cashmere", "name": "Cashmere", "mood": "Earth", "source": "dopely.colors", "colors": [
+      { "name": "Cashmere brown", "hex": "#332820" }, { "name": "Warm taupe", "hex": "#8a7562" }, { "name": "Soft cashmere", "hex": "#d8c5ae" }, { "name": "Cream knit", "hex": "#f5ede1" }, { "name": "Clean white", "hex": "#ffffff" } ] },
+    { "id": "slate-navy", "name": "Slate navy", "mood": "Cool", "source": "dopely.colors", "colors": [
+      { "name": "Slate navy", "hex": "#0e172a" }, { "name": "Deep slate", "hex": "#314053" }, { "name": "Blue gray", "hex": "#94a1b7" }, { "name": "Cool mist", "hex": "#e0e6ef" }, { "name": "Frost white", "hex": "#f8fafc" } ] },
+    { "id": "steel-navy", "name": "Steel navy", "mood": "Cool", "source": "dopely.colors", "colors": [
+      { "name": "Blue black", "hex": "#101a20" }, { "name": "Steel navy", "hex": "#2b3c4f" }, { "name": "Cool blue gray", "hex": "#7b8ea2" }, { "name": "Pale steel", "hex": "#d9e1ea" }, { "name": "Cloud white", "hex": "#f3f8fb" } ] },
+    { "id": "frost-navy", "name": "Frost navy", "mood": "Cool", "source": "dopely.colors", "colors": [
+      { "name": "Frost navy", "hex": "#08172a" }, { "name": "Deep winter blue", "hex": "#17325a" }, { "name": "Icy steel", "hex": "#9db7d4" }, { "name": "Frost mist", "hex": "#e9f4fe" }, { "name": "Snow white", "hex": "#ffffff" } ] },
+    { "id": "nordic-charcoal", "name": "Nordic charcoal", "mood": "Cool", "source": "dopely.colors", "colors": [
+      { "name": "Nordic charcoal", "hex": "#1f2a34" }, { "name": "Fjord gray", "hex": "#6b7380" }, { "name": "Cloud gray", "hex": "#d0d3db" }, { "name": "Snow cream", "hex": "#f6f7f0" }, { "name": "Warm wood", "hex": "#a68a64" } ] },
+    { "id": "arctic-night", "name": "Arctic night", "mood": "Cool", "source": "dopely.colors", "colors": [
+      { "name": "Arctic night", "hex": "#040616" }, { "name": "Deep teal", "hex": "#0a756c" }, { "name": "Ice cyan", "hex": "#67e5f7" }, { "name": "Frozen blue", "hex": "#dff2fd" }, { "name": "Frost white", "hex": "#f8fafc" } ] },
+    { "id": "olive-sage", "name": "Olive sage", "mood": "Field", "source": "dopely.colors", "colors": [
+      { "name": "Olive black", "hex": "#1d2719" }, { "name": "Deep olive", "hex": "#49533a" }, { "name": "Muted sage", "hex": "#8b9678" }, { "name": "Sage mist", "hex": "#d5dcc6" }, { "name": "Garden white", "hex": "#f5f6ed" } ] },
+    { "id": "pine-shadow", "name": "Pine shadow", "mood": "Field", "source": "dopely.colors", "colors": [
+      { "name": "Pine shadow", "hex": "#103529" }, { "name": "Evergreen", "hex": "#306b4f" }, { "name": "Snow sage", "hex": "#bfd8c1" }, { "name": "Pine mist", "hex": "#f3f9f3" }, { "name": "Dark wood", "hex": "#3a2a22" } ] },
+    { "id": "moss-emerald", "name": "Moss and emerald", "mood": "Field", "source": "suraj.dsgn", "colors": [
+      { "name": "Alabaster", "hex": "#f4f1e9" }, { "name": "Moss green", "hex": "#79a059" }, { "name": "Slate green", "hex": "#2e5a4b" }, { "name": "Dark emerald", "hex": "#0e4b3e" } ] },
+    { "id": "deep-plum", "name": "Deep plum", "mood": "Bold", "source": "dopely.colors", "colors": [
+      { "name": "Deep plum", "hex": "#190e22" }, { "name": "Muted purple", "hex": "#3c294d" }, { "name": "Dusty violet", "hex": "#816a96" }, { "name": "Lavender fog", "hex": "#d9cde9" }, { "name": "Violet white", "hex": "#fbf7ff" } ] },
+    { "id": "night-violet", "name": "Night violet", "mood": "Bold", "source": "dopely.colors", "colors": [
+      { "name": "Night violet", "hex": "#2c243e" }, { "name": "Winter lavender", "hex": "#7b69ad" }, { "name": "Ice lilac", "hex": "#cfc8f8" }, { "name": "Pale violet", "hex": "#f1eefe" }, { "name": "Snow white", "hex": "#ffffff" } ] },
+    { "id": "deep-cranberry", "name": "Deep cranberry", "mood": "Bold", "source": "dopely.colors", "colors": [
+      { "name": "Deep cranberry", "hex": "#7e1c1d" }, { "name": "Winter berry", "hex": "#bd393a" }, { "name": "Berry snow", "hex": "#f4d6d4" }, { "name": "Warm snow", "hex": "#fdf7f0" }, { "name": "Dark cocoa", "hex": "#2b1c1c" } ] },
+    { "id": "midnight-gold", "name": "Midnight gold", "mood": "Bold", "source": "dopely.colors", "colors": [
+      { "name": "Midnight black", "hex": "#050717" }, { "name": "Deep navy", "hex": "#111d3b" }, { "name": "Antique gold", "hex": "#c9a74a" }, { "name": "Pale gold", "hex": "#e7d29c" }, { "name": "Soft ivory", "hex": "#f7f2e6" } ] },
+    { "id": "tangerine-brunswick", "name": "Tangerine and Brunswick", "mood": "Bold", "source": "suraj.dsgn", "colors": [
+      { "name": "Tangerine", "hex": "#e97d00" }, { "name": "Vanilla", "hex": "#eae3a7" }, { "name": "Brunswick green", "hex": "#2a5743" }, { "name": "Drab dark brown", "hex": "#2e2810" } ] },
+    { "id": "terracotta-riviera", "name": "Terracotta and Riviera", "mood": "Earth", "source": "suraj.dsgn", "colors": [
+      { "name": "Sand linen", "hex": "#d3ae82" }, { "name": "Soft ivory", "hex": "#f2eadd" }, { "name": "Terracotta", "hex": "#a84f1d" }, { "name": "Riviera blue", "hex": "#193352" } ] },
+    { "id": "sand-teal-gold", "name": "Sand, teal and gold", "mood": "Cool", "source": "suraj.dsgn", "colors": [
+      { "name": "Sand", "hex": "#e4e0da" }, { "name": "Teal", "hex": "#407c8a" }, { "name": "Gold", "hex": "#a58e64" }, { "name": "Navy", "hex": "#083a50" } ] },
+    { "id": "prussian-amber", "name": "Prussian and amber", "mood": "Cool", "source": "suraj.dsgn", "colors": [
+      { "name": "Pastel amber", "hex": "#e3efca" }, { "name": "Prussian blue", "hex": "#0e3260" }, { "name": "Dark navy blue", "hex": "#13203d" }, { "name": "Midnight blue", "hex": "#191a2d" } ] },
+    { "id": "asphalt-silver", "name": "Asphalt and silver", "mood": "Industrial", "source": "suraj.dsgn", "colors": [
+      { "name": "Soft bright gray", "hex": "#eaeff0" }, { "name": "Silver", "hex": "#bdc2c5" }, { "name": "Wet asphalt", "hex": "#32485e" }, { "name": "Midnight blue", "hex": "#2c3e4e" } ] },
+    { "id": "pearl-dusty-pink", "name": "Pearl and dusty pink", "mood": "Bold", "source": "suraj.dsgn", "colors": [
+      { "name": "Pure white", "hex": "#ffffff" }, { "name": "Cream", "hex": "#f5e5cd" }, { "name": "Soft pearl", "hex": "#e8b3b7" }, { "name": "Dusty pink", "hex": "#b76e79" } ] },
+    { "id": "parchment-espresso", "name": "Parchment and espresso", "mood": "Earth", "source": "suraj.dsgn", "colors": [
+      { "name": "Light parchment", "hex": "#fff3d3" }, { "name": "Light gold", "hex": "#f0e49b" }, { "name": "Muted ochre", "hex": "#e4d079" }, { "name": "Dark espresso", "hex": "#2b1911" } ] }
+  ]
+}
